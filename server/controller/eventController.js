@@ -13,15 +13,6 @@ module.exports = {
 			})
 	}, //end createEvent
 
-	editEvent: (req, res) => {
-		const id = req.body._id;
-		console.log(id)
-		Event.findByIdAndUpdate(id, req.body, {new:true}, (err, data) => {
-			if(err) res.send(err)
-				res.json(data)
-		})
-	},
-
 	getAllEvents: (req, res) => {
 		console.log(req.body, "req body check")
 		Event.find({}, (err, event) => {
@@ -30,6 +21,15 @@ module.exports = {
 			}else{
 				res.json(event)
 			}
+		})
+	},
+
+	editEvent: (req, res) => {
+		const id = req.body._id;
+		console.log(id)
+		Event.findByIdAndUpdate(id, req.body, {new:true}, (err, data) => {
+			if(err) res.send(err)
+				res.json(data)
 		})
 	},
 
@@ -51,7 +51,5 @@ module.exports = {
 			}
 		})
 	}
-
-	
 
 }// end module.exports
