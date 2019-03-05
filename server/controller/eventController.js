@@ -25,9 +25,11 @@ module.exports = {
 	getAllEvents: (req, res) => {
 		console.log(req.body, "req body check")
 		Event.find({}, (err, event) => {
-			console.log(event, "check events")
-			if(err) res.send(err)
+			if(err){
+				res.send(err)
+			}else{
 				res.json(event)
+			}
 		})
 	},
 
@@ -35,16 +37,21 @@ module.exports = {
 		const id = req.body._id;
 		console.log(id, "check1")
 		Event.findByIdAndRemove(id, (err, event) => {
-			console.log(data)
-			if(err) res.send(err)
-				res.json(event)
-
+			console.log(event)
+			if(err) {
+				res.send(err)
+			}else{
+				Event.find({}, (err, data) => {
+					if(err){
+						res.send(err)
+					}else{
+						res.json(data)
+					}
+				})
+			}
 		})
 	}
 
 	
-
-
-
 
 }// end module.exports
