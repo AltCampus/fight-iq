@@ -1,0 +1,31 @@
+.App {
+  text-align: center;
+}
+
+.Event{
+  border: 1px solid #666;
+  padding:20px;
+}
+
+.Event img{
+  width:30%;
+}
+
+.eventTitle{
+  font-size: 32px;
+}
+
+.mainEvent{
+  font-size: 26px;
+  padding:10px 0;
+}
+
+button{
+  font-size: 18px;
+  padding:8px 20px;
+  /*border: 1px solid #999;*/
+  border:none;
+  border-radius: 5px;
+  background: dodgerblue;
+  color:white;
+}
