@@ -34,6 +34,40 @@ module.exports = {
         })
       });
     })(req, res, next);
+	},
+ 
+
+	// isLoggedIn : (req, res, next) => {
+	//   if(req.user) {
+	//     User.findOne({_id : req.user._id}, (err, data) => {
+	//       if(data) {
+	//         res.json({
+	//           msg: `${data.username} is loggedin`
+	//         })
+	//       } else {
+	//         res.status(404).json({
+	//           msg : "Please Sign Up. You are not logged in."
+	//         })
+	//       }
+	//     })
+	//   }
+	// },
+
+	isLoggedIn: (req, res, next) => {
+	console.log(req.session.passport.user, "session store")
+	if(req.session.passport.user){
+		return next()
+	}
+	return res.status(404).json({
+		msg: "user Not login"
+	})
+	},
+
+	loggedOut: (req, res) => {
+		req.session.destroy();	
+		res.status(200).json({
+			msg: "Session is removed & User Is LoggedOut"
+		})
 	}
 
 }
