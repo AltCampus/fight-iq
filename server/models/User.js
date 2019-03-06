@@ -5,9 +5,9 @@ const bcrypt = require('bcrypt');
 
 
 const userSchema = new Schema({
-	username: String,
-	email: String,
-	password: String,
+	username: {type:String, require:true},
+	email: {type:String, require:true},
+	password: {type:String, require:true},
 	isAdmin: false,
 	// predictions: [{type: Schema.Types.ObjectId, ref:"Prediction"}]
 })
