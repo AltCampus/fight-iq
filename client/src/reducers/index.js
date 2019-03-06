@@ -41,7 +41,8 @@ var events = [
 
 const initState = {
 	events: events,
-	editEvent: {}
+	editEvent: {},
+	isLogged: false
 }
 
 export default function rootReducer(state = initState, action){
@@ -50,6 +51,12 @@ export default function rootReducer(state = initState, action){
 			return {
 				...state,
 				editEvent: action.event
+			}
+		}
+
+		case 'REGISTER': {
+			return {
+				...state
 			}
 		}
 			
