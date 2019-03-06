@@ -11,6 +11,13 @@ router.get('*',(req,res)=>{
 })
 
 
+// router.get('/register', (req, res)=>{
+//   res.render('index');
+// })
+
+// router.get('/login', (req, res)=>{
+//   res.render('index');
+// })
 
 
 // event routes
@@ -30,7 +37,9 @@ router.delete('/event/:id', eventController.deleteEvent);
 // user routes
 
 router.post('/register', userController.createUser);
-router.post('/login', userController.loginUser)
+router.post('/login', userController.loginUser);
+router.get('/isLoggedIn', userController.isLoggedIn);
+router.get('/loggedOut', userController.loggedOut)
 
 
 
