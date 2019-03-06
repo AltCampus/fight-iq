@@ -14,7 +14,7 @@ class AdminAddEvent extends Component {
 			<div>
 				<form method="POST" action="/api/v1/admin/event">
 					<div>Title:</div>
-					<input type="text" name="title" value={editEvent.title}/>
+					<input type="text" name="title"/>
 					<div>Main Event:</div>
 					<input type="text" name="mainEvent" />
 					<div>Location: </div>
