@@ -12,25 +12,26 @@ router.get('*',(req,res)=>{
 
 
 
-
 // event routes
 
-router.post('/event', eventController.createEvent);
-router.get('/event', eventController.getAllEvents)
-router.put('/event', eventController.editEvent);
-router.delete('/event/:id', eventController.deleteEvent);
+router.post('/event', userController.isLoggedIn, eventController.createEvent);
+router.get('/event', userController.isLoggedIn, eventController.getAllEvents)
+router.put('/event', userController.isLoggedIn, eventController.editEvent);
+router.delete('/event/:id', userController.isLoggedIn, eventController.deleteEvent);
 
 // fight routes
 
-// router.post('/:event/fight', fightController.createFight);
-// router.get('/:event/fight', fightController.getAllFight)
-// router.put('/:event/fight', fightController.editFight);
-// router.delete('/:event/fight/:id', fightController.deleteFight);
+router.post('/:event_id/fight', userController.isLoggedIn, fightController.createFight);
+router.get('/:event_id/fight',  userController.isLoggedIn, fightController.getAllFight)
+router.put('/:event_id/fight/:fight_id', userController.isLoggedIn, fightController.editFight);
+router.delete('/:event_id/fight/:fight_id', userController.isLoggedIn, fightController.deleteFight);
 
 // user routes
 
 router.post('/register', userController.createUser);
-router.post('/login', userController.loginUser)
+router.post('/login', userController.loginUser);
+router.get('/isLoggedIn', userController.isLoggedIn);
+router.get('/loggedOut', userController.loggedOut);
 
 
 
