@@ -72,7 +72,6 @@ export function registerSubmit(state, cb){
 // Login submit
 
 export function loginSubmit(state, cb){
-	console.log(state, "cheking ")
 	return dispatch => {
 		fetch(URL + 'api/v1/login', {
         method: "POST", 
@@ -87,6 +86,44 @@ export function loginSubmit(state, cb){
     		type: "LOGIN"
     	})
     	cb(true); 
+    	// if (data.success){
+    	// 	cb(true); // success handling
+    	// } else {
+    	// 	cb(false, data.msg)
+    	// }
+
+    })
+	}
+}
+
+
+// Add event submit
+
+export function addEvent(state, cb){
+	return dispatch => {
+		fetch(URL + 'api/v1/admin/event', {
+        method: "POST", 
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(state)
+    })
+    .then(response=>response.json())
+    .then(data=>{
+    	if (data.status){
+	    	dispatch({
+	    		type: "ADD_EVENT",
+	    		event: state
+	    	})
+	    	cb(true);
+    	} else {
+    		dispatch({
+    			type:"ADD_EVENT",
+    			event: null
+    		})
+    		cb(false);
+    	}
+    	 
     	// if (data.success){
     	// 	cb(true); // success handling
     	// } else {

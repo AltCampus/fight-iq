@@ -11,7 +11,7 @@ class Event extends Component {
 			<div className="Event">
 				<div className="eventTitle">{ event.title}</div> 
 				<div className="mainEvent">{event.mainEvent}</div>
-				<Link to={`/admin/:eventid/edit`} >
+				<Link to={'/admin/' + event.id + '/edit'} >
 					<i className="fas fa-edit"></i>
 				</Link>
 				<i className="fas fa-trash-alt"></i>
