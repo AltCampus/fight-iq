@@ -6,18 +6,10 @@ const fightController = require('../controller/fightController')
 const userController = require('../controller/userController')
 
 
-// router.get('*',(req,res)=>{
-//   res.render('index');
-// })
+router.get('*',(req,res)=>{
+  res.render('index');
+})
 
-
-// router.get('/register', (req, res)=>{
-//   res.render('index');
-// })
-
-// router.get('/login', (req, res)=>{
-//   res.render('index');
-// })
 
 
 // event routes
@@ -39,7 +31,7 @@ router.delete('/:event_id/fight/:fight_id', userController.isLoggedIn, fightCont
 router.post('/register', userController.createUser);
 router.post('/login', userController.loginUser);
 router.get('/isLoggedIn', userController.isLoggedIn);
-router.get('/loggedOut', userController.loggedOut)
+router.get('/loggedOut', userController.loggedOut);
 
 
 
