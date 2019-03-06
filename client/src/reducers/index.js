@@ -1,5 +1,6 @@
 var events = [
 {
+	id: 'ence3044em300jdd3',
 	title: "UFC 235",
 	mainEvent: "Jon Jones vs Anthony Smith",
 	location: "T-mobile arena, Las Vegas, Nevada",
@@ -18,6 +19,7 @@ var events = [
 		}
 	}
 }, {
+	id: '9dmlkjdknm03830dje8u94',
 	title: "UFC 236",
 	mainEvent: "Hollaway vs Poirier 2",
 	location: "State Farm Arena, Atlanta United States",
@@ -57,6 +59,19 @@ export default function rootReducer(state = initState, action){
 		case 'REGISTER': {
 			return {
 				...state
+			}
+		}
+
+		case 'ADD_EVENT': {
+			let events = [...this.state.events];
+			
+			if (action.event){
+				events.push(action.event)
+			}
+
+			return {
+				...state,
+				event: events
 			}
 		}
 			
