@@ -1,5 +1,6 @@
 const express = require("express");
 const session = require("express-session");
+const passport = require('passport');
 const app = express();
 const mongoose = require("mongoose");
 const MongoStore = require("connect-mongo")(session);
@@ -33,6 +34,10 @@ app.use(
 		store: new MongoStore({ url: "mongodb://localhost/fight-iq-session" })
 	})
 );
+
+app.use(passport.initialize());
+app.use(passport.session());
+
 
 if (process.env.NODE_ENV === "development") {
 	var webpack = require("webpack");
