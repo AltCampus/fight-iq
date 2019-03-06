@@ -20,7 +20,8 @@ module.exports = {
       if (err) { return next(err); }
       if (!user) { 
         return res.status(404).json({
-          msg: 'Invalid Username or Password'
+          msg: 'Invalid Username or Password',
+          success: false
         }) 
       }
       req.login(user, function(err) {
@@ -28,7 +29,8 @@ module.exports = {
          return next(err); 
        }
         return res.status(200).json({
-          user 
+          user,
+          success: true
         })
       });
     })(req, res, next);

@@ -56,6 +56,9 @@ if (process.env.NODE_ENV === "development") {
 
 app.use(cors());
 
+// Requiring passport module
+require('./server/modules/passport')(passport)
+
 // app.use("/api", require("./server/routes/api"));
 app.use("/api/v1", require("./server/routes/index"));
 app.use("/", require("./server/routes"));
