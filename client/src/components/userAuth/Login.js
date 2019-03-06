@@ -1,36 +1,55 @@
 import React, { Component } from 'react';
+import "./style.scss";
+import { loginSubmit } from './../../actions';
+import { connect } from 'react-redux';
 
 class Login extends Component {
 
 	constructor(props){
 		super(props);
 		this.state = {
-			email: '',
-			password: ''
+			userCred: {
+				username: '',
+				password: ''
+			},
+			error: ''
 		}
 	}
 
 	handleSubmit = (event) => {
 		event.preventDefault();
-		// this.props.dispatch(loginSubmit(this.state));
+		this.props.dispatch(loginSubmit(this.state.userCred, this.redirectUser));
+	}
+
+	redirectUser = (success, errorMsg = "") => {
+		if (success){
+			this.props.history.push('/');
+		} else {
+			this.setState({
+				error: errorMsg
+			})
+		}
 	}
 
 	updateValue = (event) => {
-		console.log(event.target.name)
+		// let userCred = this.state.userCred
 		this.setState({
-			[event.target.name]: event.target.value
+			userCred: {
+				...this.state.userCred,
+				[event.target.name]: event.target.value
+			}		
 		})
 	}
 
 	render() {
 		return (
 			<div className="Login-section">
-			<h1> Login form</h1>
 			<form onSubmit={this.handleSubmit} >
-				Email:
-				<input type="text" name="email" onChange={this.updateValue}/>
-				Password:
+				<div className="email-title">Username:</div>
+				<input type="text" name="username" onChange={this.updateValue}/>
+				<div className="password-title">Password:</div>
 				<input type="password" name="password" onChange={this.updateValue}/>
+				<br/>
 				<button>Login</button>
 			</form>
 			</div>
@@ -38,4 +57,4 @@ class Login extends Component {
 	}
 }
 
-export default Login;
+export default connect()(Login);

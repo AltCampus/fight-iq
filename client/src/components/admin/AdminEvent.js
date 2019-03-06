@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 class Event extends Component {
 	handleClick(title){	
-		console.log(title)
 	}
 
 	render() {

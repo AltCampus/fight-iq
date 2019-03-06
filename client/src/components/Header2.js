@@ -7,9 +7,11 @@ class Header extends Component {
     let { isLogged } = this.props;
     return (
       <div className="Header">
-      	<div className="Logo">
-          FightIQ
-        </div>
+        <Link to="/">
+        	<div className="Logo">
+            FightIQ
+          </div>
+        </Link>
         {
           isLogged? (
           <div className="top-right">

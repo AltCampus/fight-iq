@@ -21,21 +21,6 @@ class AdminAddEvent extends Component {
 					<input type="text" name="location" />
 					<div>Date & time:</div>
 					<input type="datetime-local" name="dateTime" />
-					<div>Player 1 Details:</div>
-					<div>Name:</div>
-					<input type="text" name="player1-name" />
-					<div>Nick name:</div>
-					<input type="text" name="player1-nickname" />
-					<div>Image:</div>
-					<input type="text" name="player1-image" />
-					<div>Player 2 Details:</div>
-					<div>Name:</div>
-					<input type="text" name="player2-name" />
-					<div>Nick name:</div>
-					<input type="text" name="player2-nickname" />
-					<div>Image:</div>
-					<input type="text" name="player2-image" />
-					<br/>
 					<br/>
 					<button>Submit</button>
 				</form>

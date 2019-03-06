@@ -1,4 +1,4 @@
-const URL = 'localhost:8000/';
+const URL = 'http://localhost:8000/';
 
 export function updateEditEvent(data){
 	return {
@@ -25,16 +25,74 @@ export function updateEditEvent(data){
 	}
 }
 
-export function loginSubmit(state){
+// export function loginSubmit(state){
+// 	return dispatch => {
+// 		fetch(URL + '/api/v1/login', {
+//         method: "POST", 
+//         headers: {
+//             "Content-Type": "application/json",
+//         },
+//         body: JSON.stringify(state)
+//     })
+//     .then(response=>response.json())
+//     .then(data=>console.log(data))
+// 	}
+// }
+
+//  Register submit
+
+export function registerSubmit(state, cb){
+	console.log(state, "cheking ")
 	return dispatch => {
-		fetch(URL + '/api/v1/login', {
+		fetch(URL + 'api/v1/register', {
         method: "POST", 
         headers: {
             "Content-Type": "application/json",
         },
         body: JSON.stringify(state)
     })
-    .then(response=>return response.json())
-    .then(data=>console.log(data))
+    .then(response=>response.json())
+    .then(data=>{
+    	console.log(data._id)
+    	dispatch({
+    		type: "REGISTER"
+    	})
+    	cb(true); 
+    	// if (data.success){
+    	// 	cb(true); // success handling
+    	// } else {
+    	// 	cb(false, data.msg)
+    	// }
+
+    })
+	}
+}
+
+
+// Login submit
+
+export function loginSubmit(state, cb){
+	console.log(state, "cheking ")
+	return dispatch => {
+		fetch(URL + 'api/v1/login', {
+        method: "POST", 
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(state)
+    })
+    .then(response=>response.json())
+    .then(data=>{
+    	dispatch({
+    		type: "LOGIN"
+    	})
+    	cb(true); 
+    	// if (data.success){
+    	// 	cb(true); // success handling
+    	// } else {
+    	// 	cb(false, data.msg)
+    	// }
+
+    })
 	}
 }

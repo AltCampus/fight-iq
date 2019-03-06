@@ -53,6 +53,12 @@ export default function rootReducer(state = initState, action){
 				editEvent: action.event
 			}
 		}
+
+		case 'REGISTER': {
+			return {
+				...state
+			}
+		}
 			
 		default: 
 		return state;
