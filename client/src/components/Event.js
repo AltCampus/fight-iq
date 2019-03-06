@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 class Events extends Component {
 	handleClick(title){	
-		console.log(title)
 	}
 
 	render() {

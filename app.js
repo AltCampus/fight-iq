@@ -1,5 +1,6 @@
 const express = require("express");
 const session = require("express-session");
+const passport = require('passport');
 const app = express();
 const mongoose = require("mongoose");
 const MongoStore = require("connect-mongo")(session);
@@ -34,6 +35,10 @@ app.use(
 	})
 );
 
+app.use(passport.initialize());
+app.use(passport.session());
+
+
 if (process.env.NODE_ENV === "development") {
 	var webpack = require("webpack");
 	var webpackConfig = require("./webpack.config");
@@ -51,8 +56,12 @@ if (process.env.NODE_ENV === "development") {
 
 app.use(cors());
 
+// Requiring passport module
+require('./server/modules/passport')(passport)
+
+// app.use("/api", require("./server/routes/api"));
+app.use("/api/v1", require("./server/routes/index"));
 app.use("/", require("./server/routes"));
-app.use("/api/v1/admin", require("./server/routes/index"));
 
 app.listen(port, () => {
 	console.log(`server is running on http://localhost:${port}`);
