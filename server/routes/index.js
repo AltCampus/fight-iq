@@ -22,10 +22,10 @@ router.delete('/event/:id', eventController.deleteEvent);
 
 // fight routes
 
-// router.post('/:event/fight', fightController.createFight);
-// router.get('/:event/fight', fightController.getAllFight)
-// router.put('/:event/fight', fightController.editFight);
-// router.delete('/:event/fight/:id', fightController.deleteFight);
+router.post('/:event_id/fight', fightController.createFight);
+router.get('/:event_id/fight', fightController.getAllFight)
+router.put('/:event_id/fight/:fight_id', fightController.editFight);
+router.delete('/:event_id/fight/:fight_id', fightController.deleteFight);
 
 // user routes
 
