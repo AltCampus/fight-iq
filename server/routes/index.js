@@ -6,9 +6,9 @@ const fightController = require('../controller/fightController')
 const userController = require('../controller/userController')
 
 
-router.get('*',(req,res)=>{
-  res.render('index');
-})
+// router.get('*',(req,res)=>{
+//   res.render('index');
+// })
 
 
 // router.get('/register', (req, res)=>{
@@ -22,17 +22,17 @@ router.get('*',(req,res)=>{
 
 // event routes
 
-router.post('/event', eventController.createEvent);
-router.get('/event', eventController.getAllEvents)
-router.put('/event', eventController.editEvent);
-router.delete('/event/:id', eventController.deleteEvent);
+router.post('/event', userController.isLoggedIn, eventController.createEvent);
+router.get('/event', userController.isLoggedIn, eventController.getAllEvents)
+router.put('/event', userController.isLoggedIn, eventController.editEvent);
+router.delete('/event/:id', userController.isLoggedIn, eventController.deleteEvent);
 
 // fight routes
 
-router.post('/:event_id/fight', fightController.createFight);
-router.get('/:event_id/fight', fightController.getAllFight)
-router.put('/:event_id/fight/:fight_id', fightController.editFight);
-router.delete('/:event_id/fight/:fight_id', fightController.deleteFight);
+router.post('/:event_id/fight', userController.isLoggedIn, fightController.createFight);
+router.get('/:event_id/fight',  userController.isLoggedIn, fightController.getAllFight)
+router.put('/:event_id/fight/:fight_id', userController.isLoggedIn, fightController.editFight);
+router.delete('/:event_id/fight/:fight_id', userController.isLoggedIn, fightController.deleteFight);
 
 // user routes
 
