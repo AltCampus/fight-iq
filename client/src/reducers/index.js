@@ -41,7 +41,8 @@ var events = [
 
 const initState = {
 	events: events,
-	editEvent: {}
+	editEvent: {},
+	isLogged: false
 }
 
 export default function rootReducer(state = initState, action){

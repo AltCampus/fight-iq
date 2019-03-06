@@ -1,3 +1,5 @@
+const URL = 'localhost:8000/';
+
 export function updateEditEvent(data){
 	return {
 		type: 'UPDATE_EDIT_EVENT',
@@ -20,5 +22,19 @@ export function updateEditEvent(data){
 				}
 			}
 		}
+	}
+}
+
+export function loginSubmit(state){
+	return dispatch => {
+		fetch(URL + '/api/v1/login', {
+        method: "POST", 
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(state)
+    })
+    .then(response=>return response.json())
+    .then(data=>console.log(data))
 	}
 }
