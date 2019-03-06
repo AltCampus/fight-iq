@@ -57,7 +57,7 @@ if (process.env.NODE_ENV === "development") {
 app.use(cors());
 
 // app.use("/api", require("./server/routes/api"));
-app.use("/api/v1/admin", require("./server/routes/index"));
+app.use("/api/v1", require("./server/routes/index"));
 
 app.listen(port, () => {
 	console.log(`server is running on http://localhost:${port}`);
