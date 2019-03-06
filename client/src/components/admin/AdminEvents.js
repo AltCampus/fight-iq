@@ -7,7 +7,7 @@ class AdminEvents extends Component {
 		let { Adminevents } = this.props;
 		return (
 			<div className="AdminEvents">
-				{ Adminevents.map(event=><Event key={event.title}  event={event}/>) }
+				{ Adminevents.map(event=><AdminEvent key={event.title}  event={event}/>) }
 			</div>
 			);
 	}
@@ -16,7 +16,7 @@ class AdminEvents extends Component {
 
 const mapStateToProps = (state) => {
 	return {
-		Adminevents: state.Adminevents
+		Adminevents: state.events
 	}
 }
 

@@ -40,12 +40,19 @@ var events = [
 
 
 const initState = {
-	events: events
+	events: events,
+	editEvent: {}
 }
 
 export default function rootReducer(state = initState, action){
 	switch (action.type){
-		case 'abc': 
+		case 'UPDATE_EDIT_EVENT': {
+			return {
+				...state,
+				editEvent: action.event
+			}
+		}
+			
 		default: 
 		return state;
 	}

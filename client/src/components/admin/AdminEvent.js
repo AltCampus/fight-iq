@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
-class Events extends Component {
+class Event extends Component {
 	handleClick(title){	
 		console.log(title)
 	}
@@ -10,13 +11,16 @@ class Events extends Component {
 		return (
 			<div className="Event">
 				<div className="eventTitle">{ event.title}</div> 
-				<img src={`${event.players.player1.imgLink}`} />
-				<img src={`${event.players.player2.imgLink}`} />
 				<div className="mainEvent">{event.mainEvent}</div>
-				<button onClick={this.handleClick(event.title)}>Predict</button>
+				<Link to={`/admin/:eventid/edit`} >
+					<i className="fas fa-edit"></i>
+				</Link>
+				<i className="fas fa-trash-alt"></i>
 			</div>
 			);
 		}
 	}
 
-	export default Events;
+
+
+	export default Event;
