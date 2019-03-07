@@ -24,8 +24,8 @@ router.delete('/:event_id/fight/:fight_id', userController.isLoggedIn, fightCont
 
 // user routes
 
-router.post('/register', userController.createUser);
-router.post('/login', userController.loginUser);
+router.post('/register', userController.createUser); // done
+router.post('/login', userController.loginUser); // done
 router.get('/isLoggedIn', userController.isUser);
 router.get('/loggedOut', userController.loggedOut);
 
