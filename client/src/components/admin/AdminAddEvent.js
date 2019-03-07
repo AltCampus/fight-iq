@@ -26,7 +26,10 @@ class AdminAddEvent extends Component {
 		this.setState({
 			mode: isEdit? 'edit': 'add'
 		})
-		this.props.dispatch(updateEditEvent(this.props.match.params.eventid));
+
+		if (isEdit){
+			this.props.dispatch(updateEditEvent(this.props.match.params.eventid));
+		}
 	}
 
 	handleAddSubmit = (event) => {
