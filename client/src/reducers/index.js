@@ -40,6 +40,8 @@
 // }
 // ];
 
+import Type from '../actions/types'
+
 const initState = {
 	events: [],
 	editEvent: {},
@@ -50,56 +52,56 @@ const initState = {
 export default function rootReducer(state = initState, action) {
 	switch (action.type) {
 		case "UPDATE_EDIT_EVENT":
-			let events3 = [...state.events];
-			let editEvent = events3.filter((event) => event.id == action.eventid)[0];
+			let events2 = [...state.events];
+			let editEvent = events2.filter((event) => event.id == action.eventid)[0];
 			return {
 				...state,
 				editEvent: editEvent
 			};
 
-		case "REGISTER":
+		case Type.REGISTER:
 			return {
 				...state
 			};
 
-		case "LOGIN":
+		case Type.LOGIN:
 			return {
 				...state,
 				isLogged: action.success
 			};
 
-		case "LOGOUT":
+		case Type.LOGOUT:
 			return {
 				...state,
 				isLogged: false
 			};
 
-		case "ADD_EVENT":
-			let events2 = [...state.events];
+		case Type.ADD_EVENT:
+			let events3 = [...state.events];
 
 			if (action.event) {
-				events2.push(action.event);
+				events3.push(action.event);
 			}
 
 			return {
 				...state,
-				events: events2
+				events: events3
 			};
 
 		// Handle edit event reducer
 
-		case "EDIT_EVENTS":
+		case Type.EDIT_EVENTS:
 			return {
 				...state
 			};
 
-		case "GET_EVENTS":
+		case Type.GET_EVENTS:
 			return {
 				...state,
 				events: action.events
 			};
 
-		case "GET_EVENT":
+		case Type.GET_EVENT:
 			return {
 				...state,
 				event: action.event

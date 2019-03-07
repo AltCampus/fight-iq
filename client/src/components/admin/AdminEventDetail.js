@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import { getEvent } from "./../../actions";
 // import Fight from './Fight';
 
 class AdminEventDetail extends Component {
