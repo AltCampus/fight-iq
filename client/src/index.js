@@ -15,6 +15,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 const persistConfig = {
   key: 'root',
   storage,
+  blacklist: ['events']
 }
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
