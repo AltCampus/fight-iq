@@ -39,7 +39,8 @@ class AdminAddEvent extends Component {
 		this.props.dispatch(editEvent(this.state.eventDetails, this.redirectUser))
 	}
 
-	redirectUser = (success) => {
+	redirectUser = (success, errorMsg) => {
+		console.log(success)
 		if (success){
 			this.props.history.push('/admin');
 		} else {
