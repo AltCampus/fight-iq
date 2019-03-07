@@ -28,8 +28,21 @@ module.exports = {
 		})
 	},
 
+	getEvent: (req, res) => {
+		const id = req.params.event_id;
+		Event.findOne({_id:id}, (err, events) => {
+			if(err){
+				res.send({success: false,
+							message : err})
+			}else{
+				res.json({events,
+				          success: true})
+			}
+		})
+	},
+
 	editEvent: (req, res) => {
-		const id = req.body._id;
+		const id = req.params.event_id;
 
 		Event.findByIdAndUpdate(id, req.body, {new:true}, (err, data) => {
 			if(err) res.send({success: false,
@@ -39,10 +52,10 @@ module.exports = {
 	},
 
 	deleteEvent: (req, res) => {
-		const id = req.body._id;
-		console.log(id, "check1")
+		const id = req.params.event_id;
 		Event.findByIdAndRemove(id, (err, event) => {
-			if(err) {
+			console.log(event,'raviravi');
+			if(err || !event) {
 				res.send({success: false,
 					message : err})
 			}else{

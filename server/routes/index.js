@@ -8,19 +8,29 @@ const userController = require("../controller/userController");
 // event routes
 
 router.post(
-	"/admin/events",
+	'/admin/events',
 	userController.isLoggedIn,
 	eventController.createEvent
 ); // done
-router.get("/events", userController.isLoggedIn, eventController.getAllEvents);
-// router.get('/events/:event_id',  userController.isLoggedIn, eventController.getEvent);
+
+router.get('/events',
+ userController.isLoggedIn,
+  eventController.getAllEvents
+  ); //done
+
+router.get('/admin/events/:event_id',  
+userController.isLoggedIn, 
+eventController.getEvent
+); //done
+
 router.put(
-	"/events/:event_id",
+	'/admin/events/:event_id',
 	userController.isLoggedIn,
 	eventController.editEvent
-);
+); // done
+
 router.delete(
-	"/events/:event_id",
+	'/admin/events/:event_id',
 	userController.isLoggedIn,
 	eventController.deleteEvent
 );
