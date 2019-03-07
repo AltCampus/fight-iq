@@ -12,9 +12,10 @@ class Events extends Component {
 
 	render() {
 		let { events } = this.props;
+		console.log(events)
 		return (
 			<div className="Events">
-				{ events.map(event=><Event key={event.title}  event={event}/>) }
+				{ events.map(event=><Event key={event._id}  event={event}/>) }
 			</div>
 			);
 	}

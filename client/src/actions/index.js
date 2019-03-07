@@ -108,7 +108,7 @@ export function addEvent(state, cb){
     })
     .then(response=>response.json())
     .then(data=>{
-    	if (data.status){
+    	if (data.success){
 	    	dispatch({
 	    		type: "ADD_EVENT",
 	    		event: state
@@ -119,7 +119,8 @@ export function addEvent(state, cb){
     			type:"ADD_EVENT",
     			event: null
     		})
-    		cb(false);
+            console.log('check')
+    		cb(false, data.message);
     	}
     	 
     	// if (data.success){
@@ -134,10 +135,11 @@ export function addEvent(state, cb){
 
 // Write an action that fetches the events data and sends the data to the reducer
 
+//  http://localhost:8000/api/v1/events
 
 export function getEvents(){
     return dispatch => {
-        fetch( URL + 'events')
+        fetch( URL + 'api/v1/events')
             .then(res=>res.json())
             .then(data=>{
                 dispatch({
