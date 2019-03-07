@@ -59,6 +59,7 @@ module.exports = {
 		success : false,
 		message: "user Not login"
 	})
+
 	},
 
 	loggedOut: (req, res) => {
