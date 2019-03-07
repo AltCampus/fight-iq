@@ -9,6 +9,10 @@
 Login/Register/Sign-out:
 1. Save the token within the local storage once received  - Done
 2. Conditional render according to already logged-in or not - Done
+3. Handling all the error edge cases in the user login and register - Done
+
+
+
 
 
 

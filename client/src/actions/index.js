@@ -69,12 +69,12 @@ export function loginSubmit(state, cb){
     		type: "LOGIN",
             success: data.success
     	})
-    	cb(true); 
-    	// if (data.success){
-    	// 	cb(true); // success handling
-    	// } else {
-    	// 	cb(false, data.msg)
-    	// }
+    	// cb(true); 
+    	if (data.success){
+    		cb(true); // success handling
+    	} else {
+    		cb(false, data.msg)
+    	}
 
     })
 	}
@@ -99,7 +99,7 @@ export function handleLogout(){
 
 export function addEvent(state, cb){
 	return dispatch => {
-		fetch(URL + 'api/v1/admin/event', {
+		fetch(URL + 'api/v1/admin/events', {
         method: "POST", 
         headers: {
             "Content-Type": "application/json",
@@ -131,3 +131,55 @@ export function addEvent(state, cb){
     })
 	}
 }
+
+// Write an action that fetches the events data and sends the data to the reducer
+
+
+export function getEvents(){
+    return dispatch => {
+        fetch( URL + 'events')
+            .then(res=>res.json())
+            .then(data=>{
+                dispatch({
+                    type: 'GET_EVENTS',
+                    events: data.events
+                })
+            })
+    }
+}
+
+// Write function to handle edit event and sends confirmation to reducer
+
+export function editEvent(state, cb){
+    return dispatch => {
+        fetch(URL + 'api/v1/admin/events', {
+            method: "PUT", 
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(state)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            dispatch({
+                type: 'EDIT_EVENTS'
+            })
+            // Todo: Handle CB according to the response
+        })
+    }
+}
+
+// Write a function to do GET request for event details
+
+ export function getEvent(eventid){
+    return dispatch => {
+        fetch( URL + 'event/' + eventid)
+            .then(res=>res.json())
+            .then(data=>{
+                dispatch({
+                    type: 'GET_EVENT',
+                    event: data
+                })
+            })
+    }
+ }

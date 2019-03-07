@@ -6,11 +6,6 @@ const fightController = require('../controller/fightController')
 const userController = require('../controller/userController')
 
 
-router.get('*',(req,res)=>{
-  res.render('index');
-})
-
-
 
 // event routes
 
@@ -32,6 +27,11 @@ router.post('/register', userController.createUser);
 router.post('/login', userController.loginUser);
 router.get('/isLoggedIn', userController.isLoggedIn);
 router.get('/loggedOut', userController.loggedOut);
+
+
+router.get('*',(req,res)=>{
+  res.render('index');
+})
 
 
 
