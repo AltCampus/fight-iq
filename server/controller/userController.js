@@ -53,7 +53,6 @@ module.exports = {
  
 
 	isLoggedIn: (req, res, next) => {
-	console.log(req.session.passport, "rhgiurgjerigteriu")
 	if(req.session.passport){
 		return next();
 	}
@@ -78,7 +77,8 @@ module.exports = {
 		const {user} = req.session.passport
 		if(user){
 			User.findOne({_id: user}, (err, user) => res.json({
-				login: "success"
+				login: "success",
+				user:user.username
 			}))
 		}
 	}
