@@ -10,12 +10,12 @@ module.exports = {
 		});
 
 		User.find({username : newUser.username}, function (err, user) {
-			if (user){
+			if (user.length){
 					res.json({message:'Username exists already'});
 			}else{
 
 				User.find({email : newUser.email}, function (err, user) {
-					if (user){
+					if (user.length){
 							res.json({message:'Email exists already'});
 					}else{
 
