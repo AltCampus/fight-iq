@@ -54,19 +54,19 @@ module.exports = {
 	// },
 
 	isLoggedIn: (req, res, next) => {
-	console.log(req.session.passport.user, "session store")
-	if(req.session.passport.user){
+	// console.log(req.session.passport.user, "session store")
+	// if(req.session.passport.user){
 		return next()
-	}
-	return res.status(404).json({
-		msg: "user Not login"
-	})
+	// }
+	// return res.status(404).json({
+	// 	msg: "user Not login"
+	// })
 	},
 
 	loggedOut: (req, res) => {
 		req.session.destroy();	
 		res.status(200).json({
-			msg: "Session is removed & User Is LoggedOut"
+			"msg": "Session is removed & User Is LoggedOut"
 		})
 	}
 

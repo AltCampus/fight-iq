@@ -6,7 +6,6 @@ const playerSchema = new Schema({
 	weight: {type:String, require:true},
 	height: {type:String, require:true},
 	rank: String,
-
 })
 
 
