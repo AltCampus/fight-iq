@@ -34,16 +34,17 @@ module.exports = {
 	},
 
 	loginUser: function(req, res, next) {
-	  passport.authenticate('local', function(err, user, {msg}) {
+	  passport.authenticate('local', function(err, user, {message}) {
 	    if (err) { return next(err); }
 	    if (!user) { return res.json({
 	    	success: false,
-	    	msg
+	    	message
 	    }); }
 	    req.logIn(user, function(err) {
 	      if (err) { return next(err); }
-	      return res.json({
+	      return res.status(200).json({
 	      	user: user.username,
+	      	success: true,
 	      	message: "Successfully login"
 	      });
 	    });
@@ -52,13 +53,15 @@ module.exports = {
  
 
 	isLoggedIn: (req, res, next) => {
-	if(req.session.passport.user){
-		next();
+	console.log(req.session.passport, "rhgiurgjerigteriu")
+	if(req.session.passport){
+		return next();
 	}
 	return res.status(404).json({
 		success : false,
 		message: "user Not login"
 	})
+	
 
 	},
 
@@ -71,6 +74,7 @@ module.exports = {
 	},
 
 	isUser: (req, res) => {
+		console.log(req.session.passport.user, "sdfghjhgfd")
 		const {user} = req.session.passport
 		if(user){
 			User.findOne({_id: user}, (err, user) => res.json({
