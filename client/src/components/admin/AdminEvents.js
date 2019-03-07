@@ -7,7 +7,7 @@ class AdminEvents extends Component {
 		let { Adminevents } = this.props;
 		return (
 			<div className="AdminEvents">
-				{ Adminevents.map(event=><AdminEvent key={event.title}  event={event}/>) }
+				{ Adminevents.map(event=><AdminEvent key={event._id}  event={event}/>) }
 			</div>
 			);
 	}

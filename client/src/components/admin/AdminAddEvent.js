@@ -26,7 +26,10 @@ class AdminAddEvent extends Component {
 		this.setState({
 			mode: isEdit? 'edit': 'add'
 		})
-		this.props.dispatch(updateEditEvent(this.props.match.params.eventid));
+
+		if (isEdit){
+			this.props.dispatch(updateEditEvent(this.props.match.params.eventid));
+		}
 	}
 
 	handleAddSubmit = (event) => {
@@ -39,7 +42,8 @@ class AdminAddEvent extends Component {
 		this.props.dispatch(editEvent(this.state.eventDetails, this.redirectUser))
 	}
 
-	redirectUser = (success) => {
+	redirectUser = (success, errorMsg) => {
+		console.log(success)
 		if (success){
 			this.props.history.push('/admin');
 		} else {
