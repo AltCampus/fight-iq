@@ -8,12 +8,14 @@ module.exports = {
 				if(err){
 					res.send(err)
 				}else{
-					res.json({fight})
+					res.json(res.json({success: true,
+						message: "New Event Added." }));
 				}
 			})
 	}, //end createEvent
 
 	getAllFight: (req, res) => {
+		
 		Fight.find({}, (err, fight) => {
 			if(err){
 				res.send(err)
