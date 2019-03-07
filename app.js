@@ -61,6 +61,7 @@ require('./server/modules/passport')(passport)
 
 // app.use("/api", require("./server/routes/api"));
 app.use("/api/v1", require("./server/routes/index"));
+
 app.use("*", require("./server/routes"));
 
 app.listen(port, () => {
