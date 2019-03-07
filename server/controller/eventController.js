@@ -6,30 +6,35 @@ module.exports = {
 		const newEvent = new Event(req.body)
 			newEvent.save((err, event) => {
 				if(err){
-					res.send(err)
+					res.send({...err,
+					status:false})
 				}else{
-					res.json({event})
+					res.json({success: true,
+							message: "New Event Added." })
 				}
 			})
 	}, //end createEvent
 
 	getAllEvents: (req, res) => {
-		console.log(req.body, "req body check")
+
 		Event.find({}, (err, event) => {
 			if(err){
-				res.send(err)
+				res.send({success: false,
+							message : err})
 			}else{
-				res.json(event)
+				res.json({event,
+				          success: true})
 			}
 		})
 	},
 
 	editEvent: (req, res) => {
 		const id = req.body._id;
-		console.log(id)
+
 		Event.findByIdAndUpdate(id, req.body, {new:true}, (err, data) => {
-			if(err) res.send(err)
-				res.json(data)
+			if(err) res.send({success: false,
+							message : err})
+				res.json({data, success: true})
 		})
 	},
 
@@ -37,19 +42,14 @@ module.exports = {
 		const id = req.body._id;
 		console.log(id, "check1")
 		Event.findByIdAndRemove(id, (err, event) => {
-			console.log(event)
 			if(err) {
-				res.send(err)
+				res.send({success: false,
+					message : err})
 			}else{
-				Event.find({}, (err, data) => {
-					if(err){
-						res.send(err)
-					}else{
-						res.json(data)
+				res.json({success: true,
+					message : "Event Deleted Successfully"})
 					}
 				})
 			}
-		})
-	}
 
 }// end module.exports
