@@ -1,3 +1,6 @@
+const URL = 'http://localhost:8000/';
+import Type from './types';
+
 //  Register submit
 export function registerSubmit(state, cb){
 	console.log(state, "cheking ")
@@ -26,9 +29,9 @@ export function registerSubmit(state, cb){
 	}
 }
 
-
 // Login submit
 export function loginSubmit(state, cb){
+	console.log(URL + 'api/v1/login' )
 	return dispatch => {
 		fetch('http://localhost:8000/api/v1/login', {
         method: "POST", 
@@ -39,11 +42,11 @@ export function loginSubmit(state, cb){
     })
     .then(response=>response.json())
     .then(data=>{
-        console.log(data)
     	dispatch({
     		type: Type.LOGIN,
-            success: data.success
+        success: data.success
     	})
+    	console.log(data)
     	// cb(true); 
     	if (data.success){
     		cb(true); // success handling

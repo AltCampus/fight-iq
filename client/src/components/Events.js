@@ -7,7 +7,7 @@ import { getEvents } from './../actions';
 class Events extends Component {
 	componentDidMount(){
 		// Call an action to do Get request on events
-		// this.props.dispatch(getEvents())
+		this.props.dispatch(getEvents())
 	}
 
 	render() {
