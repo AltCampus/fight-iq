@@ -1,12 +1,6 @@
-<<<<<<< HEAD
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-=======
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
->>>>>>> 1db321d9c5a6c74fd30074781d7490b409317be2
 // import Fight from './Fight';
 
 class AdminEventDetail extends Component {

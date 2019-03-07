@@ -50,8 +50,8 @@ const initState = {
 export default function rootReducer(state = initState, action) {
 	switch (action.type) {
 		case "UPDATE_EDIT_EVENT":
-			let events2 = [...state.events];
-			let editEvent = events2.filter((event) => event.id == action.eventid)[0];
+			let events3 = [...state.events];
+			let editEvent = events3.filter((event) => event.id == action.eventid)[0];
 			return {
 				...state,
 				editEvent: editEvent
