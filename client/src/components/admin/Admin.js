@@ -12,7 +12,7 @@ export default class Admin extends Component {
 					<button className="add-event">Add Event</button>
 				</Link>
 			</div>
-		);
+		);  
 	}
 }
 
