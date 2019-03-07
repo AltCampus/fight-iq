@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import Fight from './Fight';
+// import Fight from './Fight';
 
 class AdminEventDetail extends Component {
 	// Onload do a fetch request to get the event detail
@@ -12,16 +12,16 @@ class AdminEventDetail extends Component {
 	render() {
 		// filter specific event from the events array
 		let { event } = this.props;
-		
+
 		return (
 			<div className="AdminEventDetail">
 				<div>{event.title}</div> 
 				<div>{event.mainEvent}</div>
 				<div>{event.location}</div>
 				<div>{event.date_time}</div>
-				{
+				{/*
 					event.fights && event.fights.map(fight=><Fight data={fight}/>)
-				}
+				*/}
 				<button>Add a fight</button>
 			</div>
 			);
