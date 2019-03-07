@@ -33,7 +33,7 @@ class AdminAddEvent extends Component {
 			})
 		}
 
-		this.props.dispatch(updateEditEvent());
+		this.props.dispatch(updateEditEvent(this.props.match.params.eventid));
 	}
 
 	handleSubmit = (event) => {
@@ -68,7 +68,7 @@ class AdminAddEvent extends Component {
 			<div>
 				{
 					this.state.mode=='edit'? (
-								<form onSubmit={this.handleSubmit}>
+						<form onSubmit={this.handleSubmit}>
 								<div>Title:</div>
 								<input type="text" name="title" onChange={this.updateValue} value={editEvent.title}/>
 								<div>Main Event:</div>

@@ -1,27 +1,9 @@
 const URL = 'http://localhost:8000/';
 
-export function updateEditEvent(data){
+export function updateEditEvent(eventid){
 	return {
 		type: 'UPDATE_EDIT_EVENT',
-		event: {
-			title: "UFC 235",
-			mainEvent: "Jon Jones vs Anthony Smith",
-			location: "T-mobile arena, Las Vegas, Nevada",
-			dateTime: "03-03-2019, 8:30 AM IST",
-			players: {
-				player1: {
-					name: "Jon Jones",
-					nickName: "Bones",
-					imgLink: "http://a.espncdn.com/combiner/i?img=/i/headshots/mma/players/full/2335639.png&w=350&h=254",
-
-				}, 
-				player2: {
-					name: "Anthony Smith",
-					nickName: "The Lion Heart",
-					imgLink: "https://ufc-video.s3.amazonaws.com/2018-11/SMITH_ANTHONY.png?HEm0_AZx0NqEHuNYiJIEpFhybJ_gu1PC"
-				}
-			}
-		}
+        eventid: eventid
 	}
 }
 
@@ -82,8 +64,10 @@ export function loginSubmit(state, cb){
     })
     .then(response=>response.json())
     .then(data=>{
+        console.log(data)
     	dispatch({
-    		type: "LOGIN"
+    		type: "LOGIN",
+            success: data.success
     	})
     	cb(true); 
     	// if (data.success){
@@ -94,6 +78,20 @@ export function loginSubmit(state, cb){
 
     })
 	}
+}
+
+// Logout
+
+export function handleLogout(){
+    return dispatch => {
+        fetch(URL + 'api/v1/logout')
+            .then(response=>console.log(response))
+            .then(data=>{
+                dispatch({
+                    type: 'LOGOUT'
+                })
+            })
+    }
 }
 
 

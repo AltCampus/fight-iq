@@ -49,21 +49,33 @@ const initState = {
 
 export default function rootReducer(state = initState, action){
 	switch (action.type){
-		case 'UPDATE_EDIT_EVENT': {
+		case 'UPDATE_EDIT_EVENT': 
+			let events = [...state.events];
+			let editEvent = events.filter(event=>event.id==action.eventid)[0];
 			return {
 				...state,
-				editEvent: action.event
+				editEvent: editEvent
 			}
-		}
-
-		case 'REGISTER': {
+		
+		case 'REGISTER': 
 			return {
 				...state
 			}
-		}
+		
+		case 'LOGIN':
+			return {
+				...state,
+				isLogged: action.success
+			}
+
+		case 'LOGOUT':
+			return {
+				...state,
+				isLogged: false
+			}
 
 		case 'ADD_EVENT': {
-			let events = [...this.state.events];
+			let events = [...state.events];
 			
 			if (action.event){
 				events.push(action.event)
