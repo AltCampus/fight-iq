@@ -1,4 +1,5 @@
-
+const URL = 'http://localhost:8000/';
+import Type from './types';
 
 // Edit an event
 export function updateEditEvent(eventid){
@@ -51,10 +52,11 @@ export function getEvents(){
         fetch( URL + 'api/v1/events')
             .then(res=>res.json())
             .then(data=>{
-                dispatch({
-                    type: Type.GET_EVENTS,
-                    events: data.events
-                })
+                console.log('test', data)
+                // dispatch({
+                //     type: Type.GET_EVENTS,
+                //     events: data.events
+                // })
             })
     }
 }

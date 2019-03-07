@@ -1,8 +1,16 @@
 import React, { Component } from 'react';
 import AdminEvent from './AdminEvent';
 import { connect } from 'react-redux';
+import { getEvents } from './../../actions';
+
 
 class AdminEvents extends Component {
+
+	componentDidMount(){
+		// Call an action to do Get request on events
+		this.props.dispatch(getEvents())
+	}
+
 	render() {
 		let { Adminevents } = this.props;
 		return (
