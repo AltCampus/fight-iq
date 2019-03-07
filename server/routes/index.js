@@ -38,22 +38,22 @@ router.delete(
 // fight routes
 
 router.post(
-	"/:event_id/fight",
+	"/admin/events/:event_id/fight",
 	userController.isLoggedIn,
 	fightController.createFight
 );
 router.get(
-	"/:event_id/fight",
+	"/events/:event_id/fight",
 	userController.isLoggedIn,
 	fightController.getAllFight
 );
 router.put(
-	"/:event_id/fight/:fight_id",
+	"/admin/events/:event_id/fight/:fight_id",
 	userController.isLoggedIn,
 	fightController.editFight
 );
 router.delete(
-	"/:event_id/fight/:fight_id",
+	"admin/events/:event_id/fight/:fight_id",
 	userController.isLoggedIn,
 	fightController.deleteFight
 );

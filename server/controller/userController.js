@@ -72,13 +72,19 @@ module.exports = {
 	},
 
 	isUser: (req, res) => {
-		const {user} = req.session.passport
+		const user = req.session.passport;
+		console.log(user, "raviravi")
 		if(user){
-			User.findOne({_id: user}, (err, user) => res.json({
+			User.findOne({_id: user.user}, (err, user) => res.json({
 				login: "success",
 				user:user.username
 			}))
 		}
+		else 
+		return res.status(404).json({
+			success : false,
+			message: "user Not login"
+		})
 	}
 
 

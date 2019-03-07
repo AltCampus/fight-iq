@@ -1,4 +1,5 @@
 const Event = require('../models/Event');
+const Fight = require('../models/Fight');
 
 
 module.exports = {
@@ -30,15 +31,18 @@ module.exports = {
 
 	getEvent: (req, res) => {
 		const id = req.params.event_id;
-		Event.findOne({_id:id}, (err, events) => {
-			if(err){
-				res.send({success: false,
-							message : err})
-			}else{
-				res.json({events,
-				          success: true})
-			}
-		})
+		Event.findOne({_id:id})
+			.populate('fight')
+			.exec((err, event) => {
+				if (err || !event) {
+					return res.status(400).json({
+						msg: ''
+					})
+				}	
+				return res.json({
+					event
+				})
+			})
 	},
 
 	editEvent: (req, res) => {
