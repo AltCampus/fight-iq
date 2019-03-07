@@ -6,16 +6,11 @@ const fightController = require('../controller/fightController')
 const userController = require('../controller/userController')
 
 
-// router.get('*',(req,res)=>{
-//   res.render('index');
-// })
-
-
 
 // event routes
 
 router.post('/admin/events', userController.isLoggedIn, eventController.createEvent); // done
-router.get('/events', userController.isLoggedIn, eventController.getAllEvents);
+router.get('/events', userController.isLoggedIn, eventController.getAllEvents); // done
 // router.get('/events/:event_id',  userController.isLoggedIn, eventController.getEvent);
 router.put('/events/:event_id', userController.isLoggedIn, eventController.editEvent);
 router.delete('/events/:event_id', userController.isLoggedIn, eventController.deleteEvent);
