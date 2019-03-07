@@ -10,18 +10,22 @@ module.exports = {
 		});
 
 		User.find({username : newUser.username}, function (err, user) {
-			if (user){
+			if (user.length){
 					res.json({message:'Username exists already'});
 			}else{
 
 				User.find({email : newUser.email}, function (err, user) {
-					if (user){
+					if (user.length){
 							res.json({message:'Email exists already'});
 					}else{
 
 						newUser.save((err, user) => {
 							if(err) res.send(err)
-								res.json(user)
+								res.json({
+									user: user.username,
+									success: true,
+									message: "User Created Successfully"
+								})
 						})		
 					}
 			});		
@@ -29,53 +33,33 @@ module.exports = {
 	});
 	},
 
-	loginUser: (req, res, next) => {
-		passport.authenticate('local', function(err, user, info) {
-      if (err) { return next(err); }
-      if (!user) { 
-        return res.status(404).json({
-          message: 'Invalid Username or Password',
-          success: false
-        }) 
-      }
-      req.login(user, function(err) {
-        if (err) {
-         return next(err); 
-       }
-        return res.status(200).json({
-          user,
-          success: true
-        })
-      });
-    })(req, res, next);
+	loginUser: function(req, res, next) {
+	  passport.authenticate('local', function(err, user, {msg}) {
+	    if (err) { return next(err); }
+	    if (!user) { return res.json({
+	    	success: false,
+	    	msg
+	    }); }
+	    req.logIn(user, function(err) {
+	      if (err) { return next(err); }
+	      return res.json({
+	      	user: user.username,
+	      	message: "Successfully login"
+	      });
+	    });
+	  })(req, res, next);
 	},
  
 
-	// isLoggedIn : (req, res, next) => {
-	//   if(req.user) {
-	//     User.findOne({_id : req.user._id}, (err, data) => {
-	//       if(data) {
-	//         res.json({
-	//           msg: `${data.username} is loggedin`
-	//         })
-	//       } else {
-	//         res.status(404).json({
-	//           msg : "Please Sign Up. You are not logged in."
-	//         })
-	//       }
-	//     })
-	//   }
-	// },
-
 	isLoggedIn: (req, res, next) => {
-	// console.log(req.session.passport.user, "session store")
 	if(req.session.passport.user){
-		return next()
+		next();
 	}
 	return res.status(404).json({
 		success : false,
 		message: "user Not login"
 	})
+
 	},
 
 	loggedOut: (req, res) => {
@@ -85,6 +69,17 @@ module.exports = {
 			message: "Session is removed & User Is LoggedOut"
 		})
 	},
+
+	isUser: (req, res) => {
+		const {user} = req.session.passport
+		if(user){
+			User.findOne({_id: user}, (err, user) => res.json({
+				login: "success"
+			}))
+		}
+	}
+
+
 	// isAdmin: (req, res, next) => {
 	// 	User.findOne({ req.body.username }, function(err, user) {
   //     if (err) { return next(err); }

@@ -5,21 +5,22 @@ const eventController = require("../controller/eventController");
 const fightController = require("../controller/fightController");
 const userController = require("../controller/userController");
 
-// router.get('*',(req,res)=>{
-//   res.render('index');
-// })
-
-router.get("*", (req, res) => {
-	res.render("index");
-});
-
 // event routes
 
-router.post("/event", userController.isLoggedIn, eventController.createEvent);
-router.get("/event", userController.isLoggedIn, eventController.getAllEvents);
-router.put("/event", userController.isLoggedIn, eventController.editEvent);
+router.post(
+	"/admin/events",
+	userController.isLoggedIn,
+	eventController.createEvent
+); // done
+router.get("/events", userController.isLoggedIn, eventController.getAllEvents);
+// router.get('/events/:event_id',  userController.isLoggedIn, eventController.getEvent);
+router.put(
+	"/events/:event_id",
+	userController.isLoggedIn,
+	eventController.editEvent
+);
 router.delete(
-	"/event/:id",
+	"/events/:event_id",
 	userController.isLoggedIn,
 	eventController.deleteEvent
 );
@@ -51,7 +52,11 @@ router.delete(
 
 router.post("/register", userController.createUser);
 router.post("/login", userController.loginUser);
-router.get("/isLoggedIn", userController.isLoggedIn);
+router.get("/isLoggedIn", userController.isUser);
 router.get("/loggedOut", userController.loggedOut);
+
+router.get("*", (req, res) => {
+	res.render("index");
+});
 
 module.exports = router;

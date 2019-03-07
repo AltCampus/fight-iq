@@ -1,27 +1,9 @@
 const URL = 'http://localhost:8000/';
 
-export function updateEditEvent(data){
+export function updateEditEvent(eventid){
 	return {
 		type: 'UPDATE_EDIT_EVENT',
-		event: {
-			title: "UFC 235",
-			mainEvent: "Jon Jones vs Anthony Smith",
-			location: "T-mobile arena, Las Vegas, Nevada",
-			dateTime: "03-03-2019, 8:30 AM IST",
-			players: {
-				player1: {
-					name: "Jon Jones",
-					nickName: "Bones",
-					imgLink: "http://a.espncdn.com/combiner/i?img=/i/headshots/mma/players/full/2335639.png&w=350&h=254",
-
-				}, 
-				player2: {
-					name: "Anthony Smith",
-					nickName: "The Lion Heart",
-					imgLink: "https://ufc-video.s3.amazonaws.com/2018-11/SMITH_ANTHONY.png?HEm0_AZx0NqEHuNYiJIEpFhybJ_gu1PC"
-				}
-			}
-		}
+        eventid: eventid
 	}
 }
 
@@ -82,18 +64,34 @@ export function loginSubmit(state, cb){
     })
     .then(response=>response.json())
     .then(data=>{
+        console.log(data)
     	dispatch({
-    		type: "LOGIN"
+    		type: "LOGIN",
+            success: data.success
     	})
-    	cb(true); 
-    	// if (data.success){
-    	// 	cb(true); // success handling
-    	// } else {
-    	// 	cb(false, data.msg)
-    	// }
+    	// cb(true); 
+    	if (data.success){
+    		cb(true); // success handling
+    	} else {
+    		cb(false, data.msg)
+    	}
 
     })
 	}
+}
+
+// Logout
+
+export function handleLogout(){
+    return dispatch => {
+        fetch(URL + 'api/v1/logout')
+            .then(response=>console.log(response))
+            .then(data=>{
+                dispatch({
+                    type: 'LOGOUT'
+                })
+            })
+    }
 }
 
 
@@ -101,7 +99,7 @@ export function loginSubmit(state, cb){
 
 export function addEvent(state, cb){
 	return dispatch => {
-		fetch(URL + 'api/v1/admin/event', {
+		fetch(URL + 'api/v1/admin/events', {
         method: "POST", 
         headers: {
             "Content-Type": "application/json",
@@ -133,3 +131,55 @@ export function addEvent(state, cb){
     })
 	}
 }
+
+// Write an action that fetches the events data and sends the data to the reducer
+
+
+export function getEvents(){
+    return dispatch => {
+        fetch( URL + 'events')
+            .then(res=>res.json())
+            .then(data=>{
+                dispatch({
+                    type: 'GET_EVENTS',
+                    events: data.events
+                })
+            })
+    }
+}
+
+// Write function to handle edit event and sends confirmation to reducer
+
+export function editEvent(state, cb){
+    return dispatch => {
+        fetch(URL + 'api/v1/admin/events', {
+            method: "PUT", 
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(state)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            dispatch({
+                type: 'EDIT_EVENTS'
+            })
+            // Todo: Handle CB according to the response
+        })
+    }
+}
+
+// Write a function to do GET request for event details
+
+ export function getEvent(eventid){
+    return dispatch => {
+        fetch( URL + 'event/' + eventid)
+            .then(res=>res.json())
+            .then(data=>{
+                dispatch({
+                    type: 'GET_EVENT',
+                    event: data
+                })
+            })
+    }
+ }

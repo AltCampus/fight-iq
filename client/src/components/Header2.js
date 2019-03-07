@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { handleLogout } from './../actions';
  
 class Header extends Component {
+  handleLogout = () => {
+    this.props.dispatch(handleLogout())
+  }
+
   render() {
     let { isLogged } = this.props;
     return (
@@ -15,7 +20,7 @@ class Header extends Component {
         {
           isLogged? (
           <div className="top-right">
-            <Link to="/logout">Logout</Link>
+            <a onClick={this.handleLogout}>Logout</a>
             <Link to="/profile">Profile</Link>
           </div>
           ) : (

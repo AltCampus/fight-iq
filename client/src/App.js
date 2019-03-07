@@ -8,6 +8,7 @@ import Register from './components/userAuth/Register';
 import Admin from './components/admin/Admin';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import AdminAddEvent from './components/admin/AdminAddEvent';
+import AdminEventDetail from './components/admin/AdminEventDetail';
 
 class App extends Component {
   render() {
@@ -20,6 +21,7 @@ class App extends Component {
           <Route exact path="/" component={Events} />
           <Route exact path="/admin" component={Admin} />
           <Route exact path="/admin/event" component={AdminAddEvent} />
+          <Route exact path="/admin/event/:eventid" component={AdminEventDetail} />
           <Route path="/admin/:eventid/edit" component={AdminAddEvent} />
           <Route path="/login" component={Login}/>
           <Route path="/register" component={Register}/>
