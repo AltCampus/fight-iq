@@ -1,16 +1,21 @@
 const Fight = require('../models/Fight');
-
+const Event = require('../models/Event');
 
 module.exports = {
 	createFight: (req, res) => {
 		const newFight = new Fight({...req.body,event_id:req.params.event_id})
 			newFight.save((err, fight) => {
 				if(err){
-					res.send(err)
-				}else{
-					res.json(res.json({success: true,
-						message: "New Event Added." }));
-				}
+					return res.send(err)
+				}else {
+				    Event.findByIdAndUpdate(req.params.event_id, {$push: {fight: newFight._id}}, {new :true}, (err, post) => {
+						if(err) return res.json({
+							success: false,	
+						});
+					return res.json({success: true,
+						message: "New Fight Added." });
+				})
+			}
 			})
 	}, //end createEvent
 
