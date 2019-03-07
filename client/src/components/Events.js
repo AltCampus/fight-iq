@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
 import Event from './Event';
 import { connect } from 'react-redux';
+import { getEvents } from './../actions';
 
 
 class Events extends Component {
+	componentDidMount(){
+		// Call an action to do Get request on events
+		this.props.dispatch(getEvents())
+	}
+
 	render() {
 		let { events } = this.props;
 		return (

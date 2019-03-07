@@ -17,12 +17,12 @@ module.exports = {
 
 	getAllEvents: (req, res) => {
 
-		Event.find({}, (err, event) => {
+		Event.find({}, (err, events) => {
 			if(err){
 				res.send({success: false,
 							message : err})
 			}else{
-				res.json({event,
+				res.json({events,
 				          success: true})
 			}
 		})
