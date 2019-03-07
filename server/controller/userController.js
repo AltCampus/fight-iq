@@ -33,31 +33,27 @@ module.exports = {
 	});
 	},
 
-	loginUser: (req, res, next) => {
-		passport.authenticate('local', function(err, user, info) {
-      if (err) { return next(err); }
-      if (!user) { 
-        return res.status(404).json({
-          message: 'Invalid Username or Password',
-          success: false
-        }) 
-      }
-      req.login(user, function(err) {
-        if (err) {
-         return next(err); 
-       }
-        return res.status(200).json({
-          user: user.username,
-          success: true
-        })
-      });
-    })(req, res, next);
+	loginUser: function(req, res, next) {
+	  passport.authenticate('local', function(err, user, {msg}) {
+	    if (err) { return next(err); }
+	    if (!user) { return res.json({
+	    	success: false,
+	    	msg
+	    }); }
+	    req.logIn(user, function(err) {
+	      if (err) { return next(err); }
+	      return res.json({
+	      	user: user.username,
+	      	message: "Successfully login"
+	      });
+	    });
+	  })(req, res, next);
 	},
  
 
 	isLoggedIn: (req, res, next) => {
 	if(req.session.passport.user){
-		return next()
+		next();
 	}
 	return res.status(404).json({
 		success : false,
@@ -73,6 +69,15 @@ module.exports = {
 			message: "Session is removed & User Is LoggedOut"
 		})
 	},
+
+	isUser: (req, res) => {
+		const {user} = req.session.passport
+		if(user){
+			User.findOne({_id: user}, (err, user) => res.json({
+				login: "success"
+			}))
+		}
+	}
 
 
 	// isAdmin: (req, res, next) => {
