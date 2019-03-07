@@ -6,9 +6,9 @@ const fightController = require('../controller/fightController')
 const userController = require('../controller/userController')
 
 
-router.get('*',(req,res)=>{
-  res.render('index');
-})
+// router.get('*',(req,res)=>{
+//   res.render('index');
+// })
 
 
 
