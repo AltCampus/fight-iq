@@ -41,10 +41,12 @@ var events = [
 ];
 
 
+
 const initState = {
 	events: events,
 	editEvent: {},
-	isLogged: false
+	isLogged: false,
+	event: {}
 }
 
 export default function rootReducer(state = initState, action){
@@ -74,7 +76,7 @@ export default function rootReducer(state = initState, action){
 				isLogged: false
 			}
 
-		case 'ADD_EVENT': {
+		case 'ADD_EVENT': 
 			let events = [...state.events];
 			
 			if (action.event){
@@ -83,11 +85,30 @@ export default function rootReducer(state = initState, action){
 
 			return {
 				...state,
-				event: events
+				events: events
 			}
-		}
+
+		// Handle edit event reducer
+
+		case 'EDIT_EVENTS':
+				return {
+					...state
+				}
+
+
+		case 'GET_EVENTS': 
+				return {
+					...state,
+				events: action.events
+				}
+
+		case 'GET_EVENT':
+			return {
+				...state,
+				event: action.event
+			}
 			
 		default: 
 		return state;
-	}
+		}
 }

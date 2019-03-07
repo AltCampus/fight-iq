@@ -2,9 +2,11 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const EventSchema = new Schema({
-	title: {type:String, require:true},
-	location: {type:String, require:true},
-	date_time: {type:String, require:true}
+	title: {type:String, required:true},
+	location: {type:String, required:true},
+	date_time: {type:String, required:true},
+	fight: [{type:Schema.Types.ObjectId, ref:"Fight"}],
+	main_event: {type:String, required:true}
 })
 
 
