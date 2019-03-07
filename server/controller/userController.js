@@ -44,7 +44,8 @@ module.exports = {
 	      if (err) { return next(err); }
 	      return res.json({
 	      	user: user.username,
-	      	message: "Successfully login"
+	      	message: "Successfully login",
+	      	success: true
 	      });
 	    });
 	  })(req, res, next);
@@ -53,7 +54,7 @@ module.exports = {
 
 	isLoggedIn: (req, res, next) => {
 
-	if(!req.session.passport.user){
+	if(!req.session.passport){
 		return next();
 	}
 	return res.status(404).json({
