@@ -6,7 +6,6 @@ const User = require('../models/User');
 module.exports = function(passport) {
   passport.serializeUser(function(user, done) {
     done(null, user._id);
-    // if you use Model.id as your idAttribute maybe you'd want
     // done(null, user.id);
   });
 
@@ -20,12 +19,12 @@ module.exports = function(passport) {
       console.log(username, "check2")
       User.findOne({ username: username }, function (err, user) {
         if (err) { return done(err); }
-        if (!user) { return done(null, false, {msg : 'Username is wrong'}); }
+        if (!user) { return done(null, false, {message : 'Username is wrong'}); }
         user.verifyPassword(password, function(err, isMatched) {
           if (!isMatched) {
-            return done(null, false, {msg : 'Password is wrong'})
+            return done(null, false, {message : 'Password is wrong'})
           }
-          return done(null, user, {msg : ''});
+          return done(null, user, {message : ''});
         }) 
       });
     }
