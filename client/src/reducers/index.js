@@ -75,12 +75,6 @@ export default function rootReducer(state = initState, action) {
 				...state,
 				isLogged: false
 			}
-		case 'ADD_EVENT': 
-			 events = [...state.events];
-			
-			if (action.event){
-				events.push(action.event)
-			};
 
 		case Type.ADD_EVENT:
 			let events3 = [...state.events];

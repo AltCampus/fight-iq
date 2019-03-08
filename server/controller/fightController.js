@@ -21,7 +21,6 @@ module.exports = {
 	}, //end createEvent
 
 	getAllFight: (req, res) => {
-		
 		Fight.find({event: req.params.event_id}, (err, fight) => {
 			if(err){
 				return res.json({message:err,success: false})
@@ -32,7 +31,6 @@ module.exports = {
 	},
 
 	getFight: (req, res) => {
-	
 		Fight.findOne({_id:req.params.fight_id})
 			.populate('event')
 			.exec((err, fight) => {
@@ -60,7 +58,6 @@ module.exports = {
 	deleteFight: (req, res) => {
 		const id = req.params.fight_id;
 		const event_id = req.params.event_id;
-
 		console.log(id, "event", event_id)
 		Fight.remove({_id : id}, (err, fight) => {
 			console.log(fight)

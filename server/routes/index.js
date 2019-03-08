@@ -19,7 +19,7 @@ router.get('/events',
   eventController.getAllEvents
   ); //done
 
-router.get('/admin/events/:event_id',  
+router.get('/events/:event_id',  
 userController.isLoggedIn, 
 eventController.getEvent
 ); //done

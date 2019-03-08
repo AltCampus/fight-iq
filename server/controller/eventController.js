@@ -7,7 +7,7 @@ module.exports = {
 			newEvent.save((err, event) => {
 				if(err){
 					return res.json({message : err,
-					status:false})
+					success:false})
 				}else{
 					return res.json({success: true,
 							message: "New Event Added." })
@@ -49,19 +49,18 @@ module.exports = {
 	editEvent: (req, res) => {
 		const id = req.params.event_id;
 
-		Event.findByIdAndUpdate(id, req.body, {new:true}, (err, data) => {
-			if(err) res.send({success: false,
+		Event.findByIdAndUpdate(id, req.body, {new:true}, (err, event) => {
+			if(err) res.json({success: false,
 							message : err})
-				res.json({data, success: true})
+				res.json({event, success: true})
 		})
 	},
 
 	deleteEvent: (req, res) => {
 		const id = req.params.event_id;
 		Event.findByIdAndRemove(id, (err, event) => {
-			console.log(event,'raviravi');
 			if(err || !event) {
-				return res.send({success: false,
+				return res.json({success: false,
 					message : err})
 			}else{
 				return res.json({success: true,
