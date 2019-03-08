@@ -2,15 +2,56 @@ const Player = require('../models/Player');
 
 module.exports = {
 	createPlayer: (req, res) => {
-		const newPlayes = new Player(req.body);
-		newPlayer.save((err, player) => {
-			if(err) res.send(err)
-				res.json({
-					player,
-					success: true,
-					message: "Player Created Successfully"
-				})
-		})	
-	},
+		const newPlayer = new Player({...req.body})
+			newPlayer.save((err, player) => {
+				if(err){
+					return res.json({message: err, success:true})
+				}else {
+					return res.json({success: true,
+						message: "New Player Added." });
+			}
+			})
+	}, //end createPlayer
 
-}
+	getAllPlayers: (req, res) => {
+		
+		Player.find({}, (err, player) => {
+			if(err){
+				return res.json({message:err,success: false})
+			}else{
+				return res.json({player,success:true})
+			}
+		})
+	}, // end get all player
+
+	getPlayer: (req, res) => {
+	
+		Player.findOne({_id:req.params.player_id}, (err, player) => {
+			if(err){
+				return res.json({message:err,success: false})
+			}else{
+				return res.json({player,success:true})
+			}
+		})
+	}, // end getPlayer
+
+	editPlayer: (req, res) => {
+		const id = req.params.player_id;
+		Player.findByIdAndUpdate(id, req.body, {new:true}, (err, data) => {
+			if(err) return res.json({message:err,success: false})
+				return res.json({data,success: true,})
+		})
+	}, // end edit player
+
+	deletePlayer: (req, res) => {
+		const id = req.params.player_id;
+		Player.findByIdAndRemove(id, (err, player) => {
+			if(err) {
+				return res.json({message:err,success: false})
+			}else{
+				return res.json({message:"Player deleted Successfully",success: true})
+			}
+		})
+	} // end delete player
+
+}// end module.exports

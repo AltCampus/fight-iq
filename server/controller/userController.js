@@ -11,17 +11,17 @@ module.exports = {
 
 		User.find({username : newUser.username}, function (err, user) {
 			if (user.length){
-					res.json({message:'Username exists already'});
+					return res.json({message:'Username exists already',success:false});
 			}else{
 
 				User.find({email : newUser.email}, function (err, user) {
 					if (user.length){
-							res.json({message:'Email exists already'});
+							return res.json({message:'Email exists already',success:false});
 					}else{
 
 						newUser.save((err, user) => {
-							if(err) res.send(err)
-								res.json({
+							if(err) return res.json({message:err,success:false});
+								return res.json({
 									user: user.username,
 									success: true,
 									message: "User Created Successfully"
@@ -44,8 +44,8 @@ module.exports = {
 	      if (err) { return next(err); }
 	      return res.status(200).json({
 	      	user: user.username,
-	      	message: "Successfully login",
-	      	success: true
+					message: "Successfully login",
+					success: true
 	      });
 	    });
 	  })(req, res, next);
@@ -54,15 +54,12 @@ module.exports = {
 
 	isLoggedIn: (req, res, next) => {
 	if(req.session.passport){
-
 		return next();
 	}
 	return res.status(404).json({
 		success : false,
 		message: "user Not login"
 	})
-	
-
 	},
 
 	loggedOut: (req, res) => {
@@ -74,14 +71,18 @@ module.exports = {
 	},
 
 	isUser: (req, res) => {
-		console.log(req.session.passport.user, "sdfghjhgfd")
-		const {user} = req.session.passport
+		const user = req.session.passport;
 		if(user){
-			User.findOne({_id: user}, (err, user) => res.json({
+			User.findOne({_id: user.user}, (err, user) => res.json({
 				login: "success",
 				user:user.username
 			}))
 		}
+		else 
+		return res.status(404).json({
+			success : false,
+			message: "user Not login"
+		})
 	}
 
 
