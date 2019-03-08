@@ -1,5 +1,4 @@
 const Event = require('../models/Event');
-const Fight = require('../models/Fight');
 
 
 module.exports = {
@@ -7,10 +6,10 @@ module.exports = {
 		const newEvent = new Event(req.body)
 			newEvent.save((err, event) => {
 				if(err){
-					res.send({...err,
+					return res.json({message : err,
 					status:false})
 				}else{
-					res.json({success: true,
+					return res.json({success: true,
 							message: "New Event Added." })
 				}
 			})
@@ -20,10 +19,10 @@ module.exports = {
 
 		Event.find({}, (err, events) => {
 			if(err){
-				res.send({success: false,
+				return res.json({success: false,
 							message : err})
 			}else{
-				res.json({events,
+				return res.json({events,
 				          success: true})
 			}
 		})
@@ -36,11 +35,13 @@ module.exports = {
 			.exec((err, event) => {
 				if (err || !event) {
 					return res.status(400).json({
-						msg: ''
+						success:false,
+						message:err
 					})
 				}	
 				return res.json({
-					event
+					event,
+					success:true
 				})
 			})
 	},
@@ -60,10 +61,10 @@ module.exports = {
 		Event.findByIdAndRemove(id, (err, event) => {
 			console.log(event,'raviravi');
 			if(err || !event) {
-				res.send({success: false,
+				return res.send({success: false,
 					message : err})
 			}else{
-				res.json({success: true,
+				return res.json({success: true,
 					message : "Event Deleted Successfully"})
 					}
 				})
