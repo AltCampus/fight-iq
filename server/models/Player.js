@@ -5,10 +5,10 @@ const playerSchema = new Schema({
 	name: {type:String, required:true},
 	weight: {type:String, required:true},
 	height: {type:String, required:true},
-	rank: {type:String, required:true}
+	rank: String,
 })
 
 
-const Player = mongoose.model("Player", playerSchema);
+const Player = mongoose.model("Event", playerSchema);
 module.exports = Player;
 

@@ -7,7 +7,7 @@ const FightSchema = new Schema({
     rounds: {type:String, required:true},
     player1: {type:Schema.Types.ObjectId, ref:"Player"},
     player2: {type:Schema.Types.ObjectId, ref:"Player"},
-    event: {
+    event_id: {
         type: Schema.Types.ObjectId, ref: 'Event' 
     }
     
