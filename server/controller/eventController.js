@@ -6,10 +6,10 @@ module.exports = {
 		const newEvent = new Event(req.body)
 			newEvent.save((err, event) => {
 				if(err){
-					return res.json({message : err,
+					res.send({...err,
 					status:false})
 				}else{
-					return res.json({success: true,
+					res.json({success: true,
 							message: "New Event Added." })
 				}
 			})
@@ -19,10 +19,10 @@ module.exports = {
 
 		Event.find({}, (err, events) => {
 			if(err){
-				return res.json({success: false,
+				res.send({success: false,
 							message : err})
 			}else{
-				return res.json({events,
+				res.json({events,
 				          success: true})
 			}
 		})
@@ -30,20 +30,15 @@ module.exports = {
 
 	getEvent: (req, res) => {
 		const id = req.params.event_id;
-		Event.findOne({_id:id})
-			.populate('fight')
-			.exec((err, event) => {
-				if (err || !event) {
-					return res.status(400).json({
-						success:false,
-						message:err
-					})
-				}	
-				return res.json({
-					event,
-					success:true
-				})
-			})
+		Event.findOne({_id:id}, (err, events) => {
+			if(err){
+				res.send({success: false,
+							message : err})
+			}else{
+				res.json({events,
+				          success: true})
+			}
+		})
 	},
 
 	editEvent: (req, res) => {
@@ -61,10 +56,10 @@ module.exports = {
 		Event.findByIdAndRemove(id, (err, event) => {
 			console.log(event,'raviravi');
 			if(err || !event) {
-				return res.send({success: false,
+				res.send({success: false,
 					message : err})
 			}else{
-				return res.json({success: true,
+				res.json({success: true,
 					message : "Event Deleted Successfully"})
 					}
 				})
