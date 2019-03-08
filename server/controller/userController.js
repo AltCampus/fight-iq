@@ -11,17 +11,17 @@ module.exports = {
 
 		User.find({username : newUser.username}, function (err, user) {
 			if (user.length){
-					res.json({message:'Username exists already'});
+					return res.json({message:'Username exists already',success:false});
 			}else{
 
 				User.find({email : newUser.email}, function (err, user) {
 					if (user.length){
-							res.json({message:'Email exists already'});
+							return res.json({message:'Email exists already',success:false});
 					}else{
 
 						newUser.save((err, user) => {
-							if(err) res.send(err)
-								res.json({
+							if(err) return res.json({message:err,success:false});
+								return res.json({
 									user: user.username,
 									success: true,
 									message: "User Created Successfully"
@@ -34,11 +34,11 @@ module.exports = {
 	},
 
 	loginUser: function(req, res, next) {
-	  passport.authenticate('local', function(err, user, {msg}) {
+	  passport.authenticate('local', function(err, user, {message}) {
 	    if (err) { return next(err); }
 	    if (!user) { return res.json({
 	    	success: false,
-	    	msg
+	    	message
 	    }); }
 	    req.logIn(user, function(err) {
 	      if (err) { return next(err); }
