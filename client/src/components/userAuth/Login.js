@@ -52,6 +52,7 @@ class Login extends Component {
 				<br/>
 				<button>Login</button>
 			</form>
+			<div className="err-msg">{this.state.error}</div>
 			</div>
 		);
 	}
