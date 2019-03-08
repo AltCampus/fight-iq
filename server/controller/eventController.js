@@ -1,5 +1,5 @@
 const Event = require('../models/Event');
-
+const Fight = require('../models/Fight');
 
 module.exports = {
 	createEvent: (req, res) => {
@@ -63,10 +63,14 @@ module.exports = {
 				return res.json({success: false,
 					message : err})
 			}else{
+				Fight.remove({event: id}, (err, fight) => {
+					if(err) return res.json({success: false,
+						message : err})
+						else
 				return res.json({success: true,
 					message : "Event Deleted Successfully"})
-					}
-				})
+					})
+			}})
 			}
 
 }// end module.exports
