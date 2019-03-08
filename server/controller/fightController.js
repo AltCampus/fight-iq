@@ -60,16 +60,16 @@ module.exports = {
 		const event_id = req.params.event_id;
 		console.log(id, "event", event_id)
 		Fight.remove({_id : id}, (err, fight) => {
-			console.log(fight)
 			if(err) {
 				return res.json({message:err,success: false})
 			}else{
 				Event.findOneAndUpdate({_id: event_id}, {$pull : {"fight" : id }}, (err, data) => {
 					if(err){
-						res.send(err)
+						res.json({message:err,success:false})
 					}else{
 						res.json({
-							event : data
+							message:"Fight Deleted",
+							success:true
 						})
 					}
 				})
