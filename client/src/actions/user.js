@@ -1,3 +1,6 @@
+const URL = 'http://localhost:8000/';
+import Type from './types';
+
 //  Register submit
 export function registerSubmit(state, cb){
 	console.log(state, "cheking ")
@@ -29,6 +32,7 @@ export function registerSubmit(state, cb){
 
 // Login submit
 export function loginSubmit(state, cb){
+	console.log(URL + 'api/v1/login' )
 	return dispatch => {
 		fetch(URL + 'api/v1/login', {
         method: "POST", 
