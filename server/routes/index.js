@@ -4,6 +4,7 @@ const router = express.Router();
 const eventController = require("../controller/eventController");
 const fightController = require("../controller/fightController");
 const userController = require("../controller/userController");
+const playerController = require("../controller/playerController");
 
 // event routes
 
@@ -38,24 +39,58 @@ router.delete(
 // fight routes
 
 router.post(
-	"/:event_id/fight",
+	"/admin/events/:event_id/fights",
 	userController.isLoggedIn,
 	fightController.createFight
 );
 router.get(
-	"/:event_id/fight",
+	"/events/:event_id/fights",
 	userController.isLoggedIn,
 	fightController.getAllFight
 );
+router.get(
+	"/events/:event_id/fights/:fight_id",
+	userController.isLoggedIn,
+	fightController.getFight
+);
+
 router.put(
-	"/:event_id/fight/:fight_id",
+	"/admin/events/:event_id/fights/:fight_id",
 	userController.isLoggedIn,
 	fightController.editFight
 );
 router.delete(
-	"/:event_id/fight/:fight_id",
+	"/admin/events/:event_id/fights/:fight_id",
 	userController.isLoggedIn,
 	fightController.deleteFight
+);
+
+// player routes
+
+router.post(
+	"/admin/players",
+	userController.isLoggedIn,
+	playerController.createPlayer
+);
+router.get(
+	"/players",
+	userController.isLoggedIn,
+	playerController.getAllPlayers
+);
+router.get(
+	"/players/:player_id",
+	userController.isLoggedIn,
+	playerController.getPlayer
+);
+router.put(
+	"/admin/players/:player_id",
+	userController.isLoggedIn,
+	playerController.editPlayer
+);
+router.delete(
+	"admin/players/:player_id",
+	userController.isLoggedIn,
+	playerController.deletePlayer
 );
 
 // user routes
