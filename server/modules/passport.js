@@ -20,12 +20,12 @@ module.exports = function(passport) {
       console.log(username, "check2")
       User.findOne({ username: username }, function (err, user) {
         if (err) { return done(err); }
-        if (!user) { return done(null, false, {msg : 'Username is wrong'}); }
+        if (!user) { return done(null, false, {message : 'Username is wrong'}); }
         user.verifyPassword(password, function(err, isMatched) {
           if (!isMatched) {
-            return done(null, false, {msg : 'Password is wrong'})
+            return done(null, false, {message : 'Password is wrong'})
           }
-          return done(null, user, {msg : ''});
+          return done(null, user, {message : ''});
         }) 
       });
     }
