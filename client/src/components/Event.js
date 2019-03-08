@@ -9,9 +9,6 @@ class Events extends Component {
 		return (
 			<div className="Event">
 				<div className="eventTitle">{ event.title}</div> 
-				<img src={`${event.players.player1.imgLink}`} />
-				<img src={`${event.players.player2.imgLink}`} />
-				<div className="mainEvent">{event.mainEvent}</div>
 				<button onClick={this.handleClick(event.title)}>Predict</button>
 			</div>
 			);
