@@ -7,7 +7,7 @@ module.exports = {
 				if(err){
 					return res.json({message: err, success:true})
 				}else {
-					return res.json({success: true,
+					return res.status(201).json({success: true,
 						message: "New Player Added." });
 			}
 			})
@@ -19,7 +19,7 @@ module.exports = {
 			if(err){
 				return res.json({message:err,success: false})
 			}else{
-				return res.json({player,success:true})
+				return res.status(200).json({player,success:true})
 			}
 		})
 	}, // end get all player
@@ -30,7 +30,7 @@ module.exports = {
 			if(err){
 				return res.json({message:err,success: false})
 			}else{
-				return res.json({player,success:true})
+				return res.status(200).json({player,success:true})
 			}
 		})
 	}, // end getPlayer
@@ -39,7 +39,7 @@ module.exports = {
 		const id = req.params.player_id;
 		Player.findByIdAndUpdate(id, req.body, {new:true}, (err, data) => {
 			if(err) return res.json({message:err,success: false})
-				return res.json({data,success: true,})
+				return res.status(200).json({data,success: true,})
 		})
 	}, // end edit player
 
@@ -49,7 +49,7 @@ module.exports = {
 			if(err) {
 				return res.json({message:err,success: false})
 			}else{
-				return res.json({message:"Player deleted Successfully",success: true})
+				return res.status(204).json({message:"Player deleted Successfully",success: true})
 			}
 		})
 	} // end delete player
