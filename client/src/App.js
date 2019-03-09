@@ -9,6 +9,8 @@ import Admin from './components/admin/Admin';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import AdminAddEvent from './components/admin/AdminAddEvent';
 import AdminEventDetail from './components/admin/AdminEventDetail';
+import Footer from './components/user/Footer'
+
 
 class App extends Component {
   render() {
@@ -26,6 +28,7 @@ class App extends Component {
           <Route path="/login" component={Login}/>
           <Route path="/register" component={Register}/>
         </Switch>
+        <Footer />
       </div>
       </BrowserRouter>
     );
