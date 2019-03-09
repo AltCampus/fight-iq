@@ -29,6 +29,7 @@ export function registerSubmit(state, cb){
 	}
 }
 
+
 // Login submit
 export function loginSubmit(state, cb){
 	console.log(URL + 'api/v1/login' )
@@ -42,11 +43,11 @@ export function loginSubmit(state, cb){
     })
     .then(response=>response.json())
     .then(data=>{
+        console.log(data)
     	dispatch({
     		type: Type.LOGIN,
-        success: data.success
+            success: data.success
     	})
-    	console.log(data)
     	// cb(true); 
     	if (data.success){
     		cb(true); // success handling
