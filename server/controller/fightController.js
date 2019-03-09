@@ -21,7 +21,6 @@ module.exports = {
 	}, //end createEvent
 
 	getAllFight: (req, res) => {
-		
 		Fight.find({event: req.params.event_id}, (err, fight) => {
 			if(err){
 				return res.json({message:err,success: false})
@@ -32,7 +31,6 @@ module.exports = {
 	},
 
 	getFight: (req, res) => {
-	
 		Fight.findOne({_id:req.params.fight_id})
 			.populate('event')
 			.exec((err, fight) => {
@@ -59,15 +57,20 @@ module.exports = {
 
 	deleteFight: (req, res) => {
 		const id = req.params.fight_id;
-		Fight.findByIdAndRemove(id, (err, fight) => {
+		const event_id = req.params.event_id;
+		console.log(id, "event", event_id)
+		Fight.remove({_id : id}, (err, fight) => {
 			if(err) {
 				return res.json({message:err,success: false})
 			}else{
-				Fight.find({event_id: req.params.event_id}, (err, data) => {
+				Event.findOneAndUpdate({_id: event_id}, {$pull : {"fight" : id }}, (err, data) => {
 					if(err){
-						res.send(err)
+						res.json({message:err,success:false})
 					}else{
-						res.json(data)
+						res.json({
+							message:"Fight Deleted",
+							success:true
+						})
 					}
 				})
 			}
