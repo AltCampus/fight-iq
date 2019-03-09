@@ -6,14 +6,14 @@ module.exports = {
 		const newFight = new Fight({...req.body,event:req.params.event_id})
 			newFight.save((err, fight) => {
 				if(err){
-					return res.json({message: err, success:true})
+					return res.json({message: err, success:false})
 				}else {
 				    Event.findByIdAndUpdate(req.params.event_id, {$push: {fight: newFight._id}}, {new :true}, (err, post) => {
 						if(err) return res.json({
 							message: err,
 							success: false
 						});
-					return res.json({success: true,
+					return res.status(201).json({success: true,
 						message: "New Fight Added." });
 				})
 			}
@@ -21,20 +21,18 @@ module.exports = {
 	}, //end createEvent
 
 	getAllFight: (req, res) => {
-		
 		Fight.find({event: req.params.event_id}, (err, fight) => {
 			if(err){
 				return res.json({message:err,success: false})
 			}else{
-				return res.json({fight,success:true})
+				return res.status(200).json({fight,success:true})
 			}
 		})
 	},
 
 	getFight: (req, res) => {
-	
 		Fight.findOne({_id:req.params.fight_id})
-			.populate('event')
+			.populate('event').populate('player1').populate('player2')
 			.exec((err, fight) => {
 				if (err || !fight) {
 					return res.status(400).json({
@@ -42,7 +40,7 @@ module.exports = {
 						message:err
 					})
 				}	
-				return res.json({
+				return res.status(200).json({
 					fight,
 					success:true
 				})
@@ -53,21 +51,25 @@ module.exports = {
 		const id = req.params.fight_id;
 		Fight.findByIdAndUpdate(id, req.body, {new:true}, (err, data) => {
 			if(err) return res.json({message:err,success: false})
-				return res.json({data,success: true,})
+				return res.status(200).json({data,success: true,})
 		})
 	},
 
 	deleteFight: (req, res) => {
 		const id = req.params.fight_id;
-		Fight.findByIdAndRemove(id, (err, fight) => {
+		const event_id = req.params.event_id;
+		Fight.remove({_id : id}, (err, fight) => {
 			if(err) {
 				return res.json({message:err,success: false})
 			}else{
-				Fight.find({event_id: req.params.event_id}, (err, data) => {
+				Event.findOneAndUpdate({_id: event_id}, {$pull : {"fight" : id }}, (err, data) => {
 					if(err){
-						res.send(err)
+						res.json({message:err,success:false})
 					}else{
-						res.json(data)
+						res.status(204).json({
+							message:"Fight Deleted",
+							success:true
+						})
 					}
 				})
 			}

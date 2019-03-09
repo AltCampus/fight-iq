@@ -72,7 +72,7 @@ export default function rootReducer(state = initState, action) {
 			return {
 				...state,
 				isLogged: false
-			};
+			}
 
 		case Type.ADD_EVENT:
 			let events3 = [...state.events];
