@@ -8,9 +8,9 @@ class AdminAddEvent extends Component {
 		this.state = {
 			eventDetails: {
 				title: "",
-				mainEvent: "",
+				main_event: "",
 				location: "",
-				dateTime: ""
+				date_time: ""
 			},
 			error: "",
 			mode: "add"
@@ -28,8 +28,29 @@ class AdminAddEvent extends Component {
 		})
 
 		if (isEdit){
-			this.props.dispatch(updateEditEvent(this.props.match.params.eventid));
+			// this.props.dispatch(updateEditEvent(this.props.match.params.eventid));
+			this.fetchEventAndUpdate()
 		}
+
+	}
+
+	fetchEventAndUpdate = () =>{
+		fetch("http://localhost:8000/api/v1/events/" + this.props.match.params.eventid)
+			.then(res=>res.json())
+			.then(data=>{
+				let event = data.event;
+
+				this.setState({
+						eventDetails: {
+							...this.state.eventDetails,
+							title: event.title,
+							main_event: event.main_event,
+							location: event.location,
+							date_time: event.date_time
+						}	
+				})
+
+			})
 	}
 
 	handleAddSubmit = (event) => {
@@ -39,7 +60,7 @@ class AdminAddEvent extends Component {
 
 	handleEditSubmit = () => {
 		event.preventDefault();
-		this.props.dispatch(editEvent(this.state.eventDetails, this.redirectUser))
+		this.props.dispatch(editEvent(this.state.eventDetails, this.redirectUser, this.props.match.params.eventid ))
 	}
 
 	redirectUser = (success, errorMsg) => {
@@ -66,7 +87,7 @@ class AdminAddEvent extends Component {
 	// Todo : Need to be discussed about the get request before edit
 
 	render() {
-		let { editEvent } = this.props;
+		let { eventDetails } = this.state;
 
 		return (
 			<div>
@@ -74,13 +95,13 @@ class AdminAddEvent extends Component {
 					this.state.mode=='edit'? (
 						<form onSubmit={this.handleEditSubmit}>
 								<div>Title:</div>
-								<input type="text" name="title" onChange={this.updateValue} value={editEvent.title}/>
+								<input type="text" name="title" onChange={this.updateValue} value={eventDetails.title}/>
 								<div>Main Event:</div>
-								<input type="text" name="main_event" onChange={this.updateValue} value={editEvent.main_event}/>
+								<input type="text" name="main_event" onChange={this.updateValue} value={eventDetails.main_event}/>
 								<div>Location: </div>
-								<input type="text" name="location" onChange={this.updateValue} value={editEvent.location}/>
+								<input type="text" name="location" onChange={this.updateValue} value={eventDetails.location}/>
 								<div>Date & time:</div>
-								<input type="datetime-local" name="date_time" onChange={this.updateValue} value={editEvent.date_time}/>
+								<input type="datetime-local" name="date_time" onChange={this.updateValue} value={eventDetails.date_time}/>
 								<br/>
 								<button>Submit</button>
 						</form>
