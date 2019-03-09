@@ -40,23 +40,22 @@
 // }
 // ];
 
-import Type from '../actions/types'
+import Type from "../actions/types";
 
 const initState = {
 	events: [],
 	editEvent: {},
 	isLogged: false,
-	event: {}
+	event: {},
+	fightsArr: []
 };
 
 export default function rootReducer(state = initState, action) {
 	switch (action.type) {
-	case Type.UPDATE_EDIT_EVENT:
-			let events2 = [...state.events];
-			let editEvent = events2.filter((event) => event.id == action.eventid)[0];
+		case Type.UPDATE_EDIT_EVENT:
 			return {
 				...state,
-				editEvent: editEvent
+				editEvent: action.editEvent
 			};
 
 		case Type.REGISTER:
@@ -74,7 +73,7 @@ export default function rootReducer(state = initState, action) {
 			return {
 				...state,
 				isLogged: false
-			}
+			};
 
 		case Type.ADD_EVENT:
 			let events3 = [...state.events];
@@ -105,6 +104,23 @@ export default function rootReducer(state = initState, action) {
 			return {
 				...state,
 				event: action.event
+			};
+
+		case Type.DELETE_EVENTS:
+			return {
+				...state
+			};
+
+		case Type.ADD_FIGHT:
+			console.log(action.data);
+			return {
+				...state,
+				fightsArr: [...state.fightsArr, action.data]
+			};
+
+		case Type.GET_FIGHT:
+			return {
+				...state
 			};
 
 		default:
