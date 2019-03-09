@@ -21,7 +21,7 @@ module.exports = {
 
 						newUser.save((err, user) => {
 							if(err) return res.json({message:err,success:false});
-								return res.json({
+								return res.status(201).json({
 									user: user.username,
 									success: true,
 									message: "User Created Successfully"
@@ -73,7 +73,7 @@ module.exports = {
 	isUser: (req, res) => {
 		const user = req.session.passport;
 		if(user){
-			User.findOne({_id: user.user}, (err, user) => res.json({
+			User.findOne({_id: user.user}, (err, user) => res.status(200).json({
 				login: "success",
 				user:user.username
 			}))
