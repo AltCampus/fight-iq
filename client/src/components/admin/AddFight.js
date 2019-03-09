@@ -10,9 +10,9 @@ class AddFight extends Component {
 		this.state = {
 			title: "",
 			type: "",
-			rounds: "1-rounds"
-			// player1_id: "",
-			// player2_id: "123456789"
+			rounds: "1-rounds",
+			player1name: "",
+			player2name: ""
 			// playersList: []
 		};
 	}
@@ -60,10 +60,10 @@ class AddFight extends Component {
 					<h5>Player 1</h5>
 					<select name='player1_name' id='player1_name' />
 					<div>Name:</div> {/* // Dropdown according to the data fetched */}
-					<input type='text' name='player1-name' onChange={this.updateValue} />
+					<input type='text' name='player1name' onChange={this.updateValue} />
 					<h5>Player 2</h5>
 					<div>Name:</div> {/* // Dropdown according to the data fetched */}
-					<input type='text' name='player2-name' onChange={this.updateValue} />
+					<input type='text' name='player2name' onChange={this.updateValue} />
 					<br />
 					<button onClick={this.handleFightSubmit}>Submit</button>
 				</form>
