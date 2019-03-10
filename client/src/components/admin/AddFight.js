@@ -13,7 +13,7 @@ class AddFight extends Component {
 				rounds: "",
 				player1_id: "",
 				player2_id: "",
-				playersList: [];
+				playersList: []
 			}
 		}
 	}
@@ -24,7 +24,7 @@ class AddFight extends Component {
 
 	componentDidMount(){
 		// Get the players list and add it to the state
-		fetchUsersData();
+		this.fetchUsersData();
 	}
 
 
