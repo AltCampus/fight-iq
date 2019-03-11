@@ -15,7 +15,7 @@ class AddPlayer extends Component {
 				height: "",
 				rank: ""
 			}
-		}
+		};
 	}
 
 	// fetchUsersData = () => {};
@@ -23,14 +23,13 @@ class AddPlayer extends Component {
 	componentDidMount() {
 		// Get the players list and add it to the state
 		// this.fetchUsersData();
-		
 	}
 
 	updateValue = (e) => {
 		this.setState({
 			playerDetails: {
 				...this.state.playerDetails,
-				[e.target.name]: e.target.value	
+				[e.target.name]: e.target.value
 			}
 		});
 	};
@@ -38,13 +37,13 @@ class AddPlayer extends Component {
 	handlePlayerSubmit = (e) => {
 		e.preventDefault();
 		this.props.dispatch(addPlayer(this.state.playerDetails, this.redirectUser));
-	}
+	};
 
-	redirectUser = (success) =>{
-		if (success){
-			this.props.history.push(`/admin`);
+	redirectUser = (success) => {
+		if (success) {
+			this.props.history.push(`/admin/players`);
 		}
-	}
+	};
 
 	render() {
 		return (
@@ -60,7 +59,7 @@ class AddPlayer extends Component {
 					<input type='text' name='height' onChange={this.updateValue} />
 					<div>Rank:</div>
 					<input type='text' name='rank' onChange={this.updateValue} />
-						<br />
+					<br />
 					<button onClick={this.handlePlayerSubmit}>Submit</button>
 				</form>
 			</div>
