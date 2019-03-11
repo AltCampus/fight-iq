@@ -9,7 +9,7 @@ const playerController = require("../controller/playerController");
 // event routes
 
 router.post(
-	'/admin/events',
+	"/admin/events",
 	userController.isLoggedIn,
 	eventController.createEvent
 ); // done
@@ -22,14 +22,15 @@ router.get('/events/:event_id',
 eventController.getEvent
 ); //done
 
+
 router.put(
-	'/admin/events/:event_id',
+	"/admin/events/:event_id",
 	userController.isLoggedIn,
 	eventController.editEvent
 ); // done
 
 router.delete(
-	'/admin/events/:event_id',
+	"/admin/events/:event_id",
 	userController.isLoggedIn,
 	eventController.deleteEvent
 );
@@ -82,7 +83,7 @@ router.put(
 	playerController.editPlayer
 );
 router.delete(
-	"admin/players/:player_id",
+	"/admin/players/:player_id",
 	userController.isLoggedIn,
 	playerController.deletePlayer
 );

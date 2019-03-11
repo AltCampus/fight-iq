@@ -68,17 +68,19 @@ module.exports = {
 	},
 
 	deleteEvent: (req, res) => {
+		console.log("within server controller")
 		const id = req.params.event_id;
 		Event.findByIdAndRemove(id, (err, event) => {
 			if(err || !event) {
 				return res.json({success: false,
 					message : err})
-			}else{
+			} else {
 				Fight.remove({event: id}, (err, fight) => {
 					if(err) return res.json({success: false,
 						message : err})
 						else
-				return res.status(204).json({success: true,
+							console.log("Inside delete DB")
+				return res.status(200).json({success: true,
 					message : "Event Deleted Successfully"})
 					})
 			}})
