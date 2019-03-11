@@ -7,7 +7,7 @@ import { getEvent } from "./../../actions";
 class AdminEventDetail extends Component {
 	// Onload do a fetch request to get the event detail
 	componentDidMount() {
-		this.props.dispatch(getEvent(this.props.match.params.eventid));
+		this.props.dispatch(getEvent(this.props.match.params.eventid));		
 	}
 
 	render() {
