@@ -29,7 +29,7 @@ export default function rootReducer(state = initState, action) {
 				isLogged: false
 			};
 
-// Events 
+// Events
 		case Type.ADD_EVENT:
 			return {
 				...state,

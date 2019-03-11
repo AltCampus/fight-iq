@@ -153,14 +153,31 @@ button{
   width: 70%;
   h1{
     font-size: 3em;
-}
+  }
+  img{
+    width: 60%;
+    height: 5%;
+  }
 }
 .fight-cards{
   display: grid;
   grid-template-columns: auto 1fr 1fr auto;
-  padding: 5em 0.5em;
+  padding: 1em 2.5em;
   border: 1px solid #eeeeef;
+  margin: 1em 0;
   &:hover{
   box-shadow: 0px 0px 18px 8px #eeeeef;
   }
+}
+
+.nextfight-btn{
+  position: absolute;
+  top: 40%;
+  left: 28%;
+}
+
+.prevfight-btn{
+  position: absolute;
+  top: 40%;
+  left: 10%;
 }
