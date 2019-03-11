@@ -5,7 +5,8 @@ const initState = {
 	editEvent: {},
 	isLogged: false,
 	event: {},
-	fightsArr: []
+	fightsArr: [],
+	players: []
 };
 
 export default function rootReducer(state = initState, action) {
@@ -83,8 +84,14 @@ export default function rootReducer(state = initState, action) {
 
 		case Type.ADD_PLAYER:
 			return {
-				...state
-			}
+				...state,
+				players: action.data
+			};
+		case Type.GET_PLAYERS:
+			return {
+				...state,
+				players: action.data
+			};
 
 		default:
 			return state;

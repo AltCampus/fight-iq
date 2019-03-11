@@ -30,7 +30,7 @@ export function getFights(eventId) {
 		fetch(URL + " /events/" + eventId + "/fights")
 			.then((res) => res.json())
 			.then((data) => {
-				console.log("Inside getEvents", data);
+				// console.log("Inside getEvents", data);
 				dispatch({
 					type: Type.GET_FIGHT,
 					data

@@ -21,21 +21,22 @@ class AdminEventDetail extends Component {
 				<div>{event.mainEvent}</div>
 				<div>{event.location}</div>
 				<div>{event.date_time}</div>
-				//show the fight detail
 				<div className='fight-detail'>
 					{fights &&
-						fights.map((val) => (
-							<div className='add-fight'>
+						fights.map((val, index) => (
+							<div className='add-fight' key={index}>
 								<div>
 									<p>{val.title}</p>
 									<p>{val.type}</p>
 									<p>{val.rounds}</p>
+									<p>{val.player1name}</p>
+									<p>{val.player2name}</p>
 								</div>
 								<p>
-									<i class='fas fa-edit' />
+									<i className='fas fa-edit' />
 								</p>
 								<p>
-									<i class='fas fa-trash-alt' />
+									<i className='fas fa-trash-alt' />
 								</p>
 							</div>
 						))}

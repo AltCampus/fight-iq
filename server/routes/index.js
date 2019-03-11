@@ -9,7 +9,7 @@ const playerController = require("../controller/playerController");
 // event routes
 
 router.post(
-	'/admin/events',
+	"/admin/events",
 	userController.isLoggedIn,
 	eventController.createEvent
 ); // done
@@ -22,14 +22,15 @@ router.get('/events/:event_id',
 eventController.getEvent
 ); //done
 
+
 router.put(
-	'/admin/events/:event_id',
+	"/admin/events/:event_id",
 	userController.isLoggedIn,
 	eventController.editEvent
 ); // done
 
 router.delete(
-	'/admin/events/:event_id',
+	"/admin/events/:event_id",
 	userController.isLoggedIn,
 	eventController.deleteEvent
 );
@@ -41,15 +42,9 @@ router.post(
 	userController.isLoggedIn,
 	fightController.createFight
 );
-router.get(
-	"/events/:event_id/fights",
-	fightController.getAllFight
-);
-router.get(
-	"/events/:event_id/fights/:fight_id",
-	userController.isLoggedIn,
-	fightController.getFight
-);
+
+router.get("/events/:event_id/fights", fightController.getAllFight);
+router.get("/events/:event_id/fights/:fight_id", fightController.getFight);
 
 router.put(
 	"/admin/events/:event_id/fights/:fight_id",
