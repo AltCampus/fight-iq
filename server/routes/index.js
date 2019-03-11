@@ -15,12 +15,10 @@ router.post(
 ); // done
 
 router.get('/events',
- userController.isLoggedIn,
   eventController.getAllEvents
   ); //done
 
 router.get('/events/:event_id',  
-userController.isLoggedIn, 
 eventController.getEvent
 ); //done
 
@@ -45,7 +43,6 @@ router.post(
 );
 router.get(
 	"/events/:event_id/fights",
-	userController.isLoggedIn,
 	fightController.getAllFight
 );
 router.get(
@@ -74,12 +71,10 @@ router.post(
 );
 router.get(
 	"/players",
-	userController.isLoggedIn,
 	playerController.getAllPlayers
 );
 router.get(
 	"/players/:player_id",
-	userController.isLoggedIn,
 	playerController.getPlayer
 );
 router.put(

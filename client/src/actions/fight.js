@@ -3,9 +3,7 @@ import Type from "./types";
 
 // Add addFight submit
 export function addFight(data, eventId, cb) {
-	console.log(data, eventId, "addFight action");
 	return (dispatch) => {
-		console.log(data, "add fight action");
 		fetch(URL + "api/v1/admin/events/" + eventId + "/fights", {
 			method: "POST",
 			headers: {
