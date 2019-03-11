@@ -1,27 +1,37 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { addFight } from "../../actions/fitght";
+import { addFight } from "../../actions/fight";
 
 class AddFight extends Component {
 	// Fetch Players data to show in the fight creation time(name, id is good enough)
 	constructor(props) {
 		super(props);
 		this.state = {
-			title: "",
-			type: "",
-			rounds: "1-rounds",
-			player1name: "",
-			player2name: ""
-			// playersList: []
+			fightDetails: {
+				title: "",
+				type: "",
+				rounds: "",
+				player1_id: "",
+				player2_id: ""
+			},
+			players: []
 		};
 	}
 
-	fetchUsersData = () => {};
+	fetchUsersData = () => {
+		fetch("http://localhost:8000/api/v1/players")
+			.then((res) => res.json())
+			.then((data) => {
+				this.setState({
+					players: data.player
+				});
+			});
+	};
 
 	componentDidMount() {
 		// Get the players list and add it to the state
-		// fetchUsersData();
+		this.fetchUsersData();
 	}
 
 	updateValue = (e) => {
@@ -33,7 +43,7 @@ class AddFight extends Component {
 	handleFightSubmit = (e) => {
 		e.preventDefault();
 		const eventId = this.props.match.params.eventid;
-		console.log(eventId, "sdfghbjnsdxcfghbjndcfvgbhn");
+		// console.log(eventId, "sdfghbjnsdxcfghbjndcfvgbhn");
 		this.props.dispatch(
 			addFight(this.state, eventId, (success) => {
 				if (success) {
@@ -44,6 +54,13 @@ class AddFight extends Component {
 	};
 
 	render() {
+		console.log(
+			this.state.players,
+			"check the players in add fight comoponent"
+		);
+
+		let players = this.state.players;
+		console.log(players, "check the players in add fight comoponent");
 		return (
 			<div className='AddFight'>
 				<form>
@@ -58,12 +75,21 @@ class AddFight extends Component {
 						<option value='3-rounds'>3-rounds</option>
 					</select>
 					<h5>Player 1</h5>
-					<select name='player1_name' id='player1_name' />
-					<div>Name:</div> {/* // Dropdown according to the data fetched */}
-					<input type='text' name='player1name' onChange={this.updateValue} />
+					<select name='player1'>
+						{players.map((player) => (
+							<option key={player._id} value={player._id}>
+								{player.name}
+							</option>
+						))}
+					</select>
 					<h5>Player 2</h5>
-					<div>Name:</div> {/* // Dropdown according to the data fetched */}
-					<input type='text' name='player2name' onChange={this.updateValue} />
+					<select name='player2'>
+						{players.map((player) => (
+							<option key={player._id} value={player._id}>
+								{player.name}
+							</option>
+						))}
+					</select>
 					<br />
 					<button onClick={this.handleFightSubmit}>Submit</button>
 				</form>

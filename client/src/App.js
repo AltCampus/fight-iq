@@ -10,6 +10,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import AdminAddEvent from "./components/admin/AdminAddEvent";
 import AdminEventDetail from "./components/admin/AdminEventDetail";
 import AddFight from "./components/admin/AddFight";
+import AddPlayer from "./components/admin/AddPlayer";
 
 class App extends Component {
 	render() {
@@ -22,17 +23,10 @@ class App extends Component {
 						<Route exact path='/' component={Events} />
 						<Route exact path='/admin' component={Admin} />
 						<Route exact path='/admin/event' component={AdminAddEvent} />
-						<Route
-							exact
-							path='/admin/event/:eventid'
-							component={AdminEventDetail}
-						/>
-						<Route
-							exact
-							path='/admin/:eventid/edit'
-							component={AdminAddEvent}
-						/>
+						<Route exact path='/admin/event/:eventid' component={AdminEventDetail}/>
+						<Route exact path='/admin/:eventid/edit' component={AdminAddEvent}/>
 						<Route exact path='/admin/:eventid/fights' component={AddFight} />
+						<Route exact path='/admin/players' component={AddPlayer} />
 						<Route path='/login' component={Login} />
 						<Route path='/register' component={Register} />
 					</Switch>
