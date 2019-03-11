@@ -2,7 +2,6 @@ const URL = "http://localhost:8000/";
 import Type from "./types";
 
 export function addPlayer(playerDetails, cb) {
-	// console.log(playerDetails);
 	return (dispatch) => {
 		fetch(URL + "api/v1/admin/players", {
 			method: "POST",
@@ -14,7 +13,6 @@ export function addPlayer(playerDetails, cb) {
 			.then((res) => res.json())
 			.then((data) => {
 				if (data) {
-					console.log(data, "plasdjdasflfghkfa");
 					dispatch({
 						type: Type.ADD_PLAYER,
 						data
@@ -35,6 +33,25 @@ export function getPlayers() {
 					type: Type.GET_PLAYERS,
 					data
 				});
+			});
+	};
+}
+
+// Delete player
+export function deleteEvent(id, cb) {
+	return (dispatch) => {
+		fetch(URL + "api/v1/admin/players/" + id, {
+			method: "DELETE",
+			headers: {
+				"Content-Type": "application/json"
+			}
+		})
+			.then((res) => res.json())
+			.then((data) => {
+				dispatch({
+					type: Type.DELETE_PLAYER
+				});
+				cb(true);
 			});
 	};
 }

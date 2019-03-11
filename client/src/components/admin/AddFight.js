@@ -58,30 +58,25 @@ class AddFight extends Component {
 			<div className='AddFight'>
 				<form>
 					<div>Title:</div>
-					<input type='text' name='title' onChange={this.updateValue} />
+					<input type='text' name='title' onChange={this.updateValue} required/>
 					<div>Type: </div> {/* make this a dropdown */}
-					<input type='text' name='type' onChange={this.updateValue} />
+					<input type='text' name='type' onChange={this.updateValue} required/>
 					<div>Rounds: </div>
-					<select name='rounds' id='rounds' onChange={this.updateValue}>
-						<option value='1-rounds'>1-rounds</option>
-						<option value='2-rounds'>2-rounds</option>
-						<option value='3-rounds'>3-rounds</option>
+					<select name='rounds' id='rounds' onChange={this.updateValue} required>
+						<option value='1-rounds'>5-Rounds</option>
+						<option value='2-rounds'>3-Rounds</option>
 					</select>
 					<h5>Player 1</h5>
-					<select name='player1'>
-						{players.map((player) => (
-							<option key={player._id} value={player._id}>
-								{player.name}
-							</option>
-						))}
+					<select name='player1' required>
+						{
+							players.map(player=>(<option key={player._id} value={player._id} >{player.name}</option>))
+						}
 					</select>
 					<h5>Player 2</h5>
-					<select name='player2'>
-						{players.map((player) => (
-							<option key={player._id} value={player._id}>
-								{player.name}
-							</option>
-						))}
+					<select name='player2' required>
+						{
+							players.map(player=>(<option key={player._id} value={player._id} >{player.name}</option>))
+						}
 					</select>
 					<br />
 					<button onClick={this.handleFightSubmit}>Submit</button>

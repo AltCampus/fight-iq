@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from "react-redux"
-import {getEvents} from '../../actions/admin'
+import {getEvents} from '../../actions/event'
 
 
 class FightCards extends Component {
