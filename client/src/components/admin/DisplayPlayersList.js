@@ -17,6 +17,7 @@ class DisplayPlayersList extends Component {
 	componentDidMount() {
 		this.props.dispatch(getPlayers());
 	}
+
 	render() {
 		const { players } = this.props;
 		return (
