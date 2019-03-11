@@ -14,13 +14,16 @@ class Events extends Component {
 		let { events } = this.props;
 		console.log(events)
 		return (
-			<div className="Events">
-				{ events.map(event=><Event key={event._id}  event={event}/>) }
+			<div>
+				<div className="Events">
+					{ events.map(event=><Event key={event._id}  event={event}/>) }
+				</div>
 			</div>
 			);
 	}
 }
 
+			
 
 const mapStateToProps = (state) => {
 	return {
