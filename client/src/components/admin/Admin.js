@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import AdminEvents from "./AdminEvents";
+import AdminEvents from "./events/AdminEvents";
 import "./style.scss";
 import { Link } from "react-router-dom";
 

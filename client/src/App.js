@@ -11,6 +11,7 @@ import AdminAddEvent from "./components/admin/events/AdminAddEvent";
 import AdminEventDetail from "./components/admin/events/AdminEventDetail";
 import AddFight from "./components/admin/AddFight";
 import AddPlayer from "./components/admin/AddPlayer";
+import FightCards from './components/user/FightCards'
 import DisplayPlayersList from "./components/admin/DisplayPlayersList";
 
 class App extends Component {
@@ -21,24 +22,17 @@ class App extends Component {
 					<Header />
 					<Header2 />
 					<Switch>
-						<Route exact path='/' component={Events} />
-						<Route exact path='/admin' component={Admin} />
-						<Route exact path='/admin/event' component={AdminAddEvent} />
-						<Route
-							exact
-							path='/admin/event/:eventid'
-							component={AdminEventDetail}
-						/>
-						<Route
-							exact
-							path='/admin/:eventid/edit'
-							component={AdminAddEvent}
-						/>
-						<Route exact path='/admin/:eventid/fights' component={AddFight} />
+            <Route exact path='/' component={Events} />
+            <Route exact path='/admin' component={Admin} />
+            <Route exact path='/admin/event' component={AdminAddEvent} />
+            <Route exact path='/admin/event/:eventid' component={AdminEventDetail}/>
+            <Route exact path='/admin/:eventid/edit' component={AdminAddEvent}/>
+            <Route exact path='/admin/:eventid/fights' component={AddFight} />
 						<Route exact path='/admin/players/add' component={AddPlayer} />
 						<Route exact path='/admin/players' component={DisplayPlayersList} />
-						<Route path='/login' component={Login} />
-						<Route path='/register' component={Register} />
+            <Route path='/login' component={Login} />
+            <Route path='/register' component={Register} />
+            <Route path='/events' component={FightCards} />
 					</Switch>
 				</div>
 			</BrowserRouter>
@@ -47,3 +41,4 @@ class App extends Component {
 }
 
 export default App;
+ 
