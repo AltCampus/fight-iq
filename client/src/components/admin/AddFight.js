@@ -52,11 +52,6 @@ class AddFight extends Component {
 	};
 
 	render() {
-		console.log(
-			this.state.players,
-			"check the players in add fight comoponent"
-		);
-
 		let players = this.state.players;
 		console.log(players, "check the players in add fight comoponent");
 		return (
