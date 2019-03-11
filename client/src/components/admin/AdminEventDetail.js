@@ -32,10 +32,10 @@ class AdminEventDetail extends Component {
 									<p>{val.rounds}</p>
 								</div>
 								<p>
-									<i class='fas fa-edit' />
+									<i className='fas fa-edit' />
 								</p>
 								<p>
-									<i class='fas fa-trash-alt' />
+									<i className='fas fa-trash-alt' />
 								</p>
 							</div>
 						))}
