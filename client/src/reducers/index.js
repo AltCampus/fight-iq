@@ -11,12 +11,7 @@ const initState = {
 
 export default function rootReducer(state = initState, action) {
 	switch (action.type) {
-		case Type.UPDATE_EDIT_EVENT:
-			return {
-				...state,
-				editEvent: action.editEvent
-			};
-
+// User Auth
 		case Type.REGISTER:
 			return {
 				...state
@@ -34,23 +29,10 @@ export default function rootReducer(state = initState, action) {
 				isLogged: false
 			};
 
+// Events 
 		case Type.ADD_EVENT:
-			let events3 = [...state.events];
-
-			if (action.event) {
-				events3.push(action.event);
-			}
-
 			return {
 				...state,
-				events: events3
-			};
-
-		// Handle edit event reducer
-
-		case Type.EDIT_EVENTS:
-			return {
-				...state
 			};
 
 		case Type.GET_EVENTS:
@@ -64,11 +46,18 @@ export default function rootReducer(state = initState, action) {
 				...state,
 				event: action.event
 			};
+			
+		case Type.EDIT_EVENTS:
+			return {
+				...state
+			};
 
 		case Type.DELETE_EVENTS:
 			return {
 				...state
 			};
+
+// Fights
 
 		case Type.ADD_FIGHT:
 			return {
