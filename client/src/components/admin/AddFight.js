@@ -15,17 +15,17 @@ class AddFight extends Component {
 				player2_id: ""
 			},
 			players: []
-		}
+		};
 	}
 
 	fetchUsersData = () => {
-		fetch('http://localhost:8000/api/v1/players')
-		.then(res=>res.json())
-		.then(data=>{
-			this.setState({
-				players: data.player
-			})
-		})
+		fetch("http://localhost:8000/api/v1/players")
+			.then((res) => res.json())
+			.then((data) => {
+				this.setState({
+					players: data.player
+				});
+			});
 	};
 
 	componentDidMount() {
@@ -53,6 +53,7 @@ class AddFight extends Component {
 
 	render() {
 		let players = this.state.players;
+		console.log(players, "check the players in add fight comoponent");
 		return (
 			<div className='AddFight'>
 				<form>
