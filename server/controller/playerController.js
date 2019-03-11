@@ -36,10 +36,10 @@ module.exports = {
 
 	editPlayer: (req, res) => {
 		const id = req.params.player_id;
-		Player.findByIdAndUpdate(id, req.body, { new: true }, (err, data) => {
-			if (err) return res.json({ message: err, success: false });
-			return res.status(200).json({ data, success: true });
-		});
+		Player.findByIdAndUpdate(id, req.body, {new:true}, (err, player) => {
+			if(err) return res.json({message:err,success: false})
+				return res.status(200).json({player,success: true,})
+		})
 	}, // end edit player
 
 	deletePlayer: (req, res) => {

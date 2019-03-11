@@ -11,6 +11,7 @@ import AdminAddEvent from "./components/admin/events/AdminAddEvent";
 import AdminEventDetail from "./components/admin/events/AdminEventDetail";
 import AddFight from "./components/admin/fights/AddFight";
 import AddPlayer from "./components/admin/AddPlayer";
+import FightCards from './components/user/FightCards'
 import DisplayPlayersList from "./components/admin/DisplayPlayersList";
 
 class App extends Component {
@@ -31,11 +32,11 @@ class App extends Component {
 
 						<Route exact path='/admin/:eventid/fights/:fightid/edit' component={AddFight}/>
 
-
 						<Route exact path='/admin/players/add' component={AddPlayer} />
 						<Route exact path='/admin/players' component={DisplayPlayersList} />
-						<Route path='/login' component={Login} />
-						<Route path='/register' component={Register} />
+            <Route path='/login' component={Login} />
+            <Route path='/register' component={Register} />
+            <Route path='/events' component={FightCards} />
 					</Switch>
 				</div>
 			</BrowserRouter>
@@ -44,3 +45,4 @@ class App extends Component {
 }
 
 export default App;
+ 
