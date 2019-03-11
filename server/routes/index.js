@@ -78,7 +78,7 @@ router.put(
 	playerController.editPlayer
 );
 router.delete(
-	"admin/players/:player_id",
+	"/admin/players/:player_id",
 	userController.isLoggedIn,
 	playerController.deletePlayer
 );
