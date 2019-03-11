@@ -65,10 +65,22 @@ export default function rootReducer(state = initState, action) {
 				fightsArr: [...state.fightsArr, action.data]
 			};
 
+		case Type.EDIT_FIGHT:
+			return {
+				...state
+			}
+
 		case Type.GET_FIGHT:
 			return {
 				...state
 			};
+
+		case Type.DELETE_FIGHT: 
+			return {
+				...state
+			}
+
+// Player
 
 		case Type.ADD_PLAYER:
 			return {
@@ -78,7 +90,7 @@ export default function rootReducer(state = initState, action) {
 		case Type.GET_PLAYERS:
 			return {
 				...state,
-				players: action.data
+				players: action.players
 			};
 		case Type.DELETE_PLAYER:
 			return {

@@ -31,7 +31,7 @@ export function getPlayers() {
 			.then((data) => {
 				dispatch({
 					type: Type.GET_PLAYERS,
-					data
+					players:data.player
 				});
 			});
 	};
