@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import { addFight } from "../../actions/fight";
 
 class AddFight extends Component {
-	// Fetch Players data to show in the fight creation time(name, id is good enough)
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -30,7 +29,6 @@ class AddFight extends Component {
 	};
 
 	componentDidMount() {
-		// Get the players list and add it to the state
 		this.fetchUsersData();
 	}
 
