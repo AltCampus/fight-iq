@@ -26,19 +26,23 @@ class DisplayPlayersList extends Component {
 					{players &&
 						players.map((val, index) => (
 							<div key={index}>
+								<img src={val.image} />
 								<p>Name :{val.name}</p>
 								<p> Weight:{val.weight}</p>
 								<p> Height :{val.height}</p>
-								<img src={val.image} />
-								<p onClick={(e) => this.handleDelete(e, val._id)}>
-									<i className='fas fa-trash-alt' />
-								</p>
+								<div>
+									<p onClick={(e) => this.handleDelete(e, val._id)}>
+										<i className='fas fa-trash-alt' />
+									</p>
+								</div>
 							</div>
 						))}
 				</div>
-				<Link to='/admin/players/add'>
-					<button className='add-player'>Add a player</button>
-				</Link>
+				<div>
+					<Link to='/admin/players/add'>
+						<button className='add-player'>Add a player</button>
+					</Link>
+				</div>
 			</div>
 		);
 	}
