@@ -47,11 +47,11 @@ class Register extends Component {
 			<div className="Login-section">
 			<form onSubmit={this.handleSubmit}>
 					<div>Name:</div>
-					<input type="text" name="username" onChange={this.updateValue}/>
+					<input type="text" name="username" onChange={this.updateValue} required/>
 					<div>Email:</div>
-					<input type="text" name="email" onChange={this.updateValue}/>
+					<input type="text" name="email" onChange={this.updateValue} required/>
 					<div>Password:</div>
-					<input type="password" name="password" onChange={this.updateValue}/>
+					<input type="password" name="password" onChange={this.updateValue} required/>
 					<br/>
 					<button>Register</button>
 			</form>

@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import { addFight } from "../../actions/fight";
 
 class AddFight extends Component {
-	// Fetch Players data to show in the fight creation time(name, id is good enough)
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -16,23 +15,21 @@ class AddFight extends Component {
 				player2_id: ""
 			},
 			players: []
-		}
+		};
 	}
 
 	fetchUsersData = () => {
-		fetch('http://localhost:8000/api/v1/players')
-		.then(res=>res.json())
-		.then(data=>{
-			this.setState({
-				players: data.player
-			})
-		})
+		fetch("http://localhost:8000/api/v1/players")
+			.then((res) => res.json())
+			.then((data) => {
+				this.setState({
+					players: data.player
+				});
+			});
 	};
 
 	componentDidMount() {
-		// Get the players list and add it to the state
 		this.fetchUsersData();
-
 	}
 
 	updateValue = (e) => {
@@ -56,27 +53,27 @@ class AddFight extends Component {
 
 	render() {
 		let players = this.state.players;
+		console.log(players, "check the players in add fight comoponent");
 		return (
 			<div className='AddFight'>
 				<form>
 					<div>Title:</div>
-					<input type='text' name='title' onChange={this.updateValue} />
+					<input type='text' name='title' onChange={this.updateValue} required/>
 					<div>Type: </div> {/* make this a dropdown */}
-					<input type='text' name='type' onChange={this.updateValue} />
+					<input type='text' name='type' onChange={this.updateValue} required/>
 					<div>Rounds: </div>
-					<select name='rounds' id='rounds' onChange={this.updateValue}>
-						<option value='1-rounds'>1-rounds</option>
-						<option value='2-rounds'>2-rounds</option>
-						<option value='3-rounds'>3-rounds</option>
+					<select name='rounds' id='rounds' onChange={this.updateValue} required>
+						<option value='1-rounds'>5-Rounds</option>
+						<option value='2-rounds'>3-Rounds</option>
 					</select>
 					<h5>Player 1</h5>
-					<select name='player1'>
+					<select name='player1' required>
 						{
 							players.map(player=>(<option key={player._id} value={player._id} >{player.name}</option>))
 						}
 					</select>
 					<h5>Player 2</h5>
-					<select name='player2'>
+					<select name='player2' required>
 						{
 							players.map(player=>(<option key={player._id} value={player._id} >{player.name}</option>))
 						}

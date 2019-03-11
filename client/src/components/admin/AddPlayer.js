@@ -15,7 +15,7 @@ class AddPlayer extends Component {
 				height: "",
 				rank: ""
 			}
-		}
+		};
 	}
 
 	// fetchUsersData = () => {};
@@ -23,14 +23,13 @@ class AddPlayer extends Component {
 	componentDidMount() {
 		// Get the players list and add it to the state
 		// this.fetchUsersData();
-		
 	}
 
 	updateValue = (e) => {
 		this.setState({
 			playerDetails: {
 				...this.state.playerDetails,
-				[e.target.name]: e.target.value	
+				[e.target.name]: e.target.value
 			}
 		});
 	};
@@ -38,28 +37,28 @@ class AddPlayer extends Component {
 	handlePlayerSubmit = (e) => {
 		e.preventDefault();
 		this.props.dispatch(addPlayer(this.state.playerDetails, this.redirectUser));
-	}
+	};
 
-	redirectUser = (success) =>{
-		if (success){
-			this.props.history.push(`/admin`);
+	redirectUser = (success) => {
+		if (success) {
+			this.props.history.push(`/admin/players`);
 		}
-	}
+	};
 
 	render() {
 		return (
 			<div className='AddPlayer'>
 				<form>
 					<div>Name:</div>
-					<input type='text' name='name' onChange={this.updateValue} />
+					<input type='text' name='name' onChange={this.updateValue} required/>
 					<div>Image Link: </div>
-					<input type='text' name='image' onChange={this.updateValue} />
+					<input type='text' name='image' onChange={this.updateValue} required/>
 					<div>Weight: </div>
-					<input type='text' name='weight' onChange={this.updateValue} />
+					<input type='text' name='weight' onChange={this.updateValue} required/>
 					<div>Height:</div>
-					<input type='text' name='height' onChange={this.updateValue} />
+					<input type='text' name='height' onChange={this.updateValue} required/>
 					<div>Rank:</div>
-					<input type='text' name='rank' onChange={this.updateValue} />
+					<input type='text' name='rank' onChange={this.updateValue} required/>
 						<br />
 					<button onClick={this.handlePlayerSubmit}>Submit</button>
 				</form>
