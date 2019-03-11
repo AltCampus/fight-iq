@@ -12,6 +12,7 @@ import AdminEventDetail from "./components/admin/AdminEventDetail";
 import AddFight from "./components/admin/AddFight";
 import AddPlayer from "./components/admin/AddPlayer";
 import FightCards from './components/user/FightCards'
+import DisplayPlayersList from "./components/admin/DisplayPlayersList";
 
 class App extends Component {
 	render() {
@@ -27,10 +28,11 @@ class App extends Component {
             <Route exact path='/admin/event/:eventid' component={AdminEventDetail}/>
             <Route exact path='/admin/:eventid/edit' component={AdminAddEvent}/>
             <Route exact path='/admin/:eventid/fights' component={AddFight} />
-            <Route exact path='/admin/players' component={AddPlayer} />
+						<Route exact path='/admin/players/add' component={AddPlayer} />
+						<Route exact path='/admin/players' component={DisplayPlayersList} />
             <Route path='/login' component={Login} />
             <Route path='/register' component={Register} />
-						<Route path='/events' component={FightCards} />
+            <Route path='/events' component={FightCards} />
 					</Switch>
 				</div>
 			</BrowserRouter>
