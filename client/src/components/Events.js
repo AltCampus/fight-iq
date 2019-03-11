@@ -5,13 +5,11 @@ import { getEvents } from "./../actions";
 
 class Events extends Component {
 	componentDidMount() {
-		// Call an action to do Get request on events
 		this.props.dispatch(getEvents());
 	}
 
 	render() {
 		let { events } = this.props;
-		console.log(events, "check the data in events");
 		return (
 			<div className='Events'>
 				{events.map((event) => (

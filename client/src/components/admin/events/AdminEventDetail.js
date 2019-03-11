@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { getEvent, deleteEvent } from "./../../../actions";
+import Fight from "./../fights/Fight";
 
 class AdminEventDetail extends Component {
 	componentDidMount() {
@@ -11,6 +12,7 @@ class AdminEventDetail extends Component {
 	handleDelete(id){
 		this.props.dispatch(deleteEvent(id, this.redirectUser))
 	}
+
 
 	redirectUser = (success, errorMsg = "") => {
 		if (success){
@@ -32,26 +34,10 @@ class AdminEventDetail extends Component {
 				<div>{event.mainEvent}</div>
 				<div>{event.location}</div>
 				<div>{event.date_time}</div>
-				<div className='fight-detail'>
-					{fights &&
-						fights.map((val, index) => (
-							<div className='add-fight' key={index}>
-								<div>
-									<p>{val.title}</p>
-									<p>{val.type}</p>
-									<p>{val.rounds}</p>
-									<p>{val.player1name}</p>
-									<p>{val.player2name}</p>
-								</div>
-								<p>
-									<i className='fas fa-edit' />
-								</p>
-								<p>
-									<i className='fas fa-trash-alt' />
-								</p>
-							</div>
-						))}
-				</div>
+				<h5>Fights: </h5>
+				{
+					fights && fights.map(fight=><Fight key={fight._id} fight={fight} eventid={event._id}/>)
+				}
 				<Link to={'/admin/' + event._id + '/edit'}>
 					<i className="fas fa-edit"></i>
 				</Link>

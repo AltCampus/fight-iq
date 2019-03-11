@@ -66,7 +66,7 @@ module.exports = {
 					if(err){
 						res.json({message:err,success:false})
 					}else{
-						res.status(204).json({
+						res.status(200).json({
 							message:"Fight Deleted",
 							success:true
 						})

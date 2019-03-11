@@ -12,17 +12,24 @@ Events:
 
 Fights:
 
-1. Fix the rounds, type in the fight add
-2. Complete fight edit
-3. Complete fight delete
+1. Fix the rounds, type in the fight add - done
+2. Complete fight edit - Done
+	- Player list updating is pending
+	- Create new component for fights - done
+3. Complete fight delete - Done
 4. Check how the date format can be fixed in the event display
-
 
 General:
 1. Create one folder for event CRUD - Done
 2. Modularize one CRUD code(Components, localstates, localmethods, actions, reducers) - Done
 3. Understand the pattern of the implementation - Done
 4. Split the reducer
+
+
+
+// Complete Fights and Players
+// Improve the CSS and Improve any transitions if possible
+
 
 
 
