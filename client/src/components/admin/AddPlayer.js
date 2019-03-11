@@ -51,15 +51,15 @@ class AddPlayer extends Component {
 			<div className='AddPlayer'>
 				<form>
 					<div>Name:</div>
-					<input type='text' name='name' onChange={this.updateValue} />
+					<input type='text' name='name' onChange={this.updateValue} required/>
 					<div>Image Link: </div>
-					<input type='text' name='image' onChange={this.updateValue} />
+					<input type='text' name='image' onChange={this.updateValue} required/>
 					<div>Weight: </div>
-					<input type='text' name='weight' onChange={this.updateValue} />
+					<input type='text' name='weight' onChange={this.updateValue} required/>
 					<div>Height:</div>
-					<input type='text' name='height' onChange={this.updateValue} />
+					<input type='text' name='height' onChange={this.updateValue} required/>
 					<div>Rank:</div>
-					<input type='text' name='rank' onChange={this.updateValue} />
+					<input type='text' name='rank' onChange={this.updateValue} required/>
 						<br />
 					<button onClick={this.handlePlayerSubmit}>Submit</button>
 				</form>
