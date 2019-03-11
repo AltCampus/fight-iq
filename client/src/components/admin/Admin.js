@@ -11,6 +11,9 @@ export default class Admin extends Component {
 				<Link to="/admin/event">
 					<button className="add-event">Add Event</button>
 				</Link>
+				<Link to="/admin/players">
+					<button className="add-player">Add a player</button>
+				</Link>
 			</div>
 		);  
 	}
