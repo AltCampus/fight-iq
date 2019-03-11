@@ -17,21 +17,32 @@ module.exports = {
 
 	getAllEvents: (req, res) => {
 
-		Event.find({}, (err, events) => {
-			if(err){
-				return res.json({success: false,
-				message : err})
-			}else{
-				return res.status(200).json({events,
-				  success: true})
-			}
+		Event.find({})
+		. populate({
+			path: 'fight', select: 'title type rounds player1 player2',
+			populate: { path: 'player1 player2', select: 'name image' }
+		  })
+		.exec((err, event) => {
+			if (err || !event) {
+				return res.status(400).json({
+					success:false,
+					message:err
+				})
+			}	
+			return res.status(200).json({
+				event,
+				success:true
+			})
 		})
 	},
 
 	getEvent: (req, res) => {
 		const id = req.params.event_id;
 		Event.findOne({_id:id})
-			.populate('fight')
+			. populate({
+				path: 'fight', select: 'title type rounds player1 player2',
+				populate: { path: 'player1 player2', select: 'name image' }
+			  })
 			.exec((err, event) => {
 				if (err || !event) {
 					return res.status(400).json({
