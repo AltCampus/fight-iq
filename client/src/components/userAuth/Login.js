@@ -50,7 +50,7 @@ class Login extends Component {
 				<div className="password-title">Password:</div>
 				<input type="password" name="password" onChange={this.updateValue} required/>
 				<br/>
-				<button>Login</button>
+				<button type="submit">Login</button>
 			</form>
 			<div className="err-msg">{this.state.error}</div>
 			</div>

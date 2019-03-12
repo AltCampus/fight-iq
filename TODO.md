@@ -26,9 +26,37 @@ General:
 4. Split the reducer
 
 
-
-// Complete Fights and Players
+// Complete Fights and Players - Done
 // Improve the CSS and Improve any transitions if possible
+
+1. List down the things that need to be shown in the events list and add them to the home page
+	- Events
+		* Event Name
+		* Main Event
+		* Player 1 Image & Player 2 Image
+		* Location
+		* Date
+		* Time
+
+
+2. Add predictions, points to the users model
+3. Create prediction model - done
+
+
+Useful links:
+
+https://docs.google.com/spreadsheets/d/1z3QX0uWXv-XHX2Nfuj6zZHrfEeXI3A9CKWkrGaBzB8s/edit#gid=0
+
+https://docs.google.com/spreadsheets/d/1sQOtIwkEiTe4kwwRHw5bwi72ZJHXlAVcCNMImr-Ml6U/edit#gid=0
+
+https://github.com/Renaissanc3Man/MMA-Data
+
+
+
+
+
+
+
 
 
 

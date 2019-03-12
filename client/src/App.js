@@ -36,7 +36,7 @@ class App extends Component {
 						<Route exact path='/admin/players' component={DisplayPlayersList} />
             <Route path='/login' component={Login} />
             <Route path='/register' component={Register} />
-            <Route path='/events' component={FightCards} />
+            <Route path='/events' component={FightCards} /> 
 					</Switch>
 				</div>
 			</BrowserRouter>
