@@ -1,5 +1,5 @@
-const URL = "http://localhost:8000/";
 import Type from "./types";
+const URL = "http://localhost:8000/";
 
 // Add event
 export function addEvent(state, cb) {
@@ -29,7 +29,7 @@ export function getEvents() {
 			.then((data) => {
 				dispatch({
 					type: Type.GET_EVENTS,
-					events: data.events
+					events: data.event
 				});
 			});
 	};

@@ -6,7 +6,6 @@ class Events extends Component {
 
 	render() {
 		let { event } = this.props;
-
 		return (
 			<div>
 				<div className='Event'>
