@@ -56,10 +56,11 @@ module.exports = {
 	if(req.session.passport){
 		return next();
 	}
+	else {
 	return res.status(404).json({
 		success : false,
 		message: "user Not login"
-	})
+	})}
 	},
 
 	loggedOut: (req, res) => {
@@ -83,25 +84,27 @@ module.exports = {
 			success : false,
 			message: "user Not login"
 		})
-	}
+	},
 
 
-	// isAdmin: (req, res, next) => {
-	// 	User.findOne({ req.body.username }, function(err, user) {
-  //     if (err) { return next(err); }
-
-  //     if (!user) { 
-  //       // Do something - the user does not exist
-  //     }
-
-  //     if (!user.admin) { 
-  //       // Do something - the user exists but is no admin user
-  //     }
-
-  //     // Hand over control to passport
-  //     next();
-  //   });
-	// 	}
+	isAdmin: (req, res, next) => {
+		const sessionUser = req.session.passport;
+		if(sessionUser){
+			User.findOne({_id: sessionUser.user}, (err, user) =>{
+				 if(user.isAdmin === true) return next();
+				 else {
+					return res.status(404).json({
+						success : false,
+						message: "User is not Admin"
+					})}
+			})
+		}
+		else 
+		return res.status(404).json({
+			success : false,
+			message: "user Not login"
+		})
+		}
 
 
 }

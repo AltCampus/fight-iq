@@ -11,6 +11,7 @@ const playerController = require("../controller/playerController");
 router.post(
 	"/admin/events",
 	userController.isLoggedIn,
+	userController.isAdmin,
 	eventController.createEvent
 ); // done
 
@@ -26,12 +27,14 @@ eventController.getEvent
 router.put(
 	"/admin/events/:event_id",
 	userController.isLoggedIn,
+	userController.isAdmin,
 	eventController.editEvent
 ); // done
 
 router.delete(
 	"/admin/events/:event_id",
 	userController.isLoggedIn,
+	userController.isAdmin,
 	eventController.deleteEvent
 );
 
@@ -40,6 +43,7 @@ router.delete(
 router.post(
 	"/admin/events/:event_id/fights",
 	userController.isLoggedIn,
+	userController.isAdmin,
 	fightController.createFight
 );
 router.get(
@@ -54,11 +58,13 @@ router.get(
 router.put(
 	"/admin/events/:event_id/fights/:fight_id",
 	userController.isLoggedIn,
+	userController.isAdmin,
 	fightController.editFight
 );
 router.delete(
 	"/admin/events/:event_id/fights/:fight_id",
 	userController.isLoggedIn,
+	userController.isAdmin,
 	fightController.deleteFight
 );
 
@@ -67,6 +73,7 @@ router.delete(
 router.post(
 	"/admin/players",
 	userController.isLoggedIn,
+	userController.isAdmin,
 	playerController.createPlayer
 );
 router.get(
@@ -80,11 +87,13 @@ router.get(
 router.put(
 	"/admin/players/:player_id",
 	userController.isLoggedIn,
+	userController.isAdmin,
 	playerController.editPlayer
 );
 router.delete(
 	"/admin/players/:player_id",
 	userController.isLoggedIn,
+	userController.isAdmin,
 	playerController.deletePlayer
 );
 
