@@ -26,7 +26,6 @@ class App extends Component {
 					<Switch>
 						<Route exact path='/' component={Events} />
 						<Route exact path='/admin' component={Admin} />
-
 						<Route exact path='/admin/event' component={AdminAddEvent} />
 						<Route exact path='/admin/event/:eventid' component={AdminEventDetail}/>
 						<Route exact path='/admin/:eventid/edit' component={AdminAddEvent}/>
