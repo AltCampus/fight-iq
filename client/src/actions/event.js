@@ -29,7 +29,7 @@ export function getEvents() {
 			.then((data) => {
 				dispatch({
 					type: Type.GET_EVENTS,
-					events: data.events
+					events: data.event
 				});
 			});
 	};

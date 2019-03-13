@@ -33,11 +33,13 @@ class FightCards extends Component {
   componentDidMount() {
     this.props.dispatch(getEvents());
   }
+
+
   render() {
     const {events, players} = this.props;
+    console.log(events)
     const { currentIndex } = this.state;
     const {title, rounds, type} = events.fight[currentIndex];
-    console.log(players, "players")
     return (
       <div className="main-page">
         <h1>Fight Cards</h1>
@@ -64,58 +66,6 @@ class FightCards extends Component {
             <button>Predict</button>
           </div>
         </div>
-
-
-          <div className="fight-cards">
-          <div>
-            <p>{events.title}</p>
-          </div>
-          <div>
-          {
-            players && players.map(player => 
-              <img src={player.image}/>
-            )
-          }
-            <button className="nextfight-btn" onClick={this.handleNextFight}>Next</button>
-            <button className="prevfight-btn" onClick={this.handlePrevFight}>Prev</button>
-
-          </div>          
-          <div>
-            <h3>{title}</h3>
-            <span>{rounds}</span>
-            <p>{type}</p>
-          </div>
-          <div>
-            <button>Predict</button>
-          </div>
-        </div>
-
-
-          <div className="fight-cards">
-          <div>
-            <p>{events.title}</p>
-          </div>
-          <div>
-          {
-            players && players.map(player => 
-              <img src={player.image}/>
-            )
-          }
-            <button className="nextfight-btn" onClick={this.handleNextFight}>Next</button>
-            <button className="prevfight-btn" onClick={this.handlePrevFight}>Prev</button>
-
-          </div>          
-          <div>
-            <h3>{title}</h3>
-            <span>{rounds}</span>
-            <p>{type}</p>
-          </div>
-          <div>
-            <button>Predict</button>
-          </div>
-        </div>
-
-
       </div>
     )
   }
@@ -129,3 +79,77 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps)(FightCards);
+
+
+
+// <div className="fight-cards">
+//           <div>
+//             <p>{events.title}</p>
+//           </div>
+//           <div>
+//           {
+//             players && players.map(player => 
+//               <img src={player.image}/>
+//             )
+//           }
+
+//           </div>          
+//           <div>
+//             <h3>{title}</h3>
+//             <span>{rounds}</span>
+//             <p>{type}</p>
+//           </div>
+//           <div>
+//             <button>Predict</button>
+//           </div>
+//         </div>
+
+
+//           <div className="fight-cards">
+//           <div>
+//             <p>{events.title}</p>
+//           </div>
+//           <div>
+//           {
+//             players && players.map(player => 
+//               <img src={player.image}/>
+//             )
+//           }
+//             <button className="nextfight-btn" onClick={this.handleNextFight}>Next</button>
+//             <button className="prevfight-btn" onClick={this.handlePrevFight}>Prev</button>
+
+//           </div>          
+//           <div>
+//             <h3>{title}</h3>
+//             <span>{rounds}</span>
+//             <p>{type}</p>
+//           </div>
+//           <div>
+//             <button>Predict</button>
+//           </div>
+//         </div>
+
+
+//           <div className="fight-cards">
+//           <div>
+//             <p>{events.title}</p>
+//           </div>
+//           <div>
+//           {
+//             players && players.map(player => 
+//               <img src={player.image}/>
+//             )
+//           }
+//             <button className="nextfight-btn" onClick={this.handleNextFight}>Next</button>
+//             <button className="prevfight-btn" onClick={this.handlePrevFight}>Prev</button>
+
+//           </div>          
+//           <div>
+//             <h3>{title}</h3>
+//             <span>{rounds}</span>
+//             <p>{type}</p>
+//           </div>
+//           <div>
+//             <button>Predict</button>
+//           </div>
+//         </div>
