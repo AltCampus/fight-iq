@@ -47,7 +47,9 @@ export function editFight(data, eventId, fightId, cb){
 			},
 			body: JSON.stringify(data)
 		})
-			.then((response) => response.json())
+			.then((response) =>{
+				console.log(JSON.stringify(data),"raviraviravi")
+			 return response.json()})
 			.then((data) => {
 				if (data) {
 					dispatch({

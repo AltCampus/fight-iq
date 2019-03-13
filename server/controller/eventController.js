@@ -16,7 +16,6 @@ module.exports = {
 	}, //end createEvent
 
 	getAllEvents: (req, res) => {
-
 		Event.find({})
 		. populate({
 			path: 'fight', select: 'title type rounds player1 player2',

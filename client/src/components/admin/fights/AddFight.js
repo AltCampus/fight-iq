@@ -11,8 +11,8 @@ class AddFight extends Component {
 				title: "",
 				type: "",
 				rounds: "5-rounds",
-				player1_id: "",
-				player2_id: ""
+				player1: "",
+				player2: ""
 			},
 			error: "",
 			players: [],
@@ -37,8 +37,8 @@ class AddFight extends Component {
 					title: fight.title ,
 					type: fight.type ,
 					rounds:  fight.rounds,
-					player1_id: fight.player1_id ,
-					player2_id: fight.player2_id 
+					player1: fight.player1_id ,
+					player2: fight.player2_id 
 				}
 			})
 		}
@@ -92,14 +92,14 @@ class AddFight extends Component {
 						<option value='3-rounds'>3-Rounds</option>
 					</select>
 					<h5>Player 1</h5>
-					<select name='player1_id' onChange={this.updateValue} required>
+					<select name='player1' onChange={this.updateValue} required>
 						<option value="none">select</option>
 						{
 							players.map(player=>(<option key={player._id} value={player._id} >{player.name}</option>))
 						}
 					</select>
 					<h5>Player 2</h5>
-					<select name='player2_id' onChange={this.updateValue} required>
+					<select name='player2' onChange={this.updateValue} required>
 						<option value="none">select</option>
 						{
 							players.map(player=>(<option key={player._id} value={player._id} >{player.name}</option>))
