@@ -1,70 +1,32 @@
 import React, { Component } from 'react';
 import {connect} from "react-redux"
 import {getEvents} from '../../actions/event'
+import Fight from './Fight';
 
 
 class FightCards extends Component {
-  constructor(){
-    super();
-    this.state = {
-      currentIndex: 0
-    }
-  }
-  handleNextFight = () => {
-    const maxIndex = this.props.events.fight.length - 1;
-    this.setState(state => {
-      const nextIndex = state.currentIndex >= maxIndex ? 0 : state.currentIndex + 1;
-      console.log(nextIndex)
-      return {
-        currentIndex: nextIndex
-      }
-    })
-  }
-
-  handlePrevFight = () => {
-    const maxIndex = this.props.events.fight.length - 1;
-    this.setState(state => {
-      return {
-        currentIndex: state.currentIndex <= 0 ? maxIndex : state.currentIndex - 1
-      }
-    })
-  }
-
   componentDidMount() {
     this.props.dispatch(getEvents());
   }
 
-
   render() {
-    const {events, players} = this.props;
-    console.log(events)
-    const { currentIndex } = this.state;
-    const {title, rounds, type} = events.fight[currentIndex];
+    const {events} = this.props;
     return (
       <div className="main-page">
         <h1>Fight Cards</h1>
-        <div className="fight-cards">
-          <div>
-            <p>{events.title}</p>
-          </div>
-          <div>
+        <div>
           {
-            players && players.map(player => 
-              <img src={player.image}/>
-            )
+            events && events.map(event => ( 
+              <div className="fight-cards">
+                <div>
+                  <p>{event.title}</p>
+                </div>
+                <Fight data={event.fight}/>
+                  <p>{event.date_time}</p>
+                  <p>{event.location}</p>
+              </div>
+            ))
           }
-            <button className="nextfight-btn" onClick={this.handleNextFight}>Next</button>
-            <button className="prevfight-btn" onClick={this.handlePrevFight}>Prev</button>
-
-          </div>          
-          <div>
-            <h3>{title}</h3>
-            <span>{rounds}</span>
-            <p>{type}</p>
-          </div>
-          <div>
-            <button>Predict</button>
-          </div>
         </div>
       </div>
     )
@@ -72,84 +34,9 @@ class FightCards extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return{
-    events: state.event,
-    players: state.players.player
+  return {
+    events: state.events,
   }
 }
 
 export default connect(mapStateToProps)(FightCards);
-
-
-
-// <div className="fight-cards">
-//           <div>
-//             <p>{events.title}</p>
-//           </div>
-//           <div>
-//           {
-//             players && players.map(player => 
-//               <img src={player.image}/>
-//             )
-//           }
-
-//           </div>          
-//           <div>
-//             <h3>{title}</h3>
-//             <span>{rounds}</span>
-//             <p>{type}</p>
-//           </div>
-//           <div>
-//             <button>Predict</button>
-//           </div>
-//         </div>
-
-
-//           <div className="fight-cards">
-//           <div>
-//             <p>{events.title}</p>
-//           </div>
-//           <div>
-//           {
-//             players && players.map(player => 
-//               <img src={player.image}/>
-//             )
-//           }
-//             <button className="nextfight-btn" onClick={this.handleNextFight}>Next</button>
-//             <button className="prevfight-btn" onClick={this.handlePrevFight}>Prev</button>
-
-//           </div>          
-//           <div>
-//             <h3>{title}</h3>
-//             <span>{rounds}</span>
-//             <p>{type}</p>
-//           </div>
-//           <div>
-//             <button>Predict</button>
-//           </div>
-//         </div>
-
-
-//           <div className="fight-cards">
-//           <div>
-//             <p>{events.title}</p>
-//           </div>
-//           <div>
-//           {
-//             players && players.map(player => 
-//               <img src={player.image}/>
-//             )
-//           }
-//             <button className="nextfight-btn" onClick={this.handleNextFight}>Next</button>
-//             <button className="prevfight-btn" onClick={this.handlePrevFight}>Prev</button>
-
-//           </div>          
-//           <div>
-//             <h3>{title}</h3>
-//             <span>{rounds}</span>
-//             <p>{type}</p>
-//           </div>
-//           <div>
-//             <button>Predict</button>
-//           </div>
-//         </div>
