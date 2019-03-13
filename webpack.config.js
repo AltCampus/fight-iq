@@ -9,6 +9,7 @@ module.exports = {
   entry: [
     './client/src/index.js',
   ],
+  stats: 'errors-only',
   module: {
     rules: [
       {
