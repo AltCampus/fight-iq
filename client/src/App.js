@@ -13,7 +13,6 @@ import AddFight from "./components/admin/fights/AddFight";
 import AddPlayer from "./components/admin/AddPlayer";
 import EventCards from './components/user/EventCards';
 import DisplayPlayersList from "./components/admin/DisplayPlayersList";
-import HomePage from './components/user/HomePage'
 
 
 class App extends Component {
@@ -36,7 +35,6 @@ class App extends Component {
             <Route path='/login' component={Login} />
             <Route path='/register' component={Register} />
             <Route path='/events' component={EventCards} />
-            <Route path='/home' component={HomePage} />
 					</Switch>
 				</div>
 			</BrowserRouter>

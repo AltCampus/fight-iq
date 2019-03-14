@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import {connect} from "react-redux"
-import {getEvents} from '../../actions/event'
+import {connect} from "react-redux";
+import {getEvents} from '../../actions/event';
 import Fight from './Fight';
+// import Banner from './Banner';
 
 
-class FightCards extends Component {
+class EventCards extends Component {
   componentDidMount() {
     this.props.dispatch(getEvents());
   }
@@ -12,8 +13,8 @@ class FightCards extends Component {
   render() {
     const {events} = this.props;
     return (
-      <div className="main-page">
-        <h1>Fight Cards</h1>
+      <div className="main-page">             
+        <h1>Event Cards</h1>
         <div>
           {
             events && events.map(event => ( 
@@ -39,4 +40,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(FightCards);
+export default connect(mapStateToProps)(EventCards);
