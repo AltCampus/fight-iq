@@ -1,0 +1,39 @@
+// TODO: Improve the looks of the fight card in events list
+
+ .Fight{
+	border:1px solid #aaa;
+	padding: 10px;
+
+		*{
+			padding: 5px;
+		}
+
+		.title{
+			font-size: 22px;
+			padding: 5px;
+		}
+
+		.fight-result-main{
+			padding:10px;
+			font-weight: 600;
+
+			.fight-result{
+				border: 1px solid #eee;
+				display: flex;
+				justify-content: center;
+				font-weight: 400;
+			}
+		}
+
+		
+
+		.bottom-section{
+			a{
+				border: 1px solid #999;
+				border-radius: 3px;
+				margin: 0px 5px;
+				color: #333;
+				cursor: pointer;
+			}
+		}
+ }

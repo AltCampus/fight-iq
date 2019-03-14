@@ -28,14 +28,14 @@ eventController.getEvent
 router.put(
 	"/admin/events/:event_id",
 	userController.isLoggedIn,
-	userController.isAdmin,
+	// userController.isAdmin,
 	eventController.editEvent
 ); // done
 
 router.delete(
 	"/admin/events/:event_id",
 	userController.isLoggedIn,
-	userController.isAdmin,
+	// userController.isAdmin,
 	eventController.deleteEvent
 );
 
@@ -44,7 +44,7 @@ router.delete(
 router.post(
 	"/admin/events/:event_id/fights",
 	userController.isLoggedIn,
-	userController.isAdmin,
+	// userController.isAdmin,
 	fightController.createFight
 );
 router.get(
@@ -59,13 +59,13 @@ router.get(
 router.put(
 	"/admin/events/:event_id/fights/:fight_id",
 	userController.isLoggedIn,
-	userController.isAdmin,
+	// userController.isAdmin,
 	fightController.editFight
 );
 router.delete(
 	"/admin/events/:event_id/fights/:fight_id",
 	userController.isLoggedIn,
-	userController.isAdmin,
+	// userController.isAdmin,
 	fightController.deleteFight
 );
 
@@ -74,7 +74,7 @@ router.delete(
 router.post(
 	"/admin/players",
 	userController.isLoggedIn,
-	userController.isAdmin,
+	// userController.isAdmin,
 	playerController.createPlayer
 );
 router.get(
@@ -88,13 +88,13 @@ router.get(
 router.put(
 	"/admin/players/:player_id",
 	userController.isLoggedIn,
-	userController.isAdmin,
+	// userController.isAdmin,
 	playerController.editPlayer
 );
 router.delete(
 	"/admin/players/:player_id",
 	userController.isLoggedIn,
-	userController.isAdmin,
+	// userController.isAdmin,
 	playerController.deletePlayer
 );
 
@@ -124,22 +124,22 @@ router.delete(
 // Result routes
 
 router.get(
-	"/:fight_id/result",
+	"/admin/:fight_id/result",
 	userController.isLoggedIn,
 	resultController.getResult
 );
 router.post(
-	"/:fight_id/result",
+	"/admin/:fight_id/result",
 	userController.isLoggedIn,
 	resultController.createResult
 );
 router.put(
-	"/:fight_id/result",
+	"/admin/:fight_id/result",
 	userController.isLoggedIn,
 	resultController.editResult
 );
 router.delete(
-	"/:fight_id/result",
+	"/admin/:fight_id/result",
 	userController.isLoggedIn,
 	resultController.deleteResult
 );

@@ -21,13 +21,18 @@ module.exports = {
 	}, //end createEvent
 
 	getAllFight: (req, res) => {
-		Fight.find({event: req.params.event_id}, (err, fight) => {
-			if(err){
-				return res.json({message:err,success: false})
-			}else{
-				return res.status(200).json({fight,success:true})
-			}
-		})
+		Fight.find({event: req.params.event_id})
+			.populate('event')
+			.populate('player1')
+			.populate('player2')
+			.populate('fight')
+			.exec((err,fight)=>{
+				if(err){
+					return res.json({message:err,success: false})
+				} else {
+					return res.status(200).json({fight,success:true})
+				}
+			})
 	},
 
 	getFight: (req, res) => {
