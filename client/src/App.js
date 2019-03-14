@@ -31,6 +31,7 @@ class App extends Component {
 						<Route exact path='/admin/:eventid/fights' component={AddFight} />
 
 						<Route exact path='/admin/:eventid/fights/:fightid/edit' component={AddFight}/>
+						{/* <Route exact path='/admin/:eventid/fights/:fightid/result' component={AddResult}/> */} 
 
 						<Route exact path='/admin/players/add' component={AddPlayer} />
 						<Route exact path='/admin/players' component={DisplayPlayersList} />

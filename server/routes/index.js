@@ -6,6 +6,7 @@ const fightController = require("../controller/fightController");
 const userController = require("../controller/userController");
 const playerController = require("../controller/playerController");
 const predictionController = require("../controller/predictionController");
+const resultController = require("../controller/resultController");
 
 // event routes
 
@@ -118,6 +119,29 @@ router.delete(
 	"/prediction/:prediction_id",
 	userController.isLoggedIn,
 	predictionController.deletePrediction
+);
+
+// Result routes
+
+router.get(
+	"/:fight_id/result",
+	userController.isLoggedIn,
+	resultController.getResult
+);
+router.post(
+	"/:fight_id/result",
+	userController.isLoggedIn,
+	resultController.createResult
+);
+router.put(
+	"/:fight_id/result",
+	userController.isLoggedIn,
+	resultController.editResult
+);
+router.delete(
+	"/:fight_id/result",
+	userController.isLoggedIn,
+	resultController.deleteResult
 );
 
 // user routes
