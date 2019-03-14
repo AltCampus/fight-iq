@@ -11,7 +11,7 @@ import AdminAddEvent from "./components/admin/events/AdminAddEvent";
 import AdminEventDetail from "./components/admin/events/AdminEventDetail";
 import AddFight from "./components/admin/fights/AddFight";
 import AddPlayer from "./components/admin/AddPlayer";
-import FightCards from './components/user/FightCards';
+import EventCards from './components/user/EventCards';
 import DisplayPlayersList from "./components/admin/DisplayPlayersList";
 import HomePage from './components/user/HomePage'
 
@@ -21,6 +21,8 @@ class App extends Component {
 		return (
 			<BrowserRouter>
 				<div className='App'>
+				<Header />
+				<Header2 />
 					<Switch>
 						<Route exact path='/' component={Events} />
 						<Route exact path='/admin' component={Admin} />
@@ -33,7 +35,7 @@ class App extends Component {
 						<Route exact path='/admin/players' component={DisplayPlayersList} />
             <Route path='/login' component={Login} />
             <Route path='/register' component={Register} />
-            <Route path='/events' component={FightCards} />
+            <Route path='/events' component={EventCards} />
             <Route path='/home' component={HomePage} />
 					</Switch>
 				</div>
