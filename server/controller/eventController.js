@@ -18,8 +18,8 @@ module.exports = {
 	getAllEvents: (req, res) => {
 		Event.find({})
 		. populate({
-			path: 'fight', select: 'title type rounds player1 player2',
-			populate: { path: 'player1 player2', select: 'name image' }
+			path: 'fight',
+			populate: { path: 'player1 player2 result'}
 		  })
 		.exec((err, event) => {
 			if (err || !event) {
@@ -39,8 +39,12 @@ module.exports = {
 		const id = req.params.event_id;
 		Event.findOne({_id:id})
 			. populate({
-				path: 'fight', select: 'title type rounds player1 player2',
-				populate: { path: 'player1 player2', select: 'name image' }
+					path: 'fight', select: 'title type rounds player1 player2',
+					populate: [
+						{ path: 'player1 player2', select: 'name image'}, 
+						{ path: 'result', 
+						  populate: { path:'winner', select: 'name' }}
+					]
 			  })
 			.exec((err, event) => {
 				if (err || !event) {

@@ -8,6 +8,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const path = require("path");
 const port = 8000;
+const adminCreator = require('./server/helper/seed')
 
 mongoose.connect(
 	"mongodb://localhost/fight-iq",
@@ -15,6 +16,7 @@ mongoose.connect(
 	function(err, connection) {
 		if (err) throw err;
 		else console.log("connected to mongodb");
+		adminCreator();	
 	}
 );
 

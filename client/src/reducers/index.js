@@ -97,6 +97,14 @@ export default function rootReducer(state = initState, action) {
 				...state
 			};
 
+// Result
+
+		case Type.ADD_RESULT:
+			return {
+				...state
+			}
+		
+
 		default:
 			return state;
 	}

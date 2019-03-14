@@ -24,8 +24,6 @@ userSchema.methods.verifyPassword = function(userPassword, cb) {
     var password = this.password;
     var self = this;
   
-    console.log('debug1', this, this.password, this.isModified(this.password));
-  
     if(this.isModified(this.password)) return next();
   
     bcrypt.genSalt(SALT_FACTOR, function(err, salt) {

@@ -8,8 +8,9 @@ module.exports = {
 		newResult.save((err,result)=>{
 			if(err){
 				return res.json({message : err, success:false})
-			} 
+			}
 			Fight.findByIdAndUpdate(fightId, {result: result.id}, (err,fight)=>{
+				console.log("Fight: ", fight)
 				if (err){
 					return res.json({message : err, success:false})
 				}
@@ -18,6 +19,7 @@ module.exports = {
 		})
 	},  
 	getResult: (req, res) => {
+		console.log("inside getResult \n \n \n")
 		const fightId = req.params.fight_id;
 		Fight.findById(fightId, (err,fight) =>{
 			if (err || !fight) {
