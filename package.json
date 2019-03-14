@@ -28,6 +28,12 @@
     "webpack": "^4.29.3",
     "webpack-hot-middleware": "^2.24.3"
   },
+  "devDependencies": {
+    "css-loader": "^2.0.0",
+    "file-loader": "^2.0.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1"
+  },
   "scripts": {
     "start": "NODE_ENV=development nodemon app.js",
     "build": "react-scripts build",
