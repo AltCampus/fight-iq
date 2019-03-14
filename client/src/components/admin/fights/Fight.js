@@ -31,11 +31,17 @@ class Fight extends Component {
 					<p>{fight.rounds}</p>
 					<p>{fight.player1name}</p>
 					<p>{fight.player2name}</p>
+
+					#Todo: {/* display result here */}
+
 					<Link to={'/admin/' + eventid + '/fights/' + fight._id + '/edit'}>
 						<i className='fas fa-edit' />
 					</Link>
 					<Link to={'/admin/event/' + eventid} onClick={this.handleDelete}>
 						<i className="fas fa-trash-alt"></i>	
+					</Link>
+					<Link to={'/admin/' + eventid + '/fights/' + fight._id + '/result'}>
+						<i className="fas fa-trophy"></i>
 					</Link>
 			</div>
 			);
