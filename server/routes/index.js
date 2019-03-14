@@ -16,13 +16,9 @@ router.post(
 	eventController.createEvent
 ); // done
 
-router.get('/events',
-  eventController.getAllEvents
-  ); //done
+router.get("/events", eventController.getAllEvents); //done
 
-router.get('/events/:event_id',  
-eventController.getEvent
-); //done
+router.get("/events/:event_id", eventController.getEvent); //done
 
 router.put(
 	"/admin/events/:event_id",
@@ -46,14 +42,8 @@ router.post(
 	userController.isAdmin,
 	fightController.createFight
 );
-router.get(
-	"/events/:event_id/fights",
-	fightController.getAllFight
-);
-router.get(
-	"/events/:event_id/fights/:fight_id",
-	fightController.getFight
-);
+router.get("/events/:event_id/fights", fightController.getAllFight);
+router.get("/events/:event_id/fights/:fight_id", fightController.getFight);
 
 router.put(
 	"/admin/events/:event_id/fights/:fight_id",
@@ -76,14 +66,8 @@ router.post(
 	userController.isAdmin,
 	playerController.createPlayer
 );
-router.get(
-	"/players",
-	playerController.getAllPlayers
-);
-router.get(
-	"/players/:player_id",
-	playerController.getPlayer
-);
+router.get("/players", playerController.getAllPlayers);
+router.get("/players/:player_id", playerController.getPlayer);
 router.put(
 	"/admin/players/:player_id",
 	userController.isLoggedIn,
