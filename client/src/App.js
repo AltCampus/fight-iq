@@ -21,8 +21,6 @@ class App extends Component {
 		return (
 			<BrowserRouter>
 				<div className='App'>
-					<Header />
-					<Header2 />
 					<Switch>
 						<Route exact path='/' component={Events} />
 						<Route exact path='/admin' component={Admin} />
