@@ -4,17 +4,18 @@ import "./style.scss";
 import { Link } from "react-router-dom";
 
 export default class Admin extends Component {
-	
 	render() {
 		return (
 			<div className="Admin">
 				<AdminEvents />
+				<div className="admin-bottom-section">
 				<Link to="/admin/event">
-					<button className="add-event">Add Event</button>
+					<button className="add-event"><i className="far fa-plus-square"></i> Add Event</button>
 				</Link>
 				<Link to='/admin/players/add'>
-					<button className='add-player'>Add a player</button>
+					<button className='add-player'><i className="far fa-plus-square"></i> Add a player</button>
 				</Link>
+				</div>
 			</div>
 		);
 	}

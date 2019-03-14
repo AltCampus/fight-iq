@@ -37,7 +37,6 @@ class Fight extends Component {
 
 	render() {
 		let {eventid, fight} = this.props;
-		console.log(fight)
 		return (
 			<div className="Fight">
 					<div className="title">{fight.title}</div>
