@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { addPlayer } from "./../../actions/player";
+import { addPlayer } from "./../../../actions/player";
 
 class AddPlayer extends Component {
 	// Fetch Players data to show in the fight creation time(name, id is good enough)
