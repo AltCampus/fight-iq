@@ -13,6 +13,7 @@ import AddFight from "./components/admin/fights/AddFight";
 import AddPlayer from "./components/admin/AddPlayer";
 import EventCards from './components/user/EventCards';
 import DisplayPlayersList from "./components/admin/DisplayPlayersList";
+import PredictionPage from './components/user/PredictionPage'
 
 
 class App extends Component {
@@ -35,6 +36,8 @@ class App extends Component {
             <Route path='/login' component={Login} />
             <Route path='/register' component={Register} />
             <Route path='/events' component={EventCards} />
+            <Route path='/predict' component={PredictionPage} />
+
 					</Switch>
 				</div>
 			</BrowserRouter>

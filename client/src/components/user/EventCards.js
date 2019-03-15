@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getEvents } from "../../actions/event";
+import {Link} from "react-router-dom";
 import Fight from "./Fight";
 import Banner from "./Banner";
 
@@ -37,7 +38,7 @@ class EventCards extends Component {
 										</div>
 
 										<div className='predict-btn'>
-											<button className='Prediction-button'>Prediction</button>
+											<Link to={`/predict/${event._id}`}><button className='Prediction-button'>Prediction</button></Link>
 										</div>
 									</div>
 								))}
