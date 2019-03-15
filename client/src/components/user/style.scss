@@ -68,6 +68,31 @@ a {
 }
 
 // ===========================
+//	load-more-events-button
+// ===========================
+.load-more-events {
+	.load-more {
+		font-weight: 500;
+		text-transform: uppercase;
+		margin: 4rem 0;
+		font-size: 12px;
+		background: white;
+		padding: 16px 100px;
+
+		font-family: "Open Sans", sans-serif;
+		color: black;
+		border: 2px solid#eeeeef;
+		&:hover {
+			font-weight: 600;
+			cursor: pointer;
+			background: whitesmoke;
+			color: blue;
+			// border-bottom: 1px solid red;
+		}
+	}
+}
+
+// ===========================
 //        Fight Cards
 // ===========================
 h1 {

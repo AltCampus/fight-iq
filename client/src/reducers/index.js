@@ -4,9 +4,11 @@ const initState = {
 	events: [],
 	editEvent: {},
 	isLogged: false,
+	isAdmin: false,
 	event: {},
 	fightsArr: [],
-	players: []
+	players: [],
+	user: {}
 };
 
 export default function rootReducer(state = initState, action) {
@@ -20,7 +22,8 @@ export default function rootReducer(state = initState, action) {
 		case Type.LOGIN:
 			return {
 				...state,
-				isLogged: action.success
+				isLogged: action.success,
+				isAdmin: action.isAdmin
 			};
 
 		case Type.LOGOUT:
@@ -28,6 +31,13 @@ export default function rootReducer(state = initState, action) {
 				...state,
 				isLogged: false
 			};
+// User
+
+		case Type.GET_USER:
+			return {
+				...state,
+				user: action.user
+			}
 
 // Events
 		case Type.ADD_EVENT:

@@ -14,7 +14,6 @@ class AdminEventDetail extends Component {
 		this.props.dispatch(deleteEvent(id, this.redirectUser))
 	}
 
-
 	redirectUser = (success, errorMsg = "") => {
 		if (success){
 			this.props.history.push('/admin');
