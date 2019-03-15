@@ -1,6 +1,73 @@
+a {
+  text-decoration: none;
+  color: black;
+  font-size: 1rem;
+}
+
+.banner-page {
+  background: #802727;
+}
+
 .banner-page .banner-image {
-  height: 500px;
-  width: 500px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 50% 50%;
+      grid-template-columns: 50% 50%;
+}
+
+.banner-page img {
+  margin-top: 20px;
+  height: 350px;
+  width: 200px;
+  /* top: 55%; */
+  /* right: 7%; */
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
+}
+
+.banner-page .info-section {
+  position: relative;
+}
+
+.banner-page .info-section .fight-info {
+  position: absolute;
+  top: 25%;
+  left: 25%;
+}
+
+.banner-page .info-section .fight-info h1 {
+  font-family: "Roboto";
+  font-size: 2.3rem;
+  color: white;
+  margin: 0;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 0;
+}
+
+.banner-page .info-section .fight-info p {
+  font-family: "Nunito", sans-serif;
+  text-transform: capitalize;
+  font-size: 1.3rem;
+  color: white;
+  margin: 15px 0;
+  font-weight: 300;
+}
+
+.banner-page .info-section .banner-predict-btn {
+  background: white;
+  color: black;
+  padding: 13px 30px;
+  font-size: 1rem;
+  font-family: "Open Sans", sans-serif;
+}
+
+.banner-page .info-section .banner-predict-btn:hover {
+  cursor: pointer;
+  background: whitesmoke;
+  border-bottom: 1px solid red;
 }
 
 h1 {
@@ -97,7 +164,7 @@ h1 {
   outline: none;
   background: white;
   border: 2px solid #eeeeef;
-  color: gray;
+  color: black;
   position: absolute;
   top: 34%;
   right: 38%;
@@ -114,7 +181,7 @@ h1 {
   outline: none;
   background: white;
   border: 2px solid #eeeeef;
-  color: gray;
+  color: black;
   position: absolute;
   top: 34%;
   left: 16%;
@@ -129,24 +196,32 @@ h1 {
 
 .player-images .image-section .player-1 {
   height: 120px;
-  width: 180px;
-  top: 55%;
-  right: 7%;
+  width: 138px;
+  /* top: 55%; */
+  /* right: 7%; */
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
 }
 
 .player-images .image-section .player-2 {
   height: 120px;
-  width: 160px;
-  top: -28%;
-  left: 7%;
+  width: 138px;
+  /* top: 55%; */
+  /* right: 7%; */
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
 }
 
 .player-images .palyers-name {
+  font-weight: 600;
   padding: 10px 0;
   color: #5a3c79;
   font-size: 1.2rem;
   text-transform: capitalize;
-  width: 50%;
   margin: 8px 0;
   color: black;
 }
@@ -193,7 +268,7 @@ body {
       -ms-flex-align: center;
           align-items: center;
   padding: 10px;
-  background: #710627;
+  background: #141414;
 }
 
 a {
@@ -201,17 +276,27 @@ a {
 }
 
 .Logo {
+  font-family: "Roboto";
   color: white;
-  font-size: 32px;
+  font-size: 1.6rem;
   padding: 10px;
   text-decoration: none;
+}
+
+.Logo:hover {
+  color: #e2d8c6;
 }
 
 .top-right > * {
   padding: 10px;
   color: white;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 1rem;
+  font-family: "Nunito", sans-serif;
+}
+
+.top-right > *:hover {
+  color: #e2d8c6;
 }
 
 .App {
