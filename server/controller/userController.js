@@ -85,8 +85,6 @@ module.exports = {
 			message: "user Not login"
 		})
 	},
-
-
 	isAdmin: (req, res, next) => {
 		const sessionUser = req.session.passport;
 		if(sessionUser){
@@ -104,7 +102,5 @@ module.exports = {
 			success : false,
 			message: "user Not login"
 		})
-		}
-
-
+	}
 }

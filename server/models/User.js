@@ -3,7 +3,6 @@ const Schema = mongoose.Schema;
 const SALT_FACTOR = 10;
 const bcrypt = require('bcrypt');
 
-
 const userSchema = new Schema({
 	username: {type:String, required:true},
 	email: {type:String, required:true},
@@ -24,8 +23,6 @@ userSchema.methods.verifyPassword = function(userPassword, cb) {
   
     var password = this.password;
     var self = this;
-  
-    console.log('debug1', this, this.password, this.isModified(this.password));
   
     if(this.isModified(this.password)) return next();
   

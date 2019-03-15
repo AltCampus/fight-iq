@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-class Event extends Component {
+class AdminEvent extends Component {
 	render() {
 		let {event} = this.props
 		return (
-			<div className="Event">
+			<div className="AdminEvent">
 				<Link to={"/admin/event/" + event._id}>
-					<div className="eventTitle">{ event.title}</div> 
+					<div className="event-title">{ event.title}</div> 
+					<div className="event-location">{event.location}</div>
+					<div className="event-date_time">{event.date_time}</div>
 				</Link>
-				<div className="mainEvent">{event.mainEvent}</div>
 			</div>
 			);
 		}
 	}
 
-	export default Event;
+	export default AdminEvent;
