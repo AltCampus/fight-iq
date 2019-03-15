@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { getPlayers, deleteEvent } from "../../actions/player";
+import { getPlayers, deleteEvent } from "../../../actions/player";
 
 class DisplayPlayersList extends Component {
 	handleDelete(e, id) {
