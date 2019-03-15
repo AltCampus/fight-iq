@@ -14,7 +14,6 @@ import AddPlayer from "./components/admin/AddPlayer";
 import AddResult from "./components/admin/fights/AddResult";
 import EventCards from './components/user/EventCards';
 import DisplayPlayersList from "./components/admin/DisplayPlayersList";
-import PredictionPage from './components/user/PredictionPage'
 
 
 class App extends Component {
@@ -32,16 +31,12 @@ class App extends Component {
 						<Route exact path='/admin/:eventid/edit' component={AdminAddEvent}/>
 						<Route exact path='/admin/:eventid/fights' component={AddFight} />
 						<Route exact path='/admin/:eventid/fights/:fightid/edit' component={AddFight}/>
-
 						<Route exact path='/admin/:eventid/fights/:fightid/result' component={AddResult}/> 
-
 						<Route exact path='/admin/players/add' component={AddPlayer} />
 						<Route exact path='/admin/players' component={DisplayPlayersList} />
             <Route path='/login' component={Login} />
             <Route path='/register' component={Register} />
-
             <Route path='/events' component={EventCards} />
-            <Route path='/predict' component={PredictionPage} />
 
 					</Switch>
 				</div>
