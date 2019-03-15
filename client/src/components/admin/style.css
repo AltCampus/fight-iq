@@ -1,1 +1,11 @@
-/* No CSS *//*# sourceMappingURL=style.css.map */
+.Admin button {
+  background: none;
+  color: #333;
+  border: 1px solid #666;
+  border-radius: 3px;
+}
+
+.Admin .admin-bottom-section {
+  margin-top: 10px;
+}
+/*# sourceMappingURL=style.css.map */
