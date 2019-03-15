@@ -1,0 +1,64 @@
+.Profile{
+	.UserDetails{
+		display: grid;
+		grid-template-columns: 20% 80%;
+		padding:30px;
+		text-align: left;
+		grid-gap: 20px;
+
+		img{
+			max-width: 250px;
+			width: 100%;
+		}
+
+		.right-section{
+			padding:10px;
+		}
+
+		.right-section>*{
+			font-size: 18px;
+			padding: 10px;
+		}
+	}
+
+	.UserStats{
+		display: grid;
+		grid-template-columns: repeat(3,1fr);
+		border: 1px solid #666;
+		padding:20px;
+	}
+
+	.user-stats-header{
+		font-size: 26px;
+		padding-bottom:10px;
+		font-style: italic;
+	}
+
+	.user-stats{
+		font-size: 18px;
+		padding: 5px;
+	}
+
+	.UserPredictions{
+
+		.UserPredictions-header{
+			font-size: 26px;
+			padding:10px;
+			text-transform: capitalize;
+			border: 1px solid #bbb;
+		}
+
+		.UserPrediction{
+			display: grid;
+			grid-template-columns: repeat(3,1fr);
+			margin: 10px 0;
+			padding:20px;
+			border: 1px solid #ddd;
+			align-items: center;
+
+			*>*{
+				padding: 5px;
+			}
+		}
+	}
+}

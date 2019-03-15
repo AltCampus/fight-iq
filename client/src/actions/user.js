@@ -46,7 +46,8 @@ export function loginSubmit(state, cb){
         console.log(data)
     	dispatch({
     		type: Type.LOGIN,
-            success: data.success
+            success: data.success,
+            isAdmin: data.isAdmin
     	})
     	// cb(true); 
     	if (data.success){
@@ -71,3 +72,18 @@ export function handleLogout(){
             })
     }
 }
+
+// Get user details
+export function getUser(){
+	return dispatch => {
+		fetch(URL + 'api/v1/user')
+			.then(response=>response.json())
+			.then(data=>{
+				dispatch({
+					type: Type.GET_USER,
+					user: data.user
+				})
+			})
+	}
+}
+
