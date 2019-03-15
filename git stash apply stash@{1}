@@ -1,0 +1,6 @@
+stash@{0}: WIP on master: c4803b2 remove predict
+stash@{1}: WIP on master: 2564a4d minor changes in style of admin elements
+stash@{2}: WIP on master: 74bf1aa style the events
+stash@{3}: WIP on master: 99a75a3 Merge branch 'master' of https://github.com/AltCampus/fight-iq
+stash@{4}: WIP on master: 1f3f4d4 add user and admin authintication
+stash@{5}: WIP on master: f7022c2 add player routes
