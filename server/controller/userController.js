@@ -44,14 +44,13 @@ module.exports = {
 	      if (err) { return next(err); }
 	      return res.status(200).json({
 	      	user: user.username,
+	      	isAdmin: user.isAdmin,
 					message: "Successfully login",
 					success: true
 	      });
 	    });
 	  })(req, res, next);
 	},
- 
-
 	isLoggedIn: (req, res, next) => {
 	if(req.session.passport){
 		return next();
@@ -101,6 +100,29 @@ module.exports = {
 		return res.status(404).json({
 			success : false,
 			message: "user Not login"
+		})
+	},
+	getUser : (req,res) => {
+		const sessionUser = req.session.passport;
+		User.findOne({_id: sessionUser.user})
+			.populate({path:'predictions',
+				populate: [ {path: 'eventid'}, {path: 'fightid', select:'title player1 player2 result',
+									populate: [{path:'player1  player2', select:'name'}, {path:'result', 
+															populate:{path:'winner'}}]
+									}, {path: 'winner'}]
+			})
+			.exec((err,user) =>{
+				if (err || !user){
+					return res.status(404).json({
+						success: false,
+						message: err || "User not present"
+					})
+				}
+				user.password = "";
+				return res.status(200).json({
+					success: true,
+					user: user
+				})
 		})
 	}
 }
