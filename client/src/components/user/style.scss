@@ -10,43 +10,50 @@ h1 {
 	padding: 30px 0;
 	font-family: "Roboto";
 }
+
 .main-event-page {
 	margin: 0 auto;
 	display: grid;
 	grid-template-columns: 70% 30%;
+	
 }
 .fight-cards {
+	position: relative;
 	display: grid;
 	grid-template-columns: 15% 45% 30% 10%;
-	padding: 3.5rem 1.5em;
+	padding: 1rem 1.5rem;
 	border: 1px solid #eeeeef;
 	margin-left: 20px;
-	margin-top: 15px;
+	// margin-top: 15px;
 	&:hover {
 		box-shadow: 0px 0px 18px 8px #eeeeef;
 	}
+	
 }
 
 .event-title {
 	.title {
-		position: relative;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
+		// position: relative;
+		// top: 50%;
+		// left: 50%;
+		// transform: translate(-50%, -50%);
+		margin-top: 4em;
 		padding: 0 10px;
-		font-size: 1.1re;
+		font-size: 1.1rem;
 		text-transform: capitalize;
 	}
 }
 
 .location-info {
-	padding: 25px;
-	position: relative;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+	// padding: 25px;
+	// position: relative;
+	// top: 50%;
+	// left: 50%;
+	// transform: translate(-50%, -50%);
+	margin-top: 4em;
+	margin-left: 2em;
 	.txt-dec {
-		text-align: left;
+		// text-align: left;
 		text-transform: capitalize;
 		font-family: "Nunito", sans-serif;
 	}
@@ -58,12 +65,10 @@ h1 {
 		font-size: 1rem;
 		text-transform: capitalize;
 		font-weight: 300;
-		text-align: left;
 		margin: 8px 0;
 	}
 }
 .predict-btn {
-	// padding: 25px;
 	.Prediction-button {
 		font-family: "Open Sans", sans-serif;
 		position: relative;
@@ -90,8 +95,8 @@ h1 {
 //        Fight Cards == buttons
 // ===========================
 .buttons {
-	position: relative;
-	font-size: 12px;
+	// position: relative;
+	// font-size: 12px;
 	outline: none;
 	.nextfight-btn {
 		outline: none;
@@ -99,8 +104,8 @@ h1 {
 		border: 2px solid #eeeeef;
 		color: gray;
 		position: absolute;
-		top: 50%;
-		right: 0%;
+		top: 34%;
+		right: 38%;
 		font-family: "Open Sans", sans-serif;
 		// left: 50%;
 		// transform: translate(-25%, 20%);
@@ -116,8 +121,8 @@ h1 {
 		border: 2px solid #eeeeef;
 		color: gray;
 		position: absolute;
-		top: 50%;
-		left: 0%;
+		top: 34%;
+		left: 16%;
 		font-family: "Open Sans", sans-serif;
 		// left: 50%;
 		// transform: translate(-50%, 20%);
@@ -133,30 +138,33 @@ h1 {
 //        Fight Cards == user image
 // ===========================
 .player-images {
-	position: relative;
-	font-size: 1.6rem;
-	padding: 25px;
-	.player-1 {
+	// position: relative;
+	// font-size: 1.6rem;
+	// padding: 25px;
+
+	.image-section{
+		.player-1 {
 		height: 120px;
-		width: 150px;
-		// display: inline-block;
-		position: absolute;
+		width: 180px;
+		// position: absolute;
 		top: 55%;
 		right: 7%;
-		transform: translate(0%, -35%);
+		// transform: translate(0%, -35%);
 	}
 	.player-2 {
 		height: 120px;
-		width: 150px;
-		position: absolute;
+		width: 160px;
+		// position: absolute;
 		top: -28%;
 		left: 7%;
 		// transform: translate(30%, -35%);
 	}
+	}
+	
 	.palyers-name {
-		position: absolute;
-		bottom: -192%;
-		left: 25%;
+		// position: absolute;
+		// bottom: -192%;
+		// left: 25%;
 		padding: 10px 0;
 		color: #5a3c79;
 		font-size: 1.2rem;
