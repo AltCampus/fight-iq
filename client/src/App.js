@@ -38,8 +38,8 @@ class App extends Component {
 						<Route exact path='/admin/players' component={DisplayPlayersList} />
             <Route path='/login' component={Login} />
             <Route path='/register' component={Register} />
-						<Route path='/events/:eventid' component={EventDetails} />
-						<Route path='/events/:eventid/fights/:fightid/predict' component={Prediction} />
+						<Route exact path='/events/:eventid' component={EventDetails} />
+						<Route exact path='/events/:eventid/fights/:fightid/predict' component={Prediction} />
             <Route path='/events' component={EventCards} />
 
 					</Switch>

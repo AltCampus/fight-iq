@@ -4,10 +4,7 @@ import { connect } from 'react-redux';
 import './style.scss';
 
 class Fight extends Component {
-
-	componentDidMount() {
-		
-	}
+	
 
 	redirectUser = (success, errorMsg = "") => {
 		if (success){
@@ -27,7 +24,7 @@ class Fight extends Component {
 					<div className="type">Type: {fight.type}</div>
 					<div className="rounds">Rounds: {fight.rounds}</div>
 					<div className="bottom-section">    
-						<Link to={'/events/' + eventid + '/fights/' + fight._id + '/predict'}>
+						<Link to={{pathname:'/events/' + eventid + '/fights/' + fight._id + '/predict', state: fight}}>
 							<i className='far fa-plus-square' /> Predict
 						</Link>
 					</div>
