@@ -19,7 +19,6 @@ module.exports = {
 		})
 	},  
 	getResult: (req, res) => {
-		console.log("inside getResult \n \n \n")
 		const fightId = req.params.fight_id;
 		Fight.findById(fightId, (err,fight) =>{
 			if (err || !fight) {
