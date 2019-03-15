@@ -24,14 +24,14 @@ router.get("/events/:event_id", eventController.getEvent); //done
 router.put(
 	"/admin/events/:event_id",
 	userController.isLoggedIn,
-	// userController.isAdmin,
+	userController.isAdmin,
 	eventController.editEvent
 ); // done
 
 router.delete(
 	"/admin/events/:event_id",
 	userController.isLoggedIn,
-	// userController.isAdmin,
+	userController.isAdmin,
 	eventController.deleteEvent
 );
 
@@ -40,7 +40,7 @@ router.delete(
 router.post(
 	"/admin/events/:event_id/fights",
 	userController.isLoggedIn,
-	// userController.isAdmin,
+	userController.isAdmin,
 	fightController.createFight
 );
 router.get("/events/:event_id/fights", fightController.getAllFight);
@@ -49,13 +49,13 @@ router.get("/events/:event_id/fights/:fight_id", fightController.getFight);
 router.put(
 	"/admin/events/:event_id/fights/:fight_id",
 	userController.isLoggedIn,
-	// userController.isAdmin,
+	userController.isAdmin,
 	fightController.editFight
 );
 router.delete(
 	"/admin/events/:event_id/fights/:fight_id",
 	userController.isLoggedIn,
-	// userController.isAdmin,
+	userController.isAdmin,
 	fightController.deleteFight
 );
 
@@ -64,7 +64,7 @@ router.delete(
 router.post(
 	"/admin/players",
 	userController.isLoggedIn,
-	// userController.isAdmin,
+	userController.isAdmin,
 	playerController.createPlayer
 );
 router.get("/players", playerController.getAllPlayers);
@@ -72,13 +72,13 @@ router.get("/players/:player_id", playerController.getPlayer);
 router.put(
 	"/admin/players/:player_id",
 	userController.isLoggedIn,
-	// userController.isAdmin,
+	userController.isAdmin,
 	playerController.editPlayer
 );
 router.delete(
 	"/admin/players/:player_id",
 	userController.isLoggedIn,
-	// userController.isAdmin,
+	userController.isAdmin,
 	playerController.deletePlayer
 );
 

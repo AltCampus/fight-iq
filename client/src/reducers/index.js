@@ -6,7 +6,8 @@ const initState = {
 	isLogged: false,
 	event: {},
 	fightsArr: [],
-	players: []
+	players: [],
+	fight:[]
 };
 
 export default function rootReducer(state = initState, action) {
@@ -103,9 +104,17 @@ export default function rootReducer(state = initState, action) {
 			return {
 				...state
 			}
-		
+
+// PREDICTION
+
+		case Type.ADD_PREDICTION:
+		return {
+			...state
+		};
+
 
 		default:
 			return state;
 	}
+
 }

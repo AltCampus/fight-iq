@@ -13,6 +13,8 @@ import AddFight from "./components/admin/fights/AddFight";
 import AddPlayer from "./components/admin/AddPlayer";
 import AddResult from "./components/admin/fights/AddResult";
 import EventCards from './components/user/EventCards';
+import EventDetails from './components/user/EventDetails';
+import Prediction from './components/user/Prediction';
 import DisplayPlayersList from "./components/admin/DisplayPlayersList";
 
 
@@ -36,6 +38,8 @@ class App extends Component {
 						<Route exact path='/admin/players' component={DisplayPlayersList} />
             <Route path='/login' component={Login} />
             <Route path='/register' component={Register} />
+						<Route path='/events/:eventid' component={EventDetails} />
+						<Route path='/events/:eventid/fights/:fightid/predict' component={Prediction} />
             <Route path='/events' component={EventCards} />
 
 					</Switch>
