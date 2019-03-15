@@ -64,9 +64,9 @@ class EventCards extends Component {
 									<div className=''>
 										{event.isExpired ? (
 											<div className=''>
-												<div className='event-title '>
+												<div className='event-list'>
 													<Link to={`event/${event._id}`}>
-														<li className='title'>{event.title}</li>
+														<p className='past-event-title'>{event.title}</p>
 													</Link>
 												</div>
 											</div>
