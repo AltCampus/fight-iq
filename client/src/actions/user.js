@@ -71,3 +71,18 @@ export function handleLogout(){
             })
     }
 }
+
+// Get user details
+export function getUser(){
+	return dispatch => {
+		fetch(URL + 'api/v1/user')
+			.then(response=>response.json())
+			.then(data=>{
+				dispatch({
+					type: Type.GET_USER,
+					user: data.user
+				})
+			})
+	}
+}
+
