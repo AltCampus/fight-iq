@@ -46,7 +46,8 @@ export function loginSubmit(state, cb){
         console.log(data)
     	dispatch({
     		type: Type.LOGIN,
-            success: data.success
+            success: data.success,
+            isAdmin: data.isAdmin
     	})
     	// cb(true); 
     	if (data.success){

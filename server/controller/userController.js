@@ -44,14 +44,13 @@ module.exports = {
 	      if (err) { return next(err); }
 	      return res.status(200).json({
 	      	user: user.username,
+	      	isAdmin: user.isAdmin,
 					message: "Successfully login",
 					success: true
 	      });
 	    });
 	  })(req, res, next);
 	},
- 
-
 	isLoggedIn: (req, res, next) => {
 	if(req.session.passport){
 		return next();
