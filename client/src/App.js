@@ -10,10 +10,11 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import AdminAddEvent from "./components/admin/events/AdminAddEvent";
 import AdminEventDetail from "./components/admin/events/AdminEventDetail";
 import AddFight from "./components/admin/fights/AddFight";
-import AddPlayer from "./components/admin/AddPlayer";
+import AddPlayer from "./components/admin/player/AddPlayer";
 import AddResult from "./components/admin/fights/AddResult";
 import EventCards from './components/user/EventCards';
-import DisplayPlayersList from "./components/admin/DisplayPlayersList";
+import DisplayPlayersList from "./components/admin/player/DisplayPlayersList";
+import Profile from "./components/user/profile/Profile";
 
 
 class App extends Component {
@@ -32,7 +33,9 @@ class App extends Component {
 						<Route exact path='/admin/:eventid/fights' component={AddFight} />
 						<Route exact path='/admin/:eventid/fights/:fightid/edit' component={AddFight}/>
 
-						<Route exact path='/admin/:eventid/fights/:fightid/result' component={AddResult}/> 
+						<Route exact path='/admin/:eventid/fights/:fightid/result' component={AddResult}/>
+
+						<Route exact path='/profile' component={Profile} />
 
 						<Route exact path='/admin/players/add' component={AddPlayer} />
 						<Route exact path='/admin/players' component={DisplayPlayersList} />
