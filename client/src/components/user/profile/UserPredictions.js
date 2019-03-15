@@ -7,7 +7,7 @@ class UserPredictions extends Component {
 		return (
 			<div className="UserPredictions">
 				<h1 className="UserPredictions-header">Predictions:</h1> 
-					{user.predictions.map(prediction=><UserPrediction key={prediction._id} prediction={prediction}/>)}
+					{user && user.predictions && user.predictions.map(prediction=><UserPrediction key={prediction._id} prediction={prediction}/>)}
 			</div>
 			);
 		}
