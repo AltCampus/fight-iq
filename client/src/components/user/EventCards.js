@@ -45,7 +45,7 @@ class EventCards extends Component {
     										</div>
 
     										<div className='predict-btn'>
-    											<button className='Prediction-button'>Prediction</button>
+    											<button className='Prediction-button'>Predict</button>
     										</div>
                       </div>) : null
                     }
