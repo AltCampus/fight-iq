@@ -76,7 +76,7 @@ h1 {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 70% 30%;
-      grid-template-columns: 70% 30%;
+  grid-template-columns: 70% 30%;
 }
 
 .fight-cards {
