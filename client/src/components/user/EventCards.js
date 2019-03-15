@@ -20,34 +20,34 @@ class EventCards extends Component {
 				</div>
 
 				<section className='events-page'>
-					<h1>Event</h1>
+					<h1>Upcoming Events</h1>
 					<div className='main-event-page'>
 						<div>
 							{events &&
 								events.map((event) => (
-  									<div>
-                      {
-                      (!event.isExpired) ?
-                        (<div className='fight-cards'>
-      										<div className='event-title '>
-                          <Link to={`event/${event._id}`}>
-      											<p className='title'>{event.title}</p>
-                          </Link>
-      										</div>
-      										<div className='fight-component'>
-      											<Fight data={event.fight} />
-      										</div>
-      										<div className='location-info'>
-      											<p className='txt-dec'>{event.date_time}</p>
-      											<p className='title-location'>{event.location}</p>
-      										</div>
+									<div className="">
+                    {
+                    (!event.isExpired) ?
+                      (<div className='fight-cards'>
+    										<div className='event-title '>
+                        <Link to={`event/${event._id}`}>
+    											<p className='title'>{event.title}</p>
+                        </Link>
+    										</div>
+    										<div className='fight-component'>
+    											<Fight data={event.fight} />
+    										</div>
+    										<div className='location-info'>
+    											<p className='txt-dec'>{event.date_time}</p>
+    											<p className='title-location'>{event.location}</p>
+    										</div>
 
-      										<div className='predict-btn'>
-      											<button className='Prediction-button'>Prediction</button>
-      										</div>
-                        </div>) : null
-                      }
-  									</div>
+    										<div className='predict-btn'>
+    											<button className='Prediction-button'>Prediction</button>
+    										</div>
+                      </div>) : null
+                    }
+									</div>
 								))
               }
 						</div>
