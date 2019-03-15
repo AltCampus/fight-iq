@@ -28,26 +28,26 @@ class App extends Component {
 				<Header />
 				<Header2 />
 					<Switch>
-						<Route exact path='/' component={Events} />
-
+						{/* Admin Routes */}
 						<PrivateRoute exact path='/admin' component={Admin} auth={isAdmin} />
-
 						<PrivateRoute exact path='/admin/event' component={AdminAddEvent}  auth={isAdmin}/>
 						<PrivateRoute exact path='/admin/event/:eventid' component={AdminEventDetail} auth={isAdmin}/>
 						<PrivateRoute exact path='/admin/:eventid/edit' component={AdminAddEvent} auth={isAdmin}/>
 						<PrivateRoute exact path='/admin/:eventid/fights' component={AddFight}  auth={isAdmin}/>
 						<PrivateRoute exact path='/admin/:eventid/fights/:fightid/edit' component={AddFight} auth={isAdmin}/>
-
 						<PrivateRoute exact path='/admin/:eventid/fights/:fightid/result' component={AddResult} auth={isAdmin}/>
-
-						<PrivateRoute exact path='/profile' component={Profile} auth={isLogged}/>
-
-						<PrivateRoute exact path='/admin/players/add' component={AddPlayer}  auth={isAdmin}/>
 						<PrivateRoute exact path='/admin/players' component={DisplayPlayersList}  auth={isAdmin}/>
-						
+						<PrivateRoute exact path='/admin/players/add' component={AddPlayer}  auth={isAdmin}/>
+
+						{/* Profile & User auth pages */}
             <Route path='/login' component={Login} />
             <Route path='/register' component={Register} />
+						<PrivateRoute exact path='/profile' component={Profile} auth={isLogged}/>
+
+						{/* User Routes */}
+						<Route exact path='/' component={Events} />
             <Route path='/events' component={EventCards} />
+            <Route path='/:eventid/fights/:fightid/predict' component={Predict} />
 
 					</Switch>
 				</div>
