@@ -1,4 +1,63 @@
 // ===========================
+//  banner- image - r-2
+// ===========================
+
+.banner-page {
+	background: rgb(128, 39, 39);
+
+	.banner-image {
+		display: grid;
+		grid-template-columns: 50% 50%;
+	}
+	img {
+		margin-top: 20px;
+		// height: 60vh;
+		height: 350px;
+		width: 200px;
+		/* top: 55%; */
+		/* right: 7%; */
+		object-fit: cover;
+		object-position: top;
+	}
+	.info-section {
+		position: relative;
+		.fight-info {
+			position: absolute;
+			top: 25%;
+			left: 25%;
+
+			h1 {
+				font-size: 2.3rem;
+				color: white;
+				margin: 0;
+				text-transform: uppercase;
+				font-weight: bold;
+				padding: 0;
+			}
+			p {
+				text-transform: capitalize;
+				font-size: 1.3rem;
+				color: white;
+				margin: 15px 0;
+				font-weight: 300;
+			}
+		}
+
+		.banner-predict-btn {
+			background: white;
+			color: black;
+			padding: 13px 30px;
+			font-size: 1rem;
+			&:hover {
+				cursor: pointer;
+				background: whitesmoke;
+				border-bottom: 1px solid red;
+			}
+		}
+	}
+}
+
+// ===========================
 //        Fight Cards
 // ===========================
 h1 {
@@ -15,7 +74,7 @@ h1 {
 	margin: 0 auto;
 	display: grid;
 	grid-template-columns: 70% 30%;
-	
+	grid-gap: 0px 0 5px 0;
 }
 .fight-cards {
 	position: relative;
@@ -23,12 +82,9 @@ h1 {
 	grid-template-columns: 15% 45% 30% 10%;
 	padding: 1rem 1.5rem;
 	border: 1px solid #eeeeef;
-	margin-left: 20px;
-	// margin-top: 15px;
 	&:hover {
 		box-shadow: 0px 0px 18px 8px #eeeeef;
 	}
-	
 }
 
 .event-title {
@@ -45,15 +101,9 @@ h1 {
 }
 
 .location-info {
-	// padding: 25px;
-	// position: relative;
-	// top: 50%;
-	// left: 50%;
-	// transform: translate(-50%, -50%);
 	margin-top: 4em;
 	margin-left: 2em;
 	.txt-dec {
-		// text-align: left;
 		text-transform: capitalize;
 		font-family: "Nunito", sans-serif;
 	}
@@ -92,7 +142,7 @@ h1 {
 }
 
 // ===========================
-//        Fight Cards == buttons
+//   Fight Cards == buttons
 // ===========================
 .buttons {
 	// position: relative;
@@ -102,7 +152,7 @@ h1 {
 		outline: none;
 		background: white;
 		border: 2px solid #eeeeef;
-		color: gray;
+		color: black;
 		position: absolute;
 		top: 34%;
 		right: 38%;
@@ -119,7 +169,7 @@ h1 {
 		outline: none;
 		background: white;
 		border: 2px solid #eeeeef;
-		color: gray;
+		color: black;
 		position: absolute;
 		top: 34%;
 		left: 16%;
@@ -135,42 +185,60 @@ h1 {
 }
 
 // ===========================
-//        Fight Cards == user image
+//  Fight Cards == user image
 // ===========================
 .player-images {
 	// position: relative;
 	// font-size: 1.6rem;
 	// padding: 25px;
 
-	.image-section{
+	.image-section {
 		.player-1 {
-		height: 120px;
-		width: 180px;
-		// position: absolute;
-		top: 55%;
-		right: 7%;
-		// transform: translate(0%, -35%);
+			height: 120px;
+			width: 138px;
+			/* top: 55%; */
+			/* right: 7%; */
+			object-fit: cover;
+			object-position: top;
+		}
+		.player-2 {
+			height: 120px;
+			width: 138px;
+			/* top: 55%; */
+			/* right: 7%; */
+			object-fit: cover;
+			object-position: top;
+			// transform: translate(30%, -35%);
+		}
 	}
-	.player-2 {
-		height: 120px;
-		width: 160px;
-		// position: absolute;
-		top: -28%;
-		left: 7%;
-		// transform: translate(30%, -35%);
-	}
-	}
-	
+
 	.palyers-name {
-		// position: absolute;
-		// bottom: -192%;
-		// left: 25%;
+		font-weight: 600;
 		padding: 10px 0;
 		color: #5a3c79;
 		font-size: 1.2rem;
 		text-transform: capitalize;
-		width: 50%;
 		margin: 8px 0;
 		color: black;
 	}
+}
+
+.events-header{
+	display: grid;
+	grid-template-columns: 1fr 500px;
+}
+// ==========================
+// 				Past Events
+// ==========================
+
+.event-list{
+	box-sizing: border-box;
+	border: 1px solid #eeeeef;
+	padding: 10px;
+	margin-left: 0.5em;
+}
+.past-event-title{
+	margin: 5px 10px;
+	text-align: left;
+
 }

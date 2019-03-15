@@ -54,13 +54,18 @@ class Fight extends Component {
 						{fight[this.state.currentIndex].title}
 					</div>
 				</div>
-				<div className='buttons'>
-					<button className='nextfight-btn' onClick={this.handleNextFight}>
-						Next
-					</button>
-					<button className='prevfight-btn' onClick={this.handlePrevFight}>
-						Prev
-					</button>
+				<div>
+					{
+						(fight.length > 1) ?
+						<div className='buttons'>
+							<button className='nextfight-btn' onClick={this.handleNextFight}>
+								Next
+							</button>
+							<button className='prevfight-btn' onClick={this.handlePrevFight}>
+								Prev
+							</button>
+						</div> : null
+					}
 				</div>
 			</div>
 		);
