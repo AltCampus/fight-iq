@@ -19,7 +19,7 @@ class Banner extends Component {
 							<p>{this.props.events[0].title}</p>
 							<div className='predict-btn'>
 								<Link to='#'>
-									<button className='banner-predict-btn'>Prediction</button>
+									<button className='banner-predict-btn'>Predict</button>
 								</Link>
 							</div>
 						</div>
