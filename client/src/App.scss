@@ -26,7 +26,9 @@ table {
 body {
 	// font-family: 'Yanone Kaffeesatz', sans-serif;
 	// font-family: 'Roboto Condensed', 'Roboto', Helvetica, Arial, sans-serif;
-	font-family: "Cuprum", sans-serif;
+	// font-family: "Cuprum", sans-serif;
+	font-family: 'Heebo', 'Open Sans', sans-serif;	
+
 }
 
 // Custom SCSS
@@ -36,7 +38,7 @@ body {
 	justify-content: space-between;
 	align-items: center;
 	padding: 10px;
-	background: #710627;
+	background: black;
 }
 
 a {
@@ -48,6 +50,8 @@ a {
 	font-size: 32px;
 	padding: 10px;
 	text-decoration: none;
+	text-transform: uppercase;
+	font-weight: 700;
 }
 
 .top-right > * {
@@ -55,6 +59,8 @@ a {
 	color: white;
 	text-decoration: none;
 	font-size: 20px;
+	text-transform: uppercase;
+	font-weight: 700;
 }
 
 .App {
