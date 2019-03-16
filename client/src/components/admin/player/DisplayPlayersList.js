@@ -20,6 +20,7 @@ class DisplayPlayersList extends Component {
 
 	render() {
 		const { players } = this.props;
+		console.log(players, "show the list of player in display player");
 		return (
 			<div className='display-list-of-players'>
 				<div className='show-players-list'>
@@ -50,7 +51,7 @@ class DisplayPlayersList extends Component {
 
 const mapStateToProps = (state) => {
 	return {
-		players: state.players.player
+		players: state.players
 	};
 };
 
