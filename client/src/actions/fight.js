@@ -1,5 +1,5 @@
-const URL = "http://localhost:8000/";
 import Type from "./types";
+const URL = "http://localhost:8000/";
 
 // Add  fight
 export function addFight(data, eventId, cb) {
@@ -27,6 +27,20 @@ export function addFight(data, eventId, cb) {
 export function getFights(eventId) {
 	return (dispatch) => {
 		fetch(URL + " /events/" + eventId + "/fights")
+			.then((res) => res.json())
+			.then((data) => {
+				dispatch({
+					type: Type.GET_FIGHT,
+					data
+				});
+			});
+	};
+}
+
+// Get fight
+export function getFight(eventId, fightId) {
+	return (dispatch) => {
+		fetch(URL + " /events/" + eventId + "/fights" + fightId)
 			.then((res) => res.json())
 			.then((data) => {
 				dispatch({

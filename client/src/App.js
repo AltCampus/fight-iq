@@ -14,9 +14,12 @@ import AddFight from "./components/admin/fights/AddFight";
 import AddPlayer from "./components/admin/player/AddPlayer";
 import AddResult from "./components/admin/fights/AddResult";
 import EventCards from './components/user/EventCards';
+import EventDetails from './components/user/EventDetails';
+import Prediction from './components/user/Prediction';
 import DisplayPlayersList from "./components/admin/player/DisplayPlayersList";
 import Profile from "./components/user/profile/Profile";
 import PrivateRoute from './components/PrivateRoute';
+import Predict from './components/user/predict/Predict';
 
 
 class App extends Component {
@@ -45,9 +48,9 @@ class App extends Component {
 						<PrivateRoute exact path='/profile' component={Profile} auth={isLogged}/>
 
 						{/* User Routes */}
-						<Route exact path='/' component={Events} />
-            <Route path='/events' component={EventCards} />
-            <Route path='/:eventid/fights/:fightid/predict' component={Predict} />
+						<Route exact path='/' component={EventCards} />
+            <Route path='/events/:eventid' component={EventDetails} />
+            <Route path='/events/:eventid/fights/:fightid/predict' component={Prediction} />
 
 					</Switch>
 				</div>
