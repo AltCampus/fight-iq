@@ -36,7 +36,7 @@ class EventCards extends Component {
 										{!event.isExpired ? (
 											<div className='fight-cards'>
 												<div className='event-title '>
-													<Link to={`event/${event._id}`}>
+													<Link to={`events/${event._id}`}>
 														<p className='title'>{event.title}</p>
 													</Link>
 												</div>
@@ -49,9 +49,7 @@ class EventCards extends Component {
 												</div>
 
 												<div className='predict-btn'>
-													<button className='Prediction-button'>
-														Prediction
-													</button>
+													<button className='Prediction-button'>Predict</button>
 												</div>
 											</div>
 										) : null}
@@ -65,7 +63,7 @@ class EventCards extends Component {
 										{event.isExpired ? (
 											<div className=''>
 												<div className='event-list'>
-													<Link to={`event/${event._id}`}>
+													<Link to={`events/${event._id}`}>
 														<p className='past-event-title'>{event.title}</p>
 													</Link>
 												</div>
