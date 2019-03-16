@@ -29,9 +29,10 @@ export function getPlayers() {
 		fetch(URL + "api/v1/players")
 			.then((res) => res.json())
 			.then((data) => {
+				console.log(data, "list og data in the player action");
 				dispatch({
 					type: Type.GET_PLAYERS,
-					players:data.player
+					players: data
 				});
 			});
 	};
