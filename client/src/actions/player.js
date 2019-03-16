@@ -94,6 +94,7 @@ export function editPlayer(data, player_id) {
 					dispatch({
 						type: Type.EDIT_PLAYER
 					});
+					cb(true);
 				}
 			});
 	};

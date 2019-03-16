@@ -25,7 +25,6 @@ class DisplayPlayersList extends Component {
 
 	render() {
 		const { players } = this.props;
-		console.log(players);
 		return (
 			<div className='display-list-of-players'>
 				<div className='show-players-list'>
@@ -36,16 +35,13 @@ class DisplayPlayersList extends Component {
 								<p>Name :{val.name}</p>
 								<p> Weight:{val.weight}</p>
 								<p> Height :{val.height}</p>
-
 								<div>
 									<p onClick={(e) => this.handleDelete(e, val._id)}>
 										<i className='fas fa-trash-alt' />
 									</p>
-									<Link to={"/admin/players/edit/" + val._id}>
-										<p onClick={(e) => this.handleEdit(e, val._id)}>
-											<i className='fas fa-edit' />
-										</p>
-									</Link>
+									<p onClick={(e) => this.handleEdit(e, val._id)}>
+										<i className='fas fa-edit' />
+									</p>
 								</div>
 							</div>
 						))}
