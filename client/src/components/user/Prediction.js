@@ -47,7 +47,8 @@ class Prediction extends Component {
   render() {
     let fight = this.props.location.state;
     let players = this.props.players;
-
+console.log(players,"players");
+console.log(fight, "fight")
     return (
       <div className="Pridiction">
         <form onSubmit={this.handleSubmit}>
@@ -55,7 +56,7 @@ class Prediction extends Component {
           <h5>Player 1</h5>
           <select name="winner" onChange={this.updateValue} required>
             <option value="none">select</option>
-            {players.map(player => (
+            {players.filter(v=> v._id==fight.player2._id||v._id==fight.player1._id).map(player => (
               <option key={player._id} value={player._id}>
                 {player.name}
               </option>

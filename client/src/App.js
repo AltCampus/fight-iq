@@ -32,6 +32,7 @@ class App extends Component {
 				<Header2 />
 					<Switch>
 						{/* Admin Routes */}
+
 						<PrivateRoute exact path='/admin' component={Admin} auth={isAdmin} />
 						<PrivateRoute exact path='/admin/event' component={AdminAddEvent}  auth={isAdmin}/>
 						<PrivateRoute exact path='/admin/event/:eventid' component={AdminEventDetail} auth={isAdmin}/>
