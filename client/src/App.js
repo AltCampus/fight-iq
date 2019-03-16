@@ -86,6 +86,12 @@ class App extends Component {
 						/>
 						<PrivateRoute
 							exact
+							path='/admin/players/edit/:id'
+							component={AddPlayer}
+							auth={isAdmin}
+						/>
+						<PrivateRoute
+							exact
 							path='/admin/players'
 							component={DisplayPlayersList}
 							auth={isAdmin}

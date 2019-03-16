@@ -106,6 +106,10 @@ export default function rootReducer(state = initState, action) {
 			return {
 				...state
 			};
+		case Type.EDIT_PLAYER:
+			return {
+				...state
+			};
 
 		// Result
 

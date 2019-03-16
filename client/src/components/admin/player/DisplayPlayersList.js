@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { getPlayers, deleteEvent } from "../../../actions/player";
+import { getPlayers, deleteEvent, editPlayer } from "../../../actions/player";
 
 class DisplayPlayersList extends Component {
 	handleDelete(e, id) {
@@ -18,9 +18,12 @@ class DisplayPlayersList extends Component {
 		this.props.dispatch(getPlayers());
 	}
 
+	handleEdit(e, id) {
+		this.props.dispatch(editPlayer(id));
+	}
+
 	render() {
 		const { players } = this.props;
-		console.log(players, "show the list of player in display player");
 		return (
 			<div className='display-list-of-players'>
 				<div className='show-players-list'>
@@ -34,6 +37,9 @@ class DisplayPlayersList extends Component {
 								<div>
 									<p onClick={(e) => this.handleDelete(e, val._id)}>
 										<i className='fas fa-trash-alt' />
+									</p>
+									<p onClick={(e) => this.handleEdit(e, val._id)}>
+										<i className='fas fa-edit' />
 									</p>
 								</div>
 							</div>
