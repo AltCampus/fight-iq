@@ -37,6 +37,7 @@ class Fight extends Component {
 	render() {
 		const fight = this.props.data;
 		const event = this.props.event;
+		console.log("Fight:", fight)
 		return (
 			<div className='fight-card'>
 				<div className='player-images'>
