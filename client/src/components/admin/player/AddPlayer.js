@@ -59,9 +59,8 @@ class AddPlayer extends Component {
 		e.preventDefault();
 		if (this.state.isEdit) {
 			const { id } = this.props.match.params;
-			this.props.dispatch(
-				editPlayer(this.state.playerDetails, id, this.redirectUser)
-			);
+
+			this.props.dispatch(editPlayer(this.state.playerDetails, id));
 		} else {
 			this.props.dispatch(
 				addPlayer(this.state.playerDetails, this.redirectUser)
