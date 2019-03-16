@@ -1,3 +1,4 @@
+  
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getEvents } from "../../actions/event";
@@ -36,6 +37,7 @@ class Fight extends Component {
 	render() {
 		const fight = this.props.data;
 		const event = this.props.event;
+		console.log("Fight:", fight)
 		return (
 			<div className='fight-card'>
 				<div className='player-images'>
@@ -53,13 +55,18 @@ class Fight extends Component {
 						{fight[this.state.currentIndex].title}
 					</div>
 				</div>
-				<div className='buttons'>
-					<button className='nextfight-btn' onClick={this.handleNextFight}>
-						Next
-					</button>
-					<button className='prevfight-btn' onClick={this.handlePrevFight}>
-						Prev
-					</button>
+				<div>
+					{
+						(fight.length > 1) ?
+						<div className='buttons'>
+							<button className='nextfight-btn' onClick={this.handleNextFight}>
+								Next
+							</button>
+							<button className='prevfight-btn' onClick={this.handlePrevFight}>
+								Prev
+							</button>
+						</div> : null
+					}
 				</div>
 			</div>
 		);

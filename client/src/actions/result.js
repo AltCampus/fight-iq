@@ -1,5 +1,5 @@
-const URL = "http://localhost:8000/";
 import Type from "./types";
+const URL = "http://localhost:8000/";
 
 // Add  result
 export function addResult(data, fightId, cb) {
