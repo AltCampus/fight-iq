@@ -102,7 +102,6 @@ h1 {
 	font-weight: 800;
 	font-display: bold;
 	padding: 30px 0;
-	font-family: "Roboto";
 }
 
 .main-event-page {
@@ -140,7 +139,6 @@ h1 {
 	margin-left: 2em;
 	.txt-dec {
 		text-transform: capitalize;
-		font-family: "Nunito", sans-serif;
 	}
 	p {
 		margin: 0;
@@ -155,7 +153,6 @@ h1 {
 }
 .predict-btn {
 	.Prediction-button {
-		font-family: "Open Sans", sans-serif;
 		position: relative;
 		top: 50%;
 		left: 50%;
@@ -191,7 +188,6 @@ h1 {
 		position: absolute;
 		top: 34%;
 		right: 38%;
-		font-family: "Open Sans", sans-serif;
 		// left: 50%;
 		// transform: translate(-25%, 20%);
 		&:hover {
@@ -208,7 +204,6 @@ h1 {
 		position: absolute;
 		top: 34%;
 		left: 16%;
-		font-family: "Open Sans", sans-serif;
 		// left: 50%;
 		// transform: translate(-50%, 20%);
 		&:hover {
@@ -275,4 +270,14 @@ h1 {
 .past-event-title {
 	margin: 5px 10px;
 	text-align: left;
+}
+
+
+// =========================
+// 			Event Details
+// =========================
+
+.event-detail-banner{
+	background: #0c0c0c;
+	color: white;
 }

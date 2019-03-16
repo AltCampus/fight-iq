@@ -19,6 +19,7 @@ class DisplayPlayersList extends Component {
 	}
 
 	handleEdit(e, id) {
+		console.log(id, "id in dosis;ajdsfk<f");
 		this.props.dispatch(editPlayer(id));
 	}
 

@@ -36,18 +36,19 @@ class Fight extends Component {
 	render() {
 		const fight = this.props.data;
 		const event = this.props.event;
+		console.log("Fight:", fight);
 		return (
 			<div className='fight-card'>
 				<div className='player-images'>
 					<div className='image-section'>
-						{/* <img
+						<img
 							className='player-1'
 							src={fight[this.state.currentIndex].player1.image}
-						/> */}
-						{/* <img
+						/>
+						<img
 							className='player-2'
 							src={fight[this.state.currentIndex].player2.image}
-						/> */}
+						/>
 					</div>
 					<div className='palyers-name'>
 						{fight[this.state.currentIndex].title}
