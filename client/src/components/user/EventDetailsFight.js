@@ -22,18 +22,27 @@ class Fight extends Component {
 		return (
 			<div className="Fight">
 				<img src={fight.player1.image} /><span>{fight.player1.name}</span>
-				<img src={fight.player2.image} /><span>{fight.player1.name}</span>
+				<img src={fight.player2.image} /><span>{fight.player2.name}</span>
 				<div className="title">{fight.title}</div>
 				<div className="type">Type: {fight.type}</div>
 				<div className="rounds">Rounds: {fight.rounds}</div>
-				<div className="bottom-section"> 
+				
+				<div className="predict-btn"> 
 					{
 						(!fight.isPredicted) ? 
-						<div>
+						<div className="bottom-section">
 							<Link to={{pathname:'/events/' + eventid + '/fights/' + fight._id + '/predict', state: fight}}>
 								<i className='far fa-plus-square' /> Predict
 							</Link>
-						</div> : null
+						</div> : 
+						<div className="bottom-section">
+							<Link to={{pathname:'/events/' + eventid + '/fights/' + fight._id + '/edit', state: fight}}>
+								<i className='far fa-plus-square' /> Edit Predict
+							</Link>	
+							<Link to={'/'}>
+								<i className='far fa-plus-square' /> Delete
+							</Link>	
+						</div>
 					}
 				</div>
 			</div>

@@ -49,6 +49,7 @@ module.exports = {
 			}
 		})
 	},
+	
 	deletePrediction: (req, res) => {
 		let userId = req.session.passport.user;
 		const id = req.params.prediction_id;
