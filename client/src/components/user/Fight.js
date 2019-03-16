@@ -1,4 +1,3 @@
-  
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getEvents } from "../../actions/event";
@@ -41,22 +40,21 @@ class Fight extends Component {
 			<div className='fight-card'>
 				<div className='player-images'>
 					<div className='image-section'>
-						<img
+						{/* <img
 							className='player-1'
 							src={fight[this.state.currentIndex].player1.image}
-						/>
-						<img
+						/> */}
+						{/* <img
 							className='player-2'
 							src={fight[this.state.currentIndex].player2.image}
-						/>
+						/> */}
 					</div>
 					<div className='palyers-name'>
 						{fight[this.state.currentIndex].title}
 					</div>
 				</div>
 				<div>
-					{
-						(fight.length > 1) ?
+					{fight.length > 1 ? (
 						<div className='buttons'>
 							<button className='nextfight-btn' onClick={this.handleNextFight}>
 								Next
@@ -64,8 +62,8 @@ class Fight extends Component {
 							<button className='prevfight-btn' onClick={this.handlePrevFight}>
 								Prev
 							</button>
-						</div> : null
-					}
+						</div>
+					) : null}
 				</div>
 			</div>
 		);
