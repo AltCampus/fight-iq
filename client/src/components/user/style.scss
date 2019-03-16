@@ -78,7 +78,7 @@ a {
 		font-size: 12px;
 		background: white;
 		padding: 16px 100px;
-
+		outline: none;
 		font-family: "Open Sans", sans-serif;
 		color: black;
 		border: 2px solid#eeeeef;
@@ -258,7 +258,7 @@ h1 {
 	}
 }
 
-.events-header{
+.events-header {
 	display: grid;
 	grid-template-columns: 1fr 500px;
 }
@@ -266,14 +266,13 @@ h1 {
 // 				Past Events
 // ==========================
 
-.event-list{
+.event-list {
 	box-sizing: border-box;
 	border: 1px solid #eeeeef;
 	padding: 10px;
 	margin-left: 0.5em;
 }
-.past-event-title{
+.past-event-title {
 	margin: 5px 10px;
 	text-align: left;
-
 }
