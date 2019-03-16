@@ -26,7 +26,8 @@ table {
 body {
 	// font-family: 'Yanone Kaffeesatz', sans-serif;
 	// font-family: 'Roboto Condensed', 'Roboto', Helvetica, Arial, sans-serif;
-	font-family: "Cuprum", sans-serif;
+	// font-family: "Cuprum", sans-serif;
+	font-family: "Heebo", "Open Sans", sans-serif;
 }
 
 // Custom SCSS
@@ -43,7 +44,7 @@ body {
 	justify-content: space-between;
 	align-items: center;
 	padding: 10px;
-	background: rgb(20, 20, 20);
+	background: black;
 }
 
 a {
@@ -56,21 +57,17 @@ a {
 	font-size: 1.6rem;
 	padding: 10px;
 	text-decoration: none;
-
-	&:hover {
-		color: rgb(226, 216, 198);
-	}
+	text-transform: uppercase;
+	font-weight: 700;
 }
 
 .top-right > * {
 	padding: 10px;
 	color: white;
 	text-decoration: none;
-	font-size: 1rem;
-	font-family: "Nunito", sans-serif;
-	&:hover {
-		color: rgb(226, 216, 198);
-	}
+	font-size: 20px;
+	text-transform: uppercase;
+	font-weight: 700;
 }
 
 .App {

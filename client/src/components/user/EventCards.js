@@ -49,7 +49,11 @@ class EventCards extends Component {
 												</div>
 
 												<div className='predict-btn'>
-													<button className='Prediction-button'>Predict</button>
+													<Link to={`events/${event._id}`}>
+														<button className='Prediction-button'>
+															Predict
+														</button>
+													</Link>
 												</div>
 											</div>
 										) : null}

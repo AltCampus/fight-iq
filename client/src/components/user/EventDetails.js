@@ -13,7 +13,7 @@ class EventDetails extends Component {
 
 	redirectUser = (success, errorMsg = "") => {
 		if (success){
-			this.props.history.push('/events');
+			this.props.history.push('/');
 		} else {
 			this.setState({
 				error: errorMsg
@@ -24,19 +24,23 @@ class EventDetails extends Component {
 	render() {
 		let { event } = this.props;
 		const { fights } = this.props;
+		console.log(event, "raviravi")
 
 		return (
-			<div className='AdminEventDetail'>
-				<div className="event-title">{event.title}</div>
-				<div className="event-location">{event.location}</div>
-				<div className="event-date_time">{event.date_time}</div>
-				<div className="event-bottom-section">
+			<div className="event-detail-page">
+				<div className="event-detail-banner">
+					<div className="event-title">{event.title}</div>
+					<div className="event-location">{event.location}</div>
+					<div className="event-date_time">{event.date_time}</div>
 				</div>
-				<h5 className="fights">Fights: </h5>
-				{
-					fights && fights.map(fight=><Fight key={fight._id} fight={fight} eventid={event._id}/>)
-				}
-
+				<div className='AdminEventDetail'>
+					<div className="event-bottom-section">
+					</div>
+					<h5 className="fights">Fights: </h5>
+					{
+						fights && fights.map(fight=><Fight key={fight._id} fight={fight} eventid={event._id}/>)
+					}
+				</div>
 			</div>
 		);
 	}

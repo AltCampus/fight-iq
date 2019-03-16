@@ -75,7 +75,7 @@ export function deleteEvent(id, cb) {
 }
 
 // edit Player
-export function editPlayer(data, player_id, cb) {
+export function editPlayer(data, player_id) {
 	console.log(player_id, "show id in action edit player");
 	return (dispatch) => {
 		fetch(URL + "api/v1/admin/players/" + player_id, {
@@ -96,6 +96,5 @@ export function editPlayer(data, player_id, cb) {
 					});
 				}
 			});
-		cb(true);
 	};
 }
