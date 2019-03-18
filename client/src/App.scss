@@ -27,13 +27,19 @@ body {
 	// font-family: 'Yanone Kaffeesatz', sans-serif;
 	// font-family: 'Roboto Condensed', 'Roboto', Helvetica, Arial, sans-serif;
 	// font-family: "Cuprum", sans-serif;
-	font-family: 'Heebo', 'Open Sans', sans-serif;	
-
+	font-family: "Heebo", "Open Sans", sans-serif;
 }
 
 // Custom SCSS
 
+// ===========================
+//           header
+// ===========================
+
 .Header {
+	// position: fixed;
+	// z-index: 1;
+	// width: 100%;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -46,8 +52,9 @@ a {
 }
 
 .Logo {
+	font-family: "Roboto";
 	color: white;
-	font-size: 32px;
+	font-size: 1.6rem;
 	padding: 10px;
 	text-decoration: none;
 	text-transform: uppercase;
@@ -134,7 +141,3 @@ button {
 	display: flex;
 	justify-content: space-between;
 }
-
-// ===========================
-//        banner-page
-// ===========================
