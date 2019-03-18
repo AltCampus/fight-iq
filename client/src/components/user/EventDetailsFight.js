@@ -21,8 +21,10 @@ class Fight extends Component {
 		console.log(fight)
 		return (
 			<div className="Fight">
-				<img src={fight.player1.image} /><span>{fight.player1.name}</span>
-				<img src={fight.player2.image} /><span>{fight.player2.name}</span>
+			<div>
+				<img src={fight.player1.image} />
+				<img src={fight.player2.image} />
+			</div>
 				<div className="title">{fight.title}</div>
 				<div className="type">Type: {fight.type}</div>
 				<div className="rounds">Rounds: {fight.rounds}</div>

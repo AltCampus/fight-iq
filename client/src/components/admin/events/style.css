@@ -33,12 +33,16 @@
 }
 
 .AdminEvents {
-  border: 1px solid #eee;
   color: #333;
 }
 
 .AdminEvents .AdminEvent {
   padding: 10px;
+  border: 1px solid #eee;
+}
+
+.AdminEvents .AdminEvent :hover {
+  text-decoration: underline;
 }
 
 .AdminEvents a {

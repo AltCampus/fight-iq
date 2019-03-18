@@ -1,4 +1,3 @@
-  
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getEvents } from "../../actions/event";
@@ -37,7 +36,7 @@ class Fight extends Component {
 	render() {
 		const fight = this.props.data;
 		const event = this.props.event;
-		console.log("Fight:", fight)
+		console.log("Fight:", fight);
 		return (
 			<div className='fight-card'>
 				<div className='player-images'>
@@ -56,8 +55,7 @@ class Fight extends Component {
 					</div>
 				</div>
 				<div>
-					{
-						(fight.length > 1) ?
+					{fight.length > 1 ? (
 						<div className='buttons'>
 							<button className='nextfight-btn' onClick={this.handleNextFight}>
 								Next
@@ -65,8 +63,8 @@ class Fight extends Component {
 							<button className='prevfight-btn' onClick={this.handlePrevFight}>
 								Prev
 							</button>
-						</div> : null
-					}
+						</div>
+					) : null}
 				</div>
 			</div>
 		);
