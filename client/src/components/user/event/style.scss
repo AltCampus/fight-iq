@@ -1,0 +1,96 @@
+.EventDetails{
+	.event-detail-banner{
+		background: rgb(128, 39, 39);
+		padding: 3% 5%;
+
+		*{
+			color:white;
+		}
+
+		.event-title{
+			font-size: 26px;
+			font-weight: 700;
+			padding: 10px 0;
+		}
+
+		.event-main-event{
+			font-size: 40px;
+			text-transform: uppercase;
+			font-weight: 700;
+			padding: 15px 0;
+		}
+		
+		.event-location{
+			padding: 10px 0;
+		}
+
+	}
+
+	.EventDetailsFight{
+		display: grid;
+		grid-template-columns: 40% 20% 40%;
+		max-width: 1000px;
+		margin: 0 auto;
+		padding: 20px 5%;
+		box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+		margin-top:20px;
+		align-items: center;
+		grid-gap:10px;
+
+		&:hover{
+			box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+		}
+		
+		.player1-content, .player2-content{
+			img{
+				height: 180px;
+				width: 200px;
+				object-fit: cover;
+				object-position: top;
+			}
+			
+			.player-name{
+				color:#444;
+				text-align: left;
+				font-size: 32px;
+				text-transform: uppercase;
+			}
+
+		}
+
+		.player1-content{
+			display: grid;
+			grid-template-columns: auto 1fr;
+			align-items: end;
+		}
+
+		.player2-content{
+			display: grid;
+			grid-template-columns: 1fr auto; 
+			align-items: end;
+
+			.player-name{
+				text-align: right;
+			}
+		}
+
+		.mid-section{
+			font-size: 40px;
+			color:#666;
+		}
+
+		a{
+			grid-column: 1/ span 3;
+
+			button{
+				padding:12px 20px;
+				background: rgb(128, 39, 39);
+				font-size: 15px;
+				cursor: pointer;
+				text-transform: uppercase;
+				letter-spacing: 1.2px;
+			}
+		}
+
+	}
+}
