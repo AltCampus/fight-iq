@@ -1,29 +1,29 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import Fight from './Fight';
 
 class DetailedEvent extends Component {
 	render() {
-		let {event} = this.props
+		let {event} = this.props;
+		let mainFight = event.fight && event.fight.find(fight=>fight.type=='mainEvent');
+
+		let eventDate = event.date_time && event.date_time.split('T')[0];
+		let eventTime = event.date_time && event.date_time.split('T')[1];
+		console.log(mainFight)
 		return (
-						<div className='fight-cards'>
-	            <Link to={`events/${event._id}`}>
-	    					<div className='event-title '>
-		    						<p className='title'>{event.title}</p>
-	    					</div>
-								<div className='fight-component'>
-									<Fight data={event.fight} />
-								</div>
+	          <Link to={`events/${event._id}`}>
+							<div className='DetailedEvent'>
+			    			<div className='event-title'>{event.title}</div>
+			    					<div className='event-images'>
+											<img className='player-1' src={mainFight.player1.image}/>
+											<img className='player-2' src={mainFight.player2.image}/>
+										</div>
 								<div className='location-info'>
-									<p className='txt-dec'>{event.date_time}</p>
+									<p className='txt-dec'>{eventTime}, {eventDate} </p>
 									<p className='title-location'>{event.location}</p>
 								</div>
-
-								<div className='predict-btn'>
-									<button className='Prediction-button'>Predict</button>
-								</div>
-	            </Link>
-            </div>
+								<button className='Prediction-button'>Predict</button>
+	            </div>
+	          </Link>
 			);
 		}
 	}
