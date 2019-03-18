@@ -30,7 +30,7 @@ class EventDetailsFight extends Component {
 					</div>
 				</div>
 				<div className="mid-section">
-				Vs
+				VS
 				</div>
 				<div className="player2-content">
 					<div className="player2-details">
