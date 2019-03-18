@@ -11,7 +11,7 @@ class EventCards extends Component {
 	}
 
 	render() {
-		const { events } = this.props;
+		const { events, isLogged } = this.props;
 		console.log(events);
 		return (
 			<div className='main-page'>
@@ -36,9 +36,19 @@ class EventCards extends Component {
 										{!event.isExpired ? (
 											<div className='fight-cards'>
 												<div className='event-title '>
-													<Link to={`events/${event._id}`}>
-														<p className='title'>{event.title}</p>
-													</Link>
+													{isLogged ? (
+														<div>
+															<Link to={`events/${event._id}`}>
+																<p className='title'>{event.title}</p>
+															</Link>
+														</div>
+													) : (
+														<div>
+															<Link to={`/login`}>
+																<p className='title'>{event.title}</p>
+															</Link>
+														</div>
+													)}
 												</div>
 												<div className='fight-component'>
 													<Fight data={event.fight} />
@@ -48,12 +58,24 @@ class EventCards extends Component {
 													<p className='title-location'>{event.location}</p>
 												</div>
 
-												<div className='predict-btn'>
-													<Link to={`events/${event._id}`}>
-														<button className='Prediction-button'>
-															Predict
-														</button>
-													</Link>
+												<div>
+													{isLogged ? (
+														<div className='predict-btn'>
+															<Link to={`events/${event._id}`}>
+																<button className='Prediction-button'>
+																	Predict
+																</button>
+															</Link>
+														</div>
+													) : (
+														<div>
+															<Link to='/login'>
+																<button className='Prediction-button'>
+																	Predict
+																</button>
+															</Link>
+														</div>
+													)}
 												</div>
 											</div>
 										) : null}
@@ -88,7 +110,8 @@ class EventCards extends Component {
 
 const mapStateToProps = (state) => {
 	return {
-		events: state.events
+		events: state.events,
+		isLogged: state.isLogged
 	};
 };
 
