@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { getEvents } from "../../actions/event";
 import {Link} from "react-router-dom"
 import Fight from "./Fight";
-import Banner from "./Banner";
+import Banner from "./homepage/Banner";
 
 class EventCards extends Component {
 	componentDidMount() {
@@ -13,11 +13,14 @@ class EventCards extends Component {
 
 	render() {
 		const { events } = this.props;
-		console.log(events);
-		return (
+    const upcomingEvents = events.filter(event=>!event.isExpired);
+    const pastEvents = events.filter(event=>event.isExpired);
+    const heroEvent = upcomingEvents.sort((a,b)=>a.date_time-b.date_time).find(event=>event.isMajor)
+                      || upcomingEvents.sort((a,b)=>a.date_time-b.date_time)[0]; // if no upcoming major events
+    return (
 			<div className='main-page'>
 				<div>
-					{events.length != 0 ? <Banner fight={events[0].fight[0]} events={events}/> : ""}
+          {heroEvent && <Banner fight={heroEvent.fight[0]} event={heroEvent}/>}
 				</div>
 
 				<section className='events-page'>

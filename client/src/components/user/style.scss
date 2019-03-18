@@ -1,61 +1,85 @@
 // ===========================
-//  banner- image - r-2
+//  Homepage: Banner Image
 // ===========================
 
 .banner-page {
 	background: rgb(128, 39, 39);
+	display: grid;
+	grid-template-columns: auto 1fr;
+	padding: 0 50px;
 
 	.banner-image {
 		display: grid;
 		grid-template-columns: 50% 50%;
-	}
-	img {
-		margin-top: 20px;
-		// height: 60vh;
-		height: 350px;
-		width: 200px;
-		/* top: 55%; */
-		/* right: 7%; */
-		object-fit: cover;
-		object-position: top;
-	}
-	.info-section {
-		position: relative;
-		.fight-info {
-			position: absolute;
-			top: 25%;
-			left: 25%;
 
-			h1 {
-				font-size: 2.3rem;
-				color: white;
-				margin: 0;
-				text-transform: uppercase;
-				font-weight: bold;
-				padding: 0;
-			}
-			p {
-				text-transform: capitalize;
-				font-size: 1.3rem;
-				color: white;
-				margin: 15px 0;
-				font-weight: 300;
-			}
+		img {
+			margin-top: 20px;
+			height: 350px;
+			width: 200px;
+			object-fit: cover;
+			object-position: top;
 		}
+	}
 
+	.info-section {
+		display: grid;
+		align-content: center;
+		justify-content: center;
+		color:white;
+		
+		.hero-event-title{
+			color:white;
+			font-size: 24px;
+			font-weight: 700;
+		}
+		
+		h1{
+			color:white;
+			font-size: 40px;
+		}
+		
 		.banner-predict-btn {
 			background: white;
 			color: black;
 			padding: 13px 30px;
 			font-size: 1rem;
+			font-weight: 700;
+			text-transform: uppercase;
 			&:hover {
 				cursor: pointer;
-				background: whitesmoke;
-				border-bottom: 1px solid red;
+				border-bottom: 3px solid red;
 			}
 		}
+	
 	}
 }
+
+// 	.info-section {
+// 		display: grid;
+// 		align-items: center;
+// 		justify-content: center;
+
+// 			h1 {
+// 				font-size: 2.3rem;
+// 				color: white;
+// 				margin: 0;
+// 				text-transform: uppercase;
+// 				font-weight: bold;
+// 				padding: 0;
+// 			}
+
+// 			p {
+// 				text-transform: capitalize;
+// 				font-size: 1.3rem;
+// 				color: white;
+// 				margin: 15px 0;
+// 				font-weight: 300;
+// 			}
+// 		}
+
+
+// 	}
+// }
 
 // ===========================
 //        Fight Cards
