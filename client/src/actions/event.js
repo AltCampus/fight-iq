@@ -3,6 +3,10 @@ const URL = "http://localhost:8000/";
 
 // Add event
 export function addEvent(state, cb) {
+	state.isExpired = state.isExpired==='true';
+	state.isMajor = state.isMajor==='true';
+	console.log(state)
+
 	return (dispatch) => {
 		fetch(URL + "api/v1/admin/events", {
 			method: "POST",
@@ -51,6 +55,10 @@ export function getEvent(eventid) {
 
 // Edit event
 export function editEvent(state, cb, eventid) {
+	state.isExpired = state.isExpired==='true';
+	state.isMajor = state.isMajor==='true';
+	console.log(state)
+	
 	return (dispatch) => {
 		fetch(URL + "api/v1/admin/events/" + eventid, {
 			method: "PUT",

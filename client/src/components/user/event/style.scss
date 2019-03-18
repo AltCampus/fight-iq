@@ -1,0 +1,173 @@
+
+@media (max-width: 1000px){
+	.EventDetails{
+		.event-detail-banner{
+			.event-title{
+				font-size: 24px !important;
+				padding: 5px 0 !important;
+			}
+
+			.event-main-event{
+				font-size: 36px !important;
+				padding: 10px 0 !important;
+			}
+			
+			.event-location{
+				padding: 8px 0 !important;
+			}
+		}
+	}
+
+	.player1-content, .player2-content{
+		grid-template-columns: 1fr !important;
+		justify-content: center;
+		justify-items: center;
+
+		.player-name{
+			padding: 5px 30px;
+		}
+
+		*{
+			text-align: center !important;
+			font-size: 26px !important;
+		}
+
+		img{
+			height: 120px !important;
+			width: 160px !important;
+		}
+	}
+
+	.player2-content{
+		.player2-details{
+			grid-row: 2;
+		}
+	}
+}
+
+@media (max-width: 600px){
+	.EventDetails{
+		.event-detail-banner{
+			.event-title{
+				font-size: 18px !important;
+				padding: 10px 0 !important;
+			}
+
+			.event-main-event{
+				font-size: 26px !important;
+				padding: 10px 0 !important;
+			}
+			
+			.event-location{
+				padding: 10px 0 !important;
+			}
+		}
+	}
+
+
+	.player1-content, .player2-content{
+		*{
+			text-align: center !important;
+			font-size: 20px !important;
+		}
+
+		.player-name{
+			padding:10px 0;
+		}
+
+		img{
+			height: 80px !important;
+			width: 100px !important;
+		}
+	}
+}
+
+.EventDetails{
+	.event-detail-banner{
+		background: rgb(128, 39, 39);
+		padding: 3% 5%;
+
+		*{
+			color:white;
+		}
+
+		.event-title{
+			font-size: 26px;
+			font-weight: 700;
+			padding: 10px 0;
+		}
+
+		.event-main-event{
+			font-size: 40px;
+			text-transform: uppercase;
+			font-weight: 700;
+			padding: 15px 0;
+		}
+		
+		.event-location{
+			padding: 10px 0;
+		}
+	}
+
+	.EventDetailsFight{
+		display: grid;
+		grid-template-columns: 40% 20% 40%;
+		max-width: 1000px;
+		width: 90%;
+		margin: 0 auto;
+		padding: 20px 5%;
+		box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+		margin-top:20px;
+		align-items: center;
+		grid-gap:10px;
+
+		&:hover{
+			box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+		}
+		
+		.player1-content, .player2-content{
+			display: grid;
+			grid-template-columns: auto 1fr;
+			align-items: end;
+
+			img{
+				height: 180px;
+				width: 200px;
+				object-fit: cover;
+				object-position: top;
+			}
+			
+			.player-name{
+				color:#444;
+				text-align: left;
+				font-size: 32px;
+				text-transform: uppercase;
+			}
+		}
+
+		.player2-content{
+			.player-name{
+				text-align: right;
+			}
+		}
+
+		.mid-section{
+			font-size: 24px;
+			color:#666;
+		}
+
+		a{
+			grid-column: 1/ span 3;
+
+			button{
+				padding:12px 20px;
+				background: rgb(128, 39, 39);
+				font-size: 15px;
+				cursor: pointer;
+				text-transform: uppercase;
+				letter-spacing: 1.2px;
+			}
+		}
+
+	}
+}

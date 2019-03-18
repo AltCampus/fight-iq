@@ -19,11 +19,6 @@ export function registerSubmit(state, cb){
     		type: Type.REGISTER
     	})
     	cb(true); 
-    	// if (data.success){
-    	// 	cb(true); // success handling
-    	// } else {
-    	// 	cb(false, data.msg)
-    	// }
 
     })
 	}

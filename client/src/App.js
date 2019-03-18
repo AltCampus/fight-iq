@@ -13,13 +13,15 @@ import AdminEventDetail from "./components/admin/events/AdminEventDetail";
 import AddFight from "./components/admin/fights/AddFight";
 import AddPlayer from "./components/admin/player/AddPlayer";
 import AddResult from "./components/admin/fights/AddResult";
-import EventCards from "./components/user/EventCards";
-import EventDetails from "./components/user/EventDetails";
-import Prediction from "./components/user/Prediction";
+import EventCards from './components/user/EventCards';
+import EventDetails from './components/user/event/EventDetails';
+import Prediction from './components/user/Prediction';
 import DisplayPlayersList from "./components/admin/player/DisplayPlayersList";
 import Profile from "./components/user/profile/Profile";
-import PrivateRoute from "./components/PrivateRoute";
-import Predict from "./components/user/predict/Predict";
+import PrivateRoute from './components/PrivateRoute';
+import Predict from './components/user/predict/Predict';
+import Homepage from './components/user/homepage/Homepage';
+
 
 class App extends Component {
 	render() {
@@ -105,19 +107,10 @@ class App extends Component {
 						/>
 
 						{/* User Routes */}
-						<Route exact path='/' component={EventCards} />
-						<Route
-							exact
-							path='/events/:eventid'
-							component={EventDetails}
-							auth={isLogged}
-						/>
-						<Route
-							exact
-							path='/events/:eventid/fights/:fightid/predict'
-							component={Predict}
-							auth={isLogged}
-						/>
+						<Route exact path='/' component={Homepage} />
+            <Route path='/events/:eventid' component={EventDetails} />
+            <Route path='/events/:eventid/fights/:fightid/predict' component={Prediction} />
+
 					</Switch>
 				</div>
 			</BrowserRouter>
