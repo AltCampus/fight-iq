@@ -40,7 +40,7 @@ class Fight extends Component {
 		return (
 			<div className='fight-card'>
 				<div className='player-images'>
-					<div className='image-section'>
+					{/* <div className='image-section'>
 						<img
 							className='player-1'
 							src={fight[this.state.currentIndex].player1.image}
@@ -49,7 +49,7 @@ class Fight extends Component {
 							className='player-2'
 							src={fight[this.state.currentIndex].player2.image}
 						/>
-					</div>
+					</div> */}
 					<div className='palyers-name'>
 						{fight[this.state.currentIndex].title}
 					</div>
