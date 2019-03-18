@@ -31,8 +31,8 @@ class EventCards extends Component {
 					<div className='main-event-page'>
 						<div>
 							{events &&
-								events.map((event) => (
-									<div className=''>
+								events.map((event, index) => (
+									<div className='' key={index}>
 										{!event.isExpired ? (
 											<div className='fight-cards'>
 												<div className='event-title '>
@@ -62,8 +62,8 @@ class EventCards extends Component {
 						</div>
 						<div className='past-events'>
 							{events &&
-								events.map((event) => (
-									<div className=''>
+								events.map((event, index) => (
+									<div className='' key={index}>
 										{event.isExpired ? (
 											<div className=''>
 												<div className='event-list'>
