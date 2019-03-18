@@ -39,9 +39,11 @@ class DisplayPlayersList extends Component {
 									<p onClick={(e) => this.handleDelete(e, val._id)}>
 										<i className='fas fa-trash-alt' />
 									</p>
-									<p onClick={(e) => this.handleEdit(e, val._id)}>
-										<i className='fas fa-edit' />
-									</p>
+									<Link to={`/admin/players/${val._id}/edit`}>
+										<p onClick={(e) => this.handleEdit(e, val._id)}>
+											<i className='fas fa-edit' />
+										</p>
+									</Link>
 								</div>
 							</div>
 						))}

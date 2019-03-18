@@ -24,6 +24,7 @@ import Predict from "./components/user/predict/Predict";
 class App extends Component {
 	render() {
 		let { isLogged, isAdmin } = this.props;
+
 		return (
 			<BrowserRouter>
 				<div className='App'>
@@ -86,6 +87,12 @@ class App extends Component {
 							component={AddPlayer}
 							auth={isAdmin}
 						/>
+						<PrivateRoute
+							exact
+							path='/admin/players/:id/edit'
+							component={AddPlayer}
+							auth={isAdmin}
+						/>
 
 						{/* Profile & User auth pages */}
 						<Route path='/login' component={Login} />
@@ -99,9 +106,18 @@ class App extends Component {
 
 						{/* User Routes */}
 						<Route exact path='/' component={EventCards} />
-            <Route exact path='/events/:eventid' component={EventDetails} />
-            <Route exact path='/events/:eventid/fights/:fightid/predict' component={Predict} />
-
+						<Route
+							exact
+							path='/events/:eventid'
+							component={EventDetails}
+							auth={isLogged}
+						/>
+						<Route
+							exact
+							path='/events/:eventid/fights/:fightid/predict'
+							component={Predict}
+							auth={isLogged}
+						/>
 					</Switch>
 				</div>
 			</BrowserRouter>

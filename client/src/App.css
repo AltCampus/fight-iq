@@ -97,7 +97,6 @@ h1 {
   font-weight: 800;
   font-display: bold;
   padding: 30px 0;
-  font-family: "Roboto";
 }
 
 .main-event-page {
@@ -138,7 +137,6 @@ h1 {
 
 .location-info .txt-dec {
   text-transform: capitalize;
-  font-family: "Nunito", sans-serif;
 }
 
 .location-info p {
@@ -154,7 +152,6 @@ h1 {
 }
 
 .predict-btn .Prediction-button {
-  font-family: "Open Sans", sans-serif;
   position: relative;
   top: 50%;
   left: 50%;
@@ -188,7 +185,6 @@ h1 {
   position: absolute;
   top: 34%;
   right: 38%;
-  font-family: "Open Sans", sans-serif;
 }
 
 .buttons .nextfight-btn:hover {
@@ -205,7 +201,6 @@ h1 {
   position: absolute;
   top: 34%;
   left: 16%;
-  font-family: "Open Sans", sans-serif;
 }
 
 .buttons .prevfight-btn:hover {
@@ -266,6 +261,53 @@ h1 {
   text-align: left;
 }
 
+.event-detail-banner {
+  background: #0c0c0c;
+  color: white;
+}
+
+.Fight img {
+  height: 350px;
+  width: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
+}
+
+.Predict {
+  text-align: center;
+}
+
+.Predict .img-section {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto auto;
+      grid-template-columns: auto auto;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  grid-gap: 30px;
+}
+
+.Predict img {
+  height: 350px;
+  width: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
+}
+
+.Predict input {
+  margin: 10px 10px;
+}
+
+.Predict button {
+  display: block;
+  margin: 30px auto;
+}
+
 body {
   line-height: 1;
 }
@@ -294,7 +336,7 @@ table {
 }
 
 body {
-  font-family: "Cuprum", sans-serif;
+  font-family: "Heebo", "Open Sans", sans-serif;
 }
 
 .Header {
@@ -308,7 +350,7 @@ body {
       -ms-flex-align: center;
           align-items: center;
   padding: 10px;
-  background: #141414;
+  background: black;
 }
 
 a {
@@ -321,22 +363,17 @@ a {
   font-size: 1.6rem;
   padding: 10px;
   text-decoration: none;
-}
-
-.Logo:hover {
-  color: #e2d8c6;
+  text-transform: uppercase;
+  font-weight: 700;
 }
 
 .top-right > * {
   padding: 10px;
   color: white;
   text-decoration: none;
-  font-size: 1rem;
-  font-family: "Nunito", sans-serif;
-}
-
-.top-right > *:hover {
-  color: #e2d8c6;
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: 700;
 }
 
 .App {
