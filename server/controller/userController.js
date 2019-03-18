@@ -57,6 +57,7 @@ module.exports = {
 			});
 		})(req, res, next);
 	},
+
 	isLoggedIn: (req, res, next) => {
 		if (req.session.passport) {
 			return next();
@@ -91,6 +92,7 @@ module.exports = {
 				message: "user Not login"
 			});
 	},
+
 	isAdmin: (req, res, next) => {
 		const sessionUser = req.session.passport;
 		if (sessionUser) {
@@ -109,6 +111,7 @@ module.exports = {
 				message: "user Not login"
 			});
 	},
+
 	getUser: (req, res) => {
 		const sessionUser = req.session.passport;
 		console.log(User, "check the user in user controllet line 107");
