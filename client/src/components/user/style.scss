@@ -1,3 +1,9 @@
+a {
+	text-decoration: none;
+	color: black;
+	font-size: 1rem;
+}
+
 // ===========================
 //  banner- image - r-2
 // ===========================
@@ -27,6 +33,7 @@
 			left: 25%;
 
 			h1 {
+				font-family: "Roboto";
 				font-size: 2.3rem;
 				color: white;
 				margin: 0;
@@ -35,6 +42,7 @@
 				padding: 0;
 			}
 			p {
+				font-family: "Nunito", sans-serif;
 				text-transform: capitalize;
 				font-size: 1.3rem;
 				color: white;
@@ -48,11 +56,38 @@
 			color: black;
 			padding: 13px 30px;
 			font-size: 1rem;
+			font-family: "Open Sans", sans-serif;
+
 			&:hover {
 				cursor: pointer;
 				background: whitesmoke;
 				border-bottom: 1px solid red;
 			}
+		}
+	}
+}
+
+// ===========================
+//	load-more-events-button
+// ===========================
+.load-more-events {
+	.load-more {
+		font-weight: 500;
+		text-transform: uppercase;
+		margin: 4rem 0;
+		font-size: 12px;
+		background: white;
+		padding: 16px 100px;
+		outline: none;
+		font-family: "Open Sans", sans-serif;
+		color: black;
+		border: 2px solid#eeeeef;
+		&:hover {
+			font-weight: 600;
+			cursor: pointer;
+			background: whitesmoke;
+			color: blue;
+			// border-bottom: 1px solid red;
 		}
 	}
 }
@@ -67,7 +102,6 @@ h1 {
 	font-weight: 800;
 	font-display: bold;
 	padding: 30px 0;
-	font-family: "Roboto";
 }
 
 .main-event-page {
@@ -95,7 +129,7 @@ h1 {
 		// transform: translate(-50%, -50%);
 		margin-top: 4em;
 		padding: 0 10px;
-		font-size: 1.1rem;
+		font-size: 1rem;
 		text-transform: capitalize;
 	}
 }
@@ -105,7 +139,6 @@ h1 {
 	margin-left: 2em;
 	.txt-dec {
 		text-transform: capitalize;
-		font-family: "Nunito", sans-serif;
 	}
 	p {
 		margin: 0;
@@ -120,7 +153,6 @@ h1 {
 }
 .predict-btn {
 	.Prediction-button {
-		font-family: "Open Sans", sans-serif;
 		position: relative;
 		top: 50%;
 		left: 50%;
@@ -156,7 +188,6 @@ h1 {
 		position: absolute;
 		top: 34%;
 		right: 38%;
-		font-family: "Open Sans", sans-serif;
 		// left: 50%;
 		// transform: translate(-25%, 20%);
 		&:hover {
@@ -173,7 +204,6 @@ h1 {
 		position: absolute;
 		top: 34%;
 		left: 16%;
-		font-family: "Open Sans", sans-serif;
 		// left: 50%;
 		// transform: translate(-50%, 20%);
 		&:hover {
@@ -213,17 +243,17 @@ h1 {
 	}
 
 	.palyers-name {
-		font-weight: 600;
+		font-weight: 400;
 		padding: 10px 0;
 		color: #5a3c79;
-		font-size: 1.2rem;
+		font-size: 1.1rem;
 		text-transform: capitalize;
 		margin: 8px 0;
 		color: black;
 	}
 }
 
-.events-header{
+.events-header {
 	display: grid;
 	grid-template-columns: 1fr 500px;
 }
@@ -231,14 +261,23 @@ h1 {
 // 				Past Events
 // ==========================
 
-.event-list{
+.event-list {
 	box-sizing: border-box;
 	border: 1px solid #eeeeef;
 	padding: 10px;
 	margin-left: 0.5em;
 }
-.past-event-title{
+.past-event-title {
 	margin: 5px 10px;
 	text-align: left;
+}
 
+
+// =========================
+// 			Event Details
+// =========================
+
+.event-detail-banner{
+	background: #0c0c0c;
+	color: white;
 }
