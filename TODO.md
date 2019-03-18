@@ -54,6 +54,16 @@ https://github.com/Renaissanc3Man/MMA-Data
 
 
 
+Todo:
+
+1. Clean-up the Fight component(actually remove it)
+2. Improve the basic Layout structure - Done
+3. Make the predict button of home event live - Done
+4. Make the homepage responsive - Done
+
+
+
+
 
 
 

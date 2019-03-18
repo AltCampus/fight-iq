@@ -29,7 +29,8 @@ export default function rootReducer(state = initState, action) {
 		case Type.LOGOUT:
 			return {
 				...state,
-				isLogged: false
+				isLogged: false,
+				isAdmin: false
 			};
 		// User
 

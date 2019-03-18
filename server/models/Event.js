@@ -7,7 +7,8 @@ const EventSchema = new Schema({
 	date_time: {type:String, required:true},
 	fight: [{type:Schema.Types.ObjectId, ref:"Fight"}],
 	main_event: {type:String, required:true},
-	isExpired: {type: Boolean, default: false} 
+	isExpired: {type: Boolean, default: false},
+	isMajor: {type: Boolean, default: false}
 })
 
 

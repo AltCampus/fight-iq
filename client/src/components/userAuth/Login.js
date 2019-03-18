@@ -43,19 +43,27 @@ class Login extends Component {
 
 	render() {
 		return (
-			<div className="Login-section">
-			<form onSubmit={this.handleSubmit} >
-				<div className="email-title">Username:</div>
-				<input type="text" name="username" onChange={this.updateValue} required/>
-				<div className="password-title">Password:</div>
-				<input type="password" name="password" onChange={this.updateValue} required/>
-				<br/>
-				<button type="submit">Login</button>
-			</form>
-			<div className="err-msg">{this.state.error}</div>
+		<div className="Login-section">
+			<div class="page">
+  			<div class="container">
+    			<div class="left">
+     				<div class="login">FightIQ</div>
+    			</div>
+    			<div class="right">
+    				<form class="form" onSubmit={this.handleSubmit}>
+	        		<label >Email</label>
+	        		<input type="text" name="username" onChange={this.updateValue} required id="email"/>
+	        		<label >Password</label>
+	        		<input type="password" name="password" onChange={this.updateValue} required id="password"/>
+	        		<input type="submit" id="submit" value="Submit"/>
+	      		</form>
+    			</div>
+  			</div>
 			</div>
+		</div>
 		);
 	}
 }
+
 
 export default connect()(Login);
