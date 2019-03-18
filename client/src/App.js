@@ -14,7 +14,7 @@ import AddFight from "./components/admin/fights/AddFight";
 import AddPlayer from "./components/admin/player/AddPlayer";
 import AddResult from "./components/admin/fights/AddResult";
 import EventCards from './components/user/EventCards';
-import EventDetails from './components/user/EventDetails';
+import EventDetails from './components/user/event/EventDetails';
 import Prediction from './components/user/Prediction';
 import DisplayPlayersList from "./components/admin/player/DisplayPlayersList";
 import Profile from "./components/user/profile/Profile";

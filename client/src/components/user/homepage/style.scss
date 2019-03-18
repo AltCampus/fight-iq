@@ -2,7 +2,54 @@
 //  Homepage: Banner Image
 // ===========================
 
-.Homepage{
+@media (max-width: 1200px) and (min-width: 1000px) {
+	.DetailedEvent{
+		display: grid !important;
+		grid-template-columns: 25% 50% 25% !important;
+
+		.location-info{
+			grid-row: 2;
+			grid-column: 1/ span 3;
+		}
+
+		.event-title{
+			grid-row: 1/ span 2;
+			grid-column:1;
+		}
+
+		button{
+			grid-row: 1/span 2;
+			grid-column: 3;
+		}
+	}
+}
+
+@media (max-width: 1000px){
+	.Homepage-main{
+		display: grid;
+		grid-template-columns: 100% !important;
+
+		.DetailedEvent{
+			display: grid !important;
+			grid-template-columns: 80% !important;
+			justify-content: center;
+		}
+	}
+}
+
+@media (max-width: 800px){
+	.banner-page {
+		grid-template-columns: 1fr !important;
+		padding:0 !important;
+
+		h1{
+			font-size: 30px !important;
+			padding:10px;
+		}
+	}
+}
+
+.Homepage {
 	.banner-page {
 		background: rgb(128, 39, 39);
 		display: grid;
@@ -12,11 +59,12 @@
 		.banner-image {
 			display: grid;
 			grid-template-columns: 50% 50%;
+			justify-items: center;
 
 			img {
 				margin-top: 20px;
 				height: 350px;
-				width: 200px;
+				width: 80%;
 				object-fit: cover;
 				object-position: top;
 			}
@@ -27,6 +75,7 @@
 			align-content: center;
 			justify-content: center;
 			color:white;
+			padding: 20px 0;
 
 			.hero-event-title{
 				color:white;
@@ -68,22 +117,21 @@
 		align-items: top;
 
 		.upcomingEvents{
-
+			
 			h1 {
 				font-size: 2rem;
 				text-transform: uppercase;
 				color: black;
 				font-weight: 800;
-				font-display: bold;
 				padding: 30px 0;
 			}
 
 			.DetailedEvent{
 				display: grid;
-				grid-template-columns: 1fr auto 2fr auto;
+				grid-template-columns: 20% 32% 32% 16%;
 				align-items:center;
 				box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-				padding: 20px 50px;
+				padding: 20px 5%;
 				margin-bottom: 20px;
 
 				&:hover{
@@ -98,6 +146,13 @@
 					font-style: italic;
 					color: rgb(128, 39, 39);
 				}
+				
+				.event-images{
+					display: grid;
+					grid-template-columns: 1fr 1fr;
+					justify-items: center;
+				}
+
 
 				img{
 					height: 120px;
@@ -117,7 +172,7 @@
 				}
 
 				button{
-					padding:12px 30px;
+					padding:12px 20px;
 					background: rgb(128, 39, 39);
 					font-size: 15px;
 					cursor: pointer;
@@ -134,7 +189,6 @@
 			text-transform: uppercase;
 			color: black;
 			font-weight: 800;
-			font-display: bold;
 			padding: 30px 0;
 		}
 
@@ -167,6 +221,9 @@
 	}
 
 }
+
+
+
 
 // ===========================
 //        Fight Cards
