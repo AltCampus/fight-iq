@@ -6,6 +6,7 @@ import {Link} from "react-router-dom"
 import Banner from "./Banner";
 import DetailedEvent from "./DetailedEvent";
 import SimpleEvent from "./SimpleEvent";
+import './style.scss';
 
 class Homepage extends Component {
 	componentDidMount() {
@@ -18,16 +19,32 @@ class Homepage extends Component {
     const pastEvents = events.filter(event=>event.isExpired);
     const heroEvent = upcomingEvents.sort((a,b)=>a.date_time-b.date_time).find(event=>event.isMajor)
                       || upcomingEvents.sort((a,b)=>a.date_time-b.date_time)[0]; // if no upcoming major events
+    const heroIndex = upcomingEvents.indexOf(heroEvent);
+    if (heroEvent!=-1) {
+      upcomingEvents.splice(heroIndex, 1)
+    }
     return (
       <div className="Homepage">
         {heroEvent && <Banner fight={heroEvent.fight[0]} event={heroEvent}/>}
-        <div className="upcomingEvents">
-          <h1>Upcoming Events</h1>
-          {upcomingEvents.map(event=><DetailedEvent key={event._id} event={event}/>)}
-        </div>
-        <div className="pastEvents">
-          <h1>Past Events</h1>
-          {pastEvents.map(event=><SimpleEvent key={event._id} event={event}/>)}
+        <div className="Homepage-main">
+          <div className="upcomingEvents">
+            <h1>Upcoming Events</h1>
+            {upcomingEvents.map(event=>{
+              if (event.fight && event.fight.length>0){
+                return (<DetailedEvent key={event._id} event={event}/>)
+              }
+              return null;
+            })}
+          </div>
+          <div className="pastEvents">
+            <h1>Past Events</h1>
+            {pastEvents.map(event=>{
+              if (event.fight && event.fight.length>0){
+                return (<SimpleEvent key={event._id} event={event}/>)
+              }
+              return null;
+            })}
+          </div>
         </div>
       </div>
 		);

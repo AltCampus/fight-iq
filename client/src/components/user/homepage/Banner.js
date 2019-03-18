@@ -17,7 +17,7 @@ class Banner extends Component {
 				<div className='info-section'>
 						<p className="hero-event-title">{event.title}</p>
 						<h1>{this.props.fight.title}</h1>
-						<Link to='#'>
+						<Link to={`events/${event._id}`}>
 							<button className='banner-predict-btn'>Predict</button>
 						</Link>
 				</div>
