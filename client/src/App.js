@@ -20,6 +20,7 @@ import DisplayPlayersList from "./components/admin/player/DisplayPlayersList";
 import Profile from "./components/user/profile/Profile";
 import PrivateRoute from './components/PrivateRoute';
 import Predict from './components/user/predict/Predict';
+import Homepage from './components/user/homepage/Homepage';
 
 
 class App extends Component {
@@ -49,7 +50,7 @@ class App extends Component {
 						<PrivateRoute exact path='/profile' component={Profile} auth={isLogged}/>
 
 						{/* User Routes */}
-						<Route exact path='/' component={EventCards} />
+						<Route exact path='/' component={Homepage} />
             <Route path='/events/:eventid' component={EventDetails} />
             <Route path='/events/:eventid/fights/:fightid/predict' component={Prediction} />
 

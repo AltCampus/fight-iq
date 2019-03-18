@@ -10,7 +10,9 @@ class AdminAddEvent extends Component {
 				title: "",
 				main_event: "",
 				location: "",
-				date_time: ""
+				date_time: "",
+				isMajor: 'false',
+				isExpired: 'false'
 			},
 			error: "",
 			isEdit: false
@@ -31,7 +33,9 @@ class AdminAddEvent extends Component {
 					title: event.title,
 					main_event: event.main_event,
 					location: event.location,
-					date_time: event.date_time	
+					date_time: event.date_time,
+					isExpired: event.isExpired? 'true': 'false',
+					isMajor: event.isMajor? 'true': 'false'
 				}
 			})
 		}
@@ -57,6 +61,7 @@ class AdminAddEvent extends Component {
 	}
 
 	updateValue = (event) => {
+		console.log(event.target.value)
 		this.setState({
 			eventDetails: {
 				...this.state.eventDetails,
@@ -78,6 +83,16 @@ class AdminAddEvent extends Component {
 					<input type="text" name="location" onChange={this.updateValue} value={eventDetails.location} required/>
 					<div>Date & time:</div>
 					<input type="datetime-local" name="date_time" onChange={this.updateValue} value={eventDetails.date_time} required/>
+					<div className="isExpired">
+					isExpired: 
+					  <input type="radio" name="isExpired" value='true' onClick={this.updateValue} checked={eventDetails.isExpired === 'true'}/> True<br/>
+  					<input type="radio" name="isExpired" value='false' onClick={this.updateValue} checked={eventDetails.isExpired === 'false'}/>False<br/>
+  				</div>
+					<div className="isMajor">
+					isMajor: 
+					  <input type="radio" name="isMajor" value='true' onClick={this.updateValue} checked={eventDetails.isMajor === 'true'}/> True<br/>
+  					<input type="radio" name="isMajor" value='false' onClick={this.updateValue} checked={eventDetails.isMajor === 'false'}/>False<br/>
+  				</div>
 					<br/>
 					<button>Submit</button>
 				</form>
