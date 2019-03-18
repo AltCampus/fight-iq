@@ -51,7 +51,6 @@ console.log(fight, "fight")
       <div className="Pridiction">
         <form onSubmit={this.handleSubmit}>
           <div>Winner</div>
-          <h5>Player 1</h5>
           <select name="winner" onChange={this.updateValue} required>
             <option value="none">select</option>
             {players.filter(v=> v._id==fight.player2._id||v._id==fight.player1._id).map(player => (

@@ -8,12 +8,12 @@ const initState = {
 	event: {},
 	fightsArr: [],
 	players: [],
-	fight:[]
+	fight: []
 };
 
 export default function rootReducer(state = initState, action) {
 	switch (action.type) {
-// User Auth
+		// User Auth
 		case Type.REGISTER:
 			return {
 				...state
@@ -31,18 +31,18 @@ export default function rootReducer(state = initState, action) {
 				...state,
 				isLogged: false
 			};
-// User
+		// User
 
 		case Type.GET_USER:
 			return {
 				...state,
 				user: action.user
-			}
+			};
 
-// Events
+		// Events
 		case Type.ADD_EVENT:
 			return {
-				...state,
+				...state
 			};
 
 		case Type.GET_EVENTS:
@@ -56,7 +56,7 @@ export default function rootReducer(state = initState, action) {
 				...state,
 				event: action.event
 			};
-			
+
 		case Type.EDIT_EVENTS:
 			return {
 				...state
@@ -67,7 +67,7 @@ export default function rootReducer(state = initState, action) {
 				...state
 			};
 
-// Fights
+		// Fights
 
 		case Type.ADD_FIGHT:
 			return {
@@ -78,19 +78,19 @@ export default function rootReducer(state = initState, action) {
 		case Type.EDIT_FIGHT:
 			return {
 				...state
-			}
+			};
 
 		case Type.GET_FIGHT:
 			return {
 				...state
 			};
 
-		case Type.DELETE_FIGHT: 
+		case Type.DELETE_FIGHT:
 			return {
 				...state
-			}
+			};
 
-// Player
+		// Player
 
 		case Type.ADD_PLAYER:
 			return {
@@ -106,24 +106,26 @@ export default function rootReducer(state = initState, action) {
 			return {
 				...state
 			};
+		case Type.EDIT_PLAYER:
+			return {
+				...state
+			};
 
-// Result
+		// Result
 
 		case Type.ADD_RESULT:
 			return {
 				...state
-			}
+			};
 
-// PREDICTION
+		// PREDICTION
 
 		case Type.ADD_PREDICTION:
-		return {
-			...state
-		};
-
+			return {
+				...state
+			};
 
 		default:
 			return state;
 	}
-
 }
