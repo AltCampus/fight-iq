@@ -13,8 +13,6 @@ class Prediction extends Component {
         type: "",
         round: ""
       },
-      players:[]
-
     };
   }
 
