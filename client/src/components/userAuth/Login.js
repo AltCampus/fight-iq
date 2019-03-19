@@ -63,6 +63,7 @@ class Login extends Component {
     		</Link>
     		</div>
 			</div>
+		</div>
 		);
 	}
 }

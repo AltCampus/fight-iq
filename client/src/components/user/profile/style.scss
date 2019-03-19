@@ -1,4 +1,8 @@
 .Profile{
+	max-width: 1000px;
+	width: 90%;
+	margin: 0 auto;
+
 	.UserDetails{
 		display: grid;
 		grid-template-columns: 20% 80%;
@@ -13,10 +17,16 @@
 
 		.right-section{
 			padding:10px;
+
+			.change-password{
+				color: dodgerblue;
+				cursor: pointer;
+				font-size: 16px;
+			}
 		}
 
 		.right-section>*{
-			font-size: 18px;
+			font-size: 19px;
 			padding: 10px;
 		}
 	}
@@ -24,19 +34,26 @@
 	.UserStats{
 		display: grid;
 		grid-template-columns: repeat(3,1fr);
-		border: 1px solid #666;
 		padding:20px;
+		box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+		margin-bottom: 10px;
 	}
 
 	.user-stats-header{
 		font-size: 26px;
 		padding-bottom:10px;
-		font-style: italic;
+		// font-style: italic;
+		font-weight: 700;
+		color: rgb(128, 39, 39);
+		text-transform: uppercase;
+		letter-spacing: 1.2px;
 	}
 
 	.user-stats{
-		font-size: 18px;
+		font-size: 22px;
 		padding: 5px;
+		font-weight: 300;
+
 	}
 
 	.UserPredictions{

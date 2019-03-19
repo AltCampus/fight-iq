@@ -9,7 +9,10 @@ import './style.scss';
 
 class Profile extends Component {
 	componentDidMount(){
-		this.props.dispatch(getUser());
+		this.props.dispatch(getUser(this.redirectUser));
+	}
+
+	redirectUser(status){
 		// TODO: Handle user data not found redirect
 	}
 
