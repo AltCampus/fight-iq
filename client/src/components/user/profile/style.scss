@@ -9,6 +9,9 @@
 		padding:30px;
 		text-align: left;
 		grid-gap: 20px;
+		// background: rgb(128, 39, 39);
+
+
 
 		img{
 			max-width: 250px;
@@ -35,7 +38,7 @@
 		display: grid;
 		grid-template-columns: repeat(3,1fr);
 		padding:20px;
-		box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+		box-shadow: 0 2px 8px 0 rgba(0,0,0,0.6);
 		margin-bottom: 10px;
 	}
 
@@ -43,7 +46,7 @@
 		font-size: 26px;
 		padding-bottom:10px;
 		// font-style: italic;
-		font-weight: 700;
+		// font-weight: 700;
 		color: rgb(128, 39, 39);
 		text-transform: uppercase;
 		letter-spacing: 1.2px;
@@ -60,9 +63,26 @@
 
 		.UserPredictions-header{
 			font-size: 26px;
-			padding:10px;
-			text-transform: capitalize;
-			border: 1px solid #bbb;
+			padding:20px 10px;
+			text-transform: uppercase;
+			background: rgb(128, 39, 39);
+			color: white;
+			letter-spacing: 1.2px;
+			// border: 1px solid #bbb;
+			// box-shadow: 0 4px 8px 0 rgba(0,0,0,0.6);
+		}
+
+		.UserPredictions-header-menu{
+			display: grid;
+			grid-template-columns: repeat(3,1fr);
+			font-size: 16px;
+			padding:10px 10px;
+			text-transform: uppercase;
+			color: rgb(128, 39, 39);
+			background: white;
+			letter-spacing: 1.2px;
+			margin-top: 10px;
+			// box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 		}
 
 		.UserPrediction{
@@ -70,8 +90,45 @@
 			grid-template-columns: repeat(3,1fr);
 			margin: 10px 0;
 			padding:20px;
-			border: 1px solid #ddd;
+			// border: 1px solid #ddd;
+			box-shadow: 0 4px 8px 0 rgba(0,0,0,0.6);
 			align-items: center;
+			
+			.UserPrediction-event-details{
+				.event-name{
+					font-size: 16px;
+					text-transform: uppercase;
+					letter-spacing: 1.2px;
+					color: rgb(128, 39, 39);
+					font-weight: 700;
+				}
+
+				.fight-name{
+					font-size: 22px;
+					text-transform: uppercase;
+					letter-spacing: 1.2px;
+					font-weight: 300;
+				}
+			}
+
+			.UserPrediction-result{
+				font-size: 14px;
+				text-transform: uppercase;
+				letter-spacing: 1.2px;
+				font-weight: 300;
+			}
+
+			.UserPrediction-prediction{
+				font-size: 14px;
+				text-transform: uppercase;
+				letter-spacing: 1.2px;
+				font-weight: 300;
+
+				.UserPrediction-header{
+					font-weight: 400;
+				}
+			}
+
 
 			*>*{
 				padding: 5px;
