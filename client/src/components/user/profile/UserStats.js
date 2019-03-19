@@ -9,7 +9,7 @@ class UserStats extends Component {
 						<div className="user-stats">238</div>
 					</div>
 					<div className="user-prediction">
-						<div className="user-stats-header">Prediction accuracy</div>
+						<div className="user-stats-header">Win Accuracy</div>
 						<div className="user-stats">58%</div>
 					</div>
 					<div className="user-level">

@@ -4,28 +4,28 @@ import { addPrediction, getUser, editPrediction } from "./../../../actions"
 import PredictChooseFighter from './PredictChooseFighter';
 import PredictType from './PredictType';
 import PredictRound from './PredictRound';
+import './style.scss';
 
 class Predict extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 		  prediction: {
-			eventid: this.props.match.params.eventid,
-			fightid: this.props.match.params.fightid,
-			winner: "",
-			type: "",
-			round: ""
+				eventid: this.props.match.params.eventid,
+				fightid: this.props.match.params.fightid,
+				winner: "",
+				type: "",
+				round: ""
 			},
-			showPredictType : false,
-			showPredictRound: false,
+			showPredictType : true,
+			showPredictRound: true,
 			showButton: false,
 			isEdit:false,
 			user:{}
 		};
-		}
+	}
 
-		componentDidMount() {
-			
+		componentDidMount() {			
 				let isEdit = /edit/g.test(this.props.location.pathname)
 				this.setState({
 					isEdit: isEdit
@@ -73,15 +73,15 @@ class Predict extends Component {
 		);
 		};
 
-	redirectUser = (success, errorMsg = "") => {
-	if (success) {
-		this.props.history.push(`/events/${this.props.match.params.eventid}`);
-	} else {
-		this.setState({
-		error: errorMsg
-		});
-	}
-	};
+		redirectUser = (success, errorMsg = "") => {
+			if (success) {
+				this.props.history.push(`/events/${this.props.match.params.eventid}`);
+			} else {
+				this.setState({
+					error: errorMsg
+				});
+			}
+		};
 	
 
 	render() {
@@ -89,13 +89,10 @@ class Predict extends Component {
 		return (
 				<div className='Predict'>
 				 <form onSubmit={this.handleSubmit}>
-					<PredictChooseFighter player1 = {fight.player1} player2 = {fight.player2} data={this.updateValue} winner = {this.state.prediction.winner}/>
-					
-					{this.state.showPredictType ?	<PredictType data={this.updateValue} type = {this.state.prediction.type} />	: null}
-				
-					{ this.state.showPredictRound ? <PredictRound data={this.updateValue} round = {this.state.prediction.round}/> : null }
-					
-					{this.state.showButton ? <button>Submit</button> : null }
+					<PredictChooseFighter player1 = {fight.player1} player2 = {fight.player2} data={this.updateValue} winner = {this.state.prediction.winner}/>	
+						{this.state.showPredictType? <PredictType data={this.updateValue} type = {this.state.prediction.type} />:null}	
+						{this.state.showPredictRound? <PredictRound data={this.updateValue} round = {this.state.prediction.round}/> :null}
+						{this.state.showButton? <button type="submit">Submit</button> :null}
 					</form>
 				</div>
 		);
