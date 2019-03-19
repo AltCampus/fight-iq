@@ -110,6 +110,7 @@ class App extends Component {
 						<Route exact path='/' component={Homepage} />
             <Route exact path='/events/:eventid' component={EventDetails} />
             <Route exact path='/events/:eventid/fights/:fightid/predict' component={Predict} />
+			<Route exact path='/events/:eventid/fights/:fightid/predict/:predictid/edit' component={Predict} />
 
 					</Switch>
 				</div>

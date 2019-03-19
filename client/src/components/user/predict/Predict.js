@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { addPrediction, getUser } from "./../../../actions"
+import { addPrediction, getUser, editPrediction } from "./../../../actions"
 import PredictChooseFighter from './PredictChooseFighter';
 import PredictType from './PredictType';
 import PredictRound from './PredictRound';
@@ -19,40 +19,37 @@ class Predict extends Component {
 			showPredictType : false,
 			showPredictRound: false,
 			showButton: false,
+			isEdit:false,
 			user:{}
 		};
 		}
 
 		componentDidMount() {
 			
-				this.props.dispatch(getUser())
-		}
-
-		componentDidUpdate(prevProps) {
-
-			if (Object.keys(this.state.user).length === 0) {
-
+				let isEdit = /edit/g.test(this.props.location.pathname)
 				this.setState({
-					user:{...this.props.user}
-				}, () => {
+					isEdit: isEdit
+				})
+				if(isEdit) {
 
-					let predictData = this.state.user.predictions.find(v=>v.fightid._id===this.state.prediction.fightid);
-				if(predictData) {
-					this.setState({
-						prediction: {
-						...this.state.prediction,
-						winner : predictData.winner._id,
-						type: predictData.type,
-						round: predictData.round
-						},
-						showPredictType : true,
-			showPredictRound: true,
-			showButton: true,
-					}) // end of inner setState
-				} // end of inner if 
-				}); // end of outer setState
-			} // end of main if
-		} // end of componentDidUpdate
+					let predictData = this.props.user.predictions.find(v=>v.fightid._id===this.state.prediction.fightid);
+					if(predictData) {
+						this.setState({
+							prediction: {
+							...this.state.prediction,
+							winner : predictData.winner._id,
+							type: predictData.type,
+							round: predictData.round
+							},
+							showPredictType : true,
+							showPredictRound: true,
+							showButton: true,
+							isEdit:true
+						}) // end of inner setState
+					} // end of inner if 
+					} // end of outer setState
+	
+}
 
 		updateValue=(name, value, show) => {
 			this.setState({
@@ -66,8 +63,13 @@ class Predict extends Component {
 
 
 	  handleSubmit = e => {
-			console.log(this.state)
 		e.preventDefault();
+		if(this.state.isEdit== true) {
+			this.props.dispatch(
+				editPrediction(this.state.prediction,this.props.match.params.predictid, this.redirectUser)
+			);
+		}
+		else
 		this.props.dispatch(
 		  addPrediction(this.state.prediction, this.redirectUser)
 		);
