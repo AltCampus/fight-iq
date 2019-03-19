@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import "./style.scss";
-import { loginSubmit } from './../../actions';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { loginSubmit } from "./../../actions";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 class Login extends Component {
 	constructor(props) {
@@ -45,23 +45,34 @@ class Login extends Component {
 		// const {isLogged} = this.props;
 
 		return (
-		<div className="Login">
-			<div className="top">
-     		<div className="top-header">FightIQ</div>
-    	</div>
-    	<div className="bottom">
-				<form className="form" onSubmit={this.handleSubmit}>
-      		<label>Username</label>
-      		<input type="text" name="username" onChange={this.updateValue} required id="email"/>
-      		<label>Password</label>
-      		<input type="password" name="password" onChange={this.updateValue} required id="password"/>
-      		<button type="submit">Login</button>
-    		</form>
-    		<div className="login-register-toggle">
-    		<Link to="/register">
-    			New here? Register instead	
-    		</Link>
-    		</div>
+			<div className='Login'>
+				<div className='top'>
+					<div className='top-header'>FightIQ</div>
+				</div>
+				<div className='bottom'>
+					<form className='form' onSubmit={this.handleSubmit}>
+						<label>Username</label>
+						<input
+							type='text'
+							name='username'
+							onChange={this.updateValue}
+							required
+							id='email'
+						/>
+						<label>Password</label>
+						<input
+							type='password'
+							name='password'
+							onChange={this.updateValue}
+							required
+							id='password'
+						/>
+						<button type='submit'>Login</button>
+					</form>
+					<div className='login-register-toggle'>
+						<Link to='/register'>New here? Register instead</Link>
+					</div>
+				</div>
 			</div>
 		);
 	}
