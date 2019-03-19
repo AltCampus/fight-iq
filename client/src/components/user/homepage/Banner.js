@@ -5,10 +5,9 @@ import { Link } from "react-router-dom";
 class Banner extends Component {
 	render() {
 		let { fight, event, isLogged } = this.props;
-
-		console.log("Within Banner render: ", event);
 		const player1 = fight.player1.image;
 		const player2 = fight.player2.image;
+
 		return (
 			<div className='banner-page'>
 				<div className='banner-image'>
@@ -41,4 +40,4 @@ const mapStateToProps = (state) => {
 	};
 };
 
-export default connect()(Banner);
+export default connect(mapStateToProps)(Banner);

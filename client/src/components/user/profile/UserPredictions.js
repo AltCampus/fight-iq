@@ -4,6 +4,7 @@ import UserPrediction from "./UserPrediction";
 class UserPredictions extends Component {
 	render() {
 		let { user } = this.props;
+		console.log(user, "show user in userPrediction the component");
 		return (
 			<div className='UserPredictions'>
 				<h1 className='UserPredictions-header'>Predictions:</h1>
