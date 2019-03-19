@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { addPrediction } from "./../../../actions"
+import { addPrediction, getUser } from "./../../../actions"
 import PredictChooseFighter from './PredictChooseFighter';
 import PredictType from './PredictType';
 import PredictRound from './PredictRound';
@@ -15,9 +15,55 @@ class Predict extends Component {
 			winner: "",
 			type: "",
 			round: ""
-		  },
+			},
+			showPredictType : false,
+			showPredictRound: false,
+			showButton: false,
+			user:{}
 		};
 		}
+
+		componentDidMount() {
+			
+				this.props.dispatch(getUser())
+		}
+
+		componentDidUpdate(prevProps) {
+
+			if (Object.keys(this.state.user).length === 0) {
+
+				this.setState({
+					user:{...this.props.user}
+				}, () => {
+
+					let predictData = this.state.user.predictions.find(v=>v.fightid._id===this.state.prediction.fightid);
+				if(predictData) {
+					this.setState({
+						prediction: {
+						...this.state.prediction,
+						winner : predictData.winner._id,
+						type: predictData.type,
+						round: predictData.round
+						},
+						showPredictType : true,
+			showPredictRound: true,
+			showButton: true,
+					}) // end of inner setState
+				} // end of inner if 
+				}); // end of outer setState
+			} // end of main if
+		} // end of componentDidUpdate
+
+		updateValue=(name, value, show) => {
+			this.setState({
+				prediction: {
+					...this.state.prediction,
+					[name]: value
+				},
+				[show]:true
+			});
+		}
+
 
 	  handleSubmit = e => {
 			console.log(this.state)
@@ -25,16 +71,6 @@ class Predict extends Component {
 		this.props.dispatch(
 		  addPrediction(this.state.prediction, this.redirectUser)
 		);
-		};
-		
-		updateValue = e => {
-			console.log(e.target.name,e.target.value)
-			this.setState({
-				prediction: {
-					...this.state.prediction,
-					[e.target.name]: e.target.value
-				}
-			});
 		};
 
 	redirectUser = (success, errorMsg = "") => {
@@ -50,30 +86,29 @@ class Predict extends Component {
 
 	render() {
 		let fight = this.props.location.state;
-		let players = this.props.players;
-		console.log(players,"players");
-		console.log(fight, "fight")
 		return (
 				<div className='Predict'>
 				 <form onSubmit={this.handleSubmit}>
-					<PredictChooseFighter player1 = {fight.player1} player2 = {fight.player2} />	
-					<div>Player: </div>
-          <input type="radio" name="winner" onChange={this.updateValue} value={fight.player1._id} />{fight.player1.name}
-          <input type="radio" name="winner" onChange={this.updateValue} value={fight.player2._id} />{fight.player2.name}
+					<PredictChooseFighter player1 = {fight.player1} player2 = {fight.player2} data={this.updateValue} winner = {this.state.prediction.winner}/>
 					
-					<PredictType />
-					<div>Type: </div>
-          <input type="radio" name="type" onChange={this.updateValue} value="Knockout"/>Knockout
-          <input type="radio" name="type" onChange={this.updateValue} value="Submission" />Submission
-									
+					{this.state.showPredictType ?
+				<>
+					<PredictType data={this.updateValue} type = {this.state.prediction.type} />	
+						
+					{ this.state.showPredictRound ?
+					<>
+							<PredictRound data={this.updateValue} round = {this.state.prediction.round}/>
 
-					<PredictRound />
-					<div>Round: </div>
-          <input type="radio" name="round" onChange={this.updateValue} value="1st" />1st Round
-          <input type="radio" name="round" onChange={this.updateValue} value="2nd" />2nd Round
-					<input type="radio" name="round" onChange={this.updateValue} value="3rd" />3rd Round
-
+					{this.state.showButton ?
 					<button>Submit</button>
+					:''
+					}
+					</>
+				:''
+				}
+					</>
+					:''
+						}
 					</form>
 				</div>
 		);
@@ -82,8 +117,8 @@ class Predict extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        players: state.players,
-        event : state.event
+				event : state.event,
+				user : state.user
     }
 }
 
