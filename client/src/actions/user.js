@@ -1,5 +1,5 @@
-const URL = 'http://localhost:8000/';
 import Type from './types';
+const URL = 'http://localhost:8000/';
 
 //  Register submit
 export function registerSubmit(state, cb){
@@ -69,7 +69,7 @@ export function handleLogout(){
 }
 
 // Get user details
-export function getUser(){
+export function getUser(cb){
 	return dispatch => {
 		fetch(URL + 'api/v1/user')
 			.then(response=>response.json())
@@ -78,6 +78,7 @@ export function getUser(){
 					type: Type.GET_USER,
 					user: data.user
 				})
+				cb(true);
 			})
 	}
 }
