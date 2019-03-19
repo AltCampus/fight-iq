@@ -114,7 +114,6 @@ module.exports = {
 
 	getUser: (req, res) => {
 		const sessionUser = req.session.passport;
-		// console.log(User, "check the user in user controllet line 107");
 		User.findOne({ _id: sessionUser.user })
 			.populate({
 				path: "predictions",

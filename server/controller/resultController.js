@@ -10,7 +10,6 @@ module.exports = {
 				return res.json({message : err, success:false})
 			}
 			Fight.findByIdAndUpdate(fightId, {result: result.id}, (err,fight)=>{
-				console.log("Fight: ", fight)
 				if (err){
 					return res.json({message : err, success:false})
 				}

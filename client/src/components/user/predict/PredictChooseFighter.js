@@ -8,38 +8,31 @@ class PredictChooseFighter extends Component {
 		this.props.data("winner",this.props.winner, "showPredictType")
 	}
 
-
-
 	handleSubmit= (e) => {
 		this.props.data(e.target.name,e.target.value, "showPredictType")
 	}
 
 	render() {
-		console.log(this.props, "props")
+		let { winner, player1, player2 } = this.props;
 		return (
 				<div className='PredictChooseFighter'>
-					<div className='img-section'>
-					<div className='player1'>
-						<img src={this.props.player1.image} />
+					<h1>Choose a fighter</h1>
+					<div className='player-section'>
+						<div className={`player player1 ${winner==player1._id? 'select':null}`}>
+							<label htmlFor="winner1">
+								<img src={player1.image} />
+								<div className="player-name player1-name">{player1.name}</div>
+							</label>
+							<input type="radio" id="winner1" name="winner" onChange={this.handleSubmit} checked={player1._id == winner} value={player1._id}/>
+						</div>
+						<div className={`player player2 ${winner==player2._id? 'select':null}`}>
+							<label htmlFor="winner2">
+								<img src={player2.image} />
+								<div className="player-name player2-name">{player2.name}</div>
+							</label>
+							<input type="radio" id="winner2" name="winner" onChange={this.handleSubmit} checked={player2._id == winner} value={player2._id}/>
+						</div>
 					</div>
-					<div className='player2'>
-					<img src={this.props.player2.image} />
-					</div>
-					</div>
-					<input 
-					type="radio" 
-					name="winner" 
-					onChange={this.handleSubmit}
-					checked={this.props.player1._id == this.props.winner} 
-					value={this.props.player1._id}/>{this.props.player1.name}
-
-					 <input 
-					 type="radio" 
-					 name="winner" 
-					 onChange={this.handleSubmit} 
-					 checked={this.props.player2._id == this.props.winner}
-					 value={this.props.player2._id}/>{this.props.player2.name}
-					
 				</div>
 		);
 	}
