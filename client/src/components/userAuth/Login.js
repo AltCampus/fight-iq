@@ -52,21 +52,9 @@ class Login extends Component {
 				<div className='bottom'>
 					<form className='form' onSubmit={this.handleSubmit}>
 						<label>Email</label>
-						<input
-							type='text'
-							name='username'
-							onChange={this.updateValue}
-							required
-							id='email'
-						/>
+						<input type='text' name='username' onChange={this.updateValue} required id='email'/>
 						<label>Password</label>
-						<input
-							type='password'
-							name='password'
-							onChange={this.updateValue}
-							required
-							id='password'
-						/>
+						<input type='password' name='password' onChange={this.updateValue} required id='password'/>
 						<input type='submit' id='submit' value='Submit' />
 					</form>
 				</div>
