@@ -2,24 +2,24 @@ import React, { Component } from 'react';
 
 class UserPrediction extends Component {
 	render() {
-		let {prediction} = this.props
+		let {predictions} = this.props
 		return (
 			<div className="UserPrediction">
 					<div className="UserPrediction-event-details">
-						<div>Event: {prediction.eventid.title}</div>
-						<div>Fight: {prediction.fightid.title}</div>
+						<div>Event: {predictions[0].eventid.title}</div>
+						<div>Fight: {predictions[0].fightid.title}</div>
 					</div>
 					<div className="UserPrediction-result">
 						<div className="UserPrediction-header" >Results: </div>
-						<div>Winner: {prediction.fightid.result.winner.name}</div>
-						<div>Type: {prediction.fightid.result.type}</div>
-						<div>Round: {prediction.fightid.result.round}</div>
+						<div>Winner: {predictions[0].fightid.result.winner.name}</div>
+						<div>Type: {predictions[0].fightid.result.type}</div>
+						<div>Round: {predictions[0].fightid.result.round}</div>
 					</div>
 					<div className="UserPrediction-prediction">
 						<div className="UserPrediction-header" >Prediction: </div>
-						<div>Winner: {prediction.winner.name}</div>
-						<div>Type: {prediction.type}</div>
-						<div>Round: {prediction.round}</div>
+						<div>Winner: {predictions[0].winner.name}</div>
+						<div>Type: {predictions[0].type}</div>
+						<div>Round: {predictions[0].round}</div>
 					</div>
 			</div>
 			);

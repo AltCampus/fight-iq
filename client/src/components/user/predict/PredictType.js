@@ -13,21 +13,21 @@ class PredictType extends Component {
 					<input type="radio" 
 					name="type" 
 					onChange={this.handleSubmit} 
-					checked={this.props.type == "Knockout"} 
-					value="Knockout"/>Knockout
+					checked={this.props.type == "knockout"} 
+					value="knockout"/>Knockout
 
 					 <input type="radio" 
 					 name="type" 
 					 onChange={this.handleSubmit} 
-					 checked={this.props.type == "Submission"} 
-					 value="Submission"/>Submission
+					 checked={this.props.type == "submission"} 
+					 value="submission"/>Submission
 
 					 <input 
 					 type="radio" 
 					 name="type" 
 					 onChange={this.handleSubmit} 
-					 checked={this.props.type == "Decision"} 
-					 value="Decision"/>Decision
+					 checked={this.props.type == "decision"} 
+					 value="decision"/>Decision
 				</div>
 		);
 	}
