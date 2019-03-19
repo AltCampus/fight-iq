@@ -15,22 +15,22 @@ class PredictRound extends Component {
 					<input type="radio" 
 					name="round" 
 					onChange={this.handleSubmit} 
-					checked={this.props.type == "1st"} 
-					value="1st" />1st Round
+					checked={this.props.type == "first"} 
+					value="first" />1st Round
 
 					<input 
 					type="radio" 
 					name="round" 
 					onChange={this.handleSubmit} 
-					checked={this.props.type == "2nd"} 
-					value="2nd" />2nd Round
+					checked={this.props.type == "second"} 
+					value="second" />2nd Round
 
 					<input 
 					type="radio" 
 					name="round" 
 					onChange={this.handleSubmit} 
-					checked={this.props.type == "3rd"} 
-					value="3rd" />3rd Round
+					checked={this.props.type == "third"} 
+					value="third" />3rd Round
 
 				</div>
 		);

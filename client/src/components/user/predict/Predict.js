@@ -31,7 +31,6 @@ class Predict extends Component {
 					isEdit: isEdit
 				})
 				if(isEdit) {
-
 					let predictData = this.props.user.predictions.find(v=>v.fightid._id===this.state.prediction.fightid);
 					if(predictData) {
 						this.setState({
@@ -43,11 +42,10 @@ class Predict extends Component {
 							},
 							showPredictType : true,
 							showPredictRound: true,
-							showButton: true,
-							isEdit:true
+							showButton: true
 						}) // end of inner setState
 					} // end of inner if 
-					} // end of outer setState
+					} // end of outer if
 	
 }
 
@@ -93,24 +91,11 @@ class Predict extends Component {
 				 <form onSubmit={this.handleSubmit}>
 					<PredictChooseFighter player1 = {fight.player1} player2 = {fight.player2} data={this.updateValue} winner = {this.state.prediction.winner}/>
 					
-					{this.state.showPredictType ?
-				<>
-					<PredictType data={this.updateValue} type = {this.state.prediction.type} />	
-						
-					{ this.state.showPredictRound ?
-					<>
-							<PredictRound data={this.updateValue} round = {this.state.prediction.round}/>
-
-					{this.state.showButton ?
-					<button>Submit</button>
-					:''
-					}
-					</>
-				:''
-				}
-					</>
-					:''
-						}
+					{this.state.showPredictType ?	<PredictType data={this.updateValue} type = {this.state.prediction.type} />	: null}
+				
+					{ this.state.showPredictRound ? <PredictRound data={this.updateValue} round = {this.state.prediction.round}/> : null }
+					
+					{this.state.showButton ? <button>Submit</button> : null }
 					</form>
 				</div>
 		);
