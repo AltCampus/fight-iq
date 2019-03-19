@@ -126,6 +126,14 @@ export default function rootReducer(state = initState, action) {
 			return {
 				...state
 			};
+		case Type.DELETE_PREDICTION:
+			return {
+				...state
+		};
+		case Type.EDIT_PREDICTION:
+			return {
+				...state
+			};
 
 		default:
 			return state;
