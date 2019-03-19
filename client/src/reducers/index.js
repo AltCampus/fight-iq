@@ -8,7 +8,8 @@ const initState = {
 	event: {},
 	fightsArr: [],
 	players: [],
-	fight: []
+	fight: [],
+	user: {}
 };
 
 export default function rootReducer(state = initState, action) {
@@ -30,7 +31,8 @@ export default function rootReducer(state = initState, action) {
 			return {
 				...state,
 				isLogged: false,
-				isAdmin: false
+				isAdmin: false,
+				user: {}
 			};
 		// User
 
