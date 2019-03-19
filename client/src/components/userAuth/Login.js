@@ -43,22 +43,18 @@ class Login extends Component {
 
 	render() {
 		return (
-		<div className="Login-section">
-			<div class="page">
-  			<div class="container">
-    			<div class="left">
-     				<div class="login">FightIQ</div>
-    			</div>
-    			<div class="right">
-    				<form class="form" onSubmit={this.handleSubmit}>
-	        		<label >Email</label>
-	        		<input type="text" name="username" onChange={this.updateValue} required id="email"/>
-	        		<label >Password</label>
-	        		<input type="password" name="password" onChange={this.updateValue} required id="password"/>
-	        		<input type="submit" id="submit" value="Submit"/>
-	      		</form>
-    			</div>
-  			</div>
+		<div className="Login">
+			<div class="top">
+     		<div class="top-header">FightIQ</div>
+    	</div>
+    	<div class="bottom">
+				<form class="form" onSubmit={this.handleSubmit}>
+      		<label>Email</label>
+      		<input type="text" name="username" onChange={this.updateValue} required id="email"/>
+      		<label>Password</label>
+      		<input type="password" name="password" onChange={this.updateValue} required id="password"/>
+      		<input type="submit" id="submit" value="Submit"/>
+    		</form>
 			</div>
 		</div>
 		);

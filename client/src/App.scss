@@ -45,14 +45,15 @@ body {
 // ===========================
 
 .Header {
-	// position: fixed;
-	// z-index: 1;
-	// width: 100%;
+	position: fixed;
+	z-index: 1;
+	width: 100%;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	padding: 10px;
 	background: #040404;
+	top:0;
 	
 	.Logo {
 		color: white;
@@ -76,7 +77,13 @@ body {
 
 .App {
 	text-align: center;
+
+	.App-main{
+		margin-top: 70px;
+	}
 }
+
+
 
 
 // .eventTitle {
