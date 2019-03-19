@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import "./App.scss";
 import Header from "./components/Header";
 import Header2 from "./components/Header2";
-import Events from "./components/Events";
 import Login from "./components/userAuth/Login";
 import Register from "./components/userAuth/Register";
 import Admin from "./components/admin/Admin";
@@ -13,13 +12,11 @@ import AdminEventDetail from "./components/admin/events/AdminEventDetail";
 import AddFight from "./components/admin/fights/AddFight";
 import AddPlayer from "./components/admin/player/AddPlayer";
 import AddResult from "./components/admin/fights/AddResult";
-import EventCards from './components/user/EventCards';
 import EventDetails from './components/user/event/EventDetails';
 import Prediction from './components/user/Prediction';
 import DisplayPlayersList from "./components/admin/player/DisplayPlayersList";
 import Profile from "./components/user/profile/Profile";
 import PrivateRoute from './components/PrivateRoute';
-import Predict from './components/user/predict/Predict';
 import Homepage from './components/user/homepage/Homepage';
 
 
