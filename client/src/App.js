@@ -27,7 +27,7 @@ class App extends Component {
 		return (
 			<BrowserRouter>
 				<div className='App'>
-					<Header />
+					{/* <Header /> */}
 					<Header2 />
 					<div className="App-main">
 					 <Switch>
