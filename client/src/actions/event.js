@@ -90,7 +90,7 @@ export function deleteEvent(id, cb) {
 						type: Type.DELETE_EVENTS
 					});
 				}
-			data.success? cb(true): cb(false, "Error: Enter correct data"); // Todo - Replace with error coming from server
+			data.success ? cb(true): cb(false, "Error: Enter correct data"); // Todo - Replace with error coming from server
 			});
 	};
 }
