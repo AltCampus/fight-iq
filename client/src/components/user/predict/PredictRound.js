@@ -9,28 +9,16 @@ class PredictRound extends Component {
 	}
 
 	render() {
+		let { round } = this.props;
 		return (
 				<div className='PredictRound'>
-				<div>Round:</div>
-					<input type="radio" 
-					name="round" 
-					onChange={this.handleSubmit} 
-					checked={this.props.type == "first"} 
-					value="first" />1st Round
 
-					<input 
-					type="radio" 
-					name="round" 
-					onChange={this.handleSubmit} 
-					checked={this.props.type == "second"} 
-					value="second" />2nd Round
-
-					<input 
-					type="radio" 
-					name="round" 
-					onChange={this.handleSubmit} 
-					checked={this.props.type == "third"} 
-					value="third" />3rd Round
+					<input type="radio" id="first" name="round" onChange={this.handleSubmit} checked={round == "first"} value="first" />
+					<label className={round=="first"? "select":""} htmlFor="first">1st Round</label>
+					<input type="radio" id="second" name="round" onChange={this.handleSubmit} checked={round == "second"} value="second" />
+					<label className={round=="second"? "select":""} htmlFor="second">2nd Round</label>
+					<input type="radio" id="third" name="round" onChange={this.handleSubmit} checked={round == "third"} value="third" />
+					<label className={round=="third"? "select":""} htmlFor="third">3rd Round</label>
 
 				</div>
 		);

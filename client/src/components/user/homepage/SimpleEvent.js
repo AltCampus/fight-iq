@@ -1,19 +1,32 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
 class SimpleEvent extends Component {
 	render() {
-		let {event} = this.props
-		console.log(event)
+		let { event, isLogged } = this.props;
+		console.log(event);
 		return (
-            <div className='SimpleEvent'>
-              <Link to={`events/${event._id}`}>
-                <p className='past-event-title'>{event.title}</p>
-                <p className="past-event-main-event">{event.main_event}</p>
-              </Link>
-            </div>
-			);
-		}
+			<div className='SimpleEvent'>
+				{isLogged ? (
+					<Link to={`events/${event._id}`}>
+						<p className='past-event-title'>{event.title}</p>
+						<p className='past-event-main-event'>{event.main_event}</p>
+					</Link>
+				) : (
+					<Link to={`/login`}>
+						<p className='past-event-title'>{event.title}</p>
+						<p className='past-event-main-event'>{event.main_event}</p>
+					</Link>
+				)}
+			</div>
+		);
 	}
+}
 
-	export default SimpleEvent;
+const mapStateToProps = (state) => {
+	return {
+		isLogged: state.isLogged
+	};
+};
+export default connect(mapStateToProps)(SimpleEvent);
