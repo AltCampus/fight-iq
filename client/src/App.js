@@ -105,8 +105,8 @@ class App extends Component {
 
 						{/* User Routes */}
 						<Route exact path='/' component={Homepage} />
-            <Route path='/events/:eventid' component={EventDetails} />
-            <Route path='/events/:eventid/fights/:fightid/predict' component={Prediction} />
+            <Route exact path='/events/:eventid' component={EventDetails} />
+            <Route exact path='/events/:eventid/fights/:fightid/predict' component={Predict} />
 
 					</Switch>
 				</div>
