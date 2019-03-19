@@ -84,21 +84,29 @@ class EventDetailsFight extends Component {
 				{
 					this.state.isPredicted 
 					?
-					<>
-					
-					<div className="winner-name">{this.state.prediction.winner}</div>
-					<div className="winner-type">{this.state.prediction.type}</div>
-					<div className="winner-round">{this.state.prediction.round}</div>
+					<div className="prediction">
+						<div className="prediction-header">
+							<h3>Your Prediction: </h3>
+							<Link to={{pathname:'/events/' + eventid + '/fights/' + fight._id + '/predict/'+this.state.prediction.id+'/edit', state: fight}}>
+								<i className="fas fa-edit"></i>
+							</Link>
+							<i onClick={(e) => this.props.delete(e, this.state.prediction.id)} className="fas fa-trash-alt"></i>
+						</div>
+						<div className="prediction-details">
+							<div className="winner-name">Winner: {this.state.prediction.winner}</div>
+							<div className="winner-type">Type: {this.state.prediction.type}</div>
+							<div className="winner-round">Round: {this.state.prediction.round}</div>
+						</div>
+					</div>
 
-					<Link to={{pathname:'/events/' + eventid + '/fights/' + fight._id + '/predict/'+this.state.prediction.id+'/edit', state: fight}}>
-						<button>Edit</button>
-					</Link>
-					<button onClick={(e) => this.props.delete(e, this.state.prediction.id)}>Delete</button>
-					</>
 					:
-					<Link to={{pathname:'/events/' + eventid + '/fights/' + fight._id + '/predict', state: fight}}>
-						<button>Predict</button>
-					</Link>
+					<div className="prediction">
+						<div className="prediction-btns">
+							<Link to={{pathname:'/events/' + eventid + '/fights/' + fight._id + '/predict', state: fight}}>
+								<button>Predict</button>
+							</Link>
+						</div>
+					</div>
 			}
 			</div>
 
