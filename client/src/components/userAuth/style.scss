@@ -1,71 +1,98 @@
 
-.Login {
+.Login, .Register {
   background: #ccc;
-  // background: url(https://combatdocket.com/wp-content/uploads/2018/01/jueyib6mqy4011.jpg);
+  background: url(https://combatdocket.com/wp-content/uploads/2018/01/jueyib6mqy4011.jpg);
   background-size: contain;
   display: grid;
+  // grid-template-columns: auto auto;
   align-content: center;
   justify-content: center;
+  justify-items: center;
+  align-items: center;
   position: absolute;
   height: calc(100% - 70px);
   width: 100%;
 
   .top {
-    width: 400px;
+    width: 360px;
+    // height: 200px;
     background: white;
-    padding: 30px;
+    padding: 20px 30px;
+    background: rgb(128, 39, 39);
+    color: white;
+    display: grid;
+    place-items:center;
+    align-content: center;
     // border-radius: 10px;
 
     .top-header {
       font-size: 50px;
       font-weight: 900;   
+      text-transform: uppercase;
+    }
+
+    .top-tagline {
+      font-size: 14px;
+      padding: 10px 0;
     }
   }
 
   .bottom {
-    
-  }
+    width:400px;
+    background: white;
 
     .form {
       margin: 40px;
+      margin-bottom: 20px;
     }
 
     label {
-      color:  #c2c2c5;
+      color:  #222;
       display: block;
-      font-size: 14px;
+      font-size: 16px;
       height: 16px;
       margin-top: 20px;
       margin-bottom: 5px;
+      text-transform: uppercase;
     }
 
     input {
       background: transparent;
       border: 0;
       border-bottom: 1px solid rgb(128, 39, 39);
-      color: #f2f2f2;
+      color: #222;
       font-size: 20px;
       height: 30px;
       line-height: 30px;
       outline: none !important;
       width: 100%;
+      margin: 15px 0;
     }
+
     input::-moz-focus-inner { 
       border: 0; 
     }
-    #submit {
-      color: #707075;
-      margin-top: 40px;
-      transition: color 300ms;
-    }
-    #submit:focus {
-      color: #f2f2f2;
-    }
-    #submit:active {
-      color: #d0d0d2;
+
+    button{
+      padding:12px 40px;
+      background: rgb(128, 39, 39);
+      font-size: 15px;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      margin-top:10px;
     }
 
+    .login-register-toggle{
+      padding: 10px 0 40px 0;
 
+      a{
+        color: #222;
+        text-decoration: underline;
+        font-style: italic; 
+      }
+    }
+  }
 
 }
 

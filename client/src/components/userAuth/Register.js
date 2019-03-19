@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { registerSubmit } from './../../actions';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import "./style.scss";
+
 
 class Register extends Component {
 
@@ -44,18 +46,27 @@ class Register extends Component {
 	
 	render() {
 		return (
-			<div className="Login-section">
-			<form onSubmit={this.handleSubmit}>
-					<div>Name:</div>
-					<input type="text" name="username" onChange={this.updateValue} required/>
-					<div>Email:</div>
-					<input type="text" name="email" onChange={this.updateValue} required/>
-					<div>Password:</div>
-					<input type="password" name="password" onChange={this.updateValue} required/>
-					<br/>
-					<button>Register</button>
-			</form>
+		<div className="Register">
+			<div className="top">
+     		<div className="top-header">FightIQ</div>
+    	</div>
+    	<div className="bottom">
+				<form className="form" onSubmit={this.handleSubmit}>
+      		<label>Username</label>
+      		<input type="text" name="username" onChange={this.updateValue} required id="username"/>
+      		<label>Email</label>
+      		<input type="text" name="email" onChange={this.updateValue} required id="email"/>
+      		<label>Password</label>
+      		<input type="password" name="password" onChange={this.updateValue} required id="password"/>
+      		<button type="submit">Login</button>
+    		</form>
+    		<div className="login-register-toggle">
+    		<Link to="/login">
+    			Already User? Login instead
+    		</Link>
+    		</div>
 			</div>
+		</div>
 		);
 	}
 }
