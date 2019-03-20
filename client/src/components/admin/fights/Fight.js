@@ -67,9 +67,11 @@ class Fight extends Component {
 					<Link to={"/admin/" + eventid + "/fights/" + fight._id + "/result"}>
 						<i className='far fa-plus-square' /> Add result
 					</Link>
-					<a onClick={this.handleResultEdit}>
+					{/* 
+						<a onClick={this.handleResultEdit}>
 						<i className='fas fa-edit' /> Edit result
-					</a>
+					</a> 
+					*/}
 					<a onClick={this.handleResultDelete}>
 						<i className='fas fa-trash-alt' /> Delete result
 					</a>
