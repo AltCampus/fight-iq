@@ -6,6 +6,7 @@ import Fight from "./EventDetailsFight";
 import "./style.scss";
 
 class EventDetails extends Component {
+	
 	state = {
 		isLoading: true
 	}
