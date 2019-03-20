@@ -7,15 +7,15 @@ export default class Admin extends Component {
 	render() {
 		return (
 			<div className="Admin">
-				<AdminEvents />
 				<div className="admin-bottom-section">
-				<Link to="/admin/event">
-					<button className="add-event"><i className="far fa-plus-square"></i> Add Event</button>
-				</Link>
-				<Link to='/admin/players/add'>
-					<button className='add-player'><i className="far fa-plus-square"></i> Add a player</button>
-				</Link>
+					<Link to="/admin/event">
+						<button className="add-event"><i className="far fa-plus-square"></i> Add Event</button>
+					</Link>
+					<Link to='/admin/players/add'>
+						<button className='add-player'><i className="far fa-plus-square"></i> Add a player</button>
+					</Link>
 				</div>
+				<AdminEvents />
 			</div>
 		);
 	}

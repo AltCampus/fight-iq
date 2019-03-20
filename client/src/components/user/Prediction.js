@@ -45,8 +45,6 @@ class Prediction extends Component {
   render() {
     let fight = this.props.location.state;
     let players = this.props.players;
-console.log(players,"players");
-console.log(fight, "fight")
     return (
       <div className="Pridiction">
         <form onSubmit={this.handleSubmit}>
