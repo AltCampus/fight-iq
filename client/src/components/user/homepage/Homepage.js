@@ -7,10 +7,11 @@ import Banner from "./Banner";
 import DetailedEvent from "./DetailedEvent";
 import SimpleEvent from "./SimpleEvent";
 import './style.scss';
+import { getUser } from "../../../actions";
 
 class Homepage extends Component {
 	componentDidMount() {
-		this.props.dispatch(getEvents());
+    this.props.dispatch(getEvents());
 	}
 
 	render() {

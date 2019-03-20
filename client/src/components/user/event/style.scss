@@ -156,8 +156,47 @@
 			color:#666;
 		}
 
-		a{
+		.prediction{
 			grid-column: 1/ span 3;
+			padding: 10px 10px;
+			// border: 1px solid #ddd;
+			
+			.prediction-header{
+				display: grid;
+				grid-template-columns: repeat(3,auto);
+				justify-content: center;
+				justify-items: center;
+				align-items: center;
+				align-content: center;
+
+				i{
+					margin: 0 5px;
+					color: #333;
+				}
+			}
+
+			h3{
+				font-size: 18px;
+				text-transform: uppercase;
+				letter-spacing: 1.2px;
+				font-weight: 700;
+				padding: 10px 0;
+				color: rgb(128, 39, 39);
+			}
+
+			.prediction-details{
+				display: grid;
+				grid-template-columns: repeat(3,auto);
+				justify-items: center;
+				justify-content: center;
+
+				*{
+					padding: 10px;
+					border: 1px solid #ddd;
+					border-radius: 5px;
+					margin: 0 10px;
+				}
+			}
 
 			button{
 				padding:12px 20px;
@@ -166,6 +205,7 @@
 				cursor: pointer;
 				text-transform: uppercase;
 				letter-spacing: 1.2px;
+				margin-right: 10px;
 			}
 		}
 

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { addResult } from "../../../actions";
+import { addResult, editResult } from "../../../actions";
 
 class AddFight extends Component {
 	constructor(props) {

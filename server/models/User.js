@@ -8,7 +8,9 @@ const userSchema = new Schema({
 	email: {type:String, required:true},
 	password: {type:String, required:true},
 	isAdmin: false,
-	predictions: [{type: Schema.Types.ObjectId, ref:"Prediction"}]
+  predictions: [{type: Schema.Types.ObjectId, ref:"Prediction"}],
+  points:{type:Number, default:0},
+  accuracy:{type:Number, dafault:0}
 })
 
 userSchema.methods.verifyPassword = function(userPassword, cb) {

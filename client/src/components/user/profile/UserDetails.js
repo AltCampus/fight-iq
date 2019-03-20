@@ -9,6 +9,7 @@ class UserDetails extends Component {
 					<div className="right-section">
 						<div className="user-username">UserName: {user.username}</div>
 						<div className="user-email">Email: {user.email}</div>
+						<div className="change-password">Change Password</div>
 					</div>
 			</div>
 			);
