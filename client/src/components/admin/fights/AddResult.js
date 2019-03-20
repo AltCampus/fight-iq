@@ -79,20 +79,20 @@ class AddFight extends Component {
 		return (
 				<div className='AddFight'>
 				<form onSubmit={this.handleSubmit}>
-					<div>Winner:</div>
+					<label>Winner:</label>
 					<select name="winner" onChange={this.updateValue}>
 							<option value="null">select</option>
 							<option value={fight.player1._id}>{fight.player1.name}</option>
 							<option value={fight.player2._id}>{fight.player2.name}</option>
 					</select>
-					<div>Type: </div>
+					<label>Type: </label>
 					<select name='type' onChange={this.updateValue} required>
 						<option value="null">select</option>
 						<option value='knockout'>KO/TKO</option>
 						<option value='submission'>Submission</option>
 						<option value='decision'>Decision</option>
 					</select>
-					<div>Round: </div>
+					<label>Round: </label>
 					<select name='round' onChange={this.updateValue} required>
 						<option value="null">select</option>
 						<option value='first'>1</option>

@@ -75,23 +75,27 @@ class AdminAddEvent extends Component {
 		return (
 			<div className="AdminAddEvent">
 				<form onSubmit={this.handleSubmit}>
-					<div>Title:</div>
+					<label>Title:</label>
 					<input type="text" name="title" onChange={this.updateValue} value={eventDetails.title} required/>
-					<div>Main Event:</div>
+					<label>Main Event:</label>
 					<input type="text" name="main_event" onChange={this.updateValue} value={eventDetails.main_event} required/>
-					<div>Location: </div>
+					<label>Location: </label>
 					<input type="text" name="location" onChange={this.updateValue} value={eventDetails.location} required/>
-					<div>Date & time:</div>
+					<label>Date & time:</label>
 					<input type="datetime-local" name="date_time" onChange={this.updateValue} value={eventDetails.date_time} required/>
 					<div className="isExpired">
-					isExpired: 
-					  <input type="radio" name="isExpired" value='true' onClick={this.updateValue} checked={eventDetails.isExpired === 'true'}/> True<br/>
-  					<input type="radio" name="isExpired" value='false' onClick={this.updateValue} checked={eventDetails.isExpired === 'false'}/>False<br/>
+					<label>isExpired:</label>
+					  <input className="radio" type="radio" name="isExpired" value='true' onClick={this.updateValue} checked={eventDetails.isExpired === 'true'}/>
+					  <span className="radio-option">True</span>
+  					<input className="radio" type="radio" name="isExpired" value='false' onClick={this.updateValue} checked={eventDetails.isExpired === 'false'}/>
+  					<span className="radio-option">False</span><br/>
   				</div>
 					<div className="isMajor">
-					isMajor: 
-					  <input type="radio" name="isMajor" value='true' onClick={this.updateValue} checked={eventDetails.isMajor === 'true'}/> True<br/>
-  					<input type="radio" name="isMajor" value='false' onClick={this.updateValue} checked={eventDetails.isMajor === 'false'}/>False<br/>
+					<label>isMajor:</label>
+					  <input type="radio" name="isMajor" value='true' onClick={this.updateValue} checked={eventDetails.isMajor === 'true'}/>
+					  <span className="radio-option">True</span>
+  					<input type="radio" name="isMajor" value='false' onClick={this.updateValue} checked={eventDetails.isMajor === 'false'}/>
+  					<span className="radio-option">False</span><br/>
   				</div>
 					<br/>
 					<button>Submit</button>

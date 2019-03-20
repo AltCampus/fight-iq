@@ -82,6 +82,27 @@
 	}
 }
 
+@media (max-width: 600px){
+	.prediction-details{
+		grid-template-columns: 1fr !important;
+
+		*{
+			width: 280px;
+			margin-bottom: 4px !important;
+		}
+	}
+
+	.result-details{
+		grid-template-columns: 1fr !important;
+
+		*{
+			width: 280px;
+			margin-bottom: 4px !important;
+		}
+	}
+
+}
+
 .EventDetails{
 	.event-detail-banner{
 		background: rgb(128, 39, 39);
@@ -195,6 +216,8 @@
 					border: 1px solid #ddd;
 					border-radius: 5px;
 					margin: 0 10px;
+					display: grid;
+					place-items: center;
 				}
 			}
 
@@ -243,6 +266,8 @@
 					border: 1px solid #ddd;
 					border-radius: 5px;
 					margin: 0 10px;
+					display: grid;
+					place-items: center;
 				}
 			}
 
@@ -256,3 +281,4 @@
 		}
 	}
 }
+
