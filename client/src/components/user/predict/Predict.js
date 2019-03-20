@@ -31,7 +31,6 @@ class Predict extends Component {
 					isEdit: isEdit
 				})
 				if(isEdit) {
-
 					let predictData = this.props.user.predictions.find(v=>v.fightid._id===this.state.prediction.fightid);
 					if(predictData) {
 						this.setState({
@@ -43,11 +42,10 @@ class Predict extends Component {
 							},
 							showPredictType : true,
 							showPredictRound: true,
-							showButton: true,
-							isEdit:true
+							showButton: true
 						}) // end of inner setState
 					} // end of inner if 
-					} // end of outer setState
+					} // end of outer if
 	
 }
 

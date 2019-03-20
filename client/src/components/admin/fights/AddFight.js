@@ -10,7 +10,7 @@ class AddFight extends Component {
 			fightDetails: {
 				title: "",
 				type: "",
-				rounds: "5-rounds",
+				rounds: "five",
 				player1: "",
 				player2: ""
 			},
@@ -96,22 +96,16 @@ class AddFight extends Component {
 						required
 					/>
 					<div>Type: </div> {/* make this a dropdown */}
-					<input
-						type='text'
-						name='type'
-						onChange={this.updateValue}
-						value={fightDetails.type}
-						required
-					/>
+					<select name='type' id='type' onChange={this.updateValue} value={fightDetails.type} required>
+						<option value='main'>main</option>
+						<option value='comain'>comain</option>
+						<option value='other'>other</option>
+					</select>
+					{/* <input type='text' name='type' onChange={this.updateValue} value={fightDetails.type} required/> */}
 					<div>Rounds: </div>
-					<select
-						name='rounds'
-						id='rounds'
-						onChange={this.updateValue}
-						value={fightDetails.rounds}
-						required>
-						<option value='5-rounds'>5-Rounds</option>
-						<option value='3-rounds'>3-Rounds</option>
+					<select name='rounds' id='rounds' onChange={this.updateValue} value={fightDetails.rounds} required>
+						<option value='five'>5-Rounds</option>
+						<option value='three'>3-Rounds</option>
 					</select>
 					<h5>Player 1</h5>
 					<select name='player1' onChange={this.updateValue} required>
