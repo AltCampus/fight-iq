@@ -209,5 +209,50 @@
 			}
 		}
 
+		.result{
+			grid-column: 1/ span 3;
+			padding: 10px 10px;
+			border-top: 1px solid #ddd;
+			
+			.result-header{
+				display: grid;
+				grid-template-columns: 1fr;
+				justify-content: center;
+				justify-items: center;
+				align-items: center;
+				align-content: center;
+			}
+
+			h3{
+				font-size: 18px;
+				text-transform: uppercase;
+				letter-spacing: 1.2px;
+				font-weight: 700;
+				padding: 10px 0;
+				color: rgb(128, 39, 39);
+			}
+
+			.result-details{
+				display: grid;
+				grid-template-columns: repeat(3,auto);
+				justify-items: center;
+				justify-content: center;
+
+				*{
+					padding: 10px;
+					border: 1px solid #ddd;
+					border-radius: 5px;
+					margin: 0 10px;
+				}
+			}
+
+			.result-placeholder{
+				font-size: 14px;
+				text-transform: uppercase;
+				letter-spacing: 1.2px;
+				font-weight: 300;
+
+			}
+		}
 	}
 }
