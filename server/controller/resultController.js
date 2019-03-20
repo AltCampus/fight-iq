@@ -114,35 +114,31 @@ function updateScore(req,res) {
 				// user update
 
 				users.forEach((singleUser)=>{
-					var points = 0, accuracy = 0;
+					console.log(singleUser)
+					var winCorrectCount=0, points = 0, accuracy = 0, completedEventCount=0;
 					singleUser.predictions.forEach((data)=>{
+						if (data.fightid.result){ // If result present
+							completedEventCount++;
+							if (data.winner.name === data.fightid.result.winner.name){
+								winCorrectCount++;
+								points+=10;
+								if(data.type === data.fightid.result.type){
+									points+=30;
+									if(data.round === data.fightid.result.round){
+										points+=60;
+									}
+								}
+							}
+						}
+					}); 
 
-						if(data.winner.name === data.fightid.result.winner.name)
-						{
-							points +=10;
-						}
-						else if(data.type === data.fightid.result.type)
-						{
-							points +=10;
-						}
-						else if(data.round === data.fightid.result.round)
-						{
-							points +=10;
-						}
-					}); // end of inner forEach
-
-					accuracy = Math.floor((points/(30*singleUser.predictions.length))*100)
+					accuracy = Math.floor((winCorrectCount/completedEventCount)*100) || 0;
 
 					User.findByIdAndUpdate(singleUser._id,  {$set: { "points":points, "accuracy":accuracy }}, {new:true}, (err, newData) => {
 						if(err) return res.json({success:false, message:err})
 					})
 
 				}); // end of forEach
-
-				return res.status(200).json({
-					success: true,
-					user: users
-				});
 			});
 	}
 

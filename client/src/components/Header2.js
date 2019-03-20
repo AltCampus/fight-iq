@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { handleLogout } from "./../actions";
 
 class Header extends Component {
 	handleLogout = () => {
 		this.props.dispatch(handleLogout());
+		this.props.history.push('/');
 	};
 
 	render() {
@@ -37,4 +38,4 @@ const mapStateToProps = (state) => {
 	};
 };
 
-export default connect(mapStateToProps)(Header);
+export default withRouter(connect(mapStateToProps)(Header));

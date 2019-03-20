@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { getEvent, getUser, deletePrediction } from "../../../actions";
-import Fight from "./EventDetailsFight";
+import EventDetailsFight from "./EventDetailsFight";
 import "./style.scss";
 
 class EventDetails extends Component {
@@ -45,7 +45,6 @@ class EventDetails extends Component {
 		const { fights } = this.props;
 		let eventDate = event.date_time && event.date_time.split('T')[0];
 		let eventTime = event.date_time && event.date_time.split('T')[1];
-
 		return (
 			<div className="EventDetails">
 				<div className="event-detail-banner">
@@ -55,7 +54,7 @@ class EventDetails extends Component {
 					<div className="event-date_time">{eventTime}, {eventDate} </div>
 				</div>
 					{
-						!this.state.isLoading && fights && fights.map(fight=><Fight key={fight._id} fight={fight} eventid={event._id} delete={this.handleDelete}/>)
+						!this.state.isLoading && fights && fights.map(fight=><EventDetailsFight key={fight._id} fight={fight} event={event} delete={this.handleDelete}/>)
 					}
 				</div>
 		);
