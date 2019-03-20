@@ -6,7 +6,7 @@ class DetailedEvent extends Component {
 	render() {
 		let { event, isLogged } = this.props;
 		let mainFight =
-			event.fight && event.fight.find((fight) => fight.type == "mainEvent");
+			event.fight && event.fight.find((fight) => fight.type == "main");
 
 		let eventDate = event.date_time && event.date_time.split("T")[0];
 		let eventTime = event.date_time && event.date_time.split("T")[1];

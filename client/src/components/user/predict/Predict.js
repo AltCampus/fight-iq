@@ -17,8 +17,8 @@ class Predict extends Component {
 				type: "",
 				round: ""
 			},
-			showPredictType : true,
-			showPredictRound: true,
+			showPredictType : false,
+			showPredictRound: false,
 			showButton: false,
 			isEdit:false,
 			user:{}
