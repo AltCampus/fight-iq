@@ -97,8 +97,7 @@ export default function rootReducer(state = initState, action) {
 
 		case Type.ADD_PLAYER:
 			return {
-				...state,
-				players: action.data
+				...state
 			};
 		case Type.GET_PLAYERS:
 			return {
