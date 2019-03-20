@@ -57,10 +57,13 @@ class EventDetailsFight extends Component {
 
 	render() {
 		let {event, fight} = this.props;
+		let { isPredicted, prediction,  } = this.state;
 		let eventid = event._id;
 		let isEventExpired = event.isExpired;
 		let player1NameSplit = fight.player1.name.split(" ");
 		let player2NameSplit = fight.player2.name.split(" ");
+		console.log(fight)
+
 
 		return (
 			<div className="EventDetailsFight">
@@ -81,7 +84,7 @@ class EventDetailsFight extends Component {
 				</div>
 
 				{
-					this.state.isPredicted ?
+					isPredicted ?
 
 					<div className="prediction">
 						<div className="prediction-header">
@@ -89,19 +92,19 @@ class EventDetailsFight extends Component {
 							{
 								!isEventExpired? 
 								(<>
-									<Link to={{pathname:'/events/' + eventid + '/fights/' + fight._id + '/predict/'+this.state.prediction.id+'/edit', state: fight}}>
+									<Link to={{pathname:'/events/' + eventid + '/fights/' + fight._id + '/predict/'+prediction.id+'/edit', state: fight}}>
 										<i className="fas fa-edit"></i>
 									</Link>
-									<i onClick={(e) => this.props.delete(e, this.state.prediction.id)} className="fas fa-trash-alt"></i>
+									<i onClick={(e) => this.props.delete(e, prediction.id)} className="fas fa-trash-alt"></i>
 								</>
 								)
 								: null
 							}
 						</div>
 						<div className="prediction-details">
-							<div className="winner-name">Winner: {this.state.prediction.winner}</div>
-							<div className="winner-type">Type: {this.state.prediction.type}</div>
-							<div className="winner-round">Round: {this.state.prediction.round}</div>
+							<div className="winner-name">Winner: {prediction.winner}</div>
+							<div className="winner-type">Type: {prediction.type}</div>
+							<div className="winner-round">Round: {prediction.round}</div>
 						</div>
 					</div>
 					: 
@@ -118,9 +121,28 @@ class EventDetailsFight extends Component {
 					 )
 					 :null
 			}
-			</div>
-
-						
+					{
+						isEventExpired? 
+						(
+							<div className="result">
+								<h3 className="result-header">Result: </h3>
+										{
+											isEventExpired && fight.result? 
+												(
+													<div className="result-details">
+														<div className="winner-name">Winner: {fight.result.winner.name}</div>
+														<div className="winner-type">Type: {fight.result.type}</div>
+														<div className="winner-round">Round: {fight.result.round}</div>
+													</div>
+												)
+												:
+												(<div className="result-placeholder">Result yet to be updated!</div>)
+										}
+							</div>	
+						) :
+						null
+					}
+			</div>	
 		);
 	}
 }	
