@@ -88,18 +88,18 @@ class AddFight extends Component {
 					<div>Type: </div>
 					<select name='type' onChange={this.updateValue} required>
 						<option value="null">select</option>
-						<option value='ko'>KO/TKO</option>
+						<option value='knockout'>KO/TKO</option>
 						<option value='submission'>Submission</option>
 						<option value='decision'>Decision</option>
 					</select>
 					<div>Round: </div>
 					<select name='round' onChange={this.updateValue} required>
 						<option value="null">select</option>
-						<option value='1'>1</option>
-						<option value='2'>2</option>
-						<option value='3'>3</option>
-						<option value='4'>4</option>
-						<option value='5'>5</option>
+						<option value='first'>1</option>
+						<option value='second'>2</option>
+						<option value='third'>3</option>
+						<option value='fourth'>4</option>
+						<option value='fifth'>5</option>
 					</select>
 					<br />
 					<button type="submit">Submit</button>

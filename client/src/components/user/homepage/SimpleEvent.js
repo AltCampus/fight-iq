@@ -5,7 +5,6 @@ import { connect } from "react-redux";
 class SimpleEvent extends Component {
 	render() {
 		let { event, isLogged } = this.props;
-		console.log(event);
 		return (
 			<div className='SimpleEvent'>
 				{isLogged ? (

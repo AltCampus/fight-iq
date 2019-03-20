@@ -19,22 +19,19 @@ class EventDetailsFight extends Component {
 		}
 
 	componentDidMount() {
-
 		if (Object.keys(this.props.user).length != 0) {
-
 			let predictData = this.props.user.predictions.find(v=>v.fightid._id===this.props.fight._id);
-				if(predictData) {
-					this.setState({
-						isPredicted: true,
-						prediction:{
-							id: predictData._id,
-							winner : predictData.winner.name,
-							type: predictData.type,
-							round: predictData.round
-						}
-					})
-				} 
-				
+			if(predictData) {
+				this.setState({
+					isPredicted: true,
+					prediction:{
+						id: predictData._id,
+						winner : predictData.winner.name,
+						type: predictData.type,
+						round: predictData.round
+					}
+				})
+			} 	
 		}
 	}
 
@@ -59,7 +56,9 @@ class EventDetailsFight extends Component {
 	}
 
 	render() {
-		let {eventid, fight} = this.props;
+		let {event, fight} = this.props;
+		let eventid = event._id;
+		let isEventExpired = event.isExpired;
 		let player1NameSplit = fight.player1.name.split(" ");
 		let player2NameSplit = fight.player2.name.split(" ");
 
@@ -82,15 +81,22 @@ class EventDetailsFight extends Component {
 				</div>
 
 				{
-					this.state.isPredicted 
-					?
+					this.state.isPredicted ?
+
 					<div className="prediction">
 						<div className="prediction-header">
 							<h3>Your Prediction: </h3>
-							<Link to={{pathname:'/events/' + eventid + '/fights/' + fight._id + '/predict/'+this.state.prediction.id+'/edit', state: fight}}>
-								<i className="fas fa-edit"></i>
-							</Link>
-							<i onClick={(e) => this.props.delete(e, this.state.prediction.id)} className="fas fa-trash-alt"></i>
+							{
+								!isEventExpired? 
+								(<>
+									<Link to={{pathname:'/events/' + eventid + '/fights/' + fight._id + '/predict/'+this.state.prediction.id+'/edit', state: fight}}>
+										<i className="fas fa-edit"></i>
+									</Link>
+									<i onClick={(e) => this.props.delete(e, this.state.prediction.id)} className="fas fa-trash-alt"></i>
+								</>
+								)
+								: null
+							}
 						</div>
 						<div className="prediction-details">
 							<div className="winner-name">Winner: {this.state.prediction.winner}</div>
@@ -98,15 +104,19 @@ class EventDetailsFight extends Component {
 							<div className="winner-round">Round: {this.state.prediction.round}</div>
 						</div>
 					</div>
-
-					:
-					<div className="prediction">
-						<div className="prediction-btns">
-							<Link to={{pathname:'/events/' + eventid + '/fights/' + fight._id + '/predict', state: fight}}>
-								<button>Predict</button>
-							</Link>
+					: 
+					 
+					 !isEventExpired? 
+					 (
+						<div className="prediction">
+							<div className="prediction-btns">
+								<Link to={{pathname:'/events/' + eventid + '/fights/' + fight._id + '/predict', state: fight}}>
+									<button>Predict</button>
+								</Link>
+							</div>
 						</div>
-					</div>
+					 )
+					 :null
 			}
 			</div>
 
