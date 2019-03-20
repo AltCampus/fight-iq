@@ -115,6 +115,11 @@ class App extends Component {
 								path='/events/:eventid/fights/:fightid/predict'
 								component={Predict}
 							/>
+							<Route
+								exact
+								path='/events/:eventid/fights/:fightid/predict/:predictid/edit'
+								component={Predict}
+							/>
 						</Switch>
 					</div>
 				</div>
