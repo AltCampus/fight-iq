@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { getPlayers, deleteEvent, editPlayer } from "../../../actions/player";
+import './style.scss';
 
 class DisplayPlayersList extends Component {
 	handleDelete(e, id) {
@@ -27,31 +28,31 @@ class DisplayPlayersList extends Component {
 		const { players } = this.props;
 		return (
 			<div className='display-list-of-players'>
-				<div className='show-players-list'>
-					{players &&
-						players.map((val, index) => (
-							<div key={index}>
-								<img src={val.image} />
-								<p>Name :{val.name}</p>
-								<p> Weight:{val.weight}</p>
-								<p> Height :{val.height}</p>
-								<div>
-									<p onClick={(e) => this.handleDelete(e, val._id)}>
-										<i className='fas fa-trash-alt' />
-									</p>
-									<Link to={`/admin/players/${val._id}/edit`}>
-										<p onClick={(e) => this.handleEdit(e, val._id)}>
-											<i className='fas fa-edit' />
-										</p>
-									</Link>
-								</div>
-							</div>
-						))}
-				</div>
-				<div>
+				<div className="add-player-main">
 					<Link to='/admin/players/add'>
 						<button className='add-player'>Add a player</button>
 					</Link>
+				</div>
+				<div className='show-players-list'>
+					{players &&
+						players.map((val, index) => (
+							<div key={index} className="Player">
+								<img src={val.image} />
+								<div className="player-details">
+									<div className="player-name"> {val.name}</div>
+									<div className="player-weight"> Weight: {val.weight}</div>
+									<div className="player-height"> Height: {val.height}</div>
+								</div>
+								<div className="player-controls">
+									<Link to={`/admin/players/${val._id}/edit`} onClick={(e) => this.handleEdit(e, val._id)}>
+											<i className='fas fa-edit' />
+									</Link>
+									<p onClick={(e) => this.handleDelete(e, val._id)}>
+										<i className='fas fa-trash-alt' />
+									</p>
+								</div>
+							</div>
+						))}
 				</div>
 			</div>
 		);
