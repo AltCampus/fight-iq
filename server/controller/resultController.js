@@ -1,5 +1,6 @@
 const Result = require('../models/Result');
 const Fight = require('../models/Fight');
+const User = require('../models/User');
 
 module.exports = {
 	createResult: (req, res) => {
@@ -10,10 +11,12 @@ module.exports = {
 				return res.json({message : err, success:false})
 			}
 			Fight.findByIdAndUpdate(fightId, {result: result.id}, (err,fight)=>{
-				console.log("Fight: ", fight)
 				if (err){
 					return res.json({message : err, success:false})
 				}
+				// update points
+				updateScore(req,res);
+
 				return res.status(201).json({success: true, message: "New Result Added." })
 			})
 		})
@@ -57,6 +60,9 @@ module.exports = {
 						message:err || "Result not found!"
 					})
 				}
+				//update points
+				updateScore(req,res);
+
 				return res.status(200).json({
 					result,
 					success:true
@@ -78,4 +84,65 @@ module.exports = {
 			})
 		})
 	}
+
 }
+
+function updateScore(req,res) {
+
+		User.find({},'predictions')
+			.populate({
+				path: "predictions", select:"fightid winner type round",
+				populate: [
+					{
+						path: "fightid",
+						select: "result",
+						populate: [	
+							{ path: "result", populate: { path: "winner" , select:"name"} }
+						]
+					},
+					{ path: "winner", select:"name" }
+				]
+			})
+			.exec((err, users) => {
+				if (err || !users) {
+					return res.status(404).json({
+						success: false,
+						message: err || "User not present"
+					});
+				}
+
+				// user update
+
+				users.forEach((singleUser)=>{
+					var points = 0, accuracy = 0;
+					singleUser.predictions.forEach((data)=>{
+
+						if(data.winner.name === data.fightid.result.winner.name)
+						{
+							points +=10;
+						}
+						else if(data.type === data.fightid.result.type)
+						{
+							points +=10;
+						}
+						else if(data.round === data.fightid.result.round)
+						{
+							points +=10;
+						}
+					}); // end of inner forEach
+
+					accuracy = Math.floor((points/(30*singleUser.predictions.length))*100)
+
+					User.findByIdAndUpdate(singleUser._id,  {$set: { "points":points, "accuracy":accuracy }}, {new:true}, (err, newData) => {
+						if(err) return res.json({success:false, message:err})
+					})
+
+				}); // end of forEach
+
+				return res.status(200).json({
+					success: true,
+					user: users
+				});
+			});
+	}
+

@@ -8,8 +8,19 @@ import { getUser } from './../../../actions';
 import './style.scss';
 
 class Profile extends Component {
+
+	state = {
+		isLoading: true
+	}
+
 	componentDidMount(){
-		this.props.dispatch(getUser());
+
+		this.props.dispatch(getUser((dataStatus) => {
+			this.setState({
+				isLoading: false
+			})
+		}))
+
 		// TODO: Handle user data not found redirect
 	}
 
@@ -17,9 +28,16 @@ class Profile extends Component {
 		let { user } = this.props;
 		return (
 			<div className="Profile">
+
+				{
+					!this.state.isLoading ?
+				<>
 				<UserDetails user={user}/>
 				<UserStats user={user}/>
 				<UserPredictions user={user}/>
+				</> 
+				: null
+				}
 			</div>
 			);
 		}

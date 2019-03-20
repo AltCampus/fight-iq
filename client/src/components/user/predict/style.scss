@@ -1,0 +1,138 @@
+.Predict{
+	max-width: 1000px;
+	width: 90%;
+	margin: 0 auto;
+	padding: 20px 5%;
+
+	.PredictChooseFighter{
+		box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+		
+		h1{
+			color: #222;
+			font-size: 24px;
+			letter-spacing: 1.2px;
+			text-transform: uppercase;
+			padding: 20px;
+			border-bottom: 1px solid #bbb;
+			color: rgb(128, 39, 39);
+		}
+
+		.player-section{
+			display: grid;
+			grid-template-columns: 50% 50%;
+			align-items:center;
+			padding: 20px 5%;
+			margin-bottom: 5px;
+			justify-items: center;
+
+			.player{
+				display: grid;
+
+				label{
+					cursor: pointer;
+
+					img{
+						height: 140px;
+						width: 140px;
+						object-fit: cover;
+						object-position: top;
+						border-radius: 50%;
+						background: #eee;
+					}
+				}
+			}
+
+			.player.select{
+				transform: scale(1.1);
+
+				.player-name{
+					color: rgb(128, 39, 39);
+					font-weight: 700;
+				}
+
+				img{
+					background: rgba(128, 39, 39, 0.5);
+				}
+			}
+
+			[type="radio"]{
+				display: none;
+			}
+		}
+	}
+
+	.PredictType {
+		box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+		padding: 30px;
+		display: grid;
+		grid-template-columns: repeat(3, auto);
+		justify-items: center;
+		justify-content: center;
+		grid-gap: 10px;
+
+		label{
+			border: 1px solid #ccc;
+			padding: 10px 30px;
+			border-radius: 4px;
+			text-transform: uppercase;
+			letter-spacing: 1.2px;
+			font-weight: 300;
+
+			&.select{
+				color: rgb(128, 39, 39);
+				font-weight: 700;
+			}
+		}
+		
+		[type="radio"]{
+				display: none;
+		}
+	}
+
+	.PredictRound{
+		box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+		padding: 30px;
+		display: grid;
+		grid-template-columns: repeat(3, auto);
+		justify-items: center;
+		justify-content: center;
+		grid-gap: 10px;
+		align-items: center;
+
+
+		label{
+			border: 1px solid #ccc;
+			width: 100px;
+			padding:10px;
+			height: 100px;
+			border-radius: 4px;
+			text-transform: uppercase;
+			letter-spacing: 1.2px;
+			border-radius: 50%;
+			display: grid;
+			align-items: center;
+			font-weight: 300;
+
+
+			&.select{
+				color: rgb(128, 39, 39);
+				font-weight: 700;
+			}
+		}
+
+
+		[type="radio"]{
+				display: none;
+		}
+	}
+
+	button{
+		padding:12px 20px;
+		background: rgb(128, 39, 39);
+		font-size: 15px;
+		cursor: pointer;
+		text-transform: uppercase;
+		letter-spacing: 1.2px;
+		margin-top: 20px;
+	}
+}
