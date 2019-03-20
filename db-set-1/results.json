@@ -1,0 +1,6 @@
+{"_id":{"$oid":"5c8a1ed02fea1854126eb3ba"},"winner":{"$oid":"5c854b849c36273453421e30"},"type":"submission","round":"5","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5c91afc38351ea31361f8689"},"winner":{"$oid":"5c8f61e6167c0314de3e9d4b"},"type":"knockout","round":"first","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5c91bde1f3528238eb18bb7c"},"winner":{"$oid":"5c91b749f3528238eb18bb7b"},"type":"knockout","round":"second","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5c91bdecf3528238eb18bb7d"},"winner":{"$oid":"5c91b4b8f3528238eb18bb71"},"type":"decision","round":"fifth","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5c91bdf7f3528238eb18bb7e"},"winner":{"$oid":"5c91b531f3528238eb18bb74"},"type":"decision","round":"third","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5c91be71f3528238eb18bb82"},"winner":{"$oid":"5c91b55df3528238eb18bb75"},"type":"submission","round":"second","__v":{"$numberInt":"0"}}
