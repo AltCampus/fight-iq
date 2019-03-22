@@ -7,7 +7,7 @@ import DetailedEvent from "./DetailedEvent";
 import SimpleEvent from "./SimpleEvent";
 import './style.scss';
 import { getUser } from "../../../actions";
-import Spinner from '../../Spinner'
+import Spinner from '../../Spinner';
 
 class Homepage extends Component {
 
@@ -17,7 +17,6 @@ class Homepage extends Component {
 
 	render() {
 		const { events } = this.props;
-    console.log(events)
     const upcomingEvents = events.filter(event=>!event.isExpired);
     const pastEvents = events.filter(event=>event.isExpired);
     const heroEvent = upcomingEvents.sort((a,b)=>a.date_time-b.date_time).find(event=>event.isMajor)
