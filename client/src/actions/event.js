@@ -40,7 +40,7 @@ export function getEvents() {
 }
 
 // Get event
-export function getEvent(eventid) {
+export function getEvent(eventid, cb) {
 	return (dispatch) => {
 		fetch(URL + "api/v1/events/" + eventid)
 			.then((res) => res.json())

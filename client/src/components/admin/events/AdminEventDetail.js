@@ -12,7 +12,7 @@ class AdminEventDetail extends Component {
 
 	handleDelete(id){
 		this.props.dispatch(deleteEvent(id, this.redirectUser))
-	}Fight
+	}
 
 	redirectUser = (success, errorMsg = "") => {
 		if (success){

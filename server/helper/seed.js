@@ -1,6 +1,6 @@
 var User = require('./../models/User');
 
-adminCreator = () =>{
+adminCreator = () => {
 	var adminDetails = {
 	    username: "admin",
 	    email: "admin@fightiq.com",
