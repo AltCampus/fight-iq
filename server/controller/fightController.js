@@ -3,7 +3,7 @@ const Event = require('../models/Event');
 
 module.exports = {
 	createFight: (req, res) => {
-		const newFight = new Fight({...req.body,event:req.params.event_id})
+		const newFight = new Fight({...req.body, event: req.params.event_id})
 			newFight.save((err, fight) => {
 				if(err){
 					return res.json({message: err, success:false})
@@ -25,7 +25,6 @@ module.exports = {
 			.populate('event')
 			.populate('player1')
 			.populate('player2')
-			.populate('fight')
 			.exec((err,fight)=>{
 				if(err){
 					return res.json({message:err,success: false})
@@ -36,7 +35,7 @@ module.exports = {
 	},
 
 	getFight: (req, res) => {
-		Fight.findOne({_id:req.params.fight_id})
+		Fight.findOne({_id: req.params.fight_id})
 			.populate('event').populate('player1').populate('player2')
 			.exec((err, fight) => {
 				if (err || !fight) {

@@ -7,12 +7,12 @@ import DetailedEvent from "./DetailedEvent";
 import SimpleEvent from "./SimpleEvent";
 import './style.scss';
 import { getUser } from "../../../actions";
-import Spinner from '../../Spinner'
+import Spinner from '../../Spinner';
 
 class Homepage extends Component {
 
 	componentDidMount() {
-    setInterval(() => this.props.dispatch(getEvents()), 2000);
+    setTimeout(() => this.props.dispatch(getEvents()), 2000);
 	}
 
 	render() {

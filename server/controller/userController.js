@@ -20,7 +20,9 @@ module.exports = {
 						});
 					} else {
 						newUser.save((err, user) => {
-							if (err) return res.json({ message: err, success: false });
+							if (err) {
+								return res.json({ message: err, success: false });
+							}
 							return res.status(201).json({
 								user: user.username,
 								success: true,
@@ -59,12 +61,13 @@ module.exports = {
 	},
 
 	isLoggedIn: (req, res, next) => {
+		// req.user
 		if (req.session.passport) {
 			return next();
 		} else {
-			return res.status(404).json({
+			return res.status(401).json({
 				success: false,
-				message: "user Not login"
+				message: "Please login to get access"
 			});
 		}
 	},
@@ -94,27 +97,25 @@ module.exports = {
 	},
 
 	isAdmin: (req, res, next) => {
-		const sessionUser = req.session.passport;
-		if (sessionUser) {
-			User.findOne({ _id: sessionUser.user }, (err, user) => {
-				if (user.isAdmin === true) return next();
-				else {
-					return res.status(404).json({
-						success: false,
-						message: "User is not Admin"
-					});
-				}
-			});
-		} else
-			return res.status(404).json({
-				success: false,
-				message: "user Not login"
-			});
+		const sessionUser = req.user;
+
+		User.findOne({ _id: sessionUser }, (err, user) => {
+			if (user.isAdmin === true) {
+				return next();
+			}
+			else {
+				return res.status(404).json({
+					success: false,
+					message: "User is not Admin"
+				});
+			}
+		});
 	},
 
 	getUser: (req, res) => {
-		const sessionUser = req.session.passport;
-		User.findOne({ _id: sessionUser.user })
+		const user = req.user;
+		User.findOne({ _id: user })
+			.select("-password -email")
 			.populate({
 				path: "predictions",
 				populate: [
@@ -137,7 +138,6 @@ module.exports = {
 						message: err || "User not present"
 					});
 				}
-				user.password = "";
 				return res.status(200).json({
 					success: true,
 					user: user
