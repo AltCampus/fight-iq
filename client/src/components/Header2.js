@@ -18,7 +18,7 @@ class Header extends Component {
 				</Link>
 				{isLogged ? (
 					<div className='top-right'>
-						<a onClick={this.handleLogout}>Logout</a>
+						<a className="logout" onClick={this.handleLogout}>Logout</a>
 						<Link to='/profile'>Profile</Link>
 					</div>
 				) : (
