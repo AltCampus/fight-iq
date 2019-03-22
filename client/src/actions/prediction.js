@@ -3,8 +3,6 @@ const URL = "http://localhost:8000/";
 
 // add prediction
 export function addPrediction(data, cb) {
-	console.log("json being sent with request",data)
-	// console.log("Request link: ", URL + "api/v1/admin/" + fightId + "/result")
 	return (dispatch) => {
 		fetch(URL + "api/v1/prediction", {
 			method: "POST",
@@ -26,7 +24,6 @@ export function addPrediction(data, cb) {
 }
 
 export function deletePrediction(predictionid, cb) {
-	console.log(predictionid)
 	return (dispatch) => {
 		fetch(URL + "api/v1/prediction/"+predictionid, {
 			method: "DELETE"
