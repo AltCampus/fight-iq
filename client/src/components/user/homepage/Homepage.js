@@ -17,7 +17,7 @@ class Homepage extends Component {
 
 	render() {
 		const { events } = this.props;
-    console.log(events)
+  
     const upcomingEvents = events.filter(event=>!event.isExpired);
     const pastEvents = events.filter(event=>event.isExpired);
     const heroEvent = upcomingEvents.sort((a,b)=>a.date_time-b.date_time).find(event=>event.isMajor)
