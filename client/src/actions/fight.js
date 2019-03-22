@@ -80,7 +80,6 @@ export function editFight(data, eventId, fightId, cb){
 export function deleteFight(eventId, fightId, cb) {
 	return (dispatch) => {
 		let reqURL = URL + "api/v1/admin/events/" + eventId + "/fights/" + fightId;
-		console.log(reqURL)
 		fetch(reqURL, {
 			method: "DELETE"
 		})

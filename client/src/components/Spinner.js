@@ -7,7 +7,7 @@ import Loader from 'react-loader-spinner'
      return(
      	<div className="loader">
       <Loader 
-         type="Puff"
+         type="ThreeDots"
          color="#9e0929"
          height="100"	
          width="100"

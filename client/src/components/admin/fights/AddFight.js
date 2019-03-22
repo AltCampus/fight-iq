@@ -9,7 +9,7 @@ class AddFight extends Component {
 		this.state = {
 			fightDetails: {
 				title: "",
-				type: "",
+				type: "main",
 				rounds: "five",
 				player1: "",
 				player2: ""
@@ -83,7 +83,6 @@ class AddFight extends Component {
 	render() {
 		let players = this.props.players;
 		let { fightDetails } = this.state;
-		console.log(players, "show the list of player in addPlayer component");
 		return (
 			<div className='AddFight'>
 				<form onSubmit={this.handleSubmit}>

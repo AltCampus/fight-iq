@@ -62,7 +62,6 @@ class EventDetailsFight extends Component {
 		let isEventExpired = event.isExpired;
 		let player1NameSplit = fight.player1.name.split(" ");
 		let player2NameSplit = fight.player2.name.split(" ");
-		console.log(fight)
 
 
 		return (
