@@ -29,7 +29,6 @@ export function getPlayers() {
 		fetch(URL + "api/v1/players")
 			.then((res) => res.json())
 			.then((data) => {
-				console.log(data, "list og data in the player action");
 				dispatch({
 					type: Type.GET_PLAYERS,
 					players: data
@@ -44,12 +43,10 @@ export function getPlayer(id, cb) {
 		fetch(URL + "api/v1/players/" + id)
 			.then((res) => res.json())
 			.then((data) => {
-				console.log(data, "list og data in the player action");
 				dispatch({
 					type: Type.GET_PLAYER,
 					players: data
 				});
-				console.log(data.player);
 				cb(data.player);
 			});
 	};
@@ -76,7 +73,6 @@ export function deleteEvent(id, cb) {
 
 // edit Player
 export function editPlayer(data, player_id, cb) {
-	console.log(player_id, "show id in action edit player");
 	return (dispatch) => {
 		fetch(URL + "api/v1/admin/players/" + player_id, {
 			method: "PUT",
@@ -86,7 +82,6 @@ export function editPlayer(data, player_id, cb) {
 			body: JSON.stringify(data)
 		})
 			.then((response) => {
-				console.log(JSON.stringify(data));
 				return response.json();
 			})
 			.then((data) => {

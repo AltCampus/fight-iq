@@ -8,8 +8,7 @@ const FightSchema = new Schema({
 	player1: { type: Schema.Types.ObjectId, ref: "Player" },
 	player2: { type: Schema.Types.ObjectId, ref: "Player" },
 	event: { type: Schema.Types.ObjectId, ref: "Event"},
-	result: { type: Schema.Types.ObjectId, ref: "Result"},
-	isPredicted: {type:Boolean, default: false}
+	result: { type: Schema.Types.ObjectId, ref: "Result"}
 });
 
 const Fight = mongoose.model("Fight", FightSchema);

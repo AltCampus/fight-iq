@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 
 class AdminEvent extends Component {
 	render() {
-		let {event} = this.props
+		let {event} = this.props;
+		
 		return (
 			<div className="AdminEvent">
 				<Link to={"/admin/event/" + event._id}>

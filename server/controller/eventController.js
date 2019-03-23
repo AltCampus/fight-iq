@@ -37,8 +37,8 @@ module.exports = {
 
 	getEvent: (req, res) => {
 		const id = req.params.event_id;
-		Event.findOne({_id:id})
-			. populate({
+		Event.findOne({_id: id})
+			.populate({
 					path: 'fight', select: 'title type rounds player1 player2 isPredicted',
 					populate: [
 						{ path: 'player1 player2', select: 'name image'}, 

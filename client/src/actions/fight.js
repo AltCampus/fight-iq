@@ -52,18 +52,19 @@ export function getFight(eventId, fightId) {
 }
 
 // Edit fight
-export function editFight(data, eventId, fightId, cb){
+export function editFight(data, eventId, fightId, cb) {
 	return (dispatch) => {
-	fetch(URL + "api/v1/admin/events/" + eventId + "/fights/" + fightId, {
+		fetch(URL + "api/v1/admin/events/" + eventId + "/fights/" + fightId, {
 			method: "PUT",
 			headers: {
 				"Content-Type": "application/json"
 			},
 			body: JSON.stringify(data)
 		})
-			.then((response) =>{
-				console.log(JSON.stringify(data),"raviraviravi")
-			 return response.json()})
+			.then((response) => {
+				JSON.stringify(data);
+				return response.json();
+			})
 			.then((data) => {
 				if (data) {
 					dispatch({
@@ -80,19 +81,17 @@ export function editFight(data, eventId, fightId, cb){
 export function deleteFight(eventId, fightId, cb) {
 	return (dispatch) => {
 		let reqURL = URL + "api/v1/admin/events/" + eventId + "/fights/" + fightId;
-		console.log(reqURL)
 		fetch(reqURL, {
 			method: "DELETE"
 		})
-			.then((res) =>res.json())
+			.then((res) => res.json())
 			.then((data) => {
-				console.log(data)
-				if (data.success){
+				if (data.success) {
 					dispatch({
 						type: Type.DELETE_FIGHT
 					});
 				}
-			data.success? cb(true): cb(false, "Error: Enter correct data"); // Todo - Replace with error coming from server
+				data.success ? cb(true) : cb(false, "Error: Enter correct data"); // Todo - Replace with error coming from server
 			});
 	};
 }
