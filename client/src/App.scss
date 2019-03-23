@@ -44,6 +44,24 @@ body {
 //           header
 // ===========================
 
+.AdminHeader{
+	position: fixed;
+	z-index: 2;
+	top: 0;
+	left: 20%;
+	width: 60%;
+	background: #040404;
+	padding: 5px;
+	margin: 0 auto;
+	margin-top:20px;
+
+
+	*{
+		padding: 0 10px;
+		color: white;
+	}
+}
+
 .Header {
 	position: fixed;
 	z-index: 1;
@@ -54,6 +72,10 @@ body {
 	padding: 10px;
 	background: #040404;
 	top:0;
+
+	.logout{
+		cursor: pointer;
+	}
 	
 	.Logo {
 		color: white;

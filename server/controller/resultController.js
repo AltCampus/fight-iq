@@ -14,10 +14,11 @@ module.exports = {
 				if (err){
 					return res.json({message : err, success:false})
 				}
+				
+				res.status(201).json({success: true, message: "New Result Added." });
+
 				// update points
 				updateScore(req,res);
-
-				return res.status(201).json({success: true, message: "New Result Added." })
 			})
 		})
 	},  
@@ -112,7 +113,6 @@ function updateScore(req,res) {
 				}
 
 				// user update
-
 				users.forEach((singleUser)=>{
 					console.log(singleUser)
 					var winCorrectCount=0, points = 0, accuracy = 0, completedEventCount=0;

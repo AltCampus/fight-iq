@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { connect } from "react-redux";
 import "./App.scss";
-import Header from "./components/Header";
+import AdminHeader from "./components/Header";
 import Header2 from "./components/Header2";
 import Login from "./components/userAuth/Login";
 import Register from "./components/userAuth/Register";
@@ -26,11 +26,15 @@ class App extends Component {
 		return (
 			<BrowserRouter>
 				<div className='App'>
+					<Switch>
+						<PrivateRoute path='/admin' component={AdminHeader} auth={isAdmin}/>
+					</Switch>
 					{/* <Header /> */}
 					<Header2 />
 					<div className='App-main'>
 						<Switch>
 							{/* Admin Routes */}
+
 
 							<PrivateRoute
 								exact

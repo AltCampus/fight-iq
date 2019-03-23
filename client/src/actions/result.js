@@ -3,8 +3,6 @@ const URL = "http://localhost:8000/";
 
 // Add  result
 export function addResult(data, fightId, cb) {
-	console.log("json being sent with request",data)
-	console.log("Request link: ", URL + "api/v1/admin/" + fightId + "/result")
 	return (dispatch) => {
 		fetch(URL + "api/v1/admin/" + fightId + "/result", {
 			method: "POST",
@@ -26,17 +24,18 @@ export function addResult(data, fightId, cb) {
 }
 
 // Edit result
-export function editResult(data, eventId, fightId, cb){
+export function editResult(data, eventId, fightId, cb) {
 	return (dispatch) => {
-	fetch(URL + "api/v1/admin/events/" + eventId + "/result/" + fightId, {
+		fetch(URL + "api/v1/admin/events/" + eventId + "/result/" + fightId, {
 			method: "PUT",
 			headers: {
 				"Content-Type": "application/json"
 			},
 			body: JSON.stringify(data)
 		})
-			.then((response) =>{
-			 return response.json()})
+			.then((response) => {
+				return response.json();
+			})
 			.then((data) => {
 				if (data) {
 					dispatch({
@@ -56,15 +55,14 @@ export function deleteResult(fightId, cb) {
 		fetch(reqURL, {
 			method: "DELETE"
 		})
-			.then((res) =>res.json())
+			.then((res) => res.json())
 			.then((data) => {
-				console.log(data)
-				if (data.success){
+				if (data.success) {
 					dispatch({
 						type: Type.DELETE_RESULT
 					});
 				}
-			data.success? cb(true): cb(false, "Error: Enter correct data"); // TODO - Replace with error coming from server
+				data.success ? cb(true) : cb(false, "Error: Enter correct data"); // TODO - Replace with error coming from server
 			});
 	};
 }

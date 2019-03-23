@@ -82,7 +82,7 @@ class AddPlayer extends Component {
 		return (
 			<div className='AddPlayer'>
 				<form>
-					<div>Name:</div>
+					<label>Name:</label>
 					<input
 						type='text'
 						name='name'
@@ -90,7 +90,7 @@ class AddPlayer extends Component {
 						onChange={this.updateValue}
 						required
 					/>
-					<div>Image Link: </div>
+					<label>Image Link: </label>
 					<input
 						type='text'
 						name='image'
@@ -98,7 +98,7 @@ class AddPlayer extends Component {
 						onChange={this.updateValue}
 						required
 					/>
-					<div>Weight: </div>
+					<label>Weight: </label>
 					<input
 						type='text'
 						name='weight'
@@ -106,7 +106,7 @@ class AddPlayer extends Component {
 						onChange={this.updateValue}
 						required
 					/>
-					<div>Height:</div>
+					<label>Height:</label>
 					<input
 						type='text'
 						name='height'
@@ -114,7 +114,7 @@ class AddPlayer extends Component {
 						onChange={this.updateValue}
 						required
 					/>
-					<div>Rank:</div>
+					<label>Rank:</label>
 					<input
 						type='text'
 						name='rank'

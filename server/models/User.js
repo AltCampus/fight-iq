@@ -4,13 +4,13 @@ const SALT_FACTOR = 10;
 const bcrypt = require('bcrypt');
 
 const userSchema = new Schema({
-	username: {type:String, required:true},
+	username: {type:String, required:true, unique: true},
 	email: {type:String, required:true},
 	password: {type:String, required:true},
-	isAdmin: false,
   predictions: [{type: Schema.Types.ObjectId, ref:"Prediction"}],
-  points:{type:Number, default:0},
-  accuracy:{type:Number, dafault:0}
+  points: {type:Number, default:0},
+  accuracy: {type:Number, dafault:0},
+  isAdmin: false
 })
 
 userSchema.methods.verifyPassword = function(userPassword, cb) {

@@ -9,7 +9,7 @@ class AddFight extends Component {
 		this.state = {
 			fightDetails: {
 				title: "",
-				type: "",
+				type: "main",
 				rounds: "five",
 				player1: "",
 				player2: ""
@@ -83,11 +83,10 @@ class AddFight extends Component {
 	render() {
 		let players = this.props.players;
 		let { fightDetails } = this.state;
-		console.log(players, "show the list of player in addPlayer component");
 		return (
 			<div className='AddFight'>
 				<form onSubmit={this.handleSubmit}>
-					<div>Title:</div>
+					<label>Title:</label>
 					<input
 						type='text'
 						name='title'
@@ -95,19 +94,19 @@ class AddFight extends Component {
 						value={fightDetails.title}
 						required
 					/>
-					<div>Type: </div> {/* make this a dropdown */}
+					<label>Type: </label> {/* make this a dropdown */}
 					<select name='type' id='type' onChange={this.updateValue} value={fightDetails.type} required>
 						<option value='main'>main</option>
 						<option value='comain'>comain</option>
 						<option value='other'>other</option>
 					</select>
 					{/* <input type='text' name='type' onChange={this.updateValue} value={fightDetails.type} required/> */}
-					<div>Rounds: </div>
+					<label>Rounds: </label>
 					<select name='rounds' id='rounds' onChange={this.updateValue} value={fightDetails.rounds} required>
 						<option value='five'>5-Rounds</option>
 						<option value='three'>3-Rounds</option>
 					</select>
-					<h5>Player 1</h5>
+					<label>Player 1: </label>
 					<select name='player1' onChange={this.updateValue} required>
 						<option value='none'>select</option>
 						{players &&
@@ -117,7 +116,7 @@ class AddFight extends Component {
 								</option>
 							))}
 					</select>
-					<h5>Player 2</h5>
+					<label>Player 2: </label>
 					<select name='player2' onChange={this.updateValue} required>
 						<option value='none'>select</option>
 						{players &&

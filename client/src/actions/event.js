@@ -3,9 +3,9 @@ const URL = "http://localhost:8000/";
 
 // Add event
 export function addEvent(state, cb) {
-	state.isExpired = state.isExpired==='true';
-	state.isMajor = state.isMajor==='true';
-	console.log(state)
+	state.isExpired = state.isExpired === "true";
+	state.isMajor = state.isMajor === "true";
+	// console.log(state)
 
 	return (dispatch) => {
 		fetch(URL + "api/v1/admin/events", {
@@ -20,7 +20,7 @@ export function addEvent(state, cb) {
 				dispatch({
 					type: Type.ADD_EVENT
 				});
-				data.success? cb(true): cb(false, "Error: Enter correct data"); // Todo - Replace with error coming from server
+				data.success ? cb(true) : cb(false, "Error: Enter correct data"); // Todo - Replace with error coming from server
 			});
 	};
 }
@@ -40,7 +40,7 @@ export function getEvents() {
 }
 
 // Get event
-export function getEvent(eventid) {
+export function getEvent(eventid, cb) {
 	return (dispatch) => {
 		fetch(URL + "api/v1/events/" + eventid)
 			.then((res) => res.json())
@@ -55,10 +55,10 @@ export function getEvent(eventid) {
 
 // Edit event
 export function editEvent(state, cb, eventid) {
-	state.isExpired = state.isExpired==='true';
-	state.isMajor = state.isMajor==='true';
-	console.log(state)
-	
+	state.isExpired = state.isExpired === "true";
+	state.isMajor = state.isMajor === "true";
+	// console.log(state)
+
 	return (dispatch) => {
 		fetch(URL + "api/v1/admin/events/" + eventid, {
 			method: "PUT",
@@ -72,7 +72,7 @@ export function editEvent(state, cb, eventid) {
 				dispatch({
 					type: Type.EDIT_EVENTS
 				});
-				data.success? cb(true): cb(false, "Error: Enter correct data"); // Todo - Replace with error coming from server
+				data.success ? cb(true) : cb(false, "Error: Enter correct data"); // Todo - Replace with error coming from server
 			});
 	};
 }
@@ -83,14 +83,14 @@ export function deleteEvent(id, cb) {
 		fetch(URL + "api/v1/admin/events/" + id, {
 			method: "DELETE"
 		})
-			.then((res) =>res.json())
+			.then((res) => res.json())
 			.then((data) => {
-				if (data.success){
+				if (data.success) {
 					dispatch({
 						type: Type.DELETE_EVENTS
 					});
 				}
-			data.success ? cb(true): cb(false, "Error: Enter correct data"); // Todo - Replace with error coming from server
+				data.success ? cb(true) : cb(false, "Error: Enter correct data"); // Todo - Replace with error coming from server
 			});
 	};
 }

@@ -1,8 +1,6 @@
 const Local = require('passport-local').Strategy;
 const User = require('../models/User');
 
-
-
 module.exports = function(passport) {
   passport.serializeUser(function(user, done) {
     done(null, user._id);
@@ -13,7 +11,8 @@ module.exports = function(passport) {
     User.findById(id, function(err, user) {
       done(err, user);
     });
-  })
+  });
+
   passport.use(new Local(
     function(username, password, done) {
       console.log(username, "check2")
@@ -29,4 +28,5 @@ module.exports = function(passport) {
       });
     }
   ));
+  
 }

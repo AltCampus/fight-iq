@@ -43,7 +43,9 @@ router.post(
 	userController.isAdmin,
 	fightController.createFight
 );
+
 router.get("/events/:event_id/fights", fightController.getAllFight);
+
 router.get("/events/:event_id/fights/:fight_id", fightController.getFight);
 
 router.put(

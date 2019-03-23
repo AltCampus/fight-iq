@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-class Header extends Component {
+class AdminHeader extends Component {
   render() {
     return (
-      <div>
-      	Header
-      	<Link to="/" >Home</Link>
-      	<Link to="/admin">Admin</Link>
-      	<Link to="/login" >Login</Link>
-      	<Link to="/register" >Sign-up</Link>
+      <div className="AdminHeader">
+      	<Link to="/admin">Events</Link>
+        <Link to="/admin/players">Players</Link>
+        <Link to="/admin/event">Add event</Link>
+        <Link to="/admin/players/add">Add Player</Link>
       </div>
     );
   }
 }
 
-export default Header;
+export default AdminHeader;

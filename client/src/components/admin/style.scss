@@ -14,7 +14,73 @@
 	}
 
 	.admin-bottom-section {
-		margin-top: 10px;
+		margin-bottom: 20px;
+		margin-top: 90px;
+	}
+
+}
+
+.App-main{
+	.AdminAddEvent, .AddFight, .AddResult, .AddPlayer{
+		form{
+			padding: 20px;
+		}
+
+		label{
+			padding: 8px 0;
+			display: block;
+			// font-weight: 700;
+		}
+
+		input[type=text], 
+		input[type=date],
+		input[type=datetime],
+		input[type=datetime-local],
+		input[type=number],
+		input[type=search],
+		input[type=time],
+		input[type=url],
+		input[type=email],
+		textarea, 
+		select{
+			width: 250px;
+			box-sizing: border-box;
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			border:1px solid #BEBEBE;
+			padding: 7px;
+			margin:0px;
+			-webkit-transition: all 0.30s ease-in-out;
+			-moz-transition: all 0.30s ease-in-out;
+			-ms-transition: all 0.30s ease-in-out;
+			-o-transition: all 0.30s ease-in-out;
+			outline: none;	
+			font-size: 16px;
+			color: #222;
+		}
+
+		input[type="radio"]{
+			height: 20px;
+			width: 20px;
+		}
+
+		.radio-option{
+			padding:0 10px;
+		}
+
+		.radio, .radio-option{
+			vertical-align: middle;
+		}
+
+		button{
+			padding:12px 20px;
+			background: rgb(128, 39, 39);
+			font-size: 15px;
+			cursor: pointer;
+			text-transform: uppercase;
+			letter-spacing: 1.2px;
+			margin-top: 10px;
+		}
 	}
 }
 
