@@ -101,8 +101,8 @@ class Predict extends Component {
 
 const mapStateToProps = (state) => {
     return {
-				event : state.event,
-				user : state.user
+				event : state.event.event,
+				user : state.user.user
     }
 }
 

@@ -136,8 +136,8 @@ class AddFight extends Component {
 
 const mapStateToProps = (state) => {
 	return {
-		players: state.players.player,
-		event: state.event
+		players: state.player.players.player,
+		event: state.event.event
 	};
 };
 

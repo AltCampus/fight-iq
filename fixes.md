@@ -1,3 +1,6 @@
+
+All the listed fixes here have been moved to Click-up and split into relevant tasks. Please choose tasks there and proceed.
+
 - On initial load (fresh bootstrapped repo), display "There are no fights right now."//done//
 - When in production there should not be any console.logs. \/Done/\
 - Remove CORS in production (CROSS origin resource sharing)

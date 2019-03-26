@@ -25,7 +25,7 @@ class SimpleEvent extends Component {
 
 const mapStateToProps = (state) => {
 	return {
-		isLogged: state.isLogged
+		isLogged: state.user.isLogged
 	};
 };
 export default connect(mapStateToProps)(SimpleEvent);

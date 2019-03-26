@@ -65,7 +65,7 @@ class Homepage extends Component {
 
 const mapStateToProps = (state) => {
 	return {
-		events: state.events
+		events: state.event.events
 	};
 };
 

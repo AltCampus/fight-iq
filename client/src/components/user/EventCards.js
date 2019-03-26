@@ -109,8 +109,8 @@ class EventCards extends Component {
 
 const mapStateToProps = (state) => {
 	return {
-		events: state.events,
-		isLogged: state.isLogged
+		events: state.event.events,
+		isLogged: state.user.isLogged
 	};
 };
 

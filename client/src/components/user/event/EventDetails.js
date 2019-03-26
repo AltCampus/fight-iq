@@ -63,10 +63,10 @@ class EventDetails extends Component {
 
 const mapStateToProps = (state) => {
 	return {
-		event: state.event,
-		fights: state.event.fight,
-		isLogged: state.isLogged,
-		user: state.user
+		event: state.event.event,
+		fights: state.event.event.fight,
+		isLogged: state.user.isLogged,
+		user: state.user.user
 	};
 };
 
