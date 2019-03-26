@@ -1,7 +1,7 @@
 - On initial load (fresh bootstrapped repo), display "There are no fights right now."//done//
 - When in production there should not be any console.logs. \/Done/\
 - Remove CORS in production (CROSS origin resource sharing)
-- separate admin and user routes in two files.
+- separate admin and user routes in two files./\Done\/
 - Separate the auth middlewares into a modules/auth.js
 - Add timestamp in all models
 - In PredictionSchema, use Enum for "type"

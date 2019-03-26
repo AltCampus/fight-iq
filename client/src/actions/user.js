@@ -51,7 +51,7 @@ export function loginSubmit(state, cb) {
 // Logout
 export function handleLogout() {
 	return (dispatch) => {
-		fetch(URL + "api/v1/logout")
+		fetch(URL + "api/v1/loggedOut")
 			.then((response) => response.json())
 			.then((data) => {
 				dispatch({

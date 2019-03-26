@@ -1,11 +1,11 @@
 const express = require("express");
 const session = require("express-session");
-const passport = require('passport');
+const passport = require("passport");
 const app = express();
 const mongoose = require("mongoose");
 const MongoStore = require("connect-mongo")(session);
 const bodyParser = require("body-parser");
-const cors = require("cors"); 
+const cors = require("cors");
 const path = require("path");
 const port = 8000;
 
@@ -29,7 +29,7 @@ app.use(
 	})
 );
 
-const adminCreator = require('./server/helper/seed')
+const adminCreator = require("./server/helper/seed");
 
 mongoose.connect(
 	"mongodb://localhost/fight-iq",
@@ -37,14 +37,14 @@ mongoose.connect(
 	function(err, connection) {
 		if (err) throw err;
 		else console.log("connected to mongodb");
-		adminCreator();	
+		adminCreator();
 	}
 );
 
 app.use(passport.initialize());
 app.use(passport.session());
 // Requiring passport module
-require('./server/modules/passport')(passport);
+require("./server/modules/passport")(passport);
 
 if (process.env.NODE_ENV === "development") {
 	var webpack = require("webpack");
@@ -61,9 +61,10 @@ if (process.env.NODE_ENV === "development") {
 	app.use(require("webpack-hot-middleware")(compiler));
 }
 
-
 // app.use("/api", require("./server/routes/api"));
 app.use("/api/v1", require("./server/routes/index"));
+app.use("/api/v1", require("./server/routes/userRoutes"));
+app.use("/api/v1", require("./server/routes/adminRoutes"));
 
 app.use("*", require("./server/routes"));
 
