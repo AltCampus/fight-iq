@@ -25,7 +25,7 @@ router.put(
 	"/admin/events/:event_id",
 	userController.isLoggedIn,
 	userController.isAdmin,
-	eventController.editEvent
+	eventController.updateEvent
 ); // done
 
 router.delete(

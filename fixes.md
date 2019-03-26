@@ -3,11 +3,11 @@
 - Remove CORS in production (CROSS origin resource sharing)
 - separate admin and user routes in two files./\Done\/
 - Separate the auth middlewares into a modules/auth.js
-- Add timestamp in all models
+- Add timestamp in all models/\Done\/
 - In PredictionSchema, use Enum for "type"
-- In ResultSchema, also save "fightId"
+- In ResultSchema, also save "fightId"/\Done\/
 - Put validation in all controllers.
-- rename "editEvent" to "updateEvent"
+- rename "editEvent" to "updateEvent"/\Done\/
 - Create, Show, Update, Delete, List
 - PredictionController -> Create or Update, delete a prediction make sure that its before the fight
 - Move updateScore to either helper/modules/services
