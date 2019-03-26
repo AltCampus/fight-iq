@@ -56,8 +56,8 @@ class AdminEventDetail extends Component {
 
 const mapStateToProps = (state) => {
 	return {
-		event: state.event,
-		fights: state.event.fight
+		event: state.event.event,
+		fights: state.event.event.fight
 	};
 };
 

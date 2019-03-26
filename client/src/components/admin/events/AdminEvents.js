@@ -21,7 +21,7 @@ class AdminEvents extends Component {
 
 const mapStateToProps = (state) => {
 	return {
-		Adminevents: state.events
+		Adminevents: state.event.events
 	}
 }
 

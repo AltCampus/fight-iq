@@ -90,8 +90,8 @@ class Prediction extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        players: state.players,
-        event : state.event
+        players: state.player.players,
+        event : state.event.event
     }
 }
 

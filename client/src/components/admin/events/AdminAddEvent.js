@@ -108,7 +108,7 @@ class AdminAddEvent extends Component {
 
 const mapStateToProps = (state) => {
 	return {
-		event: state.event
+		event: state.event.event
 	}
 }
 
