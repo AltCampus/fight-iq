@@ -7,7 +7,7 @@ All the listed fixes here have been moved to Click-up and split into relevant ta
 - separate admin and user routes in two files./\Done\/
 - Separate the auth middlewares into a modules/auth.js
 - Add timestamp in all models/\Done\/
-- In PredictionSchema, use Enum for "type"
+- In PredictionSchema, use Enum for "type"/\Done\/
 - In ResultSchema, also save "fightId"/\Done\/
 - Put validation in all controllers.
 - rename "editEvent" to "updateEvent"/\Done\/

@@ -24,7 +24,7 @@ class Register extends Component {
 
 		let { email, password } = this.state.userCred;
 		let validEmail = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/.test(email);
-		let validPassword = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=^[a-zA-Z0-9@#$%^&*]+$).{6,}$/.test(password);
+		let validPassword = /^(?=.*\d)(?=.*[a-z])(?=^[a-zA-Z0-9@#$%^&*]+$).{6,}$/.test(password);
 
 		if (!validEmail){
 			this.setState({
