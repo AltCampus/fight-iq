@@ -10,11 +10,21 @@ import { getUser } from "../../../actions";
 import Spinner from "../../Spinner";
 
 class Homepage extends Component {
-	componentDidMount() {
-		setTimeout(() => this.props.dispatch(getEvents()), 2000);
+	constructor (props){
+		super(props);
+		this.state = {
+			events: [],
+			upcomingEvents: [],
+			pastEvents: [],
+			heroEvent: {},
+			heroIndex: 0,
+
+		}
 	}
 
-	render() {
+	componentDidMount() {
+		setTimeout(() => this.props.dispatch(getEvents()), 2000);
+
 		const { events } = this.props;
 		const upcomingEvents = events.filter((event) => !event.isExpired);
 		const pastEvents = events.filter((event) => event.isExpired);
@@ -27,6 +37,18 @@ class Homepage extends Component {
 		if (heroEvent != -1) {
 			upcomingEvents.splice(heroIndex, 1);
 		}
+
+		this.setState({
+			events,
+			upcomingEvents,
+			pastEvents,
+			heroEvent,
+			heroIndex
+		})
+	}
+
+	render() {
+		let { events, upcomingEvents, pastEvents, heroEvent, heroIndex} = this.state;
 		return (
 			<div>
 				{events.length > 0 ? (

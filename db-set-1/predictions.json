@@ -1,3 +1,0 @@
-{"_id":{"$oid":"5c912a3d4d933e2515fe6c5a"},"eventid":{"$oid":"5c8bd39fa6a0355836c84101"},"fightid":{"$oid":"5c8ca195c36e7b2f59f6aa2a"},"winner":{"$oid":"5c8ca0f1c36e7b2f59f6aa28"},"type":"knockout","round":"first","__v":{"$numberInt":"0"}}
-{"_id":{"$oid":"5c91be45f3528238eb18bb80"},"eventid":{"$oid":"5c8f43d77e23d86c0f38b215"},"fightid":{"$oid":"5c8f63559f8f93181df5e20c"},"winner":{"$oid":"5c91b6c4f3528238eb18bb7a"},"type":"knockout","round":"first","__v":{"$numberInt":"0"}}
-{"_id":{"$oid":"5c91be50f3528238eb18bb81"},"eventid":{"$oid":"5c8f43d77e23d86c0f38b215"},"fightid":{"$oid":"5c91b5b0f3528238eb18bb77"},"winner":{"$oid":"5c91b4b8f3528238eb18bb71"},"type":"knockout","round":"third","__v":{"$numberInt":"0"}}

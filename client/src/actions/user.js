@@ -16,7 +16,11 @@ export function registerSubmit(state, cb) {
 				dispatch({
 					type: Type.REGISTER
 				});
-				cb(true);
+				if (data.success){
+					cb(true)
+				} else {
+					cb(false, data.message)
+				}
 			});
 	};
 }
@@ -42,7 +46,7 @@ export function loginSubmit(state, cb) {
 				if (data.success) {
 					cb(true); // success handling
 				} else {
-					cb(false, data.msg);
+					cb(false, data.message);
 				}
 			});
 	};

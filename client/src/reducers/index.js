@@ -6,6 +6,7 @@ import fight from './fight';
 import player from './player';
 import prediction from './prediction';
 import result from './result';
+import style from './style';
 
 export default combineReducers({
   user,
@@ -13,5 +14,6 @@ export default combineReducers({
   fight,
   player,
   prediction,
-  result
+  result,
+  style
 });

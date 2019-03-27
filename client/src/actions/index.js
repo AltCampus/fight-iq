@@ -6,4 +6,5 @@ export * from './fight.js';
 export * from './result.js';
 export * from './prediction.js';
 export * from './user.js';
+export * from './style.js';
 

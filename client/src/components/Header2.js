@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import { handleLogout } from "./../actions";
+import { handleLogout, showMessage } from "./../actions";
 
 class Header extends Component {
 	handleLogout = () => {
 		this.props.dispatch(handleLogout());
 		this.props.history.push('/');
+		this.props.dispatch(showMessage("Logout Successful!"))
 	};
 
 	render() {

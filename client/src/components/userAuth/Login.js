@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import "./style.scss";
-import { loginSubmit } from "./../../actions";
+import { loginSubmit, showMessage } from "./../../actions";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+
+import ErrorModal from "./../ErrorModal.js";
 
 class Login extends Component {
 	constructor(props) {
@@ -22,8 +24,10 @@ class Login extends Component {
 	};
 
 	redirectUser = (success, errorMsg = "") => {
+		console.log("post success:", success, errorMsg)
 		if (success) {
 			this.props.history.push("/");
+			this.props.dispatch(showMessage("Login Successful!"))
 		} else {
 			this.setState({
 				error: errorMsg
@@ -37,7 +41,8 @@ class Login extends Component {
 			userCred: {
 				...this.state.userCred,
 				[event.target.name]: event.target.value
-			}
+			},
+			error: ""
 		});
 	};
 
@@ -73,6 +78,7 @@ class Login extends Component {
 						<Link to='/register'>New here? Register instead</Link>
 					</div>
 				</div>
+				<ErrorModal display={!!this.state.error} message={this.state.error}/>
 			</div>
 		);
 	}

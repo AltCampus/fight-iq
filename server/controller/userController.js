@@ -10,12 +10,12 @@ module.exports = {
 
 		User.find({ username: newUser.username }, function(err, user) {
 			if (user.length) {
-				return res.json({ message: "Username exists already", success: false });
+				return res.json({ message: "Username already exists. Try Logging-in Instead!", success: false });
 			} else {
 				User.find({ email: newUser.email }, function(err, user) {
 					if (user.length) {
 						return res.json({
-							message: "Email exists already",
+							message: "Email already exists. Try Logging-in Instead!",
 							success: false
 						});
 					} else {
@@ -26,7 +26,7 @@ module.exports = {
 							return res.status(201).json({
 								user: user.username,
 								success: true,
-								message: "User Created Successfully"
+								message: "Registered Successfully!"
 							});
 						});
 					}

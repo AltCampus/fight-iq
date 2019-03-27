@@ -15,13 +15,12 @@ module.exports = function(passport) {
 
   passport.use(new Local(
     function(username, password, done) {
-      console.log(username, "check2")
       User.findOne({ username: username }, function (err, user) {
         if (err) { return done(err); }
-        if (!user) { return done(null, false, {message : 'Username is wrong'}); }
+        if (!user) { return done(null, false, {message : 'Wrong Username. Please Check The Username!'}); }
         user.verifyPassword(password, function(err, isMatched) {
           if (!isMatched) {
-            return done(null, false, {message : 'Password is wrong'})
+            return done(null, false, {message : 'Wrong Password. Please Check The Password And Try Again!'})
           }
           return done(null, user, {message : ''});
         }) 
