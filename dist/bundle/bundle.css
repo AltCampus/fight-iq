@@ -1,0 +1,1164 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+h1 {
+  text-align: center;
+  padding: 50px;
+  text-transform: capitalize;
+  color: red;
+  font-size: 2rem; }
+
+body {
+  line-height: 1; }
+
+ol,
+ul {
+  list-style: none; }
+
+blockquote,
+q {
+  quotes: none; }
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+body {
+  font-family: 'Heebo', 'Open Sans', sans-serif; }
+  body * {
+    box-sizing: border-box; }
+  body a {
+    text-decoration: none; }
+
+.AdminHeader {
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 20%;
+  width: 60%;
+  background: #040404;
+  padding: 5px;
+  margin: 0 auto;
+  margin-top: 20px; }
+  .AdminHeader * {
+    padding: 0 10px;
+    color: white; }
+
+.Header {
+  position: fixed;
+  z-index: 3;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background: #040404;
+  top: 0; }
+  .Header .logout {
+    cursor: pointer; }
+  .Header .Logo {
+    color: white;
+    font-size: 32px;
+    padding: 10px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700; }
+  .Header .top-right > * {
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 700; }
+
+.App {
+  text-align: center; }
+  .App .App-main {
+    margin-top: 70px; }
+
+.MessagePopUp {
+  margin-top: 70px;
+  width: 100%;
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  color: white;
+  background: #802727;
+  padding: 10px 0;
+  text-transform: uppercase;
+  font-style: italic;
+  animation: fadeIn 3s ease-in both;
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.5); }
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -20%, 0); }
+  20% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0); }
+  80% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0); }
+  100% {
+    opacity: 0;
+    transform: translate3d(0, -20%, 0); } }
+
+button {
+  font-size: 12px;
+  padding: 8px 20px;
+  /*border: 1px solid #999;*/
+  border: none;
+  border-radius: 5px;
+  background: #370031;
+  color: white; }
+
+.ErrorModal {
+  color: white;
+  background: tomato;
+  padding: 10px 30px;
+  font-weight: 300;
+  text-transform: uppercase;
+  border-radius: 5px;
+  margin: 10px;
+  position: fixed;
+  z-index: 10;
+  bottom: 0%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
+
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
+
+.Login, .Register {
+  background: #ccc;
+  background: url(https://combatdocket.com/wp-content/uploads/2018/01/jueyib6mqy4011.jpg);
+  background-size: contain;
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  position: absolute;
+  height: calc(100% - 70px);
+  width: 100%; }
+  .Login .form-note, .Register .form-note {
+    font-size: 12px;
+    color: #666;
+    letter-spacing: 1.1px;
+    text-transform: uppercase; }
+  .Login .top, .Register .top {
+    width: 360px;
+    background: white;
+    padding: 20px 30px;
+    background: #802727;
+    color: white;
+    display: grid;
+    place-items: center;
+    align-content: center; }
+    .Login .top .top-header, .Register .top .top-header {
+      font-size: 50px;
+      font-weight: 900;
+      text-transform: uppercase; }
+    .Login .top .top-tagline, .Register .top .top-tagline {
+      font-size: 14px;
+      padding: 10px 0; }
+  .Login .bottom, .Register .bottom {
+    width: 400px;
+    background: white; }
+    .Login .bottom .form, .Register .bottom .form {
+      margin: 40px;
+      margin-bottom: 20px; }
+    .Login .bottom label, .Register .bottom label {
+      color: #222;
+      display: block;
+      font-size: 16px;
+      height: 16px;
+      margin-top: 20px;
+      margin-bottom: 5px;
+      text-transform: uppercase; }
+    .Login .bottom input, .Register .bottom input {
+      background: transparent;
+      border: 0;
+      border-bottom: 1px solid #802727;
+      color: #222;
+      font-size: 20px;
+      height: 30px;
+      line-height: 30px;
+      outline: none !important;
+      width: 100%;
+      margin: 15px 0; }
+    .Login .bottom input::-moz-focus-inner, .Register .bottom input::-moz-focus-inner {
+      border: 0; }
+    .Login .bottom button, .Register .bottom button {
+      padding: 12px 40px;
+      background: #802727;
+      font-size: 15px;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      margin-top: 10px; }
+    .Login .bottom .login-register-toggle, .Register .bottom .login-register-toggle {
+      padding: 10px 0 40px 0; }
+      .Login .bottom .login-register-toggle a, .Register .bottom .login-register-toggle a {
+        color: #222;
+        text-decoration: underline;
+        font-style: italic; }
+
+.Admin button {
+  background: none;
+  color: #333;
+  border: 1px solid #666;
+  border-radius: 3px;
+  font-size: 18px;
+  margin-right: 5px;
+  cursor: pointer; }
+
+.Admin .admin-bottom-section {
+  margin-bottom: 20px;
+  margin-top: 90px; }
+
+.App-main .AdminAddEvent form, .App-main .AddFight form, .App-main .AddResult form, .App-main .AddPlayer form {
+  padding: 20px; }
+
+.App-main .AdminAddEvent label, .App-main .AddFight label, .App-main .AddResult label, .App-main .AddPlayer label {
+  padding: 8px 0;
+  display: block; }
+
+.App-main .AdminAddEvent input[type=text],
+.App-main .AdminAddEvent input[type=date],
+.App-main .AdminAddEvent input[type=datetime],
+.App-main .AdminAddEvent input[type=datetime-local],
+.App-main .AdminAddEvent input[type=number],
+.App-main .AdminAddEvent input[type=search],
+.App-main .AdminAddEvent input[type=time],
+.App-main .AdminAddEvent input[type=url],
+.App-main .AdminAddEvent input[type=email],
+.App-main .AdminAddEvent textarea,
+.App-main .AdminAddEvent select, .App-main .AddFight input[type=text],
+.App-main .AddFight input[type=date],
+.App-main .AddFight input[type=datetime],
+.App-main .AddFight input[type=datetime-local],
+.App-main .AddFight input[type=number],
+.App-main .AddFight input[type=search],
+.App-main .AddFight input[type=time],
+.App-main .AddFight input[type=url],
+.App-main .AddFight input[type=email],
+.App-main .AddFight textarea,
+.App-main .AddFight select, .App-main .AddResult input[type=text],
+.App-main .AddResult input[type=date],
+.App-main .AddResult input[type=datetime],
+.App-main .AddResult input[type=datetime-local],
+.App-main .AddResult input[type=number],
+.App-main .AddResult input[type=search],
+.App-main .AddResult input[type=time],
+.App-main .AddResult input[type=url],
+.App-main .AddResult input[type=email],
+.App-main .AddResult textarea,
+.App-main .AddResult select, .App-main .AddPlayer input[type=text],
+.App-main .AddPlayer input[type=date],
+.App-main .AddPlayer input[type=datetime],
+.App-main .AddPlayer input[type=datetime-local],
+.App-main .AddPlayer input[type=number],
+.App-main .AddPlayer input[type=search],
+.App-main .AddPlayer input[type=time],
+.App-main .AddPlayer input[type=url],
+.App-main .AddPlayer input[type=email],
+.App-main .AddPlayer textarea,
+.App-main .AddPlayer select {
+  width: 250px;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  border: 1px solid #BEBEBE;
+  padding: 7px;
+  margin: 0px;
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
+  outline: none;
+  font-size: 16px;
+  color: #222; }
+
+.App-main .AdminAddEvent input[type="radio"], .App-main .AddFight input[type="radio"], .App-main .AddResult input[type="radio"], .App-main .AddPlayer input[type="radio"] {
+  height: 20px;
+  width: 20px; }
+
+.App-main .AdminAddEvent .radio-option, .App-main .AddFight .radio-option, .App-main .AddResult .radio-option, .App-main .AddPlayer .radio-option {
+  padding: 0 10px; }
+
+.App-main .AdminAddEvent .radio, .App-main .AdminAddEvent .radio-option, .App-main .AddFight .radio, .App-main .AddFight .radio-option, .App-main .AddResult .radio, .App-main .AddResult .radio-option, .App-main .AddPlayer .radio, .App-main .AddPlayer .radio-option {
+  vertical-align: middle; }
+
+.App-main .AdminAddEvent button, .App-main .AddFight button, .App-main .AddResult button, .App-main .AddPlayer button {
+  padding: 12px 20px;
+  background: #802727;
+  font-size: 15px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  margin-top: 10px; }
+
+.Fight {
+  border: 1px solid #aaa;
+  padding: 10px; }
+  .Fight * {
+    padding: 5px; }
+  .Fight .title {
+    font-size: 22px;
+    padding: 5px; }
+  .Fight .fight-result-main {
+    padding: 10px;
+    font-weight: 600; }
+    .Fight .fight-result-main .fight-result {
+      border: 1px solid #eee;
+      display: flex;
+      justify-content: center;
+      font-weight: 400; }
+  .Fight .bottom-section a {
+    border: 1px solid #999;
+    border-radius: 3px;
+    margin: 0px 5px;
+    color: #333;
+    cursor: pointer; }
+
+.AdminEventDetail {
+  padding: 20px; }
+  .AdminEventDetail * {
+    padding: 5px; }
+  .AdminEventDetail .event-title {
+    font-size: 32px;
+    padding: 10px; }
+  .AdminEventDetail .event-bottom-section a {
+    border: 1px solid #666;
+    border-radius: 3px;
+    margin: 0px 5px;
+    color: #333; }
+  .AdminEventDetail .fights {
+    font-weight: 600;
+    margin-top: 10px;
+    padding: 10px 0;
+    border: 1px solid #aaa;
+    border-bottom: none; }
+  .AdminEventDetail .Fight {
+    margin-bottom: 10px;
+    box-shadow: 0px 3px 5px 0 #787878; }
+
+.AdminEvents {
+  color: #333; }
+  .AdminEvents .AdminEvent {
+    padding: 10px;
+    border: 1px solid #ddd; }
+    .AdminEvents .AdminEvent :hover {
+      text-decoration: underline; }
+  .AdminEvents a {
+    color: #333; }
+  .AdminEvents * {
+    padding: 5px; }
+  .AdminEvents .event-title {
+    font-size: 32px;
+    padding: 10px; }
+
+@media (max-width: 1000px) {
+  .EventDetails .event-detail-banner .event-title {
+    font-size: 24px !important;
+    padding: 5px 0 !important; }
+  .EventDetails .event-detail-banner .event-main-event {
+    font-size: 36px !important;
+    padding: 10px 0 !important; }
+  .EventDetails .event-detail-banner .event-location {
+    padding: 8px 0 !important; }
+  .player1-content, .player2-content {
+    grid-template-columns: 1fr !important;
+    justify-content: center;
+    justify-items: center; }
+    .player1-content .player-name, .player2-content .player-name {
+      padding: 5px 30px; }
+    .player1-content *, .player2-content * {
+      text-align: center !important;
+      font-size: 26px !important; }
+    .player1-content img, .player2-content img {
+      height: 120px !important;
+      width: 160px !important; }
+  .player2-content .player2-details {
+    grid-row: 2; } }
+
+@media (max-width: 600px) {
+  .EventDetails .event-detail-banner .event-title {
+    font-size: 18px !important;
+    padding: 10px 0 !important; }
+  .EventDetails .event-detail-banner .event-main-event {
+    font-size: 26px !important;
+    padding: 10px 0 !important; }
+  .EventDetails .event-detail-banner .event-location {
+    padding: 10px 0 !important; }
+  .player1-content *, .player2-content * {
+    text-align: center !important;
+    font-size: 20px !important; }
+  .player1-content .player-name, .player2-content .player-name {
+    padding: 10px 0; }
+  .player1-content img, .player2-content img {
+    height: 80px !important;
+    width: 100px !important; } }
+
+@media (max-width: 600px) {
+  .prediction-details {
+    grid-template-columns: 1fr !important; }
+    .prediction-details * {
+      width: 280px;
+      margin-bottom: 4px !important; }
+  .result-details {
+    grid-template-columns: 1fr !important; }
+    .result-details * {
+      width: 280px;
+      margin-bottom: 4px !important; } }
+
+.EventDetails .event-detail-banner {
+  background: #802727;
+  padding: 3% 5%; }
+  .EventDetails .event-detail-banner * {
+    color: white; }
+  .EventDetails .event-detail-banner .event-title {
+    font-size: 26px;
+    font-weight: 700;
+    padding: 10px 0; }
+  .EventDetails .event-detail-banner .event-main-event {
+    font-size: 40px;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 15px 0; }
+  .EventDetails .event-detail-banner .event-location {
+    padding: 10px 0; }
+
+.EventDetails .EventDetailsFight {
+  display: grid;
+  grid-template-columns: 40% 20% 40%;
+  max-width: 1000px;
+  width: 90%;
+  margin: 0 auto;
+  padding: 20px 5%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin-top: 20px;
+  align-items: center;
+  grid-gap: 10px; }
+  .EventDetails .EventDetailsFight:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2); }
+  .EventDetails .EventDetailsFight .player1-content, .EventDetails .EventDetailsFight .player2-content {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: end; }
+    .EventDetails .EventDetailsFight .player1-content img, .EventDetails .EventDetailsFight .player2-content img {
+      height: 180px;
+      width: 200px;
+      object-fit: cover;
+      object-position: top; }
+    .EventDetails .EventDetailsFight .player1-content .player-name, .EventDetails .EventDetailsFight .player2-content .player-name {
+      color: #444;
+      text-align: left;
+      font-size: 32px;
+      text-transform: uppercase; }
+  .EventDetails .EventDetailsFight .player2-content .player-name {
+    text-align: right; }
+  .EventDetails .EventDetailsFight .mid-section {
+    font-size: 24px;
+    color: #666; }
+  .EventDetails .EventDetailsFight .prediction {
+    grid-column: 1/ span 3;
+    padding: 10px 10px; }
+    .EventDetails .EventDetailsFight .prediction .prediction-header {
+      display: grid;
+      grid-template-columns: repeat(3, auto);
+      justify-content: center;
+      justify-items: center;
+      align-items: center;
+      align-content: center; }
+      .EventDetails .EventDetailsFight .prediction .prediction-header i {
+        margin: 0 5px;
+        color: #333; }
+    .EventDetails .EventDetailsFight .prediction h3 {
+      font-size: 18px;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      font-weight: 700;
+      padding: 10px 0;
+      color: #802727; }
+    .EventDetails .EventDetailsFight .prediction .prediction-details {
+      display: grid;
+      grid-template-columns: repeat(3, auto);
+      justify-items: center;
+      justify-content: center; }
+      .EventDetails .EventDetailsFight .prediction .prediction-details * {
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        margin: 0 10px;
+        display: grid;
+        place-items: center; }
+    .EventDetails .EventDetailsFight .prediction button {
+      padding: 12px 20px;
+      background: #802727;
+      font-size: 15px;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      margin-right: 10px; }
+  .EventDetails .EventDetailsFight .result {
+    grid-column: 1/ span 3;
+    padding: 10px 10px;
+    border-top: 1px solid #ddd; }
+    .EventDetails .EventDetailsFight .result .result-header {
+      display: grid;
+      grid-template-columns: 1fr;
+      justify-content: center;
+      justify-items: center;
+      align-items: center;
+      align-content: center; }
+    .EventDetails .EventDetailsFight .result h3 {
+      font-size: 18px;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      font-weight: 700;
+      padding: 10px 0;
+      color: #802727; }
+    .EventDetails .EventDetailsFight .result .result-details {
+      display: grid;
+      grid-template-columns: repeat(3, auto);
+      justify-items: center;
+      justify-content: center; }
+      .EventDetails .EventDetailsFight .result .result-details * {
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        margin: 0 10px;
+        display: grid;
+        place-items: center; }
+    .EventDetails .EventDetailsFight .result .result-placeholder {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      font-weight: 300; }
+
+.Predict {
+  max-width: 1000px;
+  width: 90%;
+  margin: 0 auto;
+  padding: 20px 5%; }
+  .Predict .PredictChooseFighter {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); }
+    .Predict .PredictChooseFighter h1 {
+      color: #222;
+      font-size: 24px;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      padding: 20px;
+      border-bottom: 1px solid #bbb;
+      color: #802727; }
+    .Predict .PredictChooseFighter .player-section {
+      display: grid;
+      grid-template-columns: 50% 50%;
+      align-items: center;
+      padding: 20px 5%;
+      margin-bottom: 5px;
+      justify-items: center; }
+      .Predict .PredictChooseFighter .player-section .player {
+        display: grid; }
+        .Predict .PredictChooseFighter .player-section .player label {
+          cursor: pointer; }
+          .Predict .PredictChooseFighter .player-section .player label img {
+            height: 140px;
+            width: 140px;
+            object-fit: cover;
+            object-position: top;
+            border-radius: 50%;
+            background: #eee; }
+      .Predict .PredictChooseFighter .player-section .player.select {
+        transform: scale(1.1); }
+        .Predict .PredictChooseFighter .player-section .player.select .player-name {
+          color: #802727;
+          font-weight: 700; }
+        .Predict .PredictChooseFighter .player-section .player.select img {
+          background: rgba(128, 39, 39, 0.5); }
+      .Predict .PredictChooseFighter .player-section [type="radio"] {
+        display: none; }
+  .Predict .PredictType {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    justify-items: center;
+    justify-content: center;
+    grid-gap: 10px; }
+    .Predict .PredictType label {
+      border: 1px solid #ccc;
+      padding: 10px 30px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      font-weight: 300; }
+      .Predict .PredictType label.select {
+        color: #802727;
+        font-weight: 700; }
+    .Predict .PredictType [type="radio"] {
+      display: none; }
+  .Predict .PredictRound {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    justify-items: center;
+    justify-content: center;
+    grid-gap: 10px;
+    align-items: center; }
+    .Predict .PredictRound label {
+      border: 1px solid #ccc;
+      width: 100px;
+      padding: 10px;
+      height: 100px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      border-radius: 50%;
+      display: grid;
+      align-items: center;
+      font-weight: 300; }
+      .Predict .PredictRound label.select {
+        color: #802727;
+        font-weight: 700; }
+    .Predict .PredictRound [type="radio"] {
+      display: none; }
+  .Predict button {
+    padding: 12px 20px;
+    background: #802727;
+    font-size: 15px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    margin-top: 20px; }
+
+.add-player-main button {
+  padding: 12px 20px;
+  background: #802727;
+  font-size: 15px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  margin-top: 20px;
+  margin-bottom: 10px; }
+
+.show-players-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 250px));
+  padding: 30px;
+  grid-gap: 20px;
+  justify-content: center; }
+  .show-players-list .Player {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 10px; }
+    .show-players-list .Player img {
+      height: 180px;
+      width: 200px;
+      object-fit: cover;
+      object-position: top; }
+    .show-players-list .Player .player-details {
+      padding: 10px;
+      font-weight: 300;
+      text-transform: uppercase; }
+      .show-players-list .Player .player-details * {
+        padding: 5px 0; }
+      .show-players-list .Player .player-details .player-name {
+        font-weight: 600;
+        color: #802727;
+        font-size: 20px; }
+    .show-players-list .Player .player-controls {
+      display: grid;
+      grid-template-columns: auto auto;
+      justify-content: center; }
+      .show-players-list .Player .player-controls * {
+        padding: 0 2px;
+        color: #222; }
+
+.Profile {
+  max-width: 1000px;
+  width: 90%;
+  margin: 0 auto; }
+  .Profile .UserDetails {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    padding: 30px;
+    text-align: left;
+    grid-gap: 20px; }
+    .Profile .UserDetails img {
+      max-width: 250px;
+      width: 100%; }
+    .Profile .UserDetails .right-section {
+      padding: 10px; }
+      .Profile .UserDetails .right-section .change-password {
+        color: dodgerblue;
+        cursor: pointer;
+        font-size: 16px; }
+    .Profile .UserDetails .right-section > * {
+      font-size: 19px;
+      padding: 10px; }
+  .Profile .UserStats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 20px;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.6);
+    margin-bottom: 10px; }
+  .Profile .user-stats-header {
+    font-size: 26px;
+    padding-bottom: 10px;
+    color: #802727;
+    text-transform: uppercase;
+    letter-spacing: 1.2px; }
+  .Profile .user-stats {
+    font-size: 22px;
+    padding: 5px;
+    font-weight: 300; }
+  .Profile .UserPredictions .UserPredictions-header {
+    font-size: 26px;
+    padding: 20px 10px;
+    text-transform: uppercase;
+    background: #802727;
+    color: white;
+    letter-spacing: 1.2px; }
+  .Profile .UserPredictions .UserPredictions-header-menu {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    font-size: 16px;
+    padding: 10px 10px;
+    text-transform: uppercase;
+    color: #802727;
+    background: white;
+    letter-spacing: 1.2px;
+    margin-top: 10px; }
+  .Profile .UserPredictions .UserPrediction {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 10px 0;
+    padding: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
+    align-items: center; }
+    .Profile .UserPredictions .UserPrediction .UserPrediction-event-details .event-name {
+      font-size: 16px;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: #802727;
+      font-weight: 700; }
+    .Profile .UserPredictions .UserPrediction .UserPrediction-event-details .fight-name {
+      font-size: 22px;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      font-weight: 300; }
+    .Profile .UserPredictions .UserPrediction .UserPrediction-result {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      font-weight: 300; }
+    .Profile .UserPredictions .UserPrediction .UserPrediction-prediction {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      font-weight: 300; }
+      .Profile .UserPredictions .UserPrediction .UserPrediction-prediction .UserPrediction-header {
+        font-weight: 400; }
+    .Profile .UserPredictions .UserPrediction * > * {
+      padding: 5px; }
+
+@media (max-width: 1200px) and (min-width: 1000px) {
+  .DetailedEvent {
+    display: grid !important;
+    grid-template-columns: 25% 50% 25% !important; }
+    .DetailedEvent .location-info {
+      grid-row: 2;
+      grid-column: 1/ span 3; }
+    .DetailedEvent .event-title {
+      grid-row: 1/ span 2;
+      grid-column: 1; }
+    .DetailedEvent button {
+      grid-row: 1/span 2;
+      grid-column: 3; } }
+
+@media (max-width: 1000px) {
+  .Homepage-main {
+    display: grid;
+    grid-template-columns: 100% !important; }
+    .Homepage-main .DetailedEvent {
+      display: grid !important;
+      grid-template-columns: 80% !important;
+      justify-content: center; } }
+
+@media (max-width: 800px) {
+  .banner-page {
+    grid-template-columns: 1fr !important;
+    padding: 0 !important; }
+    .banner-page h1 {
+      font-size: 30px !important;
+      padding: 10px; } }
+
+.Homepage .banner-page {
+  background: #802727;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  padding: 0 50px; }
+  .Homepage .banner-page .banner-image {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    justify-items: center; }
+    .Homepage .banner-page .banner-image img {
+      margin-top: 20px;
+      height: 350px;
+      width: 80%;
+      object-fit: cover;
+      object-position: top; }
+  .Homepage .banner-page .info-section {
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    color: white;
+    padding: 20px 0; }
+    .Homepage .banner-page .info-section .hero-event-title {
+      color: white;
+      font-size: 24px;
+      font-weight: 700;
+      text-transform: uppercase; }
+    .Homepage .banner-page .info-section h1 {
+      color: white;
+      font-size: 40px;
+      text-transform: uppercase;
+      font-weight: 600; }
+    .Homepage .banner-page .info-section .banner-predict-btn {
+      background: white;
+      color: #802727;
+      padding: 13px 30px;
+      font-size: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.2px; }
+      .Homepage .banner-page .info-section .banner-predict-btn:hover {
+        cursor: pointer;
+        border-bottom: 3px solid red; }
+
+.Homepage .Homepage-main {
+  display: grid;
+  grid-template-columns: 70% 30%;
+  grid-gap: 20px;
+  padding: 0 30px;
+  margin-bottom: 30px;
+  align-items: top; }
+  .Homepage .Homepage-main .upcomingEvents h1 {
+    font-size: 2rem;
+    text-transform: uppercase;
+    color: black;
+    font-weight: 800;
+    padding: 30px 0; }
+  .Homepage .Homepage-main .upcomingEvents .DetailedEvent {
+    display: grid;
+    grid-template-columns: 20% 32% 32% 16%;
+    align-items: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 20px 5%;
+    margin-bottom: 20px; }
+    .Homepage .Homepage-main .upcomingEvents .DetailedEvent:hover {
+      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2); }
+    .Homepage .Homepage-main .upcomingEvents .DetailedEvent .event-title {
+      padding: 5px;
+      font-size: 20px;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-style: italic;
+      color: #802727; }
+    .Homepage .Homepage-main .upcomingEvents .DetailedEvent .event-images {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      justify-items: center; }
+    .Homepage .Homepage-main .upcomingEvents .DetailedEvent img {
+      height: 120px;
+      width: 138px;
+      object-fit: cover;
+      object-position: top; }
+    .Homepage .Homepage-main .upcomingEvents .DetailedEvent .location-info {
+      padding: 20px;
+      color: #222; }
+      .Homepage .Homepage-main .upcomingEvents .DetailedEvent .location-info * {
+        padding: 5px 0;
+        text-transform: capitalize; }
+    .Homepage .Homepage-main .upcomingEvents .DetailedEvent button {
+      padding: 12px 20px;
+      background: #802727;
+      font-size: 15px;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 1.2px; }
+
+.Homepage .pastEvents h1 {
+  font-size: 2rem;
+  text-transform: uppercase;
+  color: black;
+  font-weight: 800;
+  padding: 30px 0; }
+
+.Homepage .pastEvents .SimpleEvent {
+  padding: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px; }
+  .Homepage .pastEvents .SimpleEvent:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2); }
+  .Homepage .pastEvents .SimpleEvent a {
+    color: #222; }
+    .Homepage .pastEvents .SimpleEvent a * {
+      padding: 5px;
+      text-transform: uppercase;
+      font-weight: 700; }
+    .Homepage .pastEvents .SimpleEvent a .past-event-title {
+      font-size: 18px;
+      color: #802727; }
+
+.react-spinner-loader-swing div {
+  border-radius: 50%;
+  float: left;
+  height: 1em;
+  width: 1em; }
+
+.react-spinner-loader-swing div:nth-of-type(1) {
+  background: -webkit-linear-gradient(left, #385c78 0%, #325774 100%);
+  background: linear-gradient(to right, #385c78 0%, #325774 100%); }
+
+.react-spinner-loader-swing div:nth-of-type(2) {
+  background: -webkit-linear-gradient(left, #325774 0%, #47536a 100%);
+  background: linear-gradient(to right, #325774 0%, #47536a 100%); }
+
+.react-spinner-loader-swing div:nth-of-type(3) {
+  background: -webkit-linear-gradient(left, #4a5369 0%, #6b4d59 100%);
+  background: linear-gradient(to right, #4a5369 0%, #6b4d59 100%); }
+
+.react-spinner-loader-swing div:nth-of-type(4) {
+  background: -webkit-linear-gradient(left, #744c55 0%, #954646 100%);
+  background: linear-gradient(to right, #744c55 0%, #954646 100%); }
+
+.react-spinner-loader-swing div:nth-of-type(5) {
+  background: -webkit-linear-gradient(left, #9c4543 0%, #bb4034 100%);
+  background: linear-gradient(to right, #9c4543 0%, #bb4034 100%); }
+
+.react-spinner-loader-swing div:nth-of-type(6) {
+  background: -webkit-linear-gradient(left, #c33f31 0%, #d83b27 100%);
+  background: linear-gradient(to right, #c33f31 0%, #d83b27 100%); }
+
+.react-spinner-loader-swing div:nth-of-type(7) {
+  background: -webkit-linear-gradient(left, #da3b26 0%, #db412c 100%);
+  background: linear-gradient(to right, #da3b26 0%, #db412c 100%); }
+
+.react-spinner-loader-shadow {
+  clear: left;
+  padding-top: 1.5em; }
+
+.react-spinner-loader-shadow div {
+  -webkit-filter: blur(1px);
+  filter: blur(1px);
+  float: left;
+  width: 1em;
+  height: .25em;
+  border-radius: 50%;
+  background: #e3dbd2; }
+
+.react-spinner-loader-shadow .react-spinner-loader-shadow-l {
+  background: #d5d8d6; }
+
+.react-spinner-loader-shadow .react-spinner-loader-shadow-r {
+  background: #eed3ca; }
+
+@-webkit-keyframes ball-l {
+  0%, 50% {
+    -webkit-transform: rotate(0) translateX(0);
+    transform: rotate(0) translateX(0); }
+  100% {
+    -webkit-transform: rotate(50deg) translateX(-2.5em);
+    transform: rotate(50deg) translateX(-2.5em); } }
+
+@keyframes ball-l {
+  0%, 50% {
+    -webkit-transform: rotate(0) translate(0);
+    transform: rotate(0) translateX(0); }
+  100% {
+    -webkit-transform: rotate(50deg) translateX(-2.5em);
+    transform: rotate(50deg) translateX(-2.5em); } }
+
+@-webkit-keyframes ball-r {
+  0% {
+    -webkit-transform: rotate(-50deg) translateX(2.5em);
+    transform: rotate(-50deg) translateX(2.5em); }
+  50%,
+  100% {
+    -webkit-transform: rotate(0) translateX(0);
+    transform: rotate(0) translateX(0); } }
+
+@keyframes ball-r {
+  0% {
+    -webkit-transform: rotate(-50deg) translateX(2.5em);
+    transform: rotate(-50deg) translateX(2.5em); }
+  50%,
+  100% {
+    -webkit-transform: rotate(0) translateX(0);
+    transform: rotate(0) translateX(0); } }
+
+@-webkit-keyframes shadow-l-n {
+  0%, 50% {
+    opacity: .5;
+    -webkit-transform: translateX(0);
+    transform: translateX(0); }
+  100% {
+    opacity: .125;
+    -webkit-transform: translateX(-1.57em);
+    transform: translateX(-1.75em); } }
+
+@keyframes shadow-l-n {
+  0%, 50% {
+    opacity: .5;
+    -webkit-transform: translateX(0);
+    transform: translateX(0); }
+  100% {
+    opacity: .125;
+    -webkit-transform: translateX(-1.75);
+    transform: translateX(-1.75em); } }
+
+@-webkit-keyframes shadow-r-n {
+  0% {
+    opacity: .125;
+    -webkit-transform: translateX(1.75em);
+    transform: translateX(1.75em); }
+  50%,
+  100% {
+    opacity: .5;
+    -webkit-transform: translateX(0);
+    transform: translateX(0); } }
+
+@keyframes shadow-r-n {
+  0% {
+    opacity: .125;
+    -webkit-transform: translateX(1.75em);
+    transform: translateX(1.75em); }
+  50%,
+  100% {
+    opacity: .5;
+    -webkit-transform: translateX(0);
+    transform: translateX(0); } }
+
+.react-spinner-loader-swing-l {
+  -webkit-animation: ball-l .425s ease-in-out infinite alternate;
+  animation: ball-l .425s ease-in-out infinite alternate; }
+
+.react-spinner-loader-swing-r {
+  -webkit-animation: ball-r .425s ease-in-out infinite alternate;
+  animation: ball-r .425s ease-in-out infinite alternate; }
+
+.react-spinner-loader-shadow-l {
+  -webkit-animation: shadow-l-n .425s ease-in-out infinite alternate;
+  animation: shadow-l-n .425s ease-in-out infinite alternate; }
+
+.react-spinner-loader-shadow-r {
+  -webkit-animation: shadow-r-n .425s ease-in-out infinite alternate;
+  animation: shadow-r-n .425s ease-in-out infinite alternate; }
+
+.react-spinner-loader-svg svg {
+  -webkit-transform-origin: 50% 65%;
+  transform-origin: 50% 65%; }
+
+.react-spinner-loader-svg svg polygon {
+  stroke-dasharray: 17;
+  -webkit-animation: dash 2.5s cubic-bezier(0.35, 0.04, 0.63, 0.95) infinite;
+  animation: dash 2.5s cubic-bezier(0.35, 0.04, 0.63, 0.95) infinite; }
+
+@-webkit-keyframes dash {
+  to {
+    stroke-dashoffset: 136; } }
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 136; } }
+
+@-webkit-keyframes rotate {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+
+@keyframes rotate {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+
+.react-spinner-loader-svg-calLoader {
+  width: 230px;
+  height: 230px;
+  transform-origin: 115px 115px;
+  animation: 1.4s linear infinite loader-spin; }
+
+.react-spinner-loader-svg-cal-loader__path {
+  animation: 1.4s ease-in-out infinite loader-path; }
+
+@keyframes loader-spin {
+  to {
+    transform: rotate(360deg); } }
+
+@keyframes loader-path {
+  0% {
+    stroke-dasharray: 0, 580, 0, 0, 0, 0, 0, 0, 0; }
+  50% {
+    stroke-dasharray: 0, 450, 10, 30, 10, 30, 10, 30, 10; }
+  100% {
+    stroke-dasharray: 0, 580, 0, 0, 0, 0, 0, 0, 0; } }
+
