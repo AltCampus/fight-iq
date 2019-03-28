@@ -1,6 +1,6 @@
 import Type from "./types";
 console.log(process.env.NODE_ENV, 'node env')
-const URL = process.env.NODE_ENV == 'production' ? "http://ufc.altcampus.in/" : "http://localhost:8000/";
+const URL = process.env.NODE_ENV == 'production' ? "https://ufc.altcampus.in/" : "http://localhost:8000/";
 
 // Add event
 export function addEvent(state, cb) {
