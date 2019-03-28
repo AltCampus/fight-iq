@@ -1,4 +1,5 @@
 import Type from "./types";
+console.log(process.env.NODE_ENV, 'node env')
 const URL = process.env.NODE_ENV == 'production' ? "ufc.altcampus.in/" : "http://localhost:8000/";
 
 // Add event
