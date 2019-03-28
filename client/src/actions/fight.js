@@ -1,5 +1,6 @@
 import Type from "./types";
-const URL = "http://localhost:8000/";
+const URL = process.env.NODE_ENV == 'production' ? "ufc.altcampus.in/" : "http://localhost:8000/";
+
 
 // Add  fight
 export function addFight(data, eventId, cb) {

@@ -1,5 +1,6 @@
 import Type from './types';
-const URL = 'http://localhost:8000/';
+const URL = process.env.NODE_ENV == 'production' ? "ufc.altcampus.in/" : "http://localhost:8000/";
+
 export * from './event.js';
 export * from './player.js';
 export * from './fight.js';

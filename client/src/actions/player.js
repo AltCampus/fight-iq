@@ -1,4 +1,4 @@
-const URL = "http://localhost:8000/";
+const URL = process.env.NODE_ENV == 'production' ? "ufc.altcampus.in/" : "http://localhost:8000/";
 import Type from "./types";
 
 export function addPlayer(playerDetails, cb) {
