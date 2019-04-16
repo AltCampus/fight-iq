@@ -5,29 +5,28 @@ import UserDetails from './UserDetails';
 import UserStats from './UserStats';
 import UserPredictions from './UserPredictions';
 import { getUser } from './../../../actions';
-import './style.scss';
+
 
 class Profile extends Component {
+    state = {
+        isLoading: true
+    }
 
-	state = {
-		isLoading: true
-	}
+    componentDidMount() {
 
-	componentDidMount(){
+        this.props.dispatch(getUser((dataStatus) => {
+            this.setState({
+                isLoading: false
+            })
+        }))
 
-		this.props.dispatch(getUser((dataStatus) => {
-			this.setState({
-				isLoading: false
-			})
-		}))
+        // TODO: Handle user data not found redirect
+    }
 
-		// TODO: Handle user data not found redirect
-	}
-
-	render() {
-		let { user } = this.props;
-		return (
-			<div className="Profile">
+    render() {
+        let { user } = this.props;
+        return (
+            <div className="Profile">
 
 				{
 					!this.state.isLoading ?
@@ -39,14 +38,14 @@ class Profile extends Component {
 				: null
 				}
 			</div>
-			);
-		}
-	}
+        );
+    }
+}
 
-	const mapStateToProps = (state) => {
-		return {
-			user: state.user.user
-		}
-	}
+const mapStateToProps = (state) => {
+    return {
+        user: state.user.user
+    }
+}
 
-	export default connect(mapStateToProps)(Profile);
+export default connect(mapStateToProps)(Profile);

@@ -2,70 +2,70 @@ import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { deletePrediction, getEvent } from './../../../actions'
-import './style.scss';
+
 
 class EventDetailsFight extends Component {
-	
-	constructor(props) {
-		super(props);
-		this.state = {
-			prediction: {
-				winner: "",
-				type: "",
-				round: ""
-				},
-		  isPredicted: false
-		};
-		}
 
-	componentDidMount() {
-		if (Object.keys(this.props.user).length != 0) {
-			let predictData = this.props.user.predictions.find(v=>v.fightid._id===this.props.fight._id);
-			if(predictData) {
-				this.setState({
-					isPredicted: true,
-					prediction:{
-						id: predictData._id,
-						winner : predictData.winner.name,
-						type: predictData.type,
-						round: predictData.round
-					}
-				})
-			} 	
-		}
-	}
+    constructor(props) {
+        super(props);
+        this.state = {
+            prediction: {
+                winner: "",
+                type: "",
+                round: ""
+            },
+            isPredicted: false
+        };
+    }
 
-	handleDelete = () => {
-		let predictionid = this.state.prediction.id;
-		this.props.dispatch(deletePrediction(predictionid, (deleteStatus) => {
-			if(deleteStatus) {
-				this.props.dispatch(getEvent(this.props.match.params.eventid));
-			}
-		}));
-	
-	};
+    componentDidMount() {
+        if (Object.keys(this.props.user).length != 0) {
+            let predictData = this.props.user.predictions.find(v => v.fightid._id === this.props.fight._id);
+            if (predictData) {
+                this.setState({
+                    isPredicted: true,
+                    prediction: {
+                        id: predictData._id,
+                        winner: predictData.winner.name,
+                        type: predictData.type,
+                        round: predictData.round
+                    }
+                })
+            }
+        }
+    }
 
-	redirectUser = (success, errorMsg = "") => {
-		if (success){
-			this.props.history.push('/events/' + this.props.eventid);
-		} else {
-			this.setState({
-				error: errorMsg
-			})
-		}
-	}
+    handleDelete = () => {
+        let predictionid = this.state.prediction.id;
+        this.props.dispatch(deletePrediction(predictionid, (deleteStatus) => {
+            if (deleteStatus) {
+                this.props.dispatch(getEvent(this.props.match.params.eventid));
+            }
+        }));
 
-	render() {
-		let {event, fight} = this.props;
-		let { isPredicted, prediction,  } = this.state;
-		let eventid = event._id;
-		let isEventExpired = event.isExpired;
-		let player1NameSplit = fight.player1.name.split(" ");
-		let player2NameSplit = fight.player2.name.split(" ");
+    };
+
+    redirectUser = (success, errorMsg = "") => {
+        if (success) {
+            this.props.history.push('/events/' + this.props.eventid);
+        } else {
+            this.setState({
+                error: errorMsg
+            })
+        }
+    }
+
+    render() {
+        let { event, fight } = this.props;
+        let { isPredicted, prediction, } = this.state;
+        let eventid = event._id;
+        let isEventExpired = event.isExpired;
+        let player1NameSplit = fight.player1.name.split(" ");
+        let player2NameSplit = fight.player2.name.split(" ");
 
 
-		return (
-			<div className="EventDetailsFight">
+        return (
+            <div className="EventDetailsFight">
 				<div className="player1-content">
 					<img src={fight.player1.image} />
 					<div className="player1-details">
@@ -141,16 +141,16 @@ class EventDetailsFight extends Component {
 						) :
 						null
 					}
-			</div>	
-		);
-	}
-}	
+			</div>
+        );
+    }
+}
 
 const mapStateToProps = (state) => {
-	return {
-		user: state.user.user
-	};
+    return {
+        user: state.user.user
+    };
 };
 
 
-	export default withRouter(connect(mapStateToProps)(EventDetailsFight));
+export default withRouter(connect(mapStateToProps)(EventDetailsFight));

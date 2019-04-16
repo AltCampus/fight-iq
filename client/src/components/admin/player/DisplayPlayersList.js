@@ -2,31 +2,30 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { getPlayers, deleteEvent, editPlayer } from "../../../actions/player";
-import "./style.scss";
 
 class DisplayPlayersList extends Component {
-	handleDelete(e, id) {
-		this.props.dispatch(
-			deleteEvent(id, (deleteStatus) => {
-				if (deleteStatus) {
-					this.props.history.push("/admin/players");
-				}
-			})
-		);
-		this.props.dispatch(getPlayers());
-	}
-	componentDidMount() {
-		this.props.dispatch(getPlayers());
-	}
+    handleDelete(e, id) {
+        this.props.dispatch(
+            deleteEvent(id, (deleteStatus) => {
+                if (deleteStatus) {
+                    this.props.history.push("/admin/players");
+                }
+            })
+        );
+        this.props.dispatch(getPlayers());
+    }
+    componentDidMount() {
+        this.props.dispatch(getPlayers());
+    }
 
-	handleEdit(e, id) {
-		this.props.dispatch(editPlayer(id));
-	}
+    handleEdit(e, id) {
+        this.props.dispatch(editPlayer(id));
+    }
 
-	render() {
-		const { players } = this.props;
-		return (
-			<div className='display-list-of-players'>
+    render() {
+        const { players } = this.props;
+        return (
+            <div className='display-list-of-players'>
 				<div className='add-player-main'>
 					<Link to='/admin/players/add'>
 						<button className='add-player'>Add a player</button>
@@ -56,14 +55,14 @@ class DisplayPlayersList extends Component {
 						))}
 				</div>
 			</div>
-		);
-	}
+        );
+    }
 }
 
 const mapStateToProps = (state) => {
-	return {
-		players: state.player.players.player
-	};
+    return {
+        players: state.player.players.player
+    };
 };
 
 export default connect(mapStateToProps)(DisplayPlayersList);

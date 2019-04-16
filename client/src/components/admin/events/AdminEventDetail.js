@@ -3,33 +3,33 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { getEvent, deleteEvent } from "./../../../actions";
 import Fight from "./../fights/Fight";
-import './style.scss';
+
 
 class AdminEventDetail extends Component {
-	componentDidMount() {
-		this.props.dispatch(getEvent(this.props.match.params.eventid));		
-	}
+    componentDidMount() {
+        this.props.dispatch(getEvent(this.props.match.params.eventid));
+    }
 
-	handleDelete(id){
-		this.props.dispatch(deleteEvent(id, this.redirectUser))
-	}
+    handleDelete(id) {
+        this.props.dispatch(deleteEvent(id, this.redirectUser))
+    }
 
-	redirectUser = (success, errorMsg = "") => {
-		if (success){
-			this.props.history.push('/admin');
-		} else {
-			this.setState({
-				error: errorMsg
-			})
-		}
-	}
+    redirectUser = (success, errorMsg = "") => {
+        if (success) {
+            this.props.history.push('/admin');
+        } else {
+            this.setState({
+                error: errorMsg
+            })
+        }
+    }
 
-	render() {
-		let { event } = this.props;
-		const { fights } = this.props;
+    render() {
+        let { event } = this.props;
+        const { fights } = this.props;
 
-		return (
-			<div className='AdminEventDetail'>
+        return (
+            <div className='AdminEventDetail'>
 				<div className="event-title">{event.title}</div>
 				<div className="event-location">{event.location}</div>
 				<div className="event-date_time">{event.date_time}</div>
@@ -50,15 +50,15 @@ class AdminEventDetail extends Component {
 				}
 
 			</div>
-		);
-	}
+        );
+    }
 }
 
 const mapStateToProps = (state) => {
-	return {
-		event: state.event.event,
-		fights: state.event.event.fight
-	};
+    return {
+        event: state.event.event,
+        fights: state.event.event.fight
+    };
 };
 
 export default connect(mapStateToProps)(AdminEventDetail);

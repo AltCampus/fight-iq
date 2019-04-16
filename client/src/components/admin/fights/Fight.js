@@ -2,39 +2,38 @@ import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { deleteFight, getEvent, deleteResult } from "./../../../actions";
-import "./style.scss";
 
 class Fight extends Component {
-	handleDelete = () => {
-		let { eventid, fight } = this.props;
-		this.props.dispatch(deleteFight(eventid, fight._id, this.redirectUser));
-	};
+    handleDelete = () => {
+        let { eventid, fight } = this.props;
+        this.props.dispatch(deleteFight(eventid, fight._id, this.redirectUser));
+    };
 
-	redirectUser = (success, errorMsg = "") => {
-		if (success) {
-			this.props.dispatch(getEvent(this.props.eventid));
-			this.props.history.push("/admin/event/" + this.props.eventid);
-		} else {
-			this.setState({
-				error: errorMsg
-			});
-		}
-	};
+    redirectUser = (success, errorMsg = "") => {
+        if (success) {
+            this.props.dispatch(getEvent(this.props.eventid));
+            this.props.history.push("/admin/event/" + this.props.eventid);
+        } else {
+            this.setState({
+                error: errorMsg
+            });
+        }
+    };
 
-	// handleResultEdit = () =>{
-	// 	// TODO: handle result edit
-	// 	console.error("Edit still needs to be handled")
-	// }
+    // handleResultEdit = () =>{
+    // 	// TODO: handle result edit
+    // 	console.error("Edit still needs to be handled")
+    // }
 
-	handleResultDelete = () => {
-		let fightid = this.props.fight._id;
-		this.props.dispatch(deleteResult(fightid, this.redirectUser));
-	};
+    handleResultDelete = () => {
+        let fightid = this.props.fight._id;
+        this.props.dispatch(deleteResult(fightid, this.redirectUser));
+    };
 
-	render() {
-		let { eventid, fight } = this.props;
-		return (
-			<div className='Fight'>
+    render() {
+        let { eventid, fight } = this.props;
+        return (
+            <div className='Fight'>
 				<div className='title'>{fight.title}</div>
 				<div className='type'>Type: {fight.type}</div>
 				<div className='rounds'>Rounds: {fight.rounds}</div>
@@ -77,8 +76,8 @@ class Fight extends Component {
 					</a>
 				</div>
 			</div>
-		);
-	}
+        );
+    }
 }
 
 export default withRouter(connect()(Fight));

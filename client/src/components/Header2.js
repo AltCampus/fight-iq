@@ -4,16 +4,16 @@ import { connect } from "react-redux";
 import { handleLogout, showMessage } from "./../actions";
 
 class Header extends Component {
-	handleLogout = () => {
-		this.props.dispatch(handleLogout());
-		this.props.history.push('/');
-		this.props.dispatch(showMessage("Logout Successful!"))
-	};
+    handleLogout = () => {
+        this.props.dispatch(handleLogout());
+        this.props.history.push('/');
+        this.props.dispatch(showMessage("Logout Successful!"))
+    };
 
-	render() {
-		let { isLogged } = this.props;
-		return (
-			<div className='Header'>
+    render() {
+        let { isLogged } = this.props;
+        return (
+            <div className='Header'>
 				<Link to='/'>
 					<div className='Logo'>FightIQ</div>
 				</Link>
@@ -29,14 +29,14 @@ class Header extends Component {
 					</div>
 				)}
 			</div>
-		);
-	}
+        );
+    }
 }
 
 const mapStateToProps = (state) => {
-	return {
-		isLogged: state.user.isLogged
-	};
+    return {
+        isLogged: state.user.isLogged
+    };
 };
 
 export default withRouter(connect(mapStateToProps)(Header));

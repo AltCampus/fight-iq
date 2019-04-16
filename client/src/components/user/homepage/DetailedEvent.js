@@ -3,15 +3,15 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 class DetailedEvent extends Component {
-	render() {
-		let { event, isLogged } = this.props;
-		let mainFight =
-			event.fight && event.fight.find((fight) => fight.type == "main");
+    render() {
+        let { event, isLogged } = this.props;
+        let mainFight =
+            event.fight && event.fight.find((fight) => fight.type == "main");
 
-		let eventDate = event.date_time && event.date_time.split("T")[0];
-		let eventTime = event.date_time && event.date_time.split("T")[1];
-		return (
-			<div>
+        let eventDate = event.date_time && event.date_time.split("T")[0];
+        let eventTime = event.date_time && event.date_time.split("T")[1];
+        return (
+            <div>
 				{isLogged ? (
 					<Link to={`events/${event._id}`}>
 						<div className='DetailedEvent'>
@@ -26,7 +26,7 @@ class DetailedEvent extends Component {
 								</p>
 								<p className='title-location'>{event.location}</p>
 							</div>
-							<button className='Prediction-button'>Predict</button>
+							<button className='btn button-secondary'>Predict</button>
 						</div>
 					</Link>
 				) : (
@@ -43,19 +43,19 @@ class DetailedEvent extends Component {
 								</p>
 								<p className='title-location'>{event.location}</p>
 							</div>
-							<button className='Prediction-button'>Predict</button>
+							<button className='btn button-secondary'>Predict</button>
 						</div>
 					</Link>
 				)}
 			</div>
-		);
-	}
+        );
+    }
 }
 
 const mapStateToProps = (state) => {
-	return {
-		isLogged: state.user.isLogged
-	};
+    return {
+        isLogged: state.user.isLogged
+    };
 };
 
 export default connect(mapStateToProps)(DetailedEvent);
