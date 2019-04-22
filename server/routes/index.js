@@ -8,7 +8,8 @@ router.use(user);
 router.use(admin);
 
 router.get("*", (req, res) => {
-	res.render("index");
+	const path = process.env.NODE_ENV == 'production' ? '/dist/bundle/' : '/static/';
+	res.render("index", { path });
 });
 
 module.exports = router;
