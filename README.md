@@ -10,7 +10,7 @@
 
 Clone the repository to the the required folder in your system
 
-`https://github.com/AltCampus/fight-iq.git`
+`git clone https://github.com/AltCampus/fight-iq.git`
 
 ### 2. NPM install
 
